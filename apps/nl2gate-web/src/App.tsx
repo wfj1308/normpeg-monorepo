@@ -6485,7 +6485,7 @@ export default function App() {
     }),
     [normalizedRuleRows, reviewedSpecirIdSet],
   );
-  const normalizedRuleCount = visibleRuleRows.length;
+  const normalizedRuleCount = normalizedRuleRows.length;
   const filteredRuleRows = useMemo(() => visibleRuleRows.filter((r) => {
     if (ruleListFilter === "ready") return r.ruleStatus === "ready";
     if (ruleListFilter === "partial") return r.ruleStatus === "partial";
@@ -6611,9 +6611,9 @@ export default function App() {
   ).length;
   const normalizedRuleById = useMemo(() => {
     const map: Record<string, (typeof normalizedRuleRows)[number]> = {};
-    visibleRuleRows.forEach((row) => { map[row.id] = row; });
+    normalizedRuleRows.forEach((row) => { map[row.id] = row; });
     return map;
-  }, [visibleRuleRows]);
+  }, [normalizedRuleRows]);
   const specirPendingTasks = useMemo(() => {
     const items = Array.isArray(specirDoc?.items) ? specirDoc.items : [];
     const linkedSpecirIds = new Set(
@@ -6640,14 +6640,14 @@ export default function App() {
   }, [visibleRuleRows, specirDoc]);
   const normalizedRuleReadyById = useMemo(() => {
     const map: Record<string, boolean> = {};
-    visibleRuleRows.forEach((row) => {
+    normalizedRuleRows.forEach((row) => {
       map[row.id] = row.ruleStatus === "ready";
     });
     return map;
-  }, [visibleRuleRows]);
+  }, [normalizedRuleRows]);
   const readyRuleCount = useMemo(
-    () => visibleRuleRows.filter((row) => row.ruleStatus === "ready").length,
-    [visibleRuleRows],
+    () => normalizedRuleRows.filter((row) => row.ruleStatus === "ready").length,
+    [normalizedRuleRows],
   );
   const normalizedGateRows = useMemo(() => artifactGates.map((gate, idx) => {
     const gateId = String((gate as { gate_id?: unknown }).gate_id || `gate-${idx}`).trim() || `gate-${idx}`;
@@ -6743,6 +6743,24 @@ export default function App() {
   const readyGateCountDisplay = normalizedGateRows.filter((g) => g.gateStatus === "ready").length;
   const partialGateCountDisplay = normalizedGateRows.filter((g) => g.gateStatus === "partial").length;
   const blockedGateCountDisplay = normalizedGateRows.filter((g) => g.gateStatus === "blocked").length;
+  const blockedGateCountByPublishRule = useMemo(() => {
+    const ruleIdSet = new Set(
+      normalizedRuleRows
+        .map((row) => String(row.id || "").trim())
+        .filter(Boolean),
+    );
+    let blocked = 0;
+    normalizedGateRows.forEach((gate) => {
+      if (gate.ruleRefs.length <= 0) {
+        blocked += 1;
+        return;
+      }
+      if (gate.ruleRefs.some((rid) => !ruleIdSet.has(String(rid || "").trim()))) {
+        blocked += 1;
+      }
+    });
+    return blocked;
+  }, [normalizedGateRows, normalizedRuleRows]);
   const gateIsomorphicReady = readyRuleCount > 0
     && normalizedGateRows.length > 0
     && normalizedGateRows.every((g) => g.gateStatus === "ready");
@@ -7058,9 +7076,14 @@ export default function App() {
     }).length;
     const semanticConflictCount = unresolvedSemanticConflicts.length;
     const specirCount = Number(layerOverview.specIR.specirCount || 0);
-    const ruleCount = Number(normalizedRuleCount || 0);
+    const ruleCount = Number(
+      normalizedRuleCount
+      || buildSuccessMetrics.ruleCount
+      || normdocBodyRulesCount
+      || 0,
+    );
     const gateCount = Number(gateCountDisplay || 0);
-    const blockedGateCount = Number(blockedGateCountDisplay || 0);
+    const blockedGateCount = Number(blockedGateCountByPublishRule || 0);
 
     const schemaValid = Boolean(
       (artifactIndex?.validations?.["07_rules.json"]?.schema_valid ?? artifactIndex?.validations?.["07_rules.json"]?.valid)
@@ -7099,8 +7122,6 @@ export default function App() {
     if (!schemaValid) blockers.audit.push("rulepack.schema_valid=false");
     if (!businessValid) blockers.audit.push("rulepack.business_valid=false");
     if (!formScopeValid) blockers.audit.push("rulepack.form_scope_valid=false");
-    if (noiseCount > 0) blockers.audit.push(`rulepack.noise_count=${noiseCount}`);
-    if (truncatedClauseCount > 0) blockers.audit.push(`possible_truncated_clause_text_count=${truncatedClauseCount}`);
 
     const blocked = blockers.asset.length + blockers.rulegate.length + blockers.review.length + blockers.audit.length > 0;
     return {
@@ -7131,8 +7152,10 @@ export default function App() {
     unresolvedSemanticConflicts.length,
     layerOverview.specIR.specirCount,
     normalizedRuleCount,
+    buildSuccessMetrics.ruleCount,
+    normdocBodyRulesCount,
     gateCountDisplay,
-    blockedGateCountDisplay,
+    blockedGateCountByPublishRule,
     artifactIndex?.validations,
     artifactPipelineAudit,
     rulePackMeta?.form_code,
