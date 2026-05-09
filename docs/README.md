@@ -83,3 +83,16 @@
 1. 新文档优先放入对应分类目录，避免回到顶层平铺。
 2. 每个主题只保留一个“active”主文档，旧稿转 `archive`（后续可加目录）。
 3. 文档间引用统一使用新路径（见 `docs/MIGRATION_MAP.md`）。
+
+## 5) Git 历史重写后的同步指引
+
+- 本仓库在 `2026-05-09` 做过一次历史瘦身（`main` 被强推重写）。
+- 如果你本地在该日期前已克隆过仓库，请执行下面命令对齐新历史：
+
+```bash
+git fetch origin
+git checkout main
+git reset --hard origin/main
+```
+
+- 如有个人分支，建议先 `cherry-pick` 需要的提交，再基于新 `main` 重新开分支。
