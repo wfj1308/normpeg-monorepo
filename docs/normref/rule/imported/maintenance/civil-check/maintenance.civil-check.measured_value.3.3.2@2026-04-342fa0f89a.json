@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.3.3.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "1",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "3.3.2",
+  "source_line": "1 检验记录应完整；",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-9eb31c1ba5a7",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:342fa0f89a2dbb3623b0ff9e1e89c00621a2d45b040588f7da268cd920e0157f"
+}

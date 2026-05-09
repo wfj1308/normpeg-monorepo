@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.6.30.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "range",
+  "threshold_value": "1",
+  "unit": "%",
+  "severity": "mandatory",
+  "norm_ref": "6.30.2",
+  "source_line": "1△ 承载力 符合设计要求 力触探：注浆孔数的2%～5%",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-24145281d42d",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:50a54e2f2bec089d1bccb2c005bbd1516b1cc3b6b9445bb973fa0b44fb01824a"
+}

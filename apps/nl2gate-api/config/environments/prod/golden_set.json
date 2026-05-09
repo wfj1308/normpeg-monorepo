@@ -1,0 +1,87 @@
+{
+  "schema_version": "golden_set.v1",
+  "golden_version": "2026.05",
+  "updated_at": "2026-05-07T00:00:00Z",
+  "forms": {
+    "bridge_shi_13": {
+      "version": "2026.05",
+      "samples": [
+        {
+          "form_code": "bridge_shi_13",
+          "field_name": "hole.inclination",
+          "expected_specir": "JTG/T 3650-2020.9_7_1.specir",
+          "expected_rule": "JTG/T 3650-2020.9_7_1.rule",
+          "expected_gate": "gate.JTG/T 3650-2020.9_7_1.component",
+          "expected_threshold": 1.0,
+          "expected_operator": "<=",
+          "expected_unit": "%",
+          "normRef": "v://norm/JTG-T-3650-2020/clause/9.7.1",
+          "source_clause": "9.7.1",
+          "source_text": "桩孔倾斜度应满足规范限值。"
+        },
+        {
+          "form_code": "bridge_shi_13",
+          "field_name": "hole.sedimentThickness",
+          "expected_specir": "JTG/T 3650-2020.9_7_2.specir",
+          "expected_rule": "JTG/T 3650-2020.9_7_2.rule",
+          "expected_gate": "gate.JTG/T 3650-2020.9_7_2.component",
+          "expected_threshold": null,
+          "expected_operator": "exists",
+          "expected_unit": "mm",
+          "normRef": "v://norm/JTG-T-3650-2020/clause/9.7.2",
+          "source_clause": "9.7.2",
+          "source_text": "沉渣厚度应记录并满足要求。"
+        },
+        {
+          "form_code": "bridge_shi_13",
+          "field_name": "pile.centerXYDiff",
+          "expected_specir": "JTG/T 3650-2020.9_7_3.specir",
+          "expected_rule": "JTG/T 3650-2020.9_7_3.rule",
+          "expected_gate": "gate.JTG/T 3650-2020.9_7_3.component",
+          "expected_threshold": 50,
+          "expected_operator": "<=",
+          "expected_unit": "mm",
+          "normRef": "v://norm/JTG-T-3650-2020/clause/9.7.3",
+          "source_clause": "9.7.3",
+          "source_text": "桩位偏差应不大于允许值。"
+        }
+      ]
+    },
+    "bridge_shi_14": {
+      "version": "2026.05",
+      "samples": [
+        {
+          "form_code": "bridge_shi_14",
+          "field_name": "pile.concreteStrength",
+          "expected_specir": "bridge_shi_14.concrete_strength.specir",
+          "expected_rule": "bridge_shi_14.concrete_strength.rule",
+          "expected_gate": "gate.bridge_shi_14.concrete_strength.component",
+          "expected_threshold": "C30",
+          "expected_operator": ">=",
+          "expected_unit": "grade",
+          "normRef": "v://norm/JTG-T-3650-2020/clause/10.2.1",
+          "source_clause": "10.2.1",
+          "source_text": "混凝土强度等级应满足设计要求。"
+        }
+      ]
+    },
+    "bridge_shi_15": {
+      "version": "2026.05",
+      "samples": [
+        {
+          "form_code": "bridge_shi_15",
+          "field_name": "pile.rebarCoverThickness",
+          "expected_specir": "bridge_shi_15.rebar_cover.specir",
+          "expected_rule": "bridge_shi_15.rebar_cover.rule",
+          "expected_gate": "gate.bridge_shi_15.rebar_cover.component",
+          "expected_threshold": 5,
+          "expected_operator": ">=",
+          "expected_unit": "mm",
+          "normRef": "v://norm/JTG-T-3650-2020/clause/10.3.4",
+          "source_clause": "10.3.4",
+          "source_text": "钢筋保护层厚度偏差应符合限值。"
+        }
+      ]
+    }
+  }
+}

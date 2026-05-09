@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.4.14.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "6",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "4.14.1",
+  "source_line": "6 注浆的工艺、工序应符合有关规范及设计要求。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-7f46ba57b635",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:ef373d628d0f8e55e3c67c8faeb3b5713c98144b3aa92e43928a8b7d54202520"
+}

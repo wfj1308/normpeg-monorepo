@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.0.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "gte",
+  "threshold_value": "0.9",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "0.1",
+  "source_line": "一组试件抗压强度应不小于0.9倍设计值。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-4ce6ccccd481",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:b65410d9cb61c3f7c4785bf3e8877cbef9cf9194e9cc933da4ad3ab9a9ed584d"
+}

@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.width.5.15.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/width@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "width",
+  "operator": "gte",
+  "threshold_value": "0911",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "5.15.2",
+  "source_line": "宽度（mm） 不小于设计值 T0911：每100m测2处",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-e72118f10459",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:451b38a62ac02909d7bb1e529a5db5356ab52372c5dba2cbac8bd93784df2910"
+}

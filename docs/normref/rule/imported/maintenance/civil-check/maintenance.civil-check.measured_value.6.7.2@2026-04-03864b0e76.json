@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.6.7.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "80",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "6.7.2",
+  "source_line": "F80/1）相关分项工程进行检验评定。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-2ab1fde5780a",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:03864b0e76a06f4eac35f3aab78e8e3fea8e9542dfe4762b0d812747e4ccda36"
+}

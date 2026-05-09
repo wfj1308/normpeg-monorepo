@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.7.10.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "gte",
+  "threshold_value": "50",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "7.10.2",
+  "source_line": "（mm） 粘接 粘缝宽≥50",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-0cbe1a3e9dce",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:7700e2ce40c25e1579087266739da3bda6c91e7545ed89f9f3886f51eaf76507"
+}

@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.length.4.16.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/length@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "length",
+  "operator": "gte",
+  "threshold_value": "5",
+  "unit": "%",
+  "severity": "mandatory",
+  "norm_ref": "4.16.1",
+  "source_line": "5 锚杆插入锚孔深度不得小于设计长度的 95%，孔内砂浆应密实、饱满，锚杆",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-b09ebfb2710f",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:88f59d4a6b0c6d47bc1e367146a4f0046fd12ef4ffac49de10a7518a32077fa5"
+}

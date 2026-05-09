@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.70.7",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "0.8",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "70.7",
+  "source_line": "M.0.8 非破损性检验应按下列要求进行评定：",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-87237eb5bdc7",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:5310c72e82e24a1ad216e4a80fb7c653ec1e53748565f1b16a049cd9c90c7357"
+}

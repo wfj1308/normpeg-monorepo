@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://normpeg.local/schemas/runtime-capability-matrix-v1.schema.json",
+  "title": "Runtime Capability Matrix v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "specir_id",
+    "execution_status",
+    "runtime_requirements",
+    "runtime_mode"
+  ],
+  "properties": {
+    "specir_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "execution_status": {
+      "type": "string",
+      "enum": [
+        "executable",
+        "partial_executable",
+        "not_executable",
+        "needs_slot",
+        "needs_formula",
+        "needs_runtime"
+      ]
+    },
+    "runtime_requirements": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "manual_input",
+          "sensor",
+          "lab_test",
+          "design_value",
+          "measured_value",
+          "bim_model",
+          "formula_engine",
+          "external_standard",
+          "human_judgement"
+        ]
+      }
+    },
+    "runtime_mode": {
+      "type": "string",
+      "enum": [
+        "automatic",
+        "semi_automatic",
+        "manual_confirmed",
+        "non_executable"
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "execution_status": { "const": "needs_runtime" }
+        }
+      },
+      "then": {
+        "properties": {
+          "runtime_requirements": { "minItems": 1 }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "runtime_mode": { "const": "non_executable" }
+        }
+      },
+      "then": {
+        "properties": {
+          "execution_status": { "const": "not_executable" }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.hole_diameter.4.14.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/hole_diameter@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "hole_diameter",
+  "operator": "eq",
+  "threshold_value": "5",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "4.14.1",
+  "source_line": "5 锚孔的位置、方向、孔径、深度等应符合设计要求。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-577426a4b23a",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:de2afd569cd0bf436b48dd8b76415078ba8e5d0abb60a5dc9c693f25e840a6b9"
+}

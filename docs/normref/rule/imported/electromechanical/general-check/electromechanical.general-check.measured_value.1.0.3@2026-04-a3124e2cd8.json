@@ -1,0 +1,20 @@
+{
+  "rule_id": "electromechanical.general-check.measured_value.1.0.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/electromechanical/general-check/measured_value@2026-04",
+  "category": "electromechanical/general-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "10",
+  "unit": "%",
+  "severity": "mandatory",
+  "norm_ref": "1.0.3",
+  "source_line": "质量鉴定不低于10%。测点数应不少于3个，当测点数少于3个时，应全部检查。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-0eab528225384cdf",
+  "candidate_id": "cand-94ebdd8beb87",
+  "source_std_code": "JTG-2182-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:a3124e2cd83d29768ecae04dcbd6f3774aab2a880cf183a33cc252979207d2e0"
+}

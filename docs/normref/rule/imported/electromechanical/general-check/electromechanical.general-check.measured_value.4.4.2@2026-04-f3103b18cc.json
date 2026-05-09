@@ -1,0 +1,20 @@
+{
+  "rule_id": "electromechanical.general-check.measured_value.4.4.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/electromechanical/general-check/measured_value@2026-04",
+  "category": "electromechanical/general-check",
+  "field_key": "measured_value",
+  "operator": "gte",
+  "threshold_value": "1500",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "4.4.2",
+  "source_line": "大亮度≥1500cd/m²",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-11c05a464c894fef",
+  "candidate_id": "cand-6357f567db14",
+  "source_std_code": "JTG-2182-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:f3103b18cc20beae781c32e4e7e0ac1c23afbcdce54798edfff2113b8640f21d"
+}

@@ -1,0 +1,20 @@
+{
+  "rule_id": "civil.general-check.measured_value.3.2.7",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/civil/general-check/measured_value@2026-04",
+  "category": "civil/general-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "1",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "3.2.7",
+  "source_line": "1所用原材料、半成品和成品质量检验结果；",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-06a75ca21ccc44ec",
+  "candidate_id": "cand-1fb71ec9eebe",
+  "source_std_code": "JTG-F80-1-2017",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:9e04d897890f7a9f330b5050cd8d07a1f33fee157a958d7f97e2981445f9b4c6"
+}

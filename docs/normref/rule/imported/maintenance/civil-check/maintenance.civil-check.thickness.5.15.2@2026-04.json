@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.thickness.5.15.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/thickness@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "thickness",
+  "operator": "eq",
+  "threshold_value": "80",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "5.15.2",
+  "source_line": "c括号内数字是针对再生层上加铺层厚度小于80mm的情况。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-8dbb5164436a",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:2b9f6cd231f97e47f261f5f203d844d7028d7d8ac700bea199b37ae234fc3e61"
+}

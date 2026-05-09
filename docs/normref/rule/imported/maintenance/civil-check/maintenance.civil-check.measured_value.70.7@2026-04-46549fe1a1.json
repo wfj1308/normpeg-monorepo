@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.70.7",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "1",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "70.7",
+  "source_line": "1-2 砂石料质量保证单和检验报告",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-15ee6f7ae49b",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:46549fe1a127a5a9f0bd8b06716dc4820be49a0f476fa9587bae708bf6caddc0"
+}

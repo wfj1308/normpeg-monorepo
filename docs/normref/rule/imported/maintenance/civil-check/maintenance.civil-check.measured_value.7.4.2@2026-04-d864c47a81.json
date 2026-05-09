@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.7.4.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "tolerance",
+  "threshold_value": "3",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "7.4.2",
+  "source_line": "3 注浆孔间距（mm） ±50 尺量：每注浆区域抽查1处",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-af4661a2a705",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:d864c47a8102d356e167e4b899919209aaab7b6ec0efcf02d273a2aa4cc94b8f"
+}

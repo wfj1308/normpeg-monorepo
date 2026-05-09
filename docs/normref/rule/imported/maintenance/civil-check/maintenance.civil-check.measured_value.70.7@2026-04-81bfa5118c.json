@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.70.7",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "2",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "70.7",
+  "source_line": "控制检验和试验数据 2-6 现拌水泥混凝土（砂浆）配合比试验报告和拌和记录",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-0c70d0c03516",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:81bfa5118c98e3299aaa0be93499f54ed123e82709bad468edd679d0252711a6"
+}

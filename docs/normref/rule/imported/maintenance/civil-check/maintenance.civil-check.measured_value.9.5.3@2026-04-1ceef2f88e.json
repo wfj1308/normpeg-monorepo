@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.9.5.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "2",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "9.5.3",
+  "source_line": "2 其他公路每3000 m2 混合料制作1组试件，每工作班至少制作1组。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-c4876cd0e4e5",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:1ceef2f88e769d8db9709d5baf1cf141a101c4f7797ff14fd3a57dd99e0dcbcf"
+}

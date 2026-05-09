@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.9.3.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "2",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "9.3.2",
+  "source_line": "纵向深度 (mm) 2/3泥球或根系直径",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-a7e45ca6eed3",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:e16383db659db85101544f4513229d6d4a0909d44ef802974f896c6c42bd2d1f"
+}

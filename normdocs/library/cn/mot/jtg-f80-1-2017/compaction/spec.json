@@ -1,0 +1,165 @@
+{
+  "spec_id": "JTG_F80_1_2017.4.2.1.compaction",
+  "standard_code": "JTG F80/1-2017",
+  "version": "2017",
+  "components": [
+    {
+      "component_id": "highway.subgrade.compaction.4.2.1",
+      "category": "路基工程",
+      "work_item": "土方路基",
+      "measured_item": "压实度",
+      "test_method": "T0921",
+      "bound_clause_ids": [
+        "JTG_F80_1_2017.4.2.1"
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "rule_id": "rule.compaction.degree.minimum",
+      "component_id": "highway.subgrade.compaction.4.2.1",
+      "source_clause": {
+        "clause_id": "JTG_F80_1_2017.4.2.1",
+        "clause_no": "4.2.1",
+        "title": "压实度",
+        "original_text": "压实度应符合设计及规范要求，检测结果应满足相应评定标准。",
+        "page": 128
+      },
+      "condition": {
+        "operator": ">=",
+        "left": "compaction_degree",
+        "right": "design_minimum"
+      },
+      "deterministic": true
+    }
+  ],
+  "input_schema": {
+    "type": "object",
+    "required": [
+      "compaction_degree",
+      "design_minimum"
+    ],
+    "properties": {
+      "compaction_degree": {
+        "type": "number",
+        "unit": "%",
+        "required": true,
+        "description": "现场实测压实度"
+      },
+      "design_minimum": {
+        "type": "number",
+        "unit": "%",
+        "required": true,
+        "description": "设计或规范要求最小压实度"
+      },
+      "section_id": {
+        "type": "string",
+        "unit": "n/a",
+        "required": false,
+        "description": "检测段标识"
+      },
+      "lane_id": {
+        "type": "string",
+        "unit": "n/a",
+        "required": false,
+        "description": "车道或分层标识"
+      }
+    }
+  },
+  "path_logic": {
+    "deterministic": true,
+    "compute": [
+      {
+        "name": "delta",
+        "expr": "compaction_degree - design_minimum"
+      },
+      {
+        "name": "pass_flag",
+        "expr": "compaction_degree >= design_minimum"
+      }
+    ]
+  },
+  "gate_condition": {
+    "expression": "pass_flag == true",
+    "deterministic": true,
+    "fail_severity": "blocking",
+    "on_pass": "PASS",
+    "on_fail": "FAIL",
+    "fail_message": "压实度不满足规范下限要求",
+    "pass_message": "压实度满足规范要求"
+  },
+  "state_machine": {
+    "initial": "RAW",
+    "states": [
+      "RAW",
+      "COMPUTED",
+      "PASS",
+      "FAIL"
+    ],
+    "transitions": [
+      {
+        "from": "RAW",
+        "to": "COMPUTED",
+        "on": "path_executed"
+      },
+      {
+        "from": "COMPUTED",
+        "to": "PASS",
+        "on": "gate_passed"
+      },
+      {
+        "from": "COMPUTED",
+        "to": "FAIL",
+        "on": "gate_failed"
+      }
+    ]
+  },
+  "proof_template": {
+    "template_id": "proof.compaction.degree.v1",
+    "signature": {
+      "required": true,
+      "algorithm": "sha256"
+    },
+    "fields": [
+      "spec_id",
+      "rule_id",
+      "component_id",
+      "source_clause.clause_id",
+      "inputs.compaction_degree",
+      "inputs.design_minimum",
+      "path.delta",
+      "gate.result",
+      "state",
+      "timestamp"
+    ]
+  },
+  "source_clauses": [
+    {
+      "clause_id": "JTG_F80_1_2017.4.2.1",
+      "clause_no": "4.2.1",
+      "title": "压实度",
+      "original_text": "压实度应符合设计及规范要求，检测结果应满足相应评定标准。",
+      "page": 128,
+      "parent_clause_id": "JTG_F80_1_2017.4.2",
+      "level": 3
+    },
+    {
+      "clause_id": "JTG_F80_1_2017.4.2",
+      "clause_no": "4.2",
+      "title": "路基实测项目",
+      "original_text": "路基实测项目应按规定频率检测，并按本标准进行评定。",
+      "page": 126,
+      "parent_clause_id": "JTG_F80_1_2017.4",
+      "level": 2
+    }
+  ],
+  "spec_md_hash": "f20dc30b5ec45b0738fdfc7deb7de0026eb024a8eadfa7879d27bdfe2e494da4",
+  "spec_json_hash": "0f6f19c0062b6f98ae0ae9cfff990d34be392c6988dddcd5ac7d3a409a351494",
+  "hash_binding": {
+    "bundle_hash": "6e989191ff60bbdebe262ad5033e00f121027f002caaed593df812324f47bdb0",
+    "binding": {
+      "markdown": "spec.md",
+      "json": "spec.json"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.5.15.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "100",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "5.15.2",
+  "source_line": "准差σ） 再生 续，按每100m施工段计算σ",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-d0f6837effed",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:5b3e281d9975603583f895c930786db860a701c4e7236445a82a61aa013ec1d6"
+}

@@ -1,0 +1,130 @@
+{
+  "schema": {
+    "schema_id": "norm.version.diff.report.v1",
+    "required_sections": [
+      "catalog_diff",
+      "specir_diff",
+      "rule_diff",
+      "gate_diff",
+      "slot_diff",
+      "impact_preview"
+    ],
+    "diff_types": [
+      "added",
+      "removed",
+      "modified",
+      "semantic_changed",
+      "threshold_changed",
+      "operator_changed"
+    ]
+  },
+  "meta": {
+    "generated_at": "2026-05-08T04:59:16.398580Z",
+    "old_spec_id": "demo.spec@v1",
+    "new_spec_id": "demo.spec@v2"
+  },
+  "catalog_diff": {
+    "changed": false,
+    "changes": []
+  },
+  "specir_diff": {
+    "changed": true,
+    "changes": [
+      {
+        "section": "gate",
+        "diff_type": "modified"
+      }
+    ]
+  },
+  "rule_diff": {
+    "added": [],
+    "removed": [],
+    "modified": [
+      {
+        "rule_id": "r1",
+        "change_types": [
+          "modified",
+          "threshold_changed"
+        ],
+        "detail": {
+          "value_changed": {
+            "old": "95",
+            "new": "96"
+          }
+        },
+        "before": {
+          "rule_id": "r1",
+          "condition": "x >= 95",
+          "on_fail": "block"
+        },
+        "after": {
+          "rule_id": "r1",
+          "condition": "x >= 96",
+          "on_fail": "block"
+        }
+      }
+    ]
+  },
+  "gate_diff": {
+    "changed": false,
+    "changes": []
+  },
+  "slot_diff": {
+    "added": [],
+    "removed": [],
+    "modified": []
+  },
+  "impact_preview": {
+    "form_code": {
+      "impacted": true,
+      "reasons": [
+        "rule r1 judge text/提示需更新"
+      ]
+    },
+    "executor": {
+      "impacted": true,
+      "reasons": [
+        "rule r1 threshold/operator changed"
+      ]
+    },
+    "DTO": {
+      "impacted": true,
+      "reasons": [
+        "rule r1 field/unit changed"
+      ]
+    },
+    "old_spec_fingerprint": "5f758d5c55942c709d22757263b5e3c632f2e6f115cc6f414db9e54ec3e15306",
+    "new_spec_fingerprint": "b7e7ffb9501543ade89235ed91e68bdf9ee778aff01cb83d83f9ddbdb912e5e9"
+  },
+  "compare_algorithm": {
+    "identity_keys": {
+      "rule": "rule_id",
+      "slot": "slot_key"
+    },
+    "stages": [
+      "1) 对 Catalog / SpecIR 全量结构做标准化后深比较",
+      "2) 对 Rule / Gate / Slot 做 keyed-diff，输出 added/removed/modified",
+      "3) Rule 细粒度识别 field/op/value/min/max/unit 变化",
+      "4) Gate 细粒度识别 logic / rule_refs / action 变化",
+      "5) 根据差异映射到 impact preview（form_code / executor / DTO）"
+    ]
+  },
+  "impact_analysis_pipeline": {
+    "inputs": [
+      "old_spec",
+      "new_spec"
+    ],
+    "processors": [
+      "catalog/specir diff",
+      "rule diff",
+      "gate diff",
+      "slot diff",
+      "impact classifier"
+    ],
+    "outputs": [
+      "impact_preview.form_code",
+      "impact_preview.executor",
+      "impact_preview.DTO"
+    ]
+  }
+}

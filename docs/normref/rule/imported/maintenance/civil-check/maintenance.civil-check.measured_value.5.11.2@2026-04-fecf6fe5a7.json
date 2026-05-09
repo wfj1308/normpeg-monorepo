@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.5.11.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "2",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "5.11.2",
+  "source_line": "2△ 压浆区空腔密实程度 芯样完整或折断面吻合 钻孔取样：每500m2 抽检1孔",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-2bc5745da603",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:fecf6fe5a7a1f17778debb3859cb3ff6f842ad72fb0416c2af96080c2d36e3af"
+}

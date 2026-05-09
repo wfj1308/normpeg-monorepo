@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.rebar.4.16.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/rebar@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "rebar",
+  "operator": "eq",
+  "threshold_value": "7",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "4.16.1",
+  "source_line": "7 钢筋、土工格栅或锚杆不得外露，混凝土不得开裂脱落。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-1965252ebfe8",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:b4c91ec2d1187c43c31a76fa101dd11feb7a83ccc43ce2ac893c586d8a9965b5"
+}

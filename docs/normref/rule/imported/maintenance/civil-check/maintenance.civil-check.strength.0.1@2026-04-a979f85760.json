@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.0.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "gte",
+  "threshold_value": "1",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "0.1",
+  "source_line": "1 同批试件组数n≥10 时，试件抗压强度平均值应不小于设计值；任一组试件抗",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-30e2a26915f2",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:a979f85760b537932a86c7fd35e0feabe52346477c8e99f622a2c5ac9bab23d6"
+}

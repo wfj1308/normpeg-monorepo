@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.8.8.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "lte",
+  "threshold_value": "30",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "8.8.2",
+  "source_line": "有混凝土基础 ≤30",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-4dbee71bbc44",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:0f60bd51c8c474c72bd062f4b71a9088eed1a7711d383f85e5df2a33bd566bd5"
+}

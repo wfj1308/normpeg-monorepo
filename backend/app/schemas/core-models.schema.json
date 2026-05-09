@@ -1,0 +1,813 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://layerpeg.local/schemas/core-models.schema.json",
+  "title": "LayerPeg Core Models Schema",
+  "description": "Frozen core object models for SPU/Gate/State/Proof/Container/Node.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "SPU",
+    "GateRequest",
+    "GateResult",
+    "ExecutionState",
+    "Proof",
+    "Container",
+    "Node"
+  ],
+  "properties": {
+    "SPU": {
+      "$ref": "#/$defs/SPU"
+    },
+    "GateRequest": {
+      "$ref": "#/$defs/GateRequest"
+    },
+    "GateResult": {
+      "$ref": "#/$defs/GateResult"
+    },
+    "ExecutionState": {
+      "$ref": "#/$defs/ExecutionState"
+    },
+    "Proof": {
+      "$ref": "#/$defs/Proof"
+    },
+    "Container": {
+      "$ref": "#/$defs/Container"
+    },
+    "Node": {
+      "$ref": "#/$defs/Node"
+    }
+  },
+  "$defs": {
+    "GateSummaryStatus": {
+      "type": "string",
+      "enum": [
+        "PASS",
+        "FAIL",
+        "BLOCKED",
+        "CRITICAL",
+        "WARNING",
+        "OVERRIDDEN"
+      ]
+    },
+    "LifecycleStatus": {
+      "type": "string",
+      "enum": [
+        "DRAFT",
+        "COMPUTED",
+        "VALIDATED",
+        "QUALIFIED",
+        "REJECTED",
+        "OVERRIDDEN",
+        "RUNNING",
+        "VERIFIED",
+        "ARCHIVED"
+      ]
+    },
+    "NodeStatus": {
+      "type": "string",
+      "enum": [
+        "DRAFT",
+        "RUNNING",
+        "PASS",
+        "FAIL",
+        "BLOCKED",
+        "SIGNING",
+        "FINAL_PASS",
+        "FINAL_FAIL",
+        "REJECTED",
+        "ARCHIVED"
+      ]
+    },
+    "SPU": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "version",
+        "path",
+        "gate",
+        "state",
+        "proof"
+      ],
+      "properties": {
+        "spuId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "component_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "component_name": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_type": {
+          "type": "string",
+          "enum": [
+            "builtin",
+            "specir",
+            "imported",
+            "compiled"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "draft",
+            "active",
+            "deprecated",
+            "archived"
+          ]
+        },
+        "metadata": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "meta": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "input_dto": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "output_dto": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "data": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "path": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "gate": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "state": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "proof": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "anyOf": [
+        {
+          "required": [
+            "spuId"
+          ]
+        },
+        {
+          "required": [
+            "component_id"
+          ]
+        }
+      ]
+    },
+    "GateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "spuId"
+      ],
+      "properties": {
+        "spuId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "containerId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "nodeId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "inputs": {
+          "type": "object",
+          "default": {},
+          "additionalProperties": true
+        },
+        "context": {
+          "type": "object",
+          "default": {},
+          "additionalProperties": true
+        },
+        "branchId": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "GateRuleResult": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "rule_id",
+        "passed"
+      ],
+      "properties": {
+        "rule_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "condition": {
+          "type": "string"
+        },
+        "severity": {
+          "type": "string"
+        },
+        "passed": {
+          "type": "boolean"
+        },
+        "actual_value": {},
+        "expected_value": {},
+        "message": {
+          "type": "string"
+        },
+        "clause_ref": {
+          "type": "string"
+        }
+      }
+    },
+    "GateTraceItem": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "rule_id",
+        "condition",
+        "passed"
+      ],
+      "properties": {
+        "rule_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "condition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "passed": {
+          "type": "boolean"
+        },
+        "severity": {
+          "type": "string"
+        },
+        "on_fail": {
+          "type": "string"
+        },
+        "actual_value": {},
+        "expected_value": {},
+        "clause_ref": {
+          "type": "string"
+        }
+      }
+    },
+    "GateResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "summary_status",
+        "rule_results"
+      ],
+      "properties": {
+        "summary_status": {
+          "$ref": "#/$defs/GateSummaryStatus"
+        },
+        "rule_results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/GateRuleResult"
+          }
+        },
+        "failed_rule_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "gate_trace": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/GateTraceItem"
+          }
+        }
+      }
+    },
+    "StateTraceItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state",
+        "entered_at",
+        "trigger"
+      ],
+      "properties": {
+        "state": {
+          "type": "string",
+          "minLength": 1
+        },
+        "entered_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "trigger": {
+          "type": "string",
+          "minLength": 1
+        },
+        "meta": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    },
+    "ExecutionState": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lifecycle_status",
+        "state_trace"
+      ],
+      "properties": {
+        "lifecycle_status": {
+          "$ref": "#/$defs/LifecycleStatus"
+        },
+        "final_status": {
+          "$ref": "#/$defs/GateSummaryStatus"
+        },
+        "state_trace": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/StateTraceItem"
+          }
+        }
+      }
+    },
+    "ProofPathItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sibling_hash",
+        "direction"
+      ],
+      "properties": {
+        "sibling_hash": {
+          "type": "string",
+          "minLength": 1
+        },
+        "direction": {
+          "type": "string",
+          "enum": [
+            "left",
+            "right"
+          ]
+        }
+      }
+    },
+    "ProofSignature": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "did": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "signature": {
+          "type": "string"
+        }
+      }
+    },
+    "ContainerProofSpecResult": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "spuId",
+        "status"
+      ],
+      "properties": {
+        "spuId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "PASS",
+            "FAIL"
+          ]
+        },
+        "final_node": {
+          "type": "string"
+        },
+        "attempts": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "value": {}
+      }
+    },
+    "Proof": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "timestamp"
+      ],
+      "properties": {
+        "proof_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "proof_hash": {
+          "type": "string",
+          "minLength": 1
+        },
+        "hash_method": {
+          "type": "string"
+        },
+        "canonical_payload": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "proof_fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "signature": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "signature_algorithm": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "merkle_root": {
+          "type": "string"
+        },
+        "proof_path": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ProofPathItem"
+          }
+        },
+        "chain_hash": {
+          "type": "string"
+        },
+        "previous_chain_hash": {
+          "type": "string"
+        },
+        "signatures": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ProofSignature"
+          }
+        },
+        "container_id": {
+          "type": "string"
+        },
+        "geo_slot_ref": {
+          "type": "string"
+        },
+        "slot_ref": {
+          "type": "string"
+        },
+        "volume_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "spec_results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ContainerProofSpecResult"
+          }
+        },
+        "overall_status": {
+          "type": "string",
+          "enum": [
+            "PASS",
+            "FAIL"
+          ]
+        },
+        "audit_trail": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        },
+        "archived_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "anyOf": [
+        {
+          "required": [
+            "proof_id"
+          ]
+        },
+        {
+          "required": [
+            "proof_hash"
+          ]
+        },
+        {
+          "required": [
+            "container_id"
+          ]
+        }
+      ]
+    },
+    "ContainerNormExecution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "specs_bound",
+        "current_state",
+        "gate_open"
+      ],
+      "properties": {
+        "specs_bound": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "current_state": {
+          "$ref": "#/$defs/LifecycleStatus"
+        },
+        "gate_open": {
+          "type": "boolean"
+        }
+      }
+    },
+    "ContainerTripBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "inspector",
+        "supervisor"
+      ],
+      "properties": {
+        "inspector": {
+          "type": "string"
+        },
+        "supervisor": {
+          "type": "string"
+        }
+      }
+    },
+    "ContainerRuntime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "active_form",
+        "last_input",
+        "pending_action"
+      ],
+      "properties": {
+        "active_form": {
+          "type": "string"
+        },
+        "last_input": {
+          "type": "string"
+        },
+        "pending_action": {
+          "type": "string",
+          "enum": [
+            "",
+            "EXECUTE_NODE",
+            "RETEST",
+            "READY_TO_ARCHIVE",
+            "MANUAL_REVIEW",
+            "LOCKED"
+          ]
+        }
+      }
+    },
+    "ContainerSpecBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "spuId",
+        "status"
+      ],
+      "properties": {
+        "spuId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "DRAFT",
+            "RUNNING",
+            "PASS",
+            "FAIL"
+          ]
+        },
+        "latest_node": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "Container": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "v_address",
+        "container_type",
+        "geo_slot_ref",
+        "norm_execution",
+        "trip_binding",
+        "runtime",
+        "lifecycle",
+        "lifecycle_state",
+        "locked",
+        "nodes",
+        "spec_bindings",
+        "is_dynamic"
+      ],
+      "properties": {
+        "container_id": {
+          "type": "string"
+        },
+        "v_address": {
+          "type": "string",
+          "minLength": 1
+        },
+        "container_type": {
+          "type": "string",
+          "enum": [
+            "execution_instance"
+          ]
+        },
+        "geo_slot_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "slot_ref": {
+          "type": "string"
+        },
+        "volume_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "norm_execution": {
+          "$ref": "#/$defs/ContainerNormExecution"
+        },
+        "trip_binding": {
+          "$ref": "#/$defs/ContainerTripBinding"
+        },
+        "runtime": {
+          "$ref": "#/$defs/ContainerRuntime"
+        },
+        "lifecycle": {
+          "type": "string"
+        },
+        "lifecycle_state": {
+          "$ref": "#/$defs/LifecycleStatus"
+        },
+        "locked": {
+          "type": "boolean"
+        },
+        "nodes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "spec_bindings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ContainerSpecBinding"
+          }
+        },
+        "container_proof": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Proof"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "is_dynamic": {
+          "type": "boolean"
+        }
+      }
+    },
+    "NodeResultSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "field": {},
+        "value": {},
+        "status": {
+          "type": "string"
+        }
+      }
+    },
+    "Node": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "node_id",
+        "spu_id",
+        "container_ref",
+        "attempt_index",
+        "created_at",
+        "status"
+      ],
+      "properties": {
+        "node_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "spu_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "container_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "volume_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "attempt_index": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "completed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "archived_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "status": {
+          "$ref": "#/$defs/NodeStatus"
+        },
+        "proof": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Proof"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "result_summary": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/NodeResultSummary"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

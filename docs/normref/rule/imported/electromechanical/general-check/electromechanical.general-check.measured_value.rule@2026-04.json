@@ -1,0 +1,20 @@
+{
+  "rule_id": "electromechanical.general-check.measured_value.rule",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/electromechanical/general-check/measured_value@2026-04",
+  "category": "electromechanical/general-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "80",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "",
+  "source_line": "工程质量检验评定标准第二册机电工程》（JTGF80/2一2004）的修订工作。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-936f61b7bf274584",
+  "candidate_id": "cand-1c7e28f8f6e4",
+  "source_std_code": "JTG-2182-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:a8fea0d54a16173303130e05ee19e636f9f3e198228d428476e503b207b0b7ce"
+}

@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.8.9.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "tolerance",
+  "threshold_value": "3",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "8.9.2",
+  "source_line": "3 立柱竖直度 (mm/m) ±10 竖直度测量仪：每100m测1处",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-d3d4943e1ca9",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:b441203153350bf1bf665f03446697db84c1dc5611370b634459c4dab5158832"
+}

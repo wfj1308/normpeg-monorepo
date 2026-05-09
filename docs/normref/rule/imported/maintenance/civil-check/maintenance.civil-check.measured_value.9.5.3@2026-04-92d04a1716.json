@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.9.5.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "6",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "9.5.3",
+  "source_line": "场压实度抽样检查（每个养护单元应不少于6处），求算每一测点的压实度K：",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-139c759f78a2",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:92d04a1716c806b45b7f7dc48bb0d2343383c2eb5edb90719ee9dc74fe57acc8"
+}

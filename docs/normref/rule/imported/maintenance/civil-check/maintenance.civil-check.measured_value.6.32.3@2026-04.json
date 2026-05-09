@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.6.32.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "2",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "6.32.3",
+  "source_line": "2 新旧拱圈结合面不得出现脱空现象。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-f14f54ec0fbd",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:7bd1467c7eefdf15974804b6d5b0e87291d7754e712aa18ef9ae4c8b31842fca"
+}

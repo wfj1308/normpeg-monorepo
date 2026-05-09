@@ -1,0 +1,1 @@
+{"specirs": [{"specir_id": "s1", "specir_version": "2021", "semantic": {"subject": "B"}, "gate": {"type": "min", "threshold": 2}}, {"specir_id": "s2", "specir_version": "2021", "semantic": {}, "gate": {}}]}

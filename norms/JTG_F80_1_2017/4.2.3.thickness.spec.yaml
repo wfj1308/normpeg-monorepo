@@ -1,0 +1,342 @@
+spec_id: JTG_F80_1_2017.4.2.3.thickness
+type: executable_spec
+version: v0.1.0
+namespace: norms.cn.mot.jtg_f80_1_2017.4_2_3
+
+semantics:
+  name: Structural Layer Thickness
+  clause: "4.2.3"
+  definition: Actual compacted thickness of pavement layers as a critical quality indicator.
+  applicable_scopes:
+    - Asphalt surface course
+    - Stabilized base course
+    - Granular subbase
+    - Improved subgrade layer
+  standard_reference: JTG F80/1-2017 4.2.3
+  test_method: Core drilling (JTG E60 T0912) or radar method
+  frequency: One point every 200m per lane (or one point per 1000m2)
+  unit: mm
+  standard_id: JTG_F80_1_2017
+  standard_name: JTG F80/1-2017 Highway Engineering Quality Inspection and Evaluation Standard
+  standard_version: "2017"
+  clause_id: "4.2.3"
+  clause_refs:
+    - JTG_F80_1_2017.4.2.3
+    - JTG_3450_2019.T0912
+  catalog_id: JTG_F80_1_2017
+  component_id: JTG_F80_1_2017.4.2.3.thickness
+  component_name: thickness
+  component_type: MeasuredItem
+  category: roadbed
+  work_item: earthwork_subgrade
+  work_item_family: earthwork_subgrade_specir_family
+  measured_item: thickness
+  form_type: T0912-2019
+  status: active
+  owner: quality-center
+  critical: true
+  source:
+    normdoc: normdocs/library/cn/mot/t0912/2019/normdoc.json
+    external_form_type: T0912-2019
+    normdoc_table_id: table.t0912
+  description: Layer thickness executable specification from T0912 form rules
+  generated_at: "2026-04-17T00:00:00Z"
+
+logic:
+  language: specir/v1
+  execution_mode: deterministic
+  stages:
+    - inputs
+    - path
+    - gate
+    - state
+    - proof
+
+inputs:
+  input_dto:
+    stake:
+      type: string
+      required: false
+    section:
+      type: string
+      required: false
+    project_id:
+      type: string
+      required: true
+    layer_zone:
+      type: string
+      required: false
+    thickness:
+      type: number
+      unit: mm
+      precision: 1
+      required: true
+    measured_thickness:
+      type: number
+      unit: mm
+      precision: 1
+      required: false
+    top_elevation:
+      type: number
+      unit: m
+      precision: 4
+      required: false
+    bottom_elevation:
+      type: number
+      unit: m
+      precision: 4
+      required: false
+    core_diameter:
+      type: number
+      unit: mm
+      precision: 1
+      required: false
+    design_thickness:
+      type: number
+      unit: mm
+      precision: 1
+      required: false
+    paragraph_values:
+      type: array
+      required: false
+      items:
+        type: number
+        precision: 1
+    actor_did:
+      type: string
+      required: true
+    actor_name:
+      type: string
+      required: false
+    inspected_at:
+      type: string
+      required: true
+    override_requested:
+      type: boolean
+      required: false
+      default: false
+    override_evidence:
+      type: object
+      required: false
+    archive_requested:
+      type: boolean
+      required: false
+      default: false
+
+path:
+  steps:
+    - step_id: normalize_layer_zone
+      action: formula
+      formula_ref: normalize_layer_zone_formula
+      output_field: layer_zone_normalized
+    - step_id: resolve_design_thickness
+      action: formula
+      formula_ref: resolve_design_thickness_formula
+      output_field: design_thickness_resolved
+    - step_id: calc_thickness_from_elevation
+      action: formula
+      formula_ref: calc_thickness_from_elevation_formula
+      output_field: thickness_from_elevation
+      when: exists(top_elevation) and exists(bottom_elevation)
+    - step_id: resolve_thickness_value
+      action: formula
+      formula_ref: resolve_thickness_formula
+      output_field: thickness_resolved
+    - step_id: calc_thickness_deviation
+      action: formula
+      formula_ref: calc_thickness_deviation_formula
+      output_field: thickness_deviation
+    - step_id: resolve_representative_candidates
+      action: formula
+      formula_ref: resolve_representative_candidates_formula
+      output_field: representative_candidates
+    - step_id: calc_representative_thickness
+      action: aggregate
+      method: t_distribution_95_lower
+      input_field: representative_candidates
+      output_field: representative_thickness
+    - step_id: resolve_tolerance
+      action: formula
+      formula_ref: resolve_tolerance_formula
+      output_field: tolerance
+    - step_id: calc_allowable_range
+      action: formula
+      formula_ref: allowable_range_formula
+      output_field: thickness_range
+
+  formulas:
+    normalize_layer_zone_formula: coalesce(layer_zone, "surface")
+    resolve_design_thickness_formula: coalesce(design_thickness, project.design_params.pavement.structure[layer_zone_normalized].thickness, override.pavement.structure[layer_zone_normalized].thickness, override.pavement[layer_zone_normalized].thickness, 200)
+    calc_thickness_from_elevation_formula: (top_elevation - bottom_elevation) * 1000
+    resolve_thickness_formula: coalesce(measured_thickness, thickness, thickness_from_elevation)
+    calc_thickness_deviation_formula: thickness_resolved - design_thickness_resolved
+    resolve_representative_candidates_formula: coalesce(paragraph_values, [thickness_resolved])
+    resolve_tolerance_formula: "8"
+    allowable_range_formula: "[design_thickness_resolved - tolerance, design_thickness_resolved + tolerance]"
+
+  lookup_tables:
+    default_tolerance_by_item:
+      thickness: 8
+
+  derived_fields:
+    - layer_zone_normalized
+    - design_thickness_resolved
+    - thickness_from_elevation
+    - tolerance
+    - thickness_range
+    - thickness_resolved
+    - thickness_deviation
+    - representative_thickness
+
+gate:
+  rules:
+    - rule_id: rule.thickness.single_point_limit
+      condition:
+        operator: ">="
+        actual: thickness_resolved
+        expected: design_thickness_resolved - 10
+      severity: blocking
+      on_fail: block
+      error_message: Single-point thickness is below design tolerance (-10mm).
+      clause_refs:
+        - JTG_F80_1_2017.4.2.3
+    - rule_id: rule.thickness.representative_limit
+      condition:
+        operator: ">="
+        actual: representative_thickness
+        expected: design_thickness_resolved - 8
+      severity: critical
+      on_fail: critical
+      error_message: Representative thickness is below design tolerance (-8mm).
+      clause_refs:
+        - JTG_F80_1_2017.4.2.3
+    - rule_id: rule.thickness.over_thickness_warning
+      condition:
+        operator: "<="
+        actual: thickness_resolved
+        expected: design_thickness_resolved + 20
+      severity: warning
+      on_fail: warn
+      error_message: Thickness exceeds design by more than +20mm.
+      clause_refs:
+        - JTG_F80_1_2017.4.2.3
+    - rule_id: rule.t0912.thickness.range
+      condition:
+        operator: between
+        actual: thickness_resolved
+        min: design_thickness_resolved - tolerance
+        max: design_thickness_resolved + tolerance
+      severity: mandatory
+      on_fail: BLOCK_SUBMIT
+      error_message: Thickness is out of design tolerance range.
+      clause_refs:
+        - JTG_F80_1_2017.4.2.3
+        - JTG_3450_2019.T0912
+  references:
+    - JTG_F80_1_2017.4.2.3
+    - JTG_3450_2019.T0912
+  clause_refs:
+    - JTG_F80_1_2017.4.2.3
+    - JTG_3450_2019.T0912
+
+state:
+  initial_state: DRAFT
+  states: [DRAFT, COMPUTED, VALIDATED, QUALIFIED, REJECTED, OVERRIDDEN, ARCHIVED]
+  allowed_transitions:
+    - from_state: DRAFT
+      to_state: COMPUTED
+      trigger: path_executed
+    - from_state: COMPUTED
+      to_state: VALIDATED
+      trigger: gate_executed
+    - from_state: VALIDATED
+      to_state: QUALIFIED
+      trigger: all_rules_pass
+    - from_state: VALIDATED
+      to_state: REJECTED
+      trigger: rule_failed
+    - from_state: VALIDATED
+      to_state: OVERRIDDEN
+      trigger: manual_override_approved
+    - from_state: QUALIFIED
+      to_state: ARCHIVED
+      trigger: archive_requested
+    - from_state: REJECTED
+      to_state: ARCHIVED
+      trigger: archive_requested
+    - from_state: OVERRIDDEN
+      to_state: ARCHIVED
+      trigger: archive_requested
+  terminal_states: [QUALIFIED, REJECTED, OVERRIDDEN, ARCHIVED]
+
+proof:
+  proof_fields:
+    - execution_id
+    - component_id
+    - version
+    - project_id
+    - input
+    - normalized_input
+    - path_outputs
+    - gate
+    - state_trace
+    - final_status
+    - clause_refs
+  canonicalization:
+    field_order:
+      - execution_id
+      - component_id
+      - version
+      - project_id
+      - input
+      - normalized_input
+      - path_outputs
+      - gate
+      - state_trace
+      - final_status
+      - clause_refs
+    sort_keys: true
+    null_policy: keep
+  hash_algorithm: sha256
+  canonical_order:
+    - execution_id
+    - component_id
+    - version
+    - project_id
+    - input
+    - normalized_input
+    - path_outputs
+    - gate
+    - state_trace
+    - final_status
+    - clause_refs
+  hash_method: sha256
+  signature:
+    algorithm: hmac_sha256
+    key_env: LAYERPEG_PROOF_HMAC_KEY
+  chain:
+    enabled: true
+  template:
+    - input_hash: sha256(core data + elevation + stake)
+    - calculation_trace:
+        - thickness resolution
+        - deviation against design thickness
+        - representative value calculation
+    - gate_decisions: single-point check + representative check + over-thickness warning
+    - representative_value: t_distribution_95_lower output
+    - core_photo_hash: optional
+    - layer_identification: layer type and material confirmation
+    - timestamp: ISO8601
+    - signatures: inspector + supervisor + system key
+    - vuri_anchor: v://cn.highway/{project}/section/{stake}/thickness
+
+metadata:
+  specir_version: v0.1.0
+  source_normdoc_file: normdocs/library/cn/mot/t0912/2019/normdoc.json
+  source_normdoc_version: v1
+  source_gate_rule: rule.thickness.representative_limit
+  migration_note: normalized from NormDoc T0912 into SpecIR asset
+  patchable: true
+  related_specs:
+    - JTG_E60_T0912.core_drill
+    - JTG_F80_1_2017.4.2.1.compaction

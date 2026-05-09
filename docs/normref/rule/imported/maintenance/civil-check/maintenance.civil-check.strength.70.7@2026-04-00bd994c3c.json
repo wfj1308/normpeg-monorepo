@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.70.7",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "eq",
+  "threshold_value": "40",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "70.7",
+  "source_line": "压强度试验。试件为 40mm×40mm×160mm 的棱柱体，按标准方法制作和养生。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-7fe84a6819cd",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:00bd994c3c96ff55bfbad71ed4c9f1a499d798ea28c4dda142632e6e7b76114a"
+}

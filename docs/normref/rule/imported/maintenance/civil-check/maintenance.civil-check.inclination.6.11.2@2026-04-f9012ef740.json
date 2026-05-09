@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.inclination.6.11.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/inclination@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "inclination",
+  "operator": "lte",
+  "threshold_value": "3",
+  "unit": "%",
+  "severity": "mandatory",
+  "norm_ref": "6.11.2",
+  "source_line": "3 钻孔倾斜（°） ≤5 测角仪：抽查10%，且不少于5根",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-ae1f202dacdc",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:f9012ef740d7918065bca38ad2e9216205d0737fed0602af1908fecccb3df320"
+}

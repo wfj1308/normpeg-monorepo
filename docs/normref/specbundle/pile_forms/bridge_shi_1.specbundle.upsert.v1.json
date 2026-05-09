@@ -1,0 +1,218 @@
+{
+  "bundleId": "highway.bridge.pile@v1",
+  "bundleVersion": "v1",
+  "formCode": "bridge_shi_1",
+  "formName": "钻（挖）孔桩护筒（壁）桩位检查表",
+  "dtoType": "pile",
+  "stage": "casing_position_check",
+  "rules": [
+    {
+      "ruleId": "bridge_shi_1.casing_inner_diameter.min_plus_200mm",
+      "fieldKeys": [
+        "casing_inner_diameter_m",
+        "design_pile_diameter_m"
+      ],
+      "gateType": "calculated_compare",
+      "severity": "blocking",
+      "expression": "casing_inner_diameter_m >= design_pile_diameter_m + 0.2",
+      "unit": "m",
+      "basis": {
+        "standardCode": "JTG/T3650-2020",
+        "standardName": "公路桥涵施工技术规范",
+        "clause": "桥规9.2.4",
+        "basisText": "护筒内径应大于桩径至少200mm"
+      },
+      "message": "护筒内径应比设计桩径至少大200mm"
+    },
+    {
+      "ruleId": "bridge_shi_1.casing_length.range_2_3_to_4_3m",
+      "fieldKeys": [
+        "casing_length_m"
+      ],
+      "gateType": "range",
+      "severity": "warning",
+      "expression": "2.3 <= casing_length_m <= 4.3",
+      "unit": "m",
+      "basis": {
+        "standardCode": "project_rule",
+        "standardName": "桩基-规范依据",
+        "clause": "桥施1表护筒长度标注",
+        "basisText": "护筒长度应为2.3～4.3m"
+      },
+      "message": "护筒长度宜控制在2.3m～4.3m"
+    },
+    {
+      "ruleId": "bridge_shi_1.casing_embed_depth.dry_land_2_to_4m",
+      "fieldKeys": [
+        "casing_embed_depth_m",
+        "site_condition"
+      ],
+      "gateType": "conditional_range",
+      "severity": "blocking",
+      "condition": "site_condition in ['dry_land', 'artificial_island']",
+      "expression": "2.0 <= casing_embed_depth_m <= 4.0",
+      "unit": "m",
+      "basis": {
+        "standardCode": "JTG/T3650-2020",
+        "standardName": "公路桥涵施工技术规范",
+        "clause": "桥规9.2.4",
+        "basisText": "护筒埋置深度在旱地或筑岛处宜为2～4m"
+      },
+      "message": "旱地或筑岛处护筒埋深宜为2m～4m"
+    },
+    {
+      "ruleId": "bridge_shi_1.casing_axis_offset.max_50mm",
+      "fieldKeys": [
+        "design_center_x",
+        "measured_center_x",
+        "design_center_y",
+        "measured_center_y",
+        "axis_offset_mm"
+      ],
+      "gateType": "calculated_deviation",
+      "severity": "blocking",
+      "calculation": {
+        "dx_m": "measured_center_x - design_center_x",
+        "dy_m": "measured_center_y - design_center_y",
+        "axis_offset_mm": "sqrt(dx_m * dx_m + dy_m * dy_m) * 1000"
+      },
+      "expression": "axis_offset_mm <= 50",
+      "unit": "mm",
+      "basis": {
+        "standardCode": "JTG/T3650-2020",
+        "standardName": "公路桥涵施工技术规范",
+        "clause": "桥规9.2.4",
+        "basisText": "护筒轴心与桩中心的偏差应不大于50mm"
+      },
+      "message": "护筒轴心与桩中心偏差不得大于50mm"
+    },
+    {
+      "ruleId": "bridge_shi_1.casing_top_elevation.above_ground_0_3m",
+      "fieldKeys": [
+        "casing_top_elevation_m",
+        "ground_elevation_m",
+        "site_condition"
+      ],
+      "gateType": "conditional_compare",
+      "severity": "blocking",
+      "condition": "site_condition == 'dry_land'",
+      "expression": "casing_top_elevation_m >= ground_elevation_m + 0.3",
+      "unit": "m",
+      "basis": {
+        "standardCode": "JTG/T3650-2020",
+        "standardName": "公路桥涵施工技术规范",
+        "clause": "桥规9.2.4",
+        "basisText": "护筒顶宜高于地面0.3m"
+      },
+      "message": "旱地施工时护筒顶宜高于地面0.3m"
+    },
+    {
+      "ruleId": "bridge_shi_1.casing_top_elevation.above_water_1_to_2m",
+      "fieldKeys": [
+        "casing_top_elevation_m",
+        "water_level_m",
+        "site_condition"
+      ],
+      "gateType": "conditional_range_compare",
+      "severity": "blocking",
+      "condition": "site_condition == 'water'",
+      "expression": "water_level_m + 1.0 <= casing_top_elevation_m <= water_level_m + 2.0",
+      "unit": "m",
+      "basis": {
+        "standardCode": "JTG/T3650-2020",
+        "standardName": "公路桥涵施工技术规范",
+        "clause": "桥规9.2.4",
+        "basisText": "护筒顶宜高于水面1.0～2.0m"
+      },
+      "message": "水中施工时护筒顶宜高于水面1.0m～2.0m"
+    },
+    {
+      "ruleId": "bridge_shi_1.casing_top_elevation.above_design_pile_top_1m",
+      "fieldKeys": [
+        "casing_top_elevation_m",
+        "design_pile_top_elevation_m"
+      ],
+      "gateType": "compare",
+      "severity": "blocking",
+      "expression": "casing_top_elevation_m >= design_pile_top_elevation_m + 1.0",
+      "unit": "m",
+      "basis": {
+        "standardCode": "JTG/T3650-2020",
+        "standardName": "公路桥涵施工技术规范",
+        "clause": "桥规9.2.4",
+        "basisText": "护筒顶应高于桩顶设计高程1m"
+      },
+      "message": "护筒顶高程应高于桩顶设计高程1m"
+    }
+  ],
+  "fieldRuleMap": [
+    {
+      "fieldKey": "casing_inner_diameter_m",
+      "fieldName": "护筒直径",
+      "gateRequired": true,
+      "ruleId": "bridge_shi_1.casing_inner_diameter.min_plus_200mm",
+      "valueSource": "manual",
+      "compareFields": [
+        "design_pile_diameter_m"
+      ]
+    },
+    {
+      "fieldKey": "casing_length_m",
+      "fieldName": "护筒长度",
+      "gateRequired": true,
+      "ruleId": "bridge_shi_1.casing_length.range_2_3_to_4_3m",
+      "valueSource": "manual"
+    },
+    {
+      "fieldKey": "casing_top_elevation_m",
+      "fieldName": "护筒顶高程",
+      "gateRequired": true,
+      "ruleIds": [
+        "bridge_shi_1.casing_top_elevation.above_ground_0_3m",
+        "bridge_shi_1.casing_top_elevation.above_water_1_to_2m",
+        "bridge_shi_1.casing_top_elevation.above_design_pile_top_1m"
+      ],
+      "valueSource": "source_form"
+    },
+    {
+      "fieldKey": "casing_embed_depth_m",
+      "fieldName": "护筒埋深",
+      "gateRequired": true,
+      "ruleId": "bridge_shi_1.casing_embed_depth.dry_land_2_to_4m",
+      "valueSource": "manual"
+    },
+    {
+      "fieldKey": "axis_offset_mm",
+      "fieldName": "偏位",
+      "gateRequired": true,
+      "ruleId": "bridge_shi_1.casing_axis_offset.max_50mm",
+      "valueSource": "computed",
+      "computedFrom": [
+        "design_center_x",
+        "measured_center_x",
+        "design_center_y",
+        "measured_center_y"
+      ]
+    },
+    {
+      "fieldKey": "casing_embed_method",
+      "fieldName": "护筒埋置方法",
+      "gateRequired": false,
+      "valueSource": "manual"
+    },
+    {
+      "fieldKey": "casing_bottom_geology",
+      "fieldName": "护筒底地质情况",
+      "gateRequired": false,
+      "valueSource": "manual"
+    }
+  ],
+  "metadata": {
+    "sourceDocument": "1、桩基(1).docx",
+    "sourcePath": "c:\\Users\\xm_91\\Desktop\\1、桩基(1).docx",
+    "notes": "??1??????????????????????",
+    "createdAt": "2026-04-28T00:00:00+08:00",
+    "status": "ready_for_joint_debug",
+    "encoding": "utf-8"
+  }
+}

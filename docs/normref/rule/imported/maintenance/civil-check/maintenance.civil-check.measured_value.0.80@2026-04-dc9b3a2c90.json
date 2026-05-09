@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.0.80",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "5",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "0.80",
+  "source_line": "5 钻孔桩每根或每工作班至少应制取2组，桩长20 m 以上的至少应制取3组，",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-8643a3181ff4",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:dc9b3a2c90195d963fa74b5645018bec6955e3f1883ae40c2b2b64db2c1e253c"
+}

@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.width.5.5.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/width@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "width",
+  "operator": "gte",
+  "threshold_value": "3",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "5.5.2",
+  "source_line": "3 再生宽度（mm） 不小于设计宽度 T0911：每100m测1个断面",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-1c1c46767509",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:e5eca48d1f7a2017ea6ffcd184d15d879598c5ca056af79e5d741d2c40729514"
+}

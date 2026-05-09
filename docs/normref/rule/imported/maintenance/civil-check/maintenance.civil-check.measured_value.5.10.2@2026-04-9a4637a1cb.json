@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.5.10.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "lte",
+  "threshold_value": "4",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "5.10.2",
+  "source_line": "4 纵、横缝顺直度（mm） ≤10 拉线量测：逐板检查",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-c66fd9d1ba06",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:9a4637a1cb6592db9d2a8b4598e740e8736ed313536630f8a8e686fc586c6ee0"
+}

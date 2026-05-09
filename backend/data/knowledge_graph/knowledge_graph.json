@@ -1,0 +1,270 @@
+{
+  "schema": {
+    "schema_id": "specir.knowledge.graph.v2",
+    "node_types": [
+      "Clause",
+      "SpecIR",
+      "Slot",
+      "Rule",
+      "Gate",
+      "Runtime",
+      "Proof",
+      "Form",
+      "DTO",
+      "Executor",
+      "Standard"
+    ],
+    "edge_types": [
+      "derives",
+      "validates",
+      "impacts",
+      "conflicts",
+      "overrides",
+      "propagates_to",
+      "depends_on"
+    ]
+  },
+  "meta": {
+    "generated_at": "2026-05-08T06:07:20.446400Z",
+    "node_count": 11,
+    "edge_count": 19
+  },
+  "nodes": [
+    {
+      "id": "standard:JTG_F80_1_2017",
+      "type": "Standard",
+      "properties": {
+        "standard_id": "JTG_F80_1_2017"
+      }
+    },
+    {
+      "id": "specir:JTG_F80_1_2017.4.2.1.compaction",
+      "type": "SpecIR",
+      "properties": {
+        "spec_id": "JTG_F80_1_2017.4.2.1.compaction",
+        "version": "v1"
+      }
+    },
+    {
+      "id": "form:JTG_F80_1_2017.4.2.1.compaction",
+      "type": "Form",
+      "properties": {
+        "form_code": "JTG_F80_1_2017.4.2.1.compaction"
+      }
+    },
+    {
+      "id": "executor:JTG_F80_1_2017.4.2.1.compaction",
+      "type": "Executor",
+      "properties": {
+        "executor_id": "JTG_F80_1_2017.4.2.1.compaction"
+      }
+    },
+    {
+      "id": "dto:JTG_F80_1_2017.4.2.1.compaction",
+      "type": "DTO",
+      "properties": {
+        "dto_id": "JTG_F80_1_2017.4.2.1.compaction"
+      }
+    },
+    {
+      "id": "gate:JTG_F80_1_2017.4.2.1.compaction",
+      "type": "Gate",
+      "properties": {
+        "gate_id": "JTG_F80_1_2017.4.2.1.compaction"
+      }
+    },
+    {
+      "id": "runtime:JTG_F80_1_2017.4.2.1.compaction",
+      "type": "Runtime",
+      "properties": {
+        "runtime_id": "JTG_F80_1_2017.4.2.1.compaction"
+      }
+    },
+    {
+      "id": "proof:JTG_F80_1_2017.4.2.1.compaction",
+      "type": "Proof",
+      "properties": {
+        "proof_id": "JTG_F80_1_2017.4.2.1.compaction"
+      }
+    },
+    {
+      "id": "clause:4.2.1",
+      "type": "Clause",
+      "properties": {
+        "clause_id": "4.2.1"
+      }
+    },
+    {
+      "id": "slot:compaction_degree",
+      "type": "Slot",
+      "properties": {
+        "slotKey": "compaction_degree",
+        "type": "number",
+        "unit": "%"
+      }
+    },
+    {
+      "id": "rule:r.compaction",
+      "type": "Rule",
+      "properties": {
+        "rule_id": "r.compaction",
+        "field": "compaction_degree",
+        "operator": ">=",
+        "threshold": 95,
+        "unit": "%"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "specir:JTG_F80_1_2017.4.2.1.compaction",
+      "to": "standard:JTG_F80_1_2017",
+      "type": "derives",
+      "properties": {}
+    },
+    {
+      "from": "executor:JTG_F80_1_2017.4.2.1.compaction",
+      "to": "specir:JTG_F80_1_2017.4.2.1.compaction",
+      "type": "depends_on",
+      "properties": {}
+    },
+    {
+      "from": "form:JTG_F80_1_2017.4.2.1.compaction",
+      "to": "dto:JTG_F80_1_2017.4.2.1.compaction",
+      "type": "depends_on",
+      "properties": {}
+    },
+    {
+      "from": "dto:JTG_F80_1_2017.4.2.1.compaction",
+      "to": "specir:JTG_F80_1_2017.4.2.1.compaction",
+      "type": "derives",
+      "properties": {}
+    },
+    {
+      "from": "gate:JTG_F80_1_2017.4.2.1.compaction",
+      "to": "specir:JTG_F80_1_2017.4.2.1.compaction",
+      "type": "derives",
+      "properties": {}
+    },
+    {
+      "from": "gate:JTG_F80_1_2017.4.2.1.compaction",
+      "to": "form:JTG_F80_1_2017.4.2.1.compaction",
+      "type": "impacts",
+      "properties": {}
+    },
+    {
+      "from": "gate:JTG_F80_1_2017.4.2.1.compaction",
+      "to": "runtime:JTG_F80_1_2017.4.2.1.compaction",
+      "type": "impacts",
+      "properties": {}
+    },
+    {
+      "from": "runtime:JTG_F80_1_2017.4.2.1.compaction",
+      "to": "proof:JTG_F80_1_2017.4.2.1.compaction",
+      "type": "derives",
+      "properties": {}
+    },
+    {
+      "from": "runtime:JTG_F80_1_2017.4.2.1.compaction",
+      "to": "form:JTG_F80_1_2017.4.2.1.compaction",
+      "type": "impacts",
+      "properties": {}
+    },
+    {
+      "from": "runtime:JTG_F80_1_2017.4.2.1.compaction",
+      "to": "executor:JTG_F80_1_2017.4.2.1.compaction",
+      "type": "depends_on",
+      "properties": {}
+    },
+    {
+      "from": "executor:JTG_F80_1_2017.4.2.1.compaction",
+      "to": "proof:JTG_F80_1_2017.4.2.1.compaction",
+      "type": "propagates_to",
+      "properties": {}
+    },
+    {
+      "from": "clause:4.2.1",
+      "to": "specir:JTG_F80_1_2017.4.2.1.compaction",
+      "type": "derives",
+      "properties": {}
+    },
+    {
+      "from": "standard:JTG_F80_1_2017",
+      "to": "clause:4.2.1",
+      "type": "depends_on",
+      "properties": {}
+    },
+    {
+      "from": "slot:compaction_degree",
+      "to": "dto:JTG_F80_1_2017.4.2.1.compaction",
+      "type": "validates",
+      "properties": {}
+    },
+    {
+      "from": "slot:compaction_degree",
+      "to": "specir:JTG_F80_1_2017.4.2.1.compaction",
+      "type": "depends_on",
+      "properties": {}
+    },
+    {
+      "from": "rule:r.compaction",
+      "to": "gate:JTG_F80_1_2017.4.2.1.compaction",
+      "type": "validates",
+      "properties": {}
+    },
+    {
+      "from": "rule:r.compaction",
+      "to": "specir:JTG_F80_1_2017.4.2.1.compaction",
+      "type": "derives",
+      "properties": {}
+    },
+    {
+      "from": "rule:r.compaction",
+      "to": "form:JTG_F80_1_2017.4.2.1.compaction",
+      "type": "impacts",
+      "properties": {}
+    },
+    {
+      "from": "rule:r.compaction",
+      "to": "runtime:JTG_F80_1_2017.4.2.1.compaction",
+      "type": "impacts",
+      "properties": {}
+    }
+  ],
+  "edge_model": {
+    "derives": "derived-from relation",
+    "depends_on": "dependency relation",
+    "validates": "validation relation",
+    "impacts": "impact relation",
+    "overrides": "override relation",
+    "conflicts": "conflict relation",
+    "propagates_to": "cross-form propagation relation"
+  },
+  "traversal_engine": {
+    "name": "semantic_traversal_engine_v1",
+    "supported": [
+      "semantic traversal",
+      "impact analysis",
+      "runtime tracing"
+    ]
+  },
+  "semantic_query_engine": {
+    "name": "semantic_query_engine_v1",
+    "supported": [
+      "semantic search",
+      "slot full-chain impact",
+      "ai retrieval"
+    ]
+  },
+  "page_plan": {
+    "page_name": "Knowledge Graph Explorer",
+    "blocks": [
+      "graph schema",
+      "semantic traversal",
+      "impact analysis",
+      "runtime tracing",
+      "ai retrieval",
+      "slotKey full-chain impact"
+    ]
+  }
+}

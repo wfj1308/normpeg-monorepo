@@ -1,0 +1,25 @@
+{
+  "objects": {
+    "BIM_TEST_1": {
+      "bim_object_id": "BIM_TEST_1",
+      "object_type": "Pile",
+      "location": {
+        "x": 1
+      },
+      "project_id": "P_BIM",
+      "related_form_code": "T1",
+      "related_slotKeys": [
+        "sA",
+        "sB"
+      ],
+      "related_specir_ids": [
+        "sp1"
+      ],
+      "geometry_ref": "bim://a#1",
+      "metadata": {
+        "m": 1
+      },
+      "updated_at": "2026-05-08T06:49:44.686185Z"
+    }
+  }
+}

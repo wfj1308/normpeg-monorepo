@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.thickness.4.5.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/thickness@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "thickness",
+  "operator": "lte",
+  "threshold_value": "200",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "4.5.2",
+  "source_line": "粗砂时应适量洒水，分层（厚度≤200mm）对称填筑、夯实、整平。对管顶以上500mm内，但已进入路床区的",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-79490ffbe33b",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:5667a1acf2d2e8a0483d0e1023c80b5e59ee939bfcd1d6b35d6dfd4354817c5d"
+}

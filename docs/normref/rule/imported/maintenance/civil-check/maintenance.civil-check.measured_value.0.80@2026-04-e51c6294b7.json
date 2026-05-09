@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.0.80",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "0553",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "0.80",
+  "source_line": "方法（T0553），以标准养生28d龄期的试件为准。试件为边长150mm 的立方体，",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-1616670c8417",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:e51c6294b7d7d5a96e0ffe9c2cdf95091d2fc606bf2610feef2ef30daa117e6d"
+}

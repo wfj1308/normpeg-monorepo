@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.8.12.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "1",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "8.12.3",
+  "source_line": "1 防眩设施应安装牢固；表面应色泽均匀，不得有气泡、裂纹、疤痕等缺陷。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-1061131ececb",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:7242489dc708d64171de0fe5cd18a81d299b8f0cac5c5ff6feeae37463dd861a"
+}

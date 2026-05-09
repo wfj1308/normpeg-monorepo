@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.5.17.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "2",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "5.17.1",
+  "source_line": "2 水泥、石灰用量应按设计要求控制准确。石灰应充分消解，不得含有灰团和",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-31ebe1a910ae",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:19587fb530c224fd36ffc9b55e52a8a2a51f0272b4f43f040b65e80fec23aeb7"
+}

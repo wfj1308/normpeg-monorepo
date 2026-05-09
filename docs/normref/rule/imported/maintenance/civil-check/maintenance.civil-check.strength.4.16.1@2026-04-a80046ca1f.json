@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.4.16.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "eq",
+  "threshold_value": "1",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "4.16.1",
+  "source_line": "1 锚杆、钢筋和土工格栅的强度、数量、质量和规格必须符合设计和有关规范",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-e1ba117defcc",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:a80046ca1f70940fca7e37f19c200fb1035ca76a270bda13644e6cdf753a37bc"
+}

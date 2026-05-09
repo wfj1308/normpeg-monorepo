@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.6.9.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "eq",
+  "threshold_value": "2",
+  "unit": "MPa",
+  "severity": "mandatory",
+  "norm_ref": "6.9.2",
+  "source_line": "2△ 黏结强度(MPa) 在合格标准内 按附录N检查",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-ac1c496849d0",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:258124b7d8c8fe0a6eaa46fdd2838064a1ddc7b6da11288fe5b3e2e56f763449"
+}

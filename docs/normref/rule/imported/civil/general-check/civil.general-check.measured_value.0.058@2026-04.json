@@ -1,0 +1,20 @@
+{
+  "rule_id": "civil.general-check.measured_value.0.058",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/civil/general-check/measured_value@2026-04",
+  "category": "civil/general-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "710100",
+  "unit": "t",
+  "severity": "mandatory",
+  "norm_ref": "0.058",
+  "source_line": "邮编（PostCode）：710100",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-29ec6647ec924c68",
+  "candidate_id": "cand-46d9fe82099d",
+  "source_std_code": "JTG-F80-1-2017",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:2f984453138c267e3e7576e3c5cdf20520ae35d979d018fe8490a08b6760c1ce"
+}

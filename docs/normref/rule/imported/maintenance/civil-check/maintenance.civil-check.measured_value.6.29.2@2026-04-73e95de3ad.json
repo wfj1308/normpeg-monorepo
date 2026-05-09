@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.6.29.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "range",
+  "threshold_value": "2",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "6.29.2",
+  "source_line": "2m直尺：每侧面测1～2处，测竖直、",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-adc6f9e89a2f",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:73e95de3ad010ed5370b8c777e592d098bf0cddec05998c0a9de2e9e4a7248e2"
+}

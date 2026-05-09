@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.5.4.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "4",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "5.4.2",
+  "source_line": "4 钢卷尺：每100m 测1处",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-8cec55a39495",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:7fb5252eb94eae1016b9f756416d1861afd61958bf05739185e2eea66d3fa937"
+}

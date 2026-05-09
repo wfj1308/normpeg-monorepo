@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.8.13.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "tolerance",
+  "threshold_value": "1",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "8.13.2",
+  "source_line": "1 柱顶高度 (mm) ±15 钢卷尺：每200m测1处",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-677e3488f6fa",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:8ba004815117a5eab4efbc115491027328c57592152312dc3b1b4a851e5bc806"
+}

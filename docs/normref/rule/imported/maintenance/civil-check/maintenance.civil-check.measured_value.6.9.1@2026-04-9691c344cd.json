@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.6.9.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "4",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "6.9.1",
+  "source_line": "4 修补工艺、顺序应符合设计要求。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-b05333ffbcbe",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:9691c344cd5fbdd0ce901bfd187723249ad587e4f9056dc4f08d32897321de61"
+}

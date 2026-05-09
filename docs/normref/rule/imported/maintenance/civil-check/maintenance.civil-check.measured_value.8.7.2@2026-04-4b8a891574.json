@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.8.7.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "lte",
+  "threshold_value": "4",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "8.7.2",
+  "source_line": "4 立柱竖直度 (mm/m) ≤10 靠尺、垂线：每200m每侧检查1处",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-e4dc0db68fb2",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:4b8a891574fe4010f750e90bb31c4f061119deae8865fcd0af8e7cdaacab8b5e"
+}

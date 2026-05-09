@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.8.4.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "15",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "8.4.1",
+  "source_line": "度每处不得超过15 mm，否则应修补后才能安装使用。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-0d18e3f95293",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:e5b276697d266f78c0f3029fb09e2f3744645de75602f403d25329f062fff1e0"
+}

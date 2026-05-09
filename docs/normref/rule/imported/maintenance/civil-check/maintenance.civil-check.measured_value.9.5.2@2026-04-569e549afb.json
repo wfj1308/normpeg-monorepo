@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.9.5.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "3",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "9.5.2",
+  "source_line": "分资料参与各工程项目的质量检验评定，同时作为竣工资料的组成部分；3）工程质",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-708ffe89e29e",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:569e549afb547d31643a383c52d562b350125ab85c5195508092799b2b0ccb83"
+}

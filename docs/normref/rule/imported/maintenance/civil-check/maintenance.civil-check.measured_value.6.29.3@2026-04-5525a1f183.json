@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.6.29.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "2",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "6.29.3",
+  "source_line": "2 新、旧结构结合面不得出现裂缝，应无明显施工接缝。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-4300c0df8d8e",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:5525a1f183ef11dfd2c054c4c534c45a0386863087b7cd0b199d3a37a91950e0"
+}

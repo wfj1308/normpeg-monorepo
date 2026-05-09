@@ -1,0 +1,14 @@
+{
+  "project_id": "GXX_2024_XXX",
+  "project_name": "Expressway Sample Project",
+  "default_component_version": "v1",
+  "overrides": [],
+  "roles": {
+    "chief_engineer_did": "did:peg:chief:001",
+    "notify_targets": [
+      "did:peg:inspector:001",
+      "did:peg:checker:002"
+    ]
+  }
+}
+

@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.70.7",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "gte",
+  "threshold_value": "85",
+  "unit": "%",
+  "severity": "mandatory",
+  "norm_ref": "70.7",
+  "source_line": "混凝土内聚破坏面积不小于粘贴全面积的85%，则该组合格；",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-4c7ce89a00aa",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:7bf9f942c26871f055b18961d11450c0564b3d88cca9cca4980d658f69efc721"
+}

@@ -1,0 +1,20 @@
+{
+  "rule_id": "electromechanical.general-check.measured_value.4.6.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/electromechanical/general-check/measured_value@2026-04",
+  "category": "electromechanical/general-check",
+  "field_key": "measured_value",
+  "operator": "gte",
+  "threshold_value": "50",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "4.6.2",
+  "source_line": "强电端子对机壳≥50MQ",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-11c05a464c894fef",
+  "candidate_id": "cand-a84dac63c895",
+  "source_std_code": "JTG-2182-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:5eedcb41450723bac3d6cd3925bc53dd24dbbde5142df9fb51cbadabf57ac4d6"
+}

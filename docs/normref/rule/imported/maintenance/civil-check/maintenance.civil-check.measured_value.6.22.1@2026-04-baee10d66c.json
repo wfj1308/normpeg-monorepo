@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.6.22.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "4",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "6.22.1",
+  "source_line": "4 索的钢丝或钢绞线防护应满足设计要求。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-bdbeb4525e2f",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:baee10d66c0ca03eac180831fd50479ccdb8cea799e4800178433526a0bffe5a"
+}

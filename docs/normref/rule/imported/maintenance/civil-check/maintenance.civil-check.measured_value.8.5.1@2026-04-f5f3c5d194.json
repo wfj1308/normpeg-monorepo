@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.8.5.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "3",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "8.5.1",
+  "source_line": "3 波形梁钢护栏板的端部、中央分隔带开口及护栏过渡段的处理应符合设计要",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-adc95ebe7587",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:f5f3c5d1945625850a7ed9e1f88e2612227a7308c9e40876ac293537b6661c65"
+}

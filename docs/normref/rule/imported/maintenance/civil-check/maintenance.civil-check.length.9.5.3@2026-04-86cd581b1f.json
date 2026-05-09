@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.length.9.5.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/length@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "length",
+  "operator": "range",
+  "threshold_value": "5",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "9.5.3",
+  "source_line": "每5～10km累计施工长度的下列养护作业，分别作为一个养护单元：交通标志更换、增设，",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-fcb831a2664b",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:86cd581b1ff9712f245b5963b007945ad539474ff39a0784d8d90859769533be"
+}

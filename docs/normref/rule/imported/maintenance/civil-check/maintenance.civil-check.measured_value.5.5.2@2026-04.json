@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.5.5.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "1500",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "5.5.2",
+  "source_line": "铺砂法：每1500m2测1处",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-80b8736f9d81",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:0b196d7b5b1a88cec5a7cfda01e2f95c669156c89d1501b501e10bc09f6450ea"
+}

@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.6.1.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "80",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "6.1.2",
+  "source_line": "验评定标准 第一册 土建工程》（JTG F80/1）的相关规定进行检验。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-631adccd1832",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:4576acb2f115ce1bab029022238ecfa5cb77fe1e61d392a1441aaa9ab0eb1d26"
+}

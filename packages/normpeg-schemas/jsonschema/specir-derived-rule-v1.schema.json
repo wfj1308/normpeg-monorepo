@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://normpeg.local/schemas/specir-derived-rule-v1.schema.json",
+  "title": "SpecIR Derived Rule v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "rule_id",
+    "specir_id",
+    "normRef",
+    "slotKey",
+    "field",
+    "operator",
+    "unit",
+    "source_text",
+    "confidence",
+    "rule_status"
+  ],
+  "properties": {
+    "rule_id": { "type": "string", "minLength": 1 },
+    "specir_id": { "type": "string", "minLength": 1 },
+    "normRef": { "type": "string", "minLength": 1 },
+    "slotKey": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(\\.[a-z][a-z0-9_]*){3}$"
+    },
+    "field": { "type": "string", "minLength": 1 },
+    "operator": { "type": "string", "minLength": 1 },
+    "value": {
+      "oneOf": [
+        { "type": "number" },
+        { "type": "string" },
+        { "type": "boolean" },
+        { "type": "null" }
+      ]
+    },
+    "min": {
+      "oneOf": [
+        { "type": "number" },
+        { "type": "null" }
+      ]
+    },
+    "max": {
+      "oneOf": [
+        { "type": "number" },
+        { "type": "null" }
+      ]
+    },
+    "unit": { "type": "string" },
+    "source_text": { "type": "string", "minLength": 1 },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "rule_status": {
+      "type": "string",
+      "enum": ["ready", "partial", "pending", "rejected"]
+    },
+    "pending_task": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "task_type": {
+          "type": "string",
+          "enum": ["needs_slot", "needs_formula", "needs_runtime"]
+        },
+        "reason": { "type": "string" }
+      }
+    }
+  }
+}

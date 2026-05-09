@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.thickness.4.8.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/thickness@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "thickness",
+  "operator": "gte",
+  "threshold_value": "8",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "4.8.2",
+  "source_line": "8 基础垫层宽、厚度 (mm) 不小于设计值 钢卷尺：每100m测1处",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-a566bb24df42",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:6e120371a7e20f5ddb6b3f4e4ac0f7215e868feca29d958eeb71496c2fba027b"
+}

@@ -1,0 +1,71 @@
+{
+  "schema": {
+    "schema_id": "rulepack.golden.diff.report.v1",
+    "checks": [
+      "unexpected_rule_change",
+      "missing_gate",
+      "semantic_drift",
+      "runtime_regression"
+    ]
+  },
+  "meta": {
+    "generated_at": "2026-05-08T04:59:14.211342Z",
+    "form_code": "JTG_F80_1_2017.4.2.1.compaction"
+  },
+  "baseline_ref": {
+    "updated_at": "2026-05-08T04:59:14.200266Z"
+  },
+  "candidate_ref": {
+    "publish_result": {
+      "catalog_id": "JTG_F80_1_2017",
+      "component_id": "JTG_F80_1_2017.4.2.1.compaction",
+      "component_name": "compaction",
+      "version": "v2"
+    }
+  },
+  "checks": [
+    {
+      "type": "unexpected_rule_change",
+      "passed": false,
+      "unexpected_rule_ids": [
+        "single_point_rule"
+      ],
+      "details": {
+        "changed": [
+          "single_point_rule"
+        ],
+        "added": [],
+        "removed": []
+      }
+    },
+    {
+      "type": "missing_gate",
+      "passed": true,
+      "details": {
+        "baseline_rule_count": 1,
+        "candidate_rule_count": 1
+      }
+    },
+    {
+      "type": "semantic_drift",
+      "passed": true,
+      "changes": []
+    },
+    {
+      "type": "runtime_regression",
+      "passed": false,
+      "expected_runtime_status": "PASS",
+      "risky_rule_condition_changes": [
+        {
+          "rule_id": "single_point_rule",
+          "baseline_condition": "compaction_degree >= 95",
+          "candidate_condition": "compaction_degree >= 96"
+        }
+      ]
+    }
+  ],
+  "gate": {
+    "blocked": true,
+    "reason": "golden regression fail"
+  }
+}

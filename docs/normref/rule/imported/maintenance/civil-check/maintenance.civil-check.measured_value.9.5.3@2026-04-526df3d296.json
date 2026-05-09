@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.9.5.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "0925",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "9.5.3",
+  "source_line": "试验方法（T0925）或核子密湿度仪测定压实度试验方法（T0922）。测定前无核密",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-d1278c2c6b35",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:526df3d2969346e531e3eaef54d360f452e20e7b84cb3aa21869cf5863538fe6"
+}

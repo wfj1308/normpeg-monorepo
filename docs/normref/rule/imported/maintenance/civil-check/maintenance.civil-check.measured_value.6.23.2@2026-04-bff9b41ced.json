@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.6.23.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "2",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "6.23.2",
+  "source_line": "2 断面尺寸(mm) +20，0 尺量：测3个断面",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-c61d17e88cbd",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:bff9b41ced227ab56fcd1b16fe12bee46527ff8b42ae0498c68779b8621bd2de"
+}

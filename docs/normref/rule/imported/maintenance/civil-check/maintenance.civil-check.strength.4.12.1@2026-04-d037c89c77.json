@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.4.12.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "eq",
+  "threshold_value": "2",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "4.12.1",
+  "source_line": "2 石料或混凝土预制块的强度、规格和质量应符合有关规范和设计要求。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-1bf92f451d20",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:d037c89c77e6cdd6bc4e7e468c86bdb3fa2e15abbc12bf77428cd6121d40ad45"
+}

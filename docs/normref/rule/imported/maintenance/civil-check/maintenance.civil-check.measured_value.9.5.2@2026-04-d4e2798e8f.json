@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.9.5.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "450",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "9.5.2",
+  "source_line": "在施工的同时，将混凝土喷射在 450mm×350mm×120mm（可制成 6 块）或",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-53ad1220e0e7",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:d4e2798e8fe8529371b050dac365ce6a4159e8f9a14bccd923d517a410fbe377"
+}

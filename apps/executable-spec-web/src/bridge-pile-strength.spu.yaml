@@ -1,0 +1,51 @@
+spuId: "highway.bridge.pile.strength.quality@v1"
+
+meta:
+  name: "桥梁桩基强度"
+  norm: "JTG/T 3650-2020"
+  clause: "6.3.4"
+  version: "v1"
+
+forms:
+  - formCode: "BRIDGE_PILE_STRENGTH_FORM"
+    role: "lab"
+    required: true
+
+data:
+  inputs:
+    - name: measuredStrength
+      type: number
+      label: "实测抗压强度(MPa)"
+    - name: designStrength
+      type: number
+      label: "设计强度(MPa)"
+    - name: pileLength
+      type: number
+      label: "桩长(m)"
+  outputs:
+    - name: pileStrength
+    - name: strengthRatio
+    - name: lengthCheck
+
+path:
+  - step: calc_pile_strength
+    formula: "pileStrength = measuredStrength"
+  - step: calc_strength_ratio
+    formula: "strengthRatio = (pileStrength / designStrength) * 100"
+  - step: calc_length_check
+    formula: "lengthCheck = pileLength"
+
+rules:
+  - ruleId: "RULE-PILE-STRENGTH-001"
+    field: "strengthRatio"
+    operator: ">="
+    value: 100
+    message: "桩基强度必须达到设计强度"
+
+proof:
+  resultField: "strengthRatio"
+  passMessage: "桩基强度达标"
+  failMessage: "桩基强度不达标"
+  requiredSignatures:
+    - lab
+    - supervision

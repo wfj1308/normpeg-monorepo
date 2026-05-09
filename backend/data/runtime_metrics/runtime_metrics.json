@@ -1,0 +1,59 @@
+{
+  "schema": {
+    "schema_id": "runtime.observability.v1",
+    "event_fields": [
+      "executor_id",
+      "form_code",
+      "rulepack_version",
+      "project_id",
+      "rule_hit",
+      "gate_pass",
+      "gate_fail",
+      "runtime_error",
+      "missing_slot",
+      "invalid_input",
+      "latency_ms"
+    ],
+    "metrics_fields": [
+      "pass_rate",
+      "fail_rate",
+      "slot_missing_rate",
+      "unresolved_rate",
+      "executor_latency",
+      "top_failing_rules"
+    ]
+  },
+  "filters": {
+    "form_code": "JTG_F80_1_2017.4.2.1.compaction",
+    "rulepack_version": "v1",
+    "project_id": "P-OBS-1"
+  },
+  "summary": {
+    "total_events": 12,
+    "pass_rate": 0.5,
+    "fail_rate": 0.5,
+    "slot_missing_rate": 0.0,
+    "unresolved_rate": 0.0,
+    "executor_latency": {
+      "avg_ms": 849.08,
+      "p95_ms": 1407.0,
+      "max_ms": 1539.0
+    }
+  },
+  "top_failing_rules": [],
+  "event_model": {
+    "name": "runtime_event_v1",
+    "storage": "jsonl",
+    "path": "D:\\wfj\\project\\normpeg-monorepo\\backend\\data\\runtime_observability\\runtime_events.jsonl"
+  },
+  "metrics_pipeline": {
+    "steps": [
+      "collect runtime events",
+      "apply filters",
+      "aggregate rates",
+      "aggregate executor latency",
+      "rank top failing rules"
+    ]
+  },
+  "generated_at": "2026-05-08T04:59:12.798716Z"
+}

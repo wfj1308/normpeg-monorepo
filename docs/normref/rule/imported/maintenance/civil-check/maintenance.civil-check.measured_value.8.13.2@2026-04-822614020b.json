@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.8.13.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "lte",
+  "threshold_value": "7",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "8.13.2",
+  "source_line": "7 刺钢丝的中心垂度 (mm) ≤15 拉线、钢直尺：每200m测1处",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-96d91864f253",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:822614020b2b358fdfba898664a87ee3d7e2f89e5afb7eb7d9951b7b0f3e876b"
+}

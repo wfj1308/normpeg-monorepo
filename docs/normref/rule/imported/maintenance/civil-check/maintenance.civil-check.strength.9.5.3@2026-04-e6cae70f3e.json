@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.9.5.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "eq",
+  "threshold_value": "0561",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "9.5.3",
+  "source_line": "或水泥混凝土圆柱体劈裂抗弯拉强度试验方法（T0561）；试件使用标准方法制作，",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-d6b3d9cbb844",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:e6cae70f3ea51af0a6f01064544915815ce21bc23db5967a18665422755e2868"
+}

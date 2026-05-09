@@ -1,0 +1,221 @@
+{
+  "schema_uri": "v://normref.com/schema/normdoc-v1",
+  "version": "v1",
+  "header": {
+    "standard_id": "JTG 3450-2019",
+    "version": "2019",
+    "replaces": "JTG 3450-2008",
+    "issuer": "Ministry of Transport",
+    "effective_date": "2019-05-01",
+    "scope": "Highway layer thickness inspection record",
+    "language": "zh-CN",
+    "jurisdiction": "CN-MOT",
+    "source_uri": "local://JTG-3450-2019-T0912.pdf",
+    "source_hash": "sha256:t0912-sample"
+  },
+  "body": {
+    "chapters": {
+      "terms_stream": [
+        {
+          "term": "thickness deviation",
+          "definition": "absolute difference between measured and design thickness"
+        }
+      ],
+      "general_rules": [],
+      "work_items": [
+        {
+          "work_item_id": "work-item.t0912.thickness",
+          "name": "Layer thickness",
+          "basic_requirements": [],
+          "measured_items": [
+            {
+              "item_id": "item.t0912.thickness",
+              "check_item": "thickness",
+              "required_value": 0,
+              "tolerance": 8,
+              "check_method": "core sampling",
+              "unit": "mm",
+              "severity": "mandatory"
+            }
+          ],
+          "visual_inspection": [],
+          "documentation": []
+        }
+      ],
+      "evaluation_methods": []
+    },
+    "tables": {
+      "inspection_record_tables": [
+        {
+          "table_id": "table.t0912",
+          "title": "Thickness inspection record (T0912)",
+          "external_form_type": "T0912-2019",
+          "meta": {
+            "form_type": "T0912-2019",
+            "aliases": [
+              "T0912",
+              "T0912_2019"
+            ]
+          },
+          "fields": [
+            {
+              "field_id": "table.t0912.field.section",
+              "name": "section",
+              "data_type": "string",
+              "required": false
+            },
+            {
+              "field_id": "table.t0912.field.thickness",
+              "name": "thickness",
+              "data_type": "number",
+              "required": true,
+              "unit": "mm"
+            },
+            {
+              "field_id": "table.t0912.field.layer_zone",
+              "name": "layer_zone",
+              "data_type": "string",
+              "required": true
+            }
+          ]
+        }
+      ],
+      "evaluation_tables": [],
+      "summary_tables": []
+    },
+    "formulas": {
+      "representative_value_formula": [],
+      "pass_rate_formula": [],
+      "score_formula": []
+    },
+    "ref_dictionary": {
+      "outbound_refs": [
+        {
+          "ref_id": "ref.jtg-f80-1-2017.thickness",
+          "target": "JTG F80/1-2017 thickness requirements",
+          "kind": "normative_reference"
+        },
+        {
+          "ref_id": "ref.jtg-3450-2019.t0912",
+          "target": "JTG 3450-2019 T0912",
+          "kind": "test_method"
+        }
+      ],
+      "inbound_refs": [],
+      "patch_refs": []
+    },
+    "cross_spec_refs": [
+      {
+        "clause_id": "clause_thickness_eval",
+        "id": "layer_thickness",
+        "type": "measured_item",
+        "applies_to_form_types": [
+          "T0912-2019"
+        ],
+        "test_method": {
+          "ref": "JTG_3450_2019.T0912",
+          "alternatives": [
+            "JTG_3450_2019.T0913"
+          ],
+          "auto_select": "based on layer_zone",
+          "selection_rules": []
+        },
+        "calculation": {
+          "ref": "JTG_F80_1_2017.layer_thickness",
+          "pass_criteria": "abs(thickness - design) <= tolerance",
+          "tolerance": 8
+        },
+        "construction_control": {
+          "ref": "JTG_T_F20_2015.5.4",
+          "note": "construction params are for traceability only"
+        }
+      }
+    ]
+  },
+  "gate": {
+    "clause_xref_table": [
+      {
+        "clause_id": "table.t0912",
+        "offset_key": "0289",
+        "object_type": "Table",
+        "generation": 0,
+        "in_use": true
+      },
+      {
+        "clause_id": "rule.t0912.thickness.range",
+        "offset_key": "0523",
+        "object_type": "Rule",
+        "generation": 0,
+        "in_use": true
+      }
+    ],
+    "table_rule_tree": [
+      {
+        "table_id": "table.t0912",
+        "field_rules": [
+          {
+            "rule_id": "rule.t0912.thickness.range",
+            "field_id": "table.t0912.field.thickness",
+            "operator": "range",
+            "value_expr": "design_thickness_pm_tol",
+            "tolerance": 8,
+            "severity": "mandatory",
+            "action": "BLOCK_SUBMIT",
+            "error_message": "Thickness is out of design tolerance range."
+          }
+        ]
+      }
+    ],
+    "dependency_graph": {
+      "nodes": [
+        {
+          "id": "table.t0912.field.thickness",
+          "node_type": "field"
+        },
+        {
+          "id": "rule.t0912.thickness.range",
+          "node_type": "rule"
+        }
+      ],
+      "edges": [
+        {
+          "from": "table.t0912.field.thickness",
+          "to": "rule.t0912.thickness.range",
+          "relation": "evaluates"
+        }
+      ]
+    },
+    "diff_xref": []
+  },
+  "trailer": {
+    "root": "normdoc.root.t0912",
+    "info": {
+      "chief_editor_org": "Highway Standards Committee",
+      "contributors": [
+        "NormDoc Team"
+      ],
+      "revision_history": [
+        {
+          "version": "2019",
+          "date": "2019-05-01",
+          "summary": "Initial release for T0912."
+        }
+      ]
+    },
+    "prev": null
+  },
+  "incremental_updates": {
+    "patches": [],
+    "errata_stream": [],
+    "project_overrides": []
+  },
+  "term_cmap": [
+    {
+      "source_term": "厚度",
+      "standard_term": "thickness",
+      "standard_code": "term.thickness",
+      "confidence": 1.0
+    }
+  ]
+}
+

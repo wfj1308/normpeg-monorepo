@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.70.7",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "2",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "70.7",
+  "source_line": "2 水泥混凝土面层应采用钻芯法，每1000m2测1处。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-addbebf6d49d",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:ddd24643fd3050b1160c696c3e3524f2311564eed8a5eb3ad99a591c31eb5b31"
+}

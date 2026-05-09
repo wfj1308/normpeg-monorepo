@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.3.2.5",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "2",
+  "unit": "%",
+  "severity": "mandatory",
+  "norm_ref": "3.2.5",
+  "source_line": "2 一般项目的合格率应不低于80%，不符合要求时该检查项目应为不合格。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-3a7b298d7993",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:f7de2406b03f0a79c867a288ce31d65f9f1612713cc1c424c8260ab45ca54ecd"
+}

@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.8.2.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "3",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "8.2.1",
+  "source_line": "3 标志的地基承载力应满足设计要求。标志钢构件的焊接部分应符合钢结构焊",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-4ba7e76c3241",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:8748029f92523dee9c01cf8d3e20497b2bcadae5127f14f2484bf9df2964a35c"
+}

@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.0.80",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "gte",
+  "threshold_value": "60",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "0.80",
+  "source_line": "混凝土强度等级 ＜ C60 ≥ C60",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-8965543e1444",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:1f2762eb40cbb3d7bbe882c92bb25d18fab317db99bd5e621851e97c8e320645"
+}

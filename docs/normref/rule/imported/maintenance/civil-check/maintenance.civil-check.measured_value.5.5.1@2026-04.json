@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.5.5.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "5",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "5.5.1",
+  "source_line": "5 再生混合料的沥青含量、矿料级配、马歇尔稳定度指标应满足生产配合比要",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-28b797bca545",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:9fa51a1051986014d6b8317877394c27e9582c2e4b5e8d29ca8b922d81b553fe"
+}

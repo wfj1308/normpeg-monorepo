@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.length.9.5.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/length@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "length",
+  "operator": "eq",
+  "threshold_value": "200",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "9.5.3",
+  "source_line": "隧道养护 增设仰拱；每200m累计长度渗、漏水处治；每6m混凝土衬砌更换；每50m施工长度的",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-88bfce9f6c80",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:6a84cd1b5c0bad13fd3c3980a563db46cab18330f70e14c86995076ee2c5e726"
+}

@@ -1,0 +1,20 @@
+{
+  "rule_id": "civil.general-check.measured_value.5.2.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/civil/general-check/measured_value@2026-04",
+  "category": "civil/general-check",
+  "field_key": "measured_value",
+  "operator": "lte",
+  "threshold_value": "0.2",
+  "unit": "%",
+  "severity": "mandatory",
+  "norm_ref": "5.2.2",
+  "source_line": "矢度不大于0.2%管节长",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-06a75ca21ccc44ec",
+  "candidate_id": "cand-b16390f4292f",
+  "source_std_code": "JTG-F80-1-2017",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:5b883e38f82577cc98a9b5a67a6f84135dcd66be46784d811422239304058f29"
+}

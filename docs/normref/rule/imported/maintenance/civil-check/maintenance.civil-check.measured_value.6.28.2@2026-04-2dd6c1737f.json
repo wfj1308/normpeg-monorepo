@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.6.28.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "tolerance",
+  "threshold_value": "2",
+  "unit": "%",
+  "severity": "mandatory",
+  "norm_ref": "6.28.2",
+  "source_line": "波形钢管涵 ±2%D",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-5f5a33a92901",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:2dd6c1737ff98c53ffd04e49586024ff47f5187454212bd8f146ec3526f1e28f"
+}

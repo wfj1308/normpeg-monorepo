@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.6.9.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "range",
+  "threshold_value": "5",
+  "unit": "MPa",
+  "severity": "mandatory",
+  "norm_ref": "6.9.2",
+  "source_line": "5△ 劈裂抗拉强度(MPa) 符合设计要求 未规定时每检验批取3～5个芯样",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-91fcecf6864d",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:40d8acead6d8a0c26949242995cff8c9ab97f407e93e5c26bbd37116b7e7cd67"
+}

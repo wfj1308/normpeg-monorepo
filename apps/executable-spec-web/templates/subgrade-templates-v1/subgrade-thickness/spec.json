@@ -1,0 +1,36 @@
+{
+  "spuId": "highway.subgrade.thickness@v1",
+  "meta": {
+    "name": "路基厚度",
+    "norm": "JTG F80/1-2017",
+    "clause": "4.2.x",
+    "version": "v1",
+    "category": "subgrade",
+    "measuredItem": "thickness"
+  },
+  "data": {
+    "inputs": [
+      { "name": "measuredThickness", "type": "number", "unit": "mm" },
+      { "name": "designThickness", "type": "number", "unit": "mm" }
+    ],
+    "outputs": ["thicknessResult"]
+  },
+  "path": [
+    {
+      "step": "assign",
+      "formula": "thicknessResult = measuredThickness"
+    }
+  ],
+  "rules": [
+    {
+      "field": "thicknessResult",
+      "operator": ">=",
+      "value": "designThickness",
+      "message": "厚度必须 ≥ 设计值"
+    }
+  ],
+  "proof": {
+    "resultField": "thicknessResult",
+    "requiredSignatures": ["lab", "supervision"]
+  }
+}

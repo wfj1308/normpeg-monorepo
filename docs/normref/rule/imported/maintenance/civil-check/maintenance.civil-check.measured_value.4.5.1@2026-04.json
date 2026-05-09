@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.4.5.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "6",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "4.5.1",
+  "source_line": "6 回填土时沟槽内应无积水，回填料及分层回填、夯实的层厚应符合设计要求。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-c68b0904ba04",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:f91afd2c9708b3a1da9ba772bb02ecebe239fd5ba4d26430613bc15316b7ea28"
+}

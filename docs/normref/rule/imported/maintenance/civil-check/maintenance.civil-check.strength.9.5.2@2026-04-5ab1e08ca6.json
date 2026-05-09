@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.9.5.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "eq",
+  "threshold_value": "0.2",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "9.5.2",
+  "source_line": "C.0.2 明确了水泥混凝土弯拉强度的检验评定单元；根据水泥混凝土路面养护工",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-b94797652f05",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:5ab1e08ca6f9307dec6f8317b036d77a06063da3b0092c76207ef6dc25269809"
+}

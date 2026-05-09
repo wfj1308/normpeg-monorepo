@@ -1,0 +1,20 @@
+{
+  "rule_id": "civil.general-check.measured_value.1.0.5",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/civil/general-check/measured_value@2026-04",
+  "category": "civil/general-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "80",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "1.0.5",
+  "source_line": "公路工程质量检验评定标准第一册土建工程（JTGF80/1—2017）",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-65e587791e80456c",
+  "candidate_id": "cand-ecdedfaa1a41",
+  "source_std_code": "JTG-F80-1-2017",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:1680caa3f98bde1a31f58946ce0c98919e48730aea9c25b86957dc52e80fc9be"
+}

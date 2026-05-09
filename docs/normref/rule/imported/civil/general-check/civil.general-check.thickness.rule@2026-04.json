@@ -1,0 +1,20 @@
+{
+  "rule_id": "civil.general-check.thickness.rule",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/civil/general-check/thickness@2026-04",
+  "category": "civil/general-check",
+  "field_key": "thickness",
+  "operator": "eq",
+  "threshold_value": "",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "",
+  "source_line": "沉淀层厚度（mm）",
+  "confidence": 0.58,
+  "ingest_job_id": "ingest-7f5c246324794657",
+  "candidate_id": "cand-7085c667e5ac",
+  "source_std_code": "JTG-F80-1-2017",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:d9a7ff24ec41fc3eea0dc09456b73aff5d41d73ea178a4edcb0942ef4da2a26d"
+}

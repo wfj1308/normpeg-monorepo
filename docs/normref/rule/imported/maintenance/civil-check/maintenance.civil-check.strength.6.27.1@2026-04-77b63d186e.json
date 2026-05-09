@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.6.27.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "eq",
+  "threshold_value": "5",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "6.27.1",
+  "source_line": "5 钢护套的强度、刚度、水密性应满足混凝土或灌浆料的灌注和成形要求。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-707bccb22917",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:77b63d186e89c542aab1e5c6f0635d4d4e1a80250c4689b513052d201bf5450f"
+}

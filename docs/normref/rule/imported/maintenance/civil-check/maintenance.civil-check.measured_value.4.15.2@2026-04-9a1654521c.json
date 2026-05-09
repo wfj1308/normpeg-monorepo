@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.4.15.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "4",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "4.15.2",
+  "source_line": "4 坡 度 不陡于设计值 坡度尺量：每50m量3处",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-e0e1bf22368b",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:9a1654521cc11475f2acb863be7b6d8ca32608133ff1fa4f2124e78e780ca3e8"
+}

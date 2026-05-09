@@ -1,0 +1,123 @@
+{
+  "bundleId": "highway.bridge.pile@v1",
+  "bundleVersion": "v1",
+  "formCode": "bridge_shi_7",
+  "formName": "水下混凝土灌注记录表",
+  "dtoType": "pile",
+  "stage": "underwater_concrete_pouring_record",
+  "rules": [
+    {
+      "ruleId": "bridge_shi_7.pouring_start_time.required",
+      "fieldKeys": [
+        "pouring_start_time"
+      ],
+      "gateType": "presence",
+      "severity": "blocking",
+      "expression": "pouring_start_time is not null",
+      "unit": null,
+      "basis": {
+        "standardCode": "JTG/T3650-2020",
+        "standardName": "??????????",
+        "clause": "??7?",
+        "basisText": "???????????"
+      },
+      "message": "????????",
+      "unresolved": false
+    },
+    {
+      "ruleId": "bridge_shi_7.pouring_end_time.required",
+      "fieldKeys": [
+        "pouring_end_time"
+      ],
+      "gateType": "presence",
+      "severity": "blocking",
+      "expression": "pouring_end_time is not null",
+      "unit": null,
+      "basis": {
+        "standardCode": "JTG/T3650-2020",
+        "standardName": "??????????",
+        "clause": "??7?",
+        "basisText": "???????????"
+      },
+      "message": "????????",
+      "unresolved": false
+    },
+    {
+      "ruleId": "bridge_shi_7.concrete_level_after_pour.required",
+      "fieldKeys": [
+        "concrete_level_after_pour_m"
+      ],
+      "gateType": "presence",
+      "severity": "blocking",
+      "expression": "concrete_level_after_pour_m is not null",
+      "unit": "m",
+      "basis": {
+        "standardCode": "JTG/T3650-2020",
+        "standardName": "??????????",
+        "clause": "??7?",
+        "basisText": "????????????"
+      },
+      "message": "?????????????",
+      "unresolved": false
+    },
+    {
+      "ruleId": "bridge_shi_7.overfill_height.min_control",
+      "fieldKeys": [
+        "concrete_level_after_pour_m",
+        "design_pile_top_elevation_m"
+      ],
+      "gateType": "compare",
+      "severity": "blocking",
+      "expression": "concrete_level_after_pour_m >= design_pile_top_elevation_m + min_overfill_height_m",
+      "unit": "m",
+      "basis": {
+        "standardCode": "JTG/T3650-2020",
+        "standardName": "??????????",
+        "clause": "????",
+        "basisText": "??????????"
+      },
+      "message": "????????????????",
+      "unresolved": true
+    }
+  ],
+  "fieldRuleMap": [
+    {
+      "fieldKey": "pouring_start_time",
+      "fieldName": "????",
+      "gateRequired": true,
+      "ruleId": "bridge_shi_7.pouring_start_time.required",
+      "valueSource": "manual"
+    },
+    {
+      "fieldKey": "pouring_end_time",
+      "fieldName": "????",
+      "gateRequired": true,
+      "ruleId": "bridge_shi_7.pouring_end_time.required",
+      "valueSource": "manual"
+    },
+    {
+      "fieldKey": "concrete_level_after_pour_m",
+      "fieldName": "?????????",
+      "gateRequired": true,
+      "ruleIds": [
+        "bridge_shi_7.concrete_level_after_pour.required",
+        "bridge_shi_7.overfill_height.min_control"
+      ],
+      "valueSource": "manual"
+    },
+    {
+      "fieldKey": "design_pile_top_elevation_m",
+      "fieldName": "??????",
+      "gateRequired": true,
+      "valueSource": "source_form"
+    }
+  ],
+  "metadata": {
+    "sourceDocument": "1、桩基(1).docx",
+    "sourcePath": "c:\\Users\\xm_91\\Desktop\\1、桩基(1).docx",
+    "autogen": true,
+    "status": "draft_partially_executable",
+    "notes": "??7??????????????????????????? unresolved?",
+    "encoding": "utf-8"
+  }
+}

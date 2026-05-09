@@ -1,0 +1,20 @@
+{
+  "rule_id": "electromechanical.general-check.measured_value.4.2.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/electromechanical/general-check/measured_value@2026-04",
+  "category": "electromechanical/general-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "4.2",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "4.2.2",
+  "source_line": "气象检测器实测项目应符合表4.2.2的规定。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-11c05a464c894fef",
+  "candidate_id": "cand-9713c57e25fc",
+  "source_std_code": "JTG-2182-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:e42c66ecd469777ad0f669d55177e90cf220e8f03c13a3b805cabe4580bb10b8"
+}

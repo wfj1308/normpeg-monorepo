@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.7.6.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "tolerance",
+  "threshold_value": "6",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "7.6.2",
+  "source_line": "6 拼装偏差（mm） ±3 尺量：逐榀检查",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-5d64762efa6c",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:ee6e30ede8b868b7bcf6ec31d2753e43a397ce162707b2eb1dd7411845ad5313"
+}

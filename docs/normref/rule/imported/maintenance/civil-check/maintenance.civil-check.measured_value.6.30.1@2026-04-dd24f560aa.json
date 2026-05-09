@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.6.30.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "4",
+  "unit": "℃",
+  "severity": "mandatory",
+  "norm_ref": "6.30.1",
+  "source_line": "4 日平均气温低于5℃或最低气温低于-3℃的条件下注浆时，应采取保温措施，",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-350e9d41a47b",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:dd24f560aa93e0962f373a589169219aa73efd1cf907e2641c6ad7c46dd734f0"
+}

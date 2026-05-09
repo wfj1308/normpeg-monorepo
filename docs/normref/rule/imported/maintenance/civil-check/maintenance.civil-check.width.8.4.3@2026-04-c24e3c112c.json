@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.width.8.4.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/width@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "width",
+  "operator": "eq",
+  "threshold_value": "3",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "8.4.3",
+  "source_line": "3 金属板材反光型里程牌、百米牌的面板不应有宽度超过0.2 mm 的划痕、面积",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-6f2f37234387",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:c24e3c112c60c8841f80918ec6537b99a72c937cb6e9727e9427dbb4d054f02a"
+}

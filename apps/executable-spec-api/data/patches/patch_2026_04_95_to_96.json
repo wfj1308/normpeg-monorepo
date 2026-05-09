@@ -1,0 +1,16 @@
+{
+  "patch_id": "patch_2026_04_95_to_96",
+  "component_id": "JTG_F80_1_2017.4.2.1.compaction",
+  "base_version": "v1",
+  "authority": "ProjectOverride",
+  "reason": "Compaction standard update 95% -> 96%",
+  "effective_date": "2026-04-20",
+  "operations": [
+    {
+      "op": "replace",
+      "path": "body.path.lookup_tables.standard_by_zone.Z96",
+      "value": 96.0
+    }
+  ]
+}
+

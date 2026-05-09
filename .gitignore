@@ -1,0 +1,31 @@
+ops/docker/nl2gate-api/.env
+# dependencies
+**/node_modules/
+
+# build outputs
+**/dist/
+**/build/
+
+# logs and runtime artifacts
+*.log
+**/.run-logs/
+**/.runtime-storage/
+**/.npm-cache/
+
+# temp
+.tmp_*/
+**/__pycache__/
+
+# runtime/upload artifacts (slim repo)
+uploads/**
+logs/**
+tmp/**
+.tmp_docx.zip
+.tmp_docx_text.txt
+tmp-*.json
+tmp_*.json
+tmp_*.txt
+
+# local pid/cache/runtime files
+**/.tmp_api_pid*
+translation-bot/runtime/uploads/**

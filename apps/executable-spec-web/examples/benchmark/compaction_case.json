@@ -1,0 +1,45 @@
+{
+  "caseId": "compaction_case",
+  "fileName": "compaction.pdf",
+  "category": "compaction",
+  "rawText": "第4.2.l条 路基压实度（土质法）\n参数名  单位  说明\n灌入砂质量  g  试验输入项\n标定体积  cm3  试验输入项\n含水率  %  试验输入项\n最大干密度  g/cm3  试验输入项\n压实度 = 干密度 / 最大干密度 × 100%\n压实度应不小于93%",
+  "expected": {
+    "primaryClause": "4.2.1",
+    "formulas": [
+      {
+        "leftVar": "compactionDegree",
+        "expression": "dryDensity / maxDryDensity * 100",
+        "completeness": "full"
+      }
+    ],
+    "inputs": [
+      {
+        "name": "massHoleSand",
+        "unit": "g",
+        "label": "massHoleSand"
+      },
+      {
+        "name": "volumeSand",
+        "unit": "cm3",
+        "label": "volumeSand"
+      },
+      {
+        "name": "moistureContent",
+        "unit": "%",
+        "label": "moistureContent"
+      },
+      {
+        "name": "maxDryDensity",
+        "unit": "g/cm3",
+        "label": "maxDryDensity"
+      }
+    ],
+    "rules": [
+      {
+        "field": "compactionDegree",
+        "operator": ">=",
+        "value": 93
+      }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.7.6.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "2",
+  "unit": "%",
+  "severity": "mandatory",
+  "norm_ref": "7.6.3",
+  "source_line": "2 混凝土表面应密实。每延米面积中，蜂窝、麻面和气泡面积应不超过1%。蜂",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-a9c22a27b635",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:0f0b17996de2c4db3c9606b1e25072722a5f1df257627ec48511768f260de3c0"
+}

@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://normpeg.local/schemas/specir-review-checklist-v1.schema.json",
+  "title": "SpecIR Manual Review Checklist v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "job_id",
+    "specir_id",
+    "normRef",
+    "body_check",
+    "gate_check",
+    "cal_check",
+    "reviewer_id",
+    "reviewer_name",
+    "review_status",
+    "review_comment",
+    "signed_at",
+    "signature_hash"
+  ],
+  "properties": {
+    "job_id": { "type": "string", "minLength": 1 },
+    "specir_id": { "type": "string", "minLength": 1 },
+    "normRef": { "type": "string", "minLength": 1 },
+    "body_check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["normRef_correct", "source_text_consistent", "slotKey_correct", "unit_correct"],
+      "properties": {
+        "normRef_correct": { "type": "boolean" },
+        "source_text_consistent": { "type": "boolean" },
+        "slotKey_correct": { "type": "boolean" },
+        "unit_correct": { "type": "boolean" }
+      }
+    },
+    "gate_check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["operator_correct", "threshold_correct", "decision_logic_correct", "on_fail_correct"],
+      "properties": {
+        "operator_correct": { "type": "boolean" },
+        "threshold_correct": { "type": "boolean" },
+        "decision_logic_correct": { "type": "boolean" },
+        "on_fail_correct": { "type": "boolean" }
+      }
+    },
+    "cal_check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["formula_required", "inputs_complete", "formula_correct", "outputUnit_correct"],
+      "properties": {
+        "formula_required": { "type": "boolean" },
+        "inputs_complete": { "type": "boolean" },
+        "formula_correct": { "type": "boolean" },
+        "outputUnit_correct": { "type": "boolean" }
+      }
+    },
+    "reviewer_id": { "type": "string", "minLength": 1 },
+    "reviewer_name": { "type": "string", "minLength": 1 },
+    "review_status": {
+      "type": "string",
+      "enum": ["approved", "needs_edit", "rejected"]
+    },
+    "review_comment": { "type": "string" },
+    "signed_at": { "type": "string", "format": "date-time" },
+    "signature_hash": { "type": "string", "minLength": 8 }
+  }
+}

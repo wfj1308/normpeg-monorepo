@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.4.9.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "1",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "4.9.3",
+  "source_line": "1 槽体砌缝应均匀、密实；槽体抹面应平整，不得有空鼓现象。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-00d978cb1656",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:1d6f323e5c02b72c8b22d1e2dc7ad5002d2bd63aef627c554576609ed9c9d6fd"
+}

@@ -1,0 +1,307 @@
+﻿{
+  "NormDoc": "1.1",
+  "Header": {
+    "Type": "NormHeader",
+    "Standard": "JTG 3450-2019",
+    "Clause": "T0921",
+    "Title": "Compaction Test Record (Sand Cone)",
+    "Version": "2019",
+    "Replaces": [
+      "JTG E60-2008.T0921"
+    ],
+    "EffectiveDate": "2019-05-01",
+    "IssuingAuthority": "Ministry of Transport",
+    "Scope": [
+      "highway"
+    ],
+    "Lineage": null
+  },
+  "Body": {
+    "Type": "NormBody",
+    "Tables": [
+      {
+        "Type": "NormTable",
+        "TableID": "T0921",
+        "Name": "Compaction Test Record",
+        "DataShape": {
+          "mode": "discrete_single",
+          "description": "single-point discrete measurements"
+        },
+        "CrossSpecLink": {
+          "test_method": {
+            "ref": "JTG_3450_2019.T0921",
+            "alternatives": [
+              "JTG_3450_2019.T0923",
+              "JTG_3450_2019.T0924"
+            ],
+            "auto_select": "select by filler_type and layer_position"
+          },
+          "calculation": {
+            "ref": "JTG_F80_1_2017.Appendix_B",
+            "representative_value": "t_distribution_95",
+            "pass_criteria": "representative >= standard AND single >= standard - 2"
+          },
+          "construction_control": {
+            "ref": "JTG_T_F20_2015.4.3",
+            "note": "construction parameters are for traceability only"
+          }
+        },
+        "Dependencies": [
+          "calc_wet_density",
+          "calc_dry_density",
+          "calc_compaction_degree",
+          "calc_representative_value"
+        ],
+        "GateRef": "T0921_Gate",
+        "Fields": [
+          {
+            "Type": "NormField",
+            "FieldID": "section_stake",
+            "DataType": "StakeRange",
+            "Required": true
+          },
+          {
+            "Type": "NormField",
+            "FieldID": "sand_density",
+            "DataType": "Number",
+            "Required": true,
+            "Range": [
+              1.2,
+              1.6
+            ]
+          },
+          {
+            "Type": "NormField",
+            "FieldID": "mass_hole_sand",
+            "DataType": "Number",
+            "Required": true
+          },
+          {
+            "Type": "NormField",
+            "FieldID": "volume_ring",
+            "DataType": "Number",
+            "Required": true
+          },
+          {
+            "Type": "NormField",
+            "FieldID": "moisture_content",
+            "DataType": "Number",
+            "Required": true,
+            "Range": [
+              0,
+              30
+            ]
+          },
+          {
+            "Type": "NormField",
+            "FieldID": "max_dry_density",
+            "DataType": "Number",
+            "Required": true
+          },
+          {
+            "Type": "NormField",
+            "FieldID": "wet_density",
+            "DataType": "Computed",
+            "Formula": "calc_wet_density",
+            "Inputs": [
+              "mass_hole_sand",
+              "sand_density",
+              "volume_ring"
+            ]
+          },
+          {
+            "Type": "NormField",
+            "FieldID": "dry_density",
+            "DataType": "Computed",
+            "Formula": "calc_dry_density",
+            "Inputs": [
+              "wet_density",
+              "moisture_content"
+            ]
+          },
+          {
+            "Type": "NormField",
+            "FieldID": "compaction_degree",
+            "DataType": "Computed",
+            "Formula": "calc_compaction_degree",
+            "Inputs": [
+              "dry_density",
+              "max_dry_density"
+            ],
+            "Critical": true,
+            "GateCheck": true,
+            "StateTrigger": true
+          },
+          {
+            "Type": "NormField",
+            "FieldID": "representative_value",
+            "DataType": "Computed",
+            "Formula": "calc_representative_value",
+            "Inputs": [
+              "compaction_degree"
+            ],
+            "Critical": true,
+            "GateCheck": true,
+            "StateTrigger": true
+          },
+          {
+            "Type": "NormField",
+            "FieldID": "site_photos",
+            "DataType": "ImageArray",
+            "Required": true,
+            "MinCount": 3,
+            "MetaRequired": [
+              "timestamp",
+              "gps",
+              "device_id"
+            ]
+          }
+        ]
+      }
+    ],
+    "Formulas": [
+      {
+        "Type": "Formula",
+        "FormulaID": "calc_wet_density",
+        "Expression": "(mass_hole_sand / sand_density) / volume_ring",
+        "PhysicalConstraint": "DensityRange"
+      },
+      {
+        "Type": "Formula",
+        "FormulaID": "calc_dry_density",
+        "Expression": "wet_density / (1 + moisture_content / 100)",
+        "PhysicalConstraint": "DensityRange"
+      },
+      {
+        "Type": "Formula",
+        "FormulaID": "calc_compaction_degree",
+        "Expression": "dry_density / max_dry_density * 100"
+      },
+      {
+        "Type": "Formula",
+        "FormulaID": "calc_representative_value",
+        "Expression": "avg(compaction_degree) - t_distribution_95(n - 1) * std(compaction_degree) / sqrt(n)"
+      }
+    ],
+    "InstrumentCert": [
+      {
+        "Type": "InstrumentCert",
+        "InstrumentID": "SB_2024_001",
+        "InstrumentType": "sand_bottle",
+        "CalibrationDate": "2024-03-01",
+        "ValidUntil": "2026-09-01",
+        "CalibratedValue": 1.456,
+        "CertHash": "sha256:abc123..."
+      }
+    ]
+  },
+  "Gate": {
+    "Type": "NormGate",
+    "GateID": "T0921_Gate",
+    "Rules": [
+      {
+        "Type": "GateRule",
+        "RuleID": "rule_formula_wet_density",
+        "TargetField": "wet_density",
+        "CheckType": "FormulaConsistency",
+        "ErrorMessage": "wet density formula mismatch",
+        "Severity": "Blocking",
+        "ActionOnFail": "BlockSubmit"
+      },
+      {
+        "Type": "GateRule",
+        "RuleID": "rule_data_consistency",
+        "TargetField": "dry_density",
+        "CheckType": "PhysicalConstraint",
+        "Expression": "dry_density <= wet_density * 1.05",
+        "ErrorMessage": "dry density should not significantly exceed wet density",
+        "Severity": "Warning",
+        "ActionOnFail": "FlagReview"
+      },
+      {
+        "Type": "GateRule",
+        "RuleID": "rule_compaction_standard",
+        "TargetField": "compaction_degree",
+        "CheckType": "NormCompliance",
+        "Conditional": {
+          "If": [
+            {
+              "ConditionField": "road_class",
+              "Operator": "In",
+              "Value": [
+                "expressway",
+                "class_1"
+              ]
+            },
+            {
+              "ConditionField": "layer_position",
+              "Operator": "Equal",
+              "Value": "subbase"
+            }
+          ],
+          "Then": {
+            "Operator": "GreaterEqual",
+            "Threshold": 96
+          },
+          "Else": {
+            "Operator": "GreaterEqual",
+            "Threshold": 95
+          }
+        },
+        "Threshold": 95,
+        "ErrorMessage": "compaction below required threshold",
+        "Severity": "Blocking",
+        "ActionOnFail": "BlockSubmit",
+        "AllowOverride": true,
+        "OverrideRequires": [
+          {
+            "Role": "ChiefEngineer",
+            "SignatureType": "Digital"
+          },
+          {
+            "Evidence": "Photo",
+            "Description": "retest_photo"
+          }
+        ]
+      },
+      {
+        "Type": "GateRule",
+        "RuleID": "rule_representative_value",
+        "TargetField": "representative_value",
+        "CheckType": "NormCompliance",
+        "Operator": "GreaterEqual",
+        "Threshold": 95,
+        "ErrorMessage": "representative value below required threshold",
+        "Severity": "Critical",
+        "ActionOnFail": "BlockSubmit"
+      }
+    ]
+  },
+  "Trailer": {
+    "xref": [
+      {
+        "obj": "Header",
+        "offset": 15
+      },
+      {
+        "obj": "Body.Tables[0]",
+        "offset": 234
+      },
+      {
+        "obj": "Gate",
+        "offset": 980
+      }
+    ],
+    "trailer": {
+      "Size": 3,
+      "Root": "Header",
+      "Info": "T0921 metadata",
+      "Prev": null
+    },
+    "startxref": 1200
+  },
+  "IncrementalUpdates": {
+    "patch": [],
+    "override": []
+  }
+}

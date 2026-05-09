@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.inclination.7.6.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/inclination@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "inclination",
+  "operator": "tolerance",
+  "threshold_value": "5",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "7.6.2",
+  "source_line": "5 倾斜度（°） ±2 测量仪器：逐榀检查",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-6c6e2aecab3d",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:9fc6a3bcfe21fa1d9fb5028710b720969236e8f944b0524a963d87e751f42b68"
+}

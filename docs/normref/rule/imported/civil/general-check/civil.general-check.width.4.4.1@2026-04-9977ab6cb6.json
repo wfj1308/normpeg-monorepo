@@ -1,0 +1,20 @@
+{
+  "rule_id": "civil.general-check.width.4.4.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/civil/general-check/width@2026-04",
+  "category": "civil/general-check",
+  "field_key": "width",
+  "operator": "eq",
+  "threshold_value": "3",
+  "unit": "%",
+  "severity": "mandatory",
+  "norm_ref": "4.4.1",
+  "source_line": "3反压护道：护道高度、宽度应满足设计要求，压实度不低于90%。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-06a75ca21ccc44ec",
+  "candidate_id": "cand-b1c0a5d42809",
+  "source_std_code": "JTG-F80-1-2017",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:9977ab6cb680f262dda4719b2eaaa1e448201aaf2c8568e87f6399c1f66c6f85"
+}

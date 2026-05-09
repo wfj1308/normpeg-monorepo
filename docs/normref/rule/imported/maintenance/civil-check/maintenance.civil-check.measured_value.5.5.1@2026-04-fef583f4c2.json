@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.5.5.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "4",
+  "unit": "℃",
+  "severity": "mandatory",
+  "norm_ref": "5.5.1",
+  "source_line": "4 应将再生路面碾压至要求的压实度。开放交通前路表温度应低于50℃。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-fb42c47852d9",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:fef583f4c2619e4747a9556e0baec49d27ae77e16441d20d99121cf889e0b2b7"
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://normpeg.local/schemas/rule-composed-gate-v1.schema.json",
+  "title": "Rule Composed Gate v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "gate_id",
+    "rule_refs",
+    "logic",
+    "decision",
+    "on_pass",
+    "on_fail",
+    "confidence",
+    "evidence_refs",
+    "gate_status"
+  ],
+  "properties": {
+    "gate_id": { "type": "string", "minLength": 1 },
+    "rule_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "logic": {
+      "type": "string",
+      "enum": ["AND", "OR", "ANY", "ALL"]
+    },
+    "decision": {
+      "type": "string",
+      "enum": ["pass", "fail", "blocked"]
+    },
+    "on_pass": { "type": "string", "minLength": 1 },
+    "on_fail": { "type": "string", "minLength": 1 },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "evidence_refs": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "gate_status": {
+      "type": "string",
+      "enum": ["ready", "partial", "blocked"]
+    }
+  }
+}

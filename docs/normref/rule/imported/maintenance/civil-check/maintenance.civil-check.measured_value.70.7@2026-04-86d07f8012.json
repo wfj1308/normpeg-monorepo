@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.70.7",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "tolerance",
+  "threshold_value": "2",
+  "unit": "%",
+  "severity": "mandatory",
+  "norm_ref": "70.7",
+  "source_line": "2测力系统：其整机误差应不超过全程的±2%，且有峰值储存功能；",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-8ae925eed3d0",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:86d07f801266c5f2a5cce4bd5e086775a23e97dd04a92e764da4a9eb0b7528aa"
+}

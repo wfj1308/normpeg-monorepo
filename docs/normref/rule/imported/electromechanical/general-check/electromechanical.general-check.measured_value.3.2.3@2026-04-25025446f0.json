@@ -1,0 +1,20 @@
+{
+  "rule_id": "electromechanical.general-check.measured_value.3.2.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/electromechanical/general-check/measured_value@2026-04",
+  "category": "electromechanical/general-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "2",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "3.2.3",
+  "source_line": "2分项工程所用的各种设备、配件的型号、规格、数量及质量应符合合同要",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-11c05a464c894fef",
+  "candidate_id": "cand-23e72b928c67",
+  "source_std_code": "JTG-2182-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:25025446f07726c7d7513b402b4dbf2b3aa932fc56b161d6247466aa24163ba3"
+}

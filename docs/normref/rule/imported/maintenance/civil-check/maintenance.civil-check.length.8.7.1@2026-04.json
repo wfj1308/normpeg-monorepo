@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.length.8.7.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/length@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "length",
+  "operator": "eq",
+  "threshold_value": "5",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "8.7.1",
+  "source_line": "5 端部立柱调节螺杆行车方向外露部分长度和安全防护形式应符合设计要求。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-548717d50e77",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:31ceec5027b526f04835fd864bf86e8dd0fe4261cbbbf740ceb5380ee954bdfa"
+}

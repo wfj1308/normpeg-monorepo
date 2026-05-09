@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://normpeg.local/schemas/norm-version-diff-engine.schema.json",
+  "title": "Norm Version Diff Engine Schema",
+  "type": "object",
+  "required": [
+    "schema",
+    "meta",
+    "catalog_diff",
+    "specir_diff",
+    "rule_diff",
+    "gate_diff",
+    "slot_diff",
+    "impact_preview",
+    "compare_algorithm",
+    "impact_analysis_pipeline"
+  ],
+  "properties": {
+    "schema": {
+      "type": "object",
+      "required": ["schema_id", "required_sections", "diff_types"],
+      "properties": {
+        "schema_id": { "type": "string" },
+        "required_sections": { "type": "array", "items": { "type": "string" } },
+        "diff_types": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "added",
+              "removed",
+              "modified",
+              "semantic_changed",
+              "threshold_changed",
+              "operator_changed"
+            ]
+          }
+        }
+      }
+    },
+    "meta": { "type": "object" },
+    "catalog_diff": { "type": "object" },
+    "specir_diff": { "type": "object" },
+    "rule_diff": { "type": "object" },
+    "gate_diff": { "type": "object" },
+    "slot_diff": { "type": "object" },
+    "impact_preview": {
+      "type": "object",
+      "required": ["form_code", "executor", "DTO"]
+    },
+    "compare_algorithm": { "type": "object" },
+    "impact_analysis_pipeline": { "type": "object" }
+  }
+}

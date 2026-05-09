@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NormRef Translation Bot</title>
+  <style>
+    :root {
+      --bg: #f4f6f8;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --primary: #0f766e;
+      --warn: #b45309;
+      --danger: #b91c1c;
+      --ok: #166534;
+      --border: #d1d5db;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+      color: var(--text);
+      padding: 20px;
+    }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 14px;
+      box-shadow: 0 2px 12px rgba(15, 23, 42, 0.04);
+    }
+    h1 { margin: 0 0 12px; font-size: 24px; }
+    h2 { margin: 0 0 12px; font-size: 18px; }
+    .row {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 10px;
+      align-items: center;
+    }
+    .col-3 { grid-column: span 3; }
+    .col-4 { grid-column: span 4; }
+    .col-6 { grid-column: span 6; }
+    .col-12 { grid-column: span 12; }
+    @media (max-width: 860px) {
+      .col-3, .col-4, .col-6, .col-12 { grid-column: span 12; }
+    }
+    label { font-size: 12px; color: var(--muted); display: block; margin-bottom: 4px; }
+    input, select, button, textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 14px;
+      background: #fff;
+    }
+    button {
+      cursor: pointer;
+      border: 0;
+      color: #fff;
+      background: var(--primary);
+      font-weight: 600;
+    }
+    button.secondary { background: #334155; }
+    button.warn { background: var(--warn); }
+    button.danger { background: var(--danger); }
+    button.ghost {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    button:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+    .muted { color: var(--muted); font-size: 13px; }
+    .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12px;
+      white-space: pre-wrap;
+      word-break: break-word;
+      background: #0f172a;
+      color: #dbeafe;
+      border-radius: 8px;
+      padding: 12px;
+      max-height: 360px;
+      overflow: auto;
+    }
+    .status-pill {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      background: #e2e8f0;
+      color: #334155;
+    }
+    .status-ok { background: #dcfce7; color: var(--ok); }
+    .status-warn { background: #ffedd5; color: var(--warn); }
+    .status-danger { background: #fee2e2; color: var(--danger); }
+    .kpi { font-size: 13px; margin: 4px 0; }
+    .issue {
+      border: 1px solid #f1f5f9;
+      background: #f8fafc;
+      border-radius: 8px;
+      padding: 8px 10px;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+    .issue.error { border-color: #fecaca; background: #fef2f2; }
+    .issue.warning { border-color: #fed7aa; background: #fffbeb; }
+    .template-item {
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 10px;
+      margin-bottom: 8px;
+      background: #fff;
+    }
+    .template-item.active { border-color: #14b8a6; box-shadow: 0 0 0 1px #14b8a6 inset; }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 980px) {
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .btn-row button { width: auto; padding: 8px 12px; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>NormRef Translation Bot</h1>
+
+  <div class="card">
+    <h2>1) 上传并生成</h2>
+    <div class="row">
+      <div class="col-6">
+        <label>PDF 文件</label>
+        <input id="fileInput" type="file" accept=".pdf,application/pdf" />
+      </div>
+      <div class="col-3">
+        <label>standard_code</label>
+        <input id="standardCode" value="JTG F80/1-2017" />
+      </div>
+      <div class="col-3">
+        <label>OCR max pages</label>
+        <input id="ocrMaxPages" type="number" value="20" min="1" />
+      </div>
+      <div class="col-3">
+        <label>模板策略</label>
+        <select id="templateStrategy">
+          <option value="auto">auto</option>
+          <option value="ignore">ignore</option>
+          <option value="direct_use">direct_use</option>
+          <option value="based_generate">based_generate</option>
+        </select>
+      </div>
+      <div class="col-3">
+        <label>指定 templateId（可选）</label>
+        <input id="templateIdInput" placeholder="tpl_xxx" />
+      </div>
+      <div class="col-3">
+        <label>&nbsp;</label>
+        <button id="submitBtn">生成规范</button>
+      </div>
+      <div class="col-3">
+        <label>&nbsp;</label>
+        <button id="refreshTemplatesBtn" class="secondary">刷新模板库</button>
+      </div>
+    </div>
+    <p id="globalMessage" class="muted"></p>
+  </div>
+
+  <div class="card">
+    <h2>2) 任务进度</h2>
+    <div class="kpi">Task ID: <span id="taskIdText">-</span></div>
+    <div class="kpi">状态: <span id="taskStatusText" class="status-pill">idle</span></div>
+    <div class="kpi">解析状态: <span id="parseStatusText" class="status-pill">-</span></div>
+    <div class="kpi">解析进度: <span id="parseProgressText">0%</span></div>
+    <div class="kpi">解析错误: <span id="parseErrorText">-</span></div>
+  </div>
+
+  <div class="card">
+    <h2>3) 模板推荐</h2>
+    <p id="recommendHint" class="muted">解析完成后会展示推荐模板。</p>
+    <div id="recommendList"></div>
+    <div class="btn-row">
+      <button id="directUseBtn">直接使用模板</button>
+      <button id="basedGenerateBtn" class="secondary">基于模板生成</button>
+      <button id="ignoreTemplateBtn" class="ghost">忽略模板并重生成</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>4) 生成结果</h2>
+    <div class="kpi">confidence: <span id="confidenceText">-</span></div>
+    <div class="kpi">template_action: <span id="templateActionText">-</span></div>
+    <div class="kpi">template_selected_id: <span id="templateSelectedText">-</span></div>
+    <div class="kpi">review_points:</div>
+    <div id="reviewPointsWrap" class="muted">-</div>
+    <div class="grid-2" style="margin-top: 8px;">
+      <div>
+        <h3>markdown</h3>
+        <pre id="markdownPre" class="mono"></pre>
+      </div>
+      <div>
+        <h3>json</h3>
+        <pre id="jsonPre" class="mono"></pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>5) 自动校验与人工确认</h2>
+    <div class="kpi">reviewStatus: <span id="reviewStatusText" class="status-pill">-</span></div>
+    <div class="kpi">reviewScore: <span id="reviewScoreText">-</span></div>
+    <div class="kpi">reviewPassed: <span id="reviewPassedText">-</span></div>
+    <div class="kpi">issues:</div>
+    <div id="issuesWrap" class="muted">-</div>
+    <div class="btn-row">
+      <button id="approveBtn" class="warn">人工确认通过</button>
+      <button id="rejectBtn" class="danger">拒绝本次生成</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>6) 操作区</h2>
+    <div class="btn-row">
+      <button id="executeBtn">立即执行</button>
+      <button id="saveTemplateBtn" class="secondary">保存为模板</button>
+      <button id="downloadBundleBtn" class="ghost">下载 specbundle（备用）</button>
+    </div>
+    <p id="actionMessage" class="muted"></p>
+  </div>
+
+  <div class="card">
+    <h2>7) 模板管理</h2>
+    <div id="templateListWrap" class="muted">模板列表为空。</div>
+    <h3 style="margin-top: 10px;">模板 JSON</h3>
+    <pre id="templateDetailPre" class="mono"></pre>
+  </div>
+</div>
+
+<script>
+  let currentTaskId = "";
+  let pollTimer = null;
+  let lastResult = null;
+  let selectedTemplateId = "";
+  let latestRecommendations = [];
+
+  const $ = (id) => document.getElementById(id);
+
+  function setText(id, value) {
+    $(id).textContent = value ?? "";
+  }
+
+  function setPill(id, value, type = "") {
+    const el = $(id);
+    el.textContent = value ?? "";
+    el.className = "status-pill";
+    if (type === "ok") el.classList.add("status-ok");
+    if (type === "warn") el.classList.add("status-warn");
+    if (type === "danger") el.classList.add("status-danger");
+  }
+
+  function stringify(obj) {
+    return JSON.stringify(obj ?? {}, null, 2);
+  }
+
+  function reviewType(status) {
+    if (status === "AUTO_VALIDATED" || status === "APPROVED") return "ok";
+    if (status === "NEEDS_REVIEW" || status === "DRAFT") return "warn";
+    if (status === "REJECTED") return "danger";
+    return "";
+  }
+
+  function renderIssues(issues) {
+    const wrap = $("issuesWrap");
+    if (!Array.isArray(issues) || issues.length === 0) {
+      wrap.innerHTML = '<div class="muted">无 issues</div>';
+      return;
+    }
+    wrap.innerHTML = issues.map((item) => {
+      const level = item.level || "warning";
+      const code = item.code || "ISSUE";
+      const field = item.field ? ` (${item.field})` : "";
+      return `<div class="issue ${level}"><b>${code}</b>${field}<br/>${item.message || ""}</div>`;
+    }).join("");
+  }
+
+  function renderReviewPoints(points) {
+    const wrap = $("reviewPointsWrap");
+    if (!Array.isArray(points) || points.length === 0) {
+      wrap.innerHTML = '<div class="muted">-</div>';
+      return;
+    }
+    wrap.innerHTML = points.map((x) => `<div class="issue">${x}</div>`).join("");
+  }
+
+  function renderRecommendations(recommendations) {
+    latestRecommendations = Array.isArray(recommendations) ? recommendations : [];
+    if (latestRecommendations.length > 0 && !selectedTemplateId) {
+      selectedTemplateId = latestRecommendations[0].templateId || "";
+    }
+    const list = $("recommendList");
+    const hint = $("recommendHint");
+
+    if (latestRecommendations.length === 0) {
+      hint.textContent = "未发现高匹配模板，默认全新生成。";
+      list.innerHTML = '<div class="muted">暂无推荐结果</div>';
+      return;
+    }
+
+    const top = Number(latestRecommendations[0].score || 0);
+    if (top >= 0.95) {
+      hint.textContent = "发现高匹配模板，建议直接复用。";
+    } else if (top >= 0.8) {
+      hint.textContent = "发现相似模板，建议基于模板生成。";
+    } else {
+      hint.textContent = "推荐模板匹配度一般，可按需忽略。";
+    }
+
+    list.innerHTML = latestRecommendations.map((item) => {
+      const active = item.templateId === selectedTemplateId ? "active" : "";
+      const reason = Array.isArray(item.matchReason) ? item.matchReason.join(", ") : "-";
+      return `
+        <div class="template-item ${active}">
+          <div><b>${item.name || item.templateId}</b></div>
+          <div class="muted">templateId: ${item.templateId}</div>
+          <div class="muted">score: ${item.score} | source: ${item.sourceType || "-"} | usageCount: ${item.usageCount ?? 0}</div>
+          <div class="muted">matchReason: ${reason}</div>
+          <div class="btn-row">
+            <button class="ghost" onclick="selectTemplate('${item.templateId}')">选中此模板</button>
+          </div>
+        </div>
+      `;
+    }).join("");
+  }
+
+  function renderTemplateList(items) {
+    const wrap = $("templateListWrap");
+    if (!Array.isArray(items) || items.length === 0) {
+      wrap.innerHTML = '<div class="muted">模板列表为空。</div>';
+      return;
+    }
+
+    wrap.innerHTML = items.map((item) => {
+      return `
+        <div class="template-item">
+          <div><b>${item.name || item.templateId}</b></div>
+          <div class="muted">templateId: ${item.templateId}</div>
+          <div class="muted">source: ${item.sourceType || "-"} | reviewStatus: ${item.reviewStatus || "-"} | usageCount: ${item.usageCount ?? 0}</div>
+          <div class="btn-row">
+            <button class="ghost" onclick="viewTemplate('${item.templateId}')">查看 JSON</button>
+            <button class="danger" onclick="deleteTemplate('${item.templateId}')">删除（测试）</button>
+          </div>
+        </div>
+      `;
+    }).join("");
+  }
+
+  function updateActionButtons(result) {
+    const status = result?.review_status || "DRAFT";
+    const canRun = status === "AUTO_VALIDATED" || status === "APPROVED";
+    $("executeBtn").disabled = !canRun;
+    $("saveTemplateBtn").disabled = !canRun;
+    $("approveBtn").disabled = status !== "NEEDS_REVIEW";
+    $("rejectBtn").disabled = status !== "NEEDS_REVIEW";
+  }
+
+  function renderResult(result) {
+    lastResult = result;
+    setText("taskIdText", result.task_id || "-");
+    setPill("taskStatusText", result.status || "-", result.status === "done" ? "ok" : result.status === "error" ? "danger" : "warn");
+    setPill("parseStatusText", result.parse_status || "-", result.parse_status === "success" ? "ok" : result.parse_status === "failed" ? "danger" : "warn");
+    setText("parseProgressText", `${Math.round((Number(result.parse_progress || 0)) * 100)}%`);
+    setText("parseErrorText", result.parse_error || "-");
+
+    setText("confidenceText", result.confidence ?? "-");
+    setText("templateActionText", result.template_action || "-");
+    setText("templateSelectedText", result.template_selected_id || "-");
+    $("markdownPre").textContent = result.markdown || "";
+    $("jsonPre").textContent = result.json ? stringify(result.json) : "";
+    renderReviewPoints(result.review_points);
+
+    setPill("reviewStatusText", result.review_status || "-", reviewType(result.review_status));
+    setText("reviewScoreText", String(result.review_score ?? "-"));
+    setText("reviewPassedText", String(result.review_passed ?? "-"));
+    renderIssues(result.review_issues);
+    renderRecommendations(result.template_recommendations || []);
+    updateActionButtons(result);
+
+    if (result.status === "done" && result.download_url) {
+      $("downloadBundleBtn").disabled = false;
+    } else {
+      $("downloadBundleBtn").disabled = true;
+    }
+
+    if (result.status === "processing") {
+      $("globalMessage").textContent = `解析中 ${Math.round((Number(result.parse_progress || 0)) * 100)}%`;
+    } else if (result.status === "error") {
+      $("globalMessage").textContent = `任务失败: ${result.error || "-"}`;
+    } else if (result.status === "done") {
+      $("globalMessage").textContent = "任务完成。";
+    }
+  }
+
+  async function request(url, init) {
+    const resp = await fetch(url, init);
+    let data = {};
+    try {
+      data = await resp.json();
+    } catch (_) {
+      data = { detail: await resp.text() };
+    }
+    if (!resp.ok) {
+      throw new Error(data.detail || data.error || `HTTP_${resp.status}`);
+    }
+    return data;
+  }
+
+  async function fetchResult() {
+    if (!currentTaskId) return;
+    try {
+      const result = await request(`/result/${currentTaskId}`);
+      renderResult(result);
+      if (result.status === "done" || result.status === "error") {
+        stopPolling();
+      }
+    } catch (err) {
+      $("globalMessage").textContent = `查询结果失败: ${err.message}`;
+      stopPolling();
+    }
+  }
+
+  function stopPolling() {
+    if (pollTimer) {
+      clearInterval(pollTimer);
+      pollTimer = null;
+    }
+  }
+
+  function startPolling() {
+    stopPolling();
+    pollTimer = setInterval(fetchResult, 1200);
+  }
+
+  async function submitTranslate() {
+    const file = $("fileInput").files?.[0];
+    if (!file) {
+      $("globalMessage").textContent = "请先选择 PDF 文件。";
+      return;
+    }
+
+    const form = new FormData();
+    form.append("file", file);
+    form.append("standard_code", $("standardCode").value.trim());
+    form.append("ocr_max_pages", String($("ocrMaxPages").value || 20));
+    form.append("template_strategy", $("templateStrategy").value);
+    const templateId = $("templateIdInput").value.trim();
+    if (templateId) {
+      form.append("template_id", templateId);
+    }
+
+    try {
+      $("submitBtn").disabled = true;
+      $("globalMessage").textContent = "任务已提交，正在启动解析...";
+      const data = await request("/translate", { method: "POST", body: form });
+      currentTaskId = data.task_id;
+      selectedTemplateId = "";
+      latestRecommendations = [];
+      setText("taskIdText", currentTaskId);
+      startPolling();
+      await fetchResult();
+    } catch (err) {
+      $("globalMessage").textContent = `提交失败: ${err.message}`;
+    } finally {
+      $("submitBtn").disabled = false;
+    }
+  }
+
+  async function applyTemplate(action) {
+    if (!currentTaskId) {
+      $("actionMessage").textContent = "请先完成一次任务。";
+      return;
+    }
+    let templateId = "";
+    if (action === "direct_use" || action === "based_generate") {
+      templateId = selectedTemplateId || latestRecommendations?.[0]?.templateId || "";
+      if (!templateId) {
+        $("actionMessage").textContent = "当前没有可用模板。";
+        return;
+      }
+    }
+
+    try {
+      const data = await request("/api/v1/templates/apply", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          taskId: currentTaskId,
+          action,
+          templateId: templateId || null,
+        }),
+      });
+      $("actionMessage").textContent = `已触发重生成: ${data.action}`;
+      startPolling();
+    } catch (err) {
+      $("actionMessage").textContent = `模板应用失败: ${err.message}`;
+    }
+  }
+
+  async function approveReview() {
+    if (!currentTaskId) return;
+    const reviewer = prompt("请输入 reviewer 标识", "user_reviewer") || "user_reviewer";
+    try {
+      const data = await request("/api/v1/spu/review/approve", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ taskId: currentTaskId, reviewer }),
+      });
+      $("actionMessage").textContent = `人工确认通过: ${data.reviewStatus}`;
+      await fetchResult();
+      await loadTemplateList();
+    } catch (err) {
+      $("actionMessage").textContent = `人工确认失败: ${err.message}`;
+    }
+  }
+
+  async function rejectReview() {
+    if (!currentTaskId) return;
+    const reviewer = prompt("请输入 reviewer 标识", "user_reviewer") || "user_reviewer";
+    const reason = prompt("请输入拒绝原因", "validation failed") || "validation failed";
+    try {
+      const data = await request("/api/v1/spu/review/reject", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ taskId: currentTaskId, reviewer, reason }),
+      });
+      $("actionMessage").textContent = `已拒绝: ${data.reviewStatus}`;
+      await fetchResult();
+    } catch (err) {
+      $("actionMessage").textContent = `拒绝失败: ${err.message}`;
+    }
+  }
+
+  async function executeEntry() {
+    if (!currentTaskId) return;
+    try {
+      const data = await request(`/execute/${currentTaskId}/entry`, { method: "POST" });
+      $("actionMessage").textContent = `执行入口已生成: ${data.execution_url || "-"}`;
+      if (data.execution_url) {
+        window.open(data.execution_url, "_blank");
+      }
+      await fetchResult();
+    } catch (err) {
+      $("actionMessage").textContent = `执行入口失败: ${err.message}`;
+    }
+  }
+
+  async function saveTemplate() {
+    if (!currentTaskId) return;
+    try {
+      const data = await request(`/template/${currentTaskId}/save`, { method: "POST" });
+      $("actionMessage").textContent = `模板已保存: ${data.templatePath}`;
+      await fetchResult();
+      await loadTemplateList();
+    } catch (err) {
+      $("actionMessage").textContent = `保存模板失败: ${err.message}`;
+    }
+  }
+
+  function downloadBundle() {
+    if (!currentTaskId) return;
+    window.open(`/download/${currentTaskId}.specbundle`, "_blank");
+  }
+
+  async function loadTemplateList() {
+    try {
+      const data = await request("/api/v1/templates");
+      renderTemplateList(data.items || []);
+    } catch (err) {
+      $("templateListWrap").innerHTML = `<div class="muted">加载模板失败: ${err.message}</div>`;
+    }
+  }
+
+  async function viewTemplate(templateId) {
+    try {
+      const data = await request(`/api/v1/templates/${templateId}`);
+      $("templateDetailPre").textContent = stringify(data.item || {});
+    } catch (err) {
+      $("templateDetailPre").textContent = `查看模板失败: ${err.message}`;
+    }
+  }
+
+  async function deleteTemplate(templateId) {
+    const ok = confirm(`确认删除模板 ${templateId} ?`);
+    if (!ok) return;
+    try {
+      await request(`/api/v1/templates/${templateId}`, { method: "DELETE" });
+      await loadTemplateList();
+      $("templateDetailPre").textContent = "";
+      $("actionMessage").textContent = `模板已删除: ${templateId}`;
+    } catch (err) {
+      $("actionMessage").textContent = `删除模板失败: ${err.message}`;
+    }
+  }
+
+  function selectTemplate(templateId) {
+    selectedTemplateId = templateId;
+    renderRecommendations(latestRecommendations);
+    $("templateIdInput").value = templateId;
+  }
+
+  window.selectTemplate = selectTemplate;
+  window.viewTemplate = viewTemplate;
+  window.deleteTemplate = deleteTemplate;
+
+  $("submitBtn").addEventListener("click", submitTranslate);
+  $("refreshTemplatesBtn").addEventListener("click", loadTemplateList);
+  $("directUseBtn").addEventListener("click", () => applyTemplate("direct_use"));
+  $("basedGenerateBtn").addEventListener("click", () => applyTemplate("based_generate"));
+  $("ignoreTemplateBtn").addEventListener("click", () => applyTemplate("ignore"));
+  $("approveBtn").addEventListener("click", approveReview);
+  $("rejectBtn").addEventListener("click", rejectReview);
+  $("executeBtn").addEventListener("click", executeEntry);
+  $("saveTemplateBtn").addEventListener("click", saveTemplate);
+  $("downloadBundleBtn").addEventListener("click", downloadBundle);
+
+  loadTemplateList();
+</script>
+</body>
+</html>

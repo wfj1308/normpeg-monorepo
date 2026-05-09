@@ -1,0 +1,12 @@
+﻿.git/
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.pyd
+.venv/
+venv/
+.docx_parsed.txt
+PDF解析器的逻辑.docx
+index.html
+examples/
+packages/

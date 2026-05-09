@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.length.9.5.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/length@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "length",
+  "operator": "eq",
+  "threshold_value": "100",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "9.5.3",
+  "source_line": "工程 排水设施维修，冻害处治；每 100m 累计施工长度的人行道（检修道）维修，分别作为一",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-764d31a0fa59",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:c6fc023ac5cc0aed9ec5fd9cc6e499480a863a9c7131050bcd57c06fea137422"
+}

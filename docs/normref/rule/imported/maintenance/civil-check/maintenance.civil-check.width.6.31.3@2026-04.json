@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.width.6.31.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/width@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "width",
+  "operator": "eq",
+  "threshold_value": "1",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "6.31.3",
+  "source_line": "1 新增混凝土表面平整，不得出现蜂窝、麻面、孔洞、露筋和宽度超过设计规",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-b5393d760c6a",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:6122ac7b908e45467d026ec74fe328aeb4d6938a89720f778f443ef5bf49a32a"
+}

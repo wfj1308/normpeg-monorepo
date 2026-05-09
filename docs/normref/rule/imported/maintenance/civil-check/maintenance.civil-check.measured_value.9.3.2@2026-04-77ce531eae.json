@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.9.3.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "tolerance",
+  "threshold_value": "10",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "9.3.2",
+  "source_line": "高 度 h (mm) ±10％h，且＋300，－100 钢卷尺：抽检5％，且不少于10株",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-2803414d7167",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:77ce531eae44c68a714eae391a7226c4843f85f82852dda4507e26004cf16202"
+}

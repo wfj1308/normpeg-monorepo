@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.5.7.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "3",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "5.7.3",
+  "source_line": "3 挖补后的路面与周边路面应连接紧密，不得有渗水现象。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-5307d3bc0467",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:2cf57a931fab1f87bde5e8704a051bf59ea6907d42f555eb37199b7575f93ba6"
+}

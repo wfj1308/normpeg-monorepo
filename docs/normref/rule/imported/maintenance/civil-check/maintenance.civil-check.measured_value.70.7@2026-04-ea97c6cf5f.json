@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.70.7",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "range",
+  "threshold_value": "1500",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "70.7",
+  "source_line": "仪器和连接钢标准块，以1500~2000N/min 的均匀速度加载，记录破坏时的荷载值，",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-783891f0d08a",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:ea97c6cf5fcaaba1c4b7793aa3b7b87d71b3c5f04b44b71bd8134b3fb2347c9c"
+}

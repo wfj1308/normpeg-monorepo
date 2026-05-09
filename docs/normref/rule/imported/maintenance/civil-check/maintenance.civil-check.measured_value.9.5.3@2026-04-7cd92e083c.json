@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.9.5.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "range",
+  "threshold_value": "5000",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "9.5.3",
+  "source_line": "每5000～10000延米的沥青路面开槽灌缝，作为一个养护单元",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-ca97e3690bfe",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:7cd92e083cb7152ce05eeea35f081d62f2ee10ce928b07137be7a167e3b8ee1a"
+}

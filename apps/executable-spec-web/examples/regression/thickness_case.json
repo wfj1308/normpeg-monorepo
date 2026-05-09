@@ -1,0 +1,68 @@
+{
+  "caseId": "thickness_case",
+  "fileName": "thickness.pdf",
+  "warnings": [
+    {
+      "code": "INPUTS_INFERRED",
+      "message": "Input params inferred from text"
+    },
+    {
+      "code": "RULES_INFERRED",
+      "message": "Rules inferred from text"
+    },
+    {
+      "code": "OCR_TEXT_NOISY",
+      "message": "OCR text quality is noisy"
+    }
+  ],
+  "originalDraftMarkdown": "# 路基厚度\n规范来源：JTG F80/1-2017\n条款号：4.3.2\n版本：v1\n分类：subgrade\n检测项：thickness\n\n## 输入参数\n- measuredThickness | number | mm | 实测厚度\n- designThickness | number | mm | 设计厚度\n\n## 输出参数\n- thicknessDeviation\n- thicknessRatio\n\n## 计算步骤\n1. thicknessDeviation = measuredThickness - designThickness\n2. thicknessRatio = (measuredThickness / designThickness) * 100\n\n## 判定规则\n- measuredThickness >= designThickness | 实测厚度不得小于设计厚度\n\n## 签字要求\n- lab\n- supervision\n\n## 依赖\n- none\n",
+  "editedMarkdown": "# 路基厚度\n规范来源：JTG F80/1-2017\n条款号：4.3.2\n版本：v1\n分类：subgrade\n检测项：thickness\n\n## 输入参数\n- measuredThickness | number | mm | 实测厚度\n- designThickness | number | mm | 设计厚度\n\n## 输出参数\n- thicknessDeviation\n- thicknessRatio\n\n## 计算步骤\n1. thicknessDeviation = measuredThickness - designThickness\n2. thicknessRatio = (measuredThickness / designThickness) * 100\n\n## 判定规则\n- measuredThickness >= designThickness | 实测厚度不得小于设计厚度\n\n## 签字要求\n- lab\n- supervision\n\n## 依赖\n- none\n",
+  "clauseReviewItems": [
+    {
+      "id": "clause_source",
+      "title": "规范来源",
+      "message": "已确认",
+      "riskLevel": "high",
+      "required": true,
+      "confirmed": true
+    },
+    {
+      "id": "clause_number",
+      "title": "条款号",
+      "message": "已确认",
+      "riskLevel": "high",
+      "required": true,
+      "confirmed": true
+    },
+    {
+      "id": "calc_path",
+      "title": "计算步骤",
+      "message": "已确认",
+      "riskLevel": "high",
+      "required": true,
+      "confirmed": true
+    },
+    {
+      "id": "decision_rules",
+      "title": "判定规则",
+      "message": "已确认",
+      "riskLevel": "high",
+      "required": true,
+      "confirmed": true
+    },
+    {
+      "id": "depends_on",
+      "title": "依赖",
+      "message": "已确认",
+      "riskLevel": "medium",
+      "required": false,
+      "confirmed": true
+    }
+  ],
+  "expectedDecision": {
+    "status": "warning",
+    "warningReasonsContains": [
+      "Input params inferred from text"
+    ]
+  }
+}

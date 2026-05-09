@@ -1,0 +1,20 @@
+{
+  "bridge_shi_13": {
+    "pass_input": {
+      "pile.topElevation.diff": 80,
+      "pile.centerXYDiff": 30,
+      "hole.diameter.diff": 10,
+      "hole.inclination": 0.5,
+      "hole.sedimentThickness": 30
+    },
+    "fail_input": {
+      "pile.topElevation.diff": 150,
+      "pile.centerXYDiff": 80,
+      "hole.diameter.diff": 60,
+      "hole.inclination": 1.5,
+      "hole.sedimentThickness": 120
+    },
+    "expected_pass": "PASS",
+    "expected_fail": "FAIL"
+  }
+}

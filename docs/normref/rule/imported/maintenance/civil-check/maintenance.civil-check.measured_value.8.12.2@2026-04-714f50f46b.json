@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.8.12.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "4",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "8.12.2",
+  "source_line": "4 防眩网网孔尺寸(mm) 符合设计要求 钢直尺：每200m测1处，每处测3孔",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-1f412dda4849",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:714f50f46b30a1d22186aa11dcad825c5dc6eacf950d1e13a0f95d270de6a3cb"
+}

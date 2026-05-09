@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.70.7",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "eq",
+  "threshold_value": "17671",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "70.7",
+  "source_line": "泥胶砂强度试验方法（ISO 法）》（GB/T 17671）规定的方法，进行抗折强度和抗",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-05f72d44f181",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:92dd9507fdc5a915028e59be5a9addfb4b30766312eb8c7a9af339cf2488429d"
+}

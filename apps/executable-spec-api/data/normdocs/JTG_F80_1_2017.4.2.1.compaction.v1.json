@@ -1,0 +1,136 @@
+{
+  "header": {
+    "catalog_id": "JTG_F80_1_2017",
+    "standard_id": "JTG F80/1-2017",
+    "standard_version": "2017",
+    "component_id": "JTG_F80_1_2017.4.2.1.compaction",
+    "component_name": "compaction_degree",
+    "version": "v1",
+    "status": "active"
+  },
+  "body": {
+    "type": "MeasuredItem",
+    "critical": true,
+    "input_dto": {
+      "stake": "Chainage",
+      "layer_depth": "Enum[0-0.8m,0.8-1.5m,>1.5m]",
+      "test_method": "Enum[T0921,T0923,T0924]",
+      "raw_data": {
+        "sand_density": "Number",
+        "mass_hole_sand": "Number",
+        "volume_ring": "Number",
+        "moisture_content": "Number",
+        "max_dry_density": "Number"
+      }
+    },
+    "output_dto": {
+      "compaction_degree": "Number",
+      "status": "Enum[PASS,FAIL,OVERRIDDEN]",
+      "representative_value": "Number",
+      "proof_hash": "Hash"
+    },
+    "path": {
+      "steps": [
+        {
+          "id": "calc_wet_density",
+          "formula": "(mass_hole_sand / sand_density) / volume_ring",
+          "output": "wet_density"
+        },
+        {
+          "id": "calc_dry_density",
+          "formula": "wet_density / (1 + moisture_content / 100)",
+          "output": "dry_density"
+        },
+        {
+          "id": "calc_compaction",
+          "formula": "dry_density / max_dry_density * 100",
+          "output": "compaction_degree"
+        },
+        {
+          "id": "determine_zone",
+          "lookup": {
+            "table": "layer_depth_to_zone",
+            "input": "layer_depth"
+          },
+          "output": "zone_type"
+        },
+        {
+          "id": "determine_standard",
+          "lookup": {
+            "table": "standard_by_zone",
+            "input": "zone_type"
+          },
+          "output": "standard_value"
+        }
+      ],
+      "lookup_tables": {
+        "layer_depth_to_zone": {
+          "0-0.8m": "Z96",
+          "0.8-1.5m": "Z96",
+          ">1.5m": "Z94"
+        },
+        "standard_by_zone": {
+          "Z96": 95.0,
+          "Z94": 94.0,
+          "Z92": 92.0
+        },
+        "tolerance": 2.0
+      }
+    },
+    "state": [
+      "DRAFT",
+      "COMPUTED",
+      "VALIDATED",
+      "AGGREGATED",
+      "QUALIFIED",
+      "REJECTED",
+      "OVERRIDDEN",
+      "ARCHIVED"
+    ]
+  },
+  "gate": {
+    "entry": "gate.compaction.dual_check",
+    "clause_refs": [
+      "JTG_F80_1_2017.4.2.1",
+      "JTG_3450_2019.T0921"
+    ],
+    "type": "DualCheck",
+    "single_point_check": {
+      "condition": "compaction_degree >= standard_value - tolerance",
+      "fail_action": "BLOCK"
+    },
+    "representative_check": {
+      "aggregation": "paragraph",
+      "method": "t_distribution_95",
+      "condition": "representative >= standard_value",
+      "fail_action": "CRITICAL"
+    },
+    "override_allowed": true,
+    "override_requires": [
+      "chief_engineer_did",
+      "photo_evidence"
+    ]
+  },
+  "trailer": {
+    "proof_fields": [
+      "input",
+      "path_outputs",
+      "gate",
+      "state_trace",
+      "actor_did",
+      "generated_at"
+    ],
+    "execution_entry": "layer2.execute.compaction"
+  },
+  "incremental_updates": [
+    {
+      "id": "patch_2026_04_95_to_96",
+      "target": "body.path.lookup_tables.standard_by_zone.Z96",
+      "from": 95.0,
+      "to": 96.0,
+      "effective_date": "2026-04-20",
+      "reason": "Spec update: compaction minimum threshold from 95% to 96%"
+    }
+  ]
+}
+

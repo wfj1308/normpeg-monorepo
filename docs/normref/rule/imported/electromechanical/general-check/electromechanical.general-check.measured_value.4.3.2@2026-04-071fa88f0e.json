@@ -1,0 +1,20 @@
+{
+  "rule_id": "electromechanical.general-check.measured_value.4.3.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/electromechanical/general-check/measured_value@2026-04",
+  "category": "electromechanical/general-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "4.3",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "4.3.2",
+  "source_line": "闭路电视监视系统实测项目应符合表4.3.2的规定。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-11c05a464c894fef",
+  "candidate_id": "cand-e8c300a11c68",
+  "source_std_code": "JTG-2182-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:071fa88f0eb5c04094367d8edcf21364783e472905c64917f37c55af8e4eb48f"
+}

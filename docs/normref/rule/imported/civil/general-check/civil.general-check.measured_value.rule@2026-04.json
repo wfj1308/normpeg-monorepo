@@ -1,0 +1,20 @@
+{
+  "rule_id": "civil.general-check.measured_value.rule",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/civil/general-check/measured_value@2026-04",
+  "category": "civil/general-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "18",
+  "unit": "cm",
+  "severity": "mandatory",
+  "norm_ref": "",
+  "source_line": "申报人意见：经自检，该段土样的最大干密度为18十a/cm录",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-a3748bb53d744b15",
+  "candidate_id": "cand-0cd081dcaa1d",
+  "source_std_code": "JTG-F80-1-2017",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:e1ebd2e7b3df53589fb8db28120e2208a3d15488d84813cdf1a68d0b542fa88d"
+}

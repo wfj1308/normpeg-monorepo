@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.9.5.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "tolerance",
+  "threshold_value": "0.4",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "9.5.2",
+  "source_line": "H.0.4～H.0.6 根据养护工程的特点，明确了按平均值和单个合格值的允许偏差",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-5f37a6a6d8ac",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:923ebc351607f471898abb2700206b6b22759f4a0d8fbd5c38ad25919c9fbea6"
+}

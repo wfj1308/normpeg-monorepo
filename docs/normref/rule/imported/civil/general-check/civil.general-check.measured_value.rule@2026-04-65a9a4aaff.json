@@ -1,0 +1,20 @@
+{
+  "rule_id": "civil.general-check.measured_value.rule",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/civil/general-check/measured_value@2026-04",
+  "category": "civil/general-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "2004",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "",
+  "source_line": "2004）的全面修订。经批准后以《公路工程质量检验评定标准“第一册土建工程》",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-06a75ca21ccc44ec",
+  "candidate_id": "cand-c7cc5174ebc9",
+  "source_std_code": "JTG-F80-1-2017",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:65a9a4aaff776b4415f960678f911dd225b4018fdd236e6ee29ab1638305d190"
+}

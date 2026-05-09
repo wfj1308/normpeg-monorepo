@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.6.26.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "lte",
+  "threshold_value": "2",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "6.26.2",
+  "source_line": "2 桩纵轴线弯曲矢高（mm） ≤0.1%L，且不大于30",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-7e8766806d0c",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:54a02d6d85c98eeb8015e78a60e5e9e8c841ea658ce863f0a540fe55159cf702"
+}

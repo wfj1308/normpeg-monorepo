@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.6.18.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "4",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "6.18.1",
+  "source_line": "4 注浆孔和排气孔的封堵及防护应满足设计要求。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-9eccf46375a4",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:206dd8ef8c5dae49eae3100f4423c0a24f7e2d0e2df97569429aa54c4a44d6d3"
+}

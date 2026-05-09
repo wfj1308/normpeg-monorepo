@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://normpeg.local/schemas/rule-impact-graph.schema.json",
+  "title": "Rule Impact Graph Schema",
+  "type": "object",
+  "required": [
+    "schema",
+    "meta",
+    "dependency_graph",
+    "propagation_algorithm",
+    "upstream_trace",
+    "downstream_impacts",
+    "impact_summary",
+    "page_plan"
+  ],
+  "properties": {
+    "schema": { "type": "object" },
+    "meta": { "type": "object" },
+    "dependency_graph": { "type": "object" },
+    "propagation_algorithm": { "type": "object" },
+    "upstream_trace": { "type": "object" },
+    "downstream_impacts": { "type": "object" },
+    "impact_summary": { "type": "object" },
+    "page_plan": { "type": "object" }
+  }
+}

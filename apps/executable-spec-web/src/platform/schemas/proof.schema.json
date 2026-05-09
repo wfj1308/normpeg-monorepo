@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "proof.schema.json",
+  "title": "UnifiedProof",
+  "description": "Frozen proof contract for proofFragment and finalProof.",
+  "oneOf": [
+    { "$ref": "#/$defs/proofFragment" },
+    { "$ref": "#/$defs/finalProof" }
+  ],
+  "$defs": {
+    "proofStatus": {
+      "type": "string",
+      "enum": ["PASS", "FAIL", "BLOCK", "PENDING"]
+    },
+    "archiveStatus": {
+      "type": "string",
+      "enum": ["NOT_ARCHIVED", "ARCHIVED"]
+    },
+    "proofRuleMatch": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ruleId", "passed"],
+      "properties": {
+        "ruleId": { "type": "string", "minLength": 1 },
+        "condition": { "type": "string" },
+        "passed": { "type": "boolean" },
+        "severity": { "type": "string" },
+        "message": { "type": "string" },
+        "actual": {},
+        "expected": {}
+      }
+    },
+    "proofSignature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role", "status"],
+      "properties": {
+        "role": { "type": "string", "minLength": 1 },
+        "signer": { "type": ["string", "null"] },
+        "signature": { "type": ["string", "null"] },
+        "status": {
+          "type": "string",
+          "enum": ["PENDING", "SIGNED"]
+        },
+        "signedAt": { "type": ["string", "null"] }
+      }
+    },
+    "proofTimestamps": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["createdAt"],
+      "properties": {
+        "createdAt": { "type": "string", "minLength": 1 },
+        "evaluatedAt": { "type": ["string", "null"] },
+        "finalizedAt": { "type": ["string", "null"] },
+        "archivedAt": { "type": ["string", "null"] }
+      }
+    },
+    "unifiedProofCore": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "kind",
+        "executionId",
+        "spuId",
+        "nodeId",
+        "containerId",
+        "inputSnapshot",
+        "resultSnapshot",
+        "matchedSpecVersion",
+        "matchedRules",
+        "status",
+        "signatures",
+        "timestamps",
+        "archiveStatus"
+      ],
+      "properties": {
+        "kind": { "type": "string", "enum": ["proofFragment", "finalProof"] },
+        "executionId": { "type": ["string", "null"] },
+        "spuId": { "type": "string", "minLength": 1 },
+        "nodeId": { "type": ["string", "null"] },
+        "containerId": { "type": ["string", "null"] },
+        "inputSnapshot": { "type": "object" },
+        "resultSnapshot": { "type": "object" },
+        "matchedSpecVersion": { "type": "string", "minLength": 1 },
+        "matchedRules": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/proofRuleMatch" }
+        },
+        "status": { "$ref": "#/$defs/proofStatus" },
+        "signatures": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/proofSignature" }
+        },
+        "timestamps": { "$ref": "#/$defs/proofTimestamps" },
+        "archiveStatus": { "$ref": "#/$defs/archiveStatus" },
+        "technicalDetails": { "type": "object" }
+      }
+    },
+    "proofFragment": {
+      "allOf": [
+        { "$ref": "#/$defs/unifiedProofCore" },
+        {
+          "type": "object",
+          "additionalProperties": true,
+          "required": ["kind", "archiveStatus"],
+          "properties": {
+            "kind": { "const": "proofFragment" },
+            "archiveStatus": { "const": "NOT_ARCHIVED" }
+          }
+        }
+      ]
+    },
+    "finalProof": {
+      "allOf": [
+        { "$ref": "#/$defs/unifiedProofCore" },
+        {
+          "type": "object",
+          "additionalProperties": true,
+          "required": ["kind", "proofId", "schemaVersion"],
+          "properties": {
+            "kind": { "const": "finalProof" },
+            "proofId": { "type": "string", "minLength": 1 },
+            "hash": { "type": "string" },
+            "schemaVersion": { "type": "string", "minLength": 1 },
+            "extensions": { "type": "object" }
+          }
+        }
+      ]
+    }
+  }
+}

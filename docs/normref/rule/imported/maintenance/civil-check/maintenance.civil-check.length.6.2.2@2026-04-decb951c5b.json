@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.length.6.2.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/length@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "length",
+  "operator": "lte",
+  "threshold_value": "200",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "6.2.2",
+  "source_line": "渗水试验仪：长度不大于200m时测5",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-edc5811e36a2",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:decb951c5b746d6e28a64b71288592b4f4b4fe0a2e628302073ee06b8b202573"
+}

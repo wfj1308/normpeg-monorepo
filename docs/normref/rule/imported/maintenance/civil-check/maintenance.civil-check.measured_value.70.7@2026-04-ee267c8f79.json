@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.70.7",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "1",
+  "unit": "%",
+  "severity": "mandatory",
+  "norm_ref": "70.7",
+  "source_line": "1 2 3 4 5 6 7 8 9 10 平均值、代表值 合格率(%) 合格判定",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-8fc36bcfe9b6",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:ee267c8f79fa2c008c06ec76c1ea3ec8db988c11d5d501c5938cc0bd1df13bb3"
+}

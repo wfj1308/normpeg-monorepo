@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.0.80",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "range",
+  "threshold_value": "2",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "0.80",
+  "source_line": "取2组，31～50 m 的应制取3组，50 m 以上的至少应制取5组。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-84a4b75f58bc",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:3ac13a0662cc538e21d2b044c3b888c136985c758e0070542bcfb023283e7f99"
+}

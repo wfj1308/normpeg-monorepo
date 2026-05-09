@@ -1,0 +1,20 @@
+{
+  "rule_id": "civil.general-check.measured_value.4.2.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/civil/general-check/measured_value@2026-04",
+  "category": "civil/general-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "4",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "4.2.1",
+  "source_line": "4在设定取土区内合理取土，不得滥开滥挖。完工后应按要求对取土坑和弃土场",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-06a75ca21ccc44ec",
+  "candidate_id": "cand-16e1eae9edf4",
+  "source_std_code": "JTG-F80-1-2017",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:3539edcc7b432d10868576817f5cd4d7b7a7b49df92b36eac1990a376f470bb4"
+}

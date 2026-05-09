@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.7.9.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "gte",
+  "threshold_value": "1",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "7.9.2",
+  "source_line": "1 管槽尺寸（mm） 不小于设计值 尺量：每10m 检查2处",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-e4e1c3d0def2",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:351ea3c9a6e4a4ef10182ed852e90701baae10e26a95fff36d454d449bf44a3e"
+}

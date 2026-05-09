@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.length.5.18.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/length@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "length",
+  "operator": "eq",
+  "threshold_value": "2",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "5.18.3",
+  "source_line": "2 离析累计长度不应超过100m。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-03b8ebd3aadf",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:95c8e58d740973b2cd36e52915740def6bd5b5abc9c587d0a378f0cdb2ead329"
+}

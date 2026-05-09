@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.6.31.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "5220",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "6.31.1",
+  "source_line": "公路养护工程质量检验评定标准（JTG 5220-2020）",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-fa5eed988967",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:06fd30cc77a6e2c48785018716313d2523b6d55475da537b54cb67ab014773e6"
+}

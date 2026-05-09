@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.6.28.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "tolerance",
+  "threshold_value": "1",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "6.28.2",
+  "source_line": "注：1.D为管涵直径，计算规定值或允许偏差时以mm计。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-ce26d08a15f7",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:ad60dd34afbd8b5a074ee5f109609e7ff751eea3368396389cbb5bc886cc0629"
+}

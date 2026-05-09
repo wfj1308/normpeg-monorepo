@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.6.18.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "eq",
+  "threshold_value": "1",
+  "unit": "MPa",
+  "severity": "mandatory",
+  "norm_ref": "6.18.2",
+  "source_line": "1△ 注浆强度(MPa) 按附录F检查",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-e0138f66a6ef",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:edc29342ad8a8487d074920f62ef528d93945b888d0b48a4a153719c680696be"
+}

@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.thickness.70.7",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/thickness@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "thickness",
+  "operator": "gte",
+  "threshold_value": "0.7",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "70.7",
+  "source_line": "N.0.7 钢标准块为圆形，直径50mm，厚度不小于20mm，采用45 号钢制作，其",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-e24e7cfc734b",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:43ef46c616a4fad620ccdb4a8e28be2d6f38507d06a2fc9a002715ec1b0b47e2"
+}

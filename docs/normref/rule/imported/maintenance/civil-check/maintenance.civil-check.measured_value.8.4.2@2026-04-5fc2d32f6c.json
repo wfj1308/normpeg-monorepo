@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.8.4.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "tolerance",
+  "threshold_value": "5",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "8.4.2",
+  "source_line": "5 内侧距路边缘线距离 (mm) ±20 钢卷尺：抽检10 ％",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-4e7b50b04c5b",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:5fc2d32f6c5bb7fda72d8518e4a6e1336d0da7452bf224158e53a95c0e85fa42"
+}

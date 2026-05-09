@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.length.5.8.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/length@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "length",
+  "operator": "eq",
+  "threshold_value": "3",
+  "unit": "%",
+  "severity": "mandatory",
+  "norm_ref": "5.8.3",
+  "source_line": "长度的3%。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-9952efbc6c59",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:3d6933db3d552c0e0f6a9b82da1bf85bf52489b25e1752b9a1e7f97ca30c1f9d"
+}

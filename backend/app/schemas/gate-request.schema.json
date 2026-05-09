@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://layerpeg.local/schemas/gate-request.schema.json",
+  "title": "Gate Request Schema",
+  "$ref": "core-models.schema.json#/$defs/GateRequest"
+}

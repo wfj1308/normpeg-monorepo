@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.4.5.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "gte",
+  "threshold_value": "90",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "4.5.2",
+  "source_line": "度 管道两侧 ≥90",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-f152869b3d86",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:774dab69a4c80214f6fa52c2f9120c09f92fc5db00ebe406cd19c6b2340014bd"
+}

@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.elevation.6.31.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/elevation@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "elevation",
+  "operator": "tolerance",
+  "threshold_value": "3",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "6.31.2",
+  "source_line": "3 流水面高程(mm) ±20 水准仪：测洞口、中点和其他四分点附近5处",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-40fa9968e99c",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:12ca320ca532eb85088065b121a26b1b39c6cf2c906f376ad60265f182fed3dd"
+}

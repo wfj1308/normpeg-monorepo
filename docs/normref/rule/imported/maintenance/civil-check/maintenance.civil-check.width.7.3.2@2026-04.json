@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.width.7.3.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/width@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "width",
+  "operator": "tolerance",
+  "threshold_value": "2",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "7.3.2",
+  "source_line": "2 人行道宽度(mm) ±10 尺量：每25m检查1处",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-4c10e428fe78",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:e9b84d23967cd4e9e1e48984a6036579371cb358cc5a52deb633f3279992c44a"
+}

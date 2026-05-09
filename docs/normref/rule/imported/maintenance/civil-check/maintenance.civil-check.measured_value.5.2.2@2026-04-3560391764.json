@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.5.2.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "gte",
+  "threshold_value": "1",
+  "unit": "%",
+  "severity": "mandatory",
+  "norm_ref": "5.2.2",
+  "source_line": "1△ 压实度a (％) ≥最大理论密度的92％(*94%) 按附录B检查",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-904db1e7f4a2",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:3560391764228c494f8eda42a8d0ca73ecd4fb402d12b11c90c4a85c2574d54e"
+}

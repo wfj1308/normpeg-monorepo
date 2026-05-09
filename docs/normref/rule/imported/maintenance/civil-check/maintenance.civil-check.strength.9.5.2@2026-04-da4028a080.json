@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.9.5.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "eq",
+  "threshold_value": "450",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "9.5.2",
+  "source_line": "450mm×200mm ×120mm（可制成 3 块）的模型内，当混凝土达到一定强度后，加工",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-6b4608fcbf48",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:da4028a080726457b93e2e0a10c00e060c25b7657230d51a5f9ce32ddf529fed"
+}

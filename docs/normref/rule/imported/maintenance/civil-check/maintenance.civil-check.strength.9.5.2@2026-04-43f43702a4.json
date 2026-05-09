@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.9.5.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "range",
+  "threshold_value": "0.3",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "9.5.2",
+  "source_line": "G.0.3～G.0.5 本附录半刚性基层和底基层材料强度的评定方法与《公路工程质",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-e24d9ca0f58a",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:43f43702a44e8c0322a9c117448a78a10c09a040f5ee7845ece933988a342b7b"
+}

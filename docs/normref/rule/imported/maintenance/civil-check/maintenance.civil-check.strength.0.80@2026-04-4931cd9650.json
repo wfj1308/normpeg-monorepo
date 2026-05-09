@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.0.80",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "gte",
+  "threshold_value": "2",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "0.80",
+  "source_line": "2 试件组数等于或小于10组时，试件平均强度不得小于1.15 f ，任一组强度均",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-692fe6a1b06a",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:4931cd9650b380b2ba824c2b6c6bcc67c3dff3ce5ce8a4b34ed7ad488d47301c"
+}

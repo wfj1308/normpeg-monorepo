@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.8.14.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "lte",
+  "threshold_value": "6",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "8.14.2",
+  "source_line": "6 金属立柱竖直度 (mm/m) ≤ 5 靠尺、垂线：按标准段数检查30%",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-1cfd8bfe36f1",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:9db658813114e6c55fbfe7e08a488bd7c1cd53e85b832afdf6de5efc1eafbe43"
+}

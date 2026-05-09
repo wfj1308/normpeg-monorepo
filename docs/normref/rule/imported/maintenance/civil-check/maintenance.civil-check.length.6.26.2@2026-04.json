@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.length.6.26.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/length@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "length",
+  "operator": "eq",
+  "threshold_value": "1",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "6.26.2",
+  "source_line": "1 长度（mm） +300，0 尺量：每桩测量",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-abb27b77bc73",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:cd88db938682a9cee778481bc75d62d5af04ac3f88664e87ddbd49097194deaf"
+}

@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.0.80",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "7",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "0.80",
+  "source_line": "7 交通安全及沿线设施的混凝土基础，每40m3应制取2组，且每一工作班至少",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-38c08b3de828",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:b754a012f4cd28a106833ecc856fff8cc907c34d576967f638be8477b2b0f4d0"
+}

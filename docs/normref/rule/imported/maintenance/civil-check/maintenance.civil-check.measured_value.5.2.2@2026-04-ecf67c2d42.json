@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.5.2.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "lte",
+  "threshold_value": "60",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "5.2.2",
+  "source_line": "度H计，H≤60mm时合格值允许偏差为-10mm，H＞60mm时合格值允许偏差为-20%H。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-06abc3513156",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:ecf67c2d42930ad8e3c3714ee2c0b4e8f4321569e26314e346ed9d647d03ac8b"
+}

@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.4.12.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "lte",
+  "threshold_value": "30",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "4.12.2",
+  "source_line": "片石 ≤30 2m直尺：每10m量3处，每",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-20e945d9e184",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:4dc1f58e32cfd7d6eff90dd1bfc1db8c2bba8370dcabc6127ceab9e3b03102ec"
+}

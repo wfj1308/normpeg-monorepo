@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.length.7.10.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/length@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "length",
+  "operator": "gte",
+  "threshold_value": "2",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "7.10.2",
+  "source_line": "2 防冻隔温层长度(mm) 不小于设计值 尺量：每50m检查1处",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-76460d3d4b7f",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:8d6228bf290236b3b2ab24d9b2d05fdace33e62aa9b3b9271a57f33c8ac5b749"
+}

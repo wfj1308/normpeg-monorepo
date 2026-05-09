@@ -1,0 +1,20 @@
+{
+  "rule_id": "civil.general-check.measured_value.4.4.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/civil/general-check/measured_value@2026-04",
+  "category": "civil/general-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "4",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "4.4.1",
+  "source_line": "4袋装砂井、塑料排水板：沙袋和塑料排水板下沉时不得出现扭结、断裂等现象；",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-06a75ca21ccc44ec",
+  "candidate_id": "cand-258b1d0e4bdb",
+  "source_std_code": "JTG-F80-1-2017",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:23e1914243bcd5ef6e5df4787cfb51f7908a2cacdbce4b9d2f2bc0247f79a0a1"
+}

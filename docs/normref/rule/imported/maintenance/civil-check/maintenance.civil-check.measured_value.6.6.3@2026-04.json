@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.6.6.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "0.2",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "6.6.3",
+  "source_line": "未规定时超过0.2mm 的裂缝，与原结构应连接紧密。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-d93011ef8040",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:068e8fbf0481274ded1f4b0369d52a38dd454e122b82c232dba9f2d74d6ec15f"
+}

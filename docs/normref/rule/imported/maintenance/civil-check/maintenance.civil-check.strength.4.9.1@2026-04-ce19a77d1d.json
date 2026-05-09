@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.4.9.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "eq",
+  "threshold_value": "2",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "4.9.1",
+  "source_line": "2 石料或混凝土预制构件的强度、质量应符合设计要求和现行《公路圬工桥涵",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-e77349035633",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:ce19a77d1deee6a512a00f51a42852eb005570f4b7887ac58162b345ec3d0289"
+}

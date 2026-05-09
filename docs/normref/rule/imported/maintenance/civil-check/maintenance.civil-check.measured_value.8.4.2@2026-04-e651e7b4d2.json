@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.8.4.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "10",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "8.4.2",
+  "source_line": "(mm) 百米桩、界碑检查10％",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-ec7cb920a0d1",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:e651e7b4d28a860c0f4468016900b1eb38a6537c3d1966e98e425892851768c4"
+}

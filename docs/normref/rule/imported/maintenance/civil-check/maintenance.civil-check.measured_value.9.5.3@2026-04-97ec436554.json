@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.9.5.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "range",
+  "threshold_value": "28",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "9.5.3",
+  "source_line": "标准养生时间28d；路面钻芯劈裂时间，不掺粉煤灰宜用28d，掺粉煤灰宜用28~56d。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-a0b33a1f2a96",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:97ec4365546a9e142f7edcb13f2ba2a1e4fe2e7ec13a61eedde558849d14ea7c"
+}

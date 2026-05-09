@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.4.11.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "eq",
+  "threshold_value": "1",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "4.11.1",
+  "source_line": "1 所用材料的种类、型号、规格、强度和质量应符合设计要求。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-28d0c3f275c6",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:1edfa9ef457b9735b84285ac2762dd64d17b07f7dd3624a256855fb88360160d"
+}

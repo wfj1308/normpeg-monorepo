@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.8.6.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "0.5",
+  "unit": "%",
+  "severity": "mandatory",
+  "norm_ref": "8.6.3",
+  "source_line": "超过该面面积的0.5%，深度不得超过10mm。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-a588db12bff0",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:fbc1591121a6c69384a71176f310a1f36b4a9af45fc2d907077353e63003aaef"
+}

@@ -1,0 +1,11 @@
+{
+  "max_size_growth_ratio": 3.0,
+  "max_size_growth_bytes": 1048576,
+  "critical_gates": {
+    "bridge_shi_13": [
+      "gate.JTG/T 3650-2020.9_7_1.component",
+      "gate.JTG/T 3650-2020.9_7_2.component",
+      "gate.JTG/T 3650-2020.9_7_3.component"
+    ]
+  }
+}

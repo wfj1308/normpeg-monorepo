@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.9.5",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "176",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "9.5",
+  "source_line": "附录M 植筋拉拔承载力现场检验评定 .................................................................. 176",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-fe3b3754c8df",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:bc9da18a65f057b96a11546ecc1069295905c5f04ff4c7ad97579cd9ec66d8ba"
+}

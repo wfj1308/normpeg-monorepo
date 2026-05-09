@@ -1,0 +1,20 @@
+{
+  "rule_id": "electromechanical.general-check.measured_value.3.2.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/electromechanical/general-check/measured_value@2026-04",
+  "category": "electromechanical/general-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "1",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "3.2.3",
+  "source_line": "1分项工程应对所列基本要求逐项检查，经检查不符合规定时，不得进行工",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-11c05a464c894fef",
+  "candidate_id": "cand-38b64bb5cdfb",
+  "source_std_code": "JTG-2182-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:b7c73374cc39f68c490ad51fe016ceb77a9b08b80feac5ff02944f5c78605cb0"
+}

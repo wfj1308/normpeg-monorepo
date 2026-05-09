@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.elevation.6.28.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/elevation@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "elevation",
+  "operator": "tolerance",
+  "threshold_value": "5",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "6.28.2",
+  "source_line": "5 涵底高程(mm) ±20 水准仪：测洞口、新旧结合面、中间5处",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-40390d069569",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:98881c5df1129c5923bc7f797f327d95afb143959ee9423be401fc2cf7108b16"
+}

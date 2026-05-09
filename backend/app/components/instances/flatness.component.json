@@ -1,0 +1,339 @@
+{
+  "component_id": "JTG_F80_1_2017.4.2.1.flatness",
+  "catalog_id": "JTG_F80_1_2017",
+  "standard_id": "JTG F80/1-2017",
+  "standard_version": "2017",
+  "component_name": "平整度",
+  "version": "v2.0.0",
+  "status": "active",
+  "metadata": {
+    "component_type": "MeasuredItem",
+    "critical": false,
+    "owner": "quality-center",
+    "description": "路面平整度执行构件（DSL驱动）"
+  },
+  "input_dto": {
+    "stake": {
+      "type": "string",
+      "required": true
+    },
+    "project_id": {
+      "type": "string",
+      "required": true
+    },
+    "surface_type": {
+      "type": "enum",
+      "required": true,
+      "enum_values": [
+        "subgrade",
+        "base",
+        "asphalt"
+      ]
+    },
+    "flatness_measured": {
+      "type": "number",
+      "unit": "mm",
+      "required": true
+    },
+    "actor_did": {
+      "type": "string",
+      "required": true
+    },
+    "inspected_at": {
+      "type": "string",
+      "required": true
+    },
+    "archive_requested": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    }
+  },
+  "output_dto": {
+    "standard_limit": {
+      "type": "number",
+      "unit": "mm"
+    },
+    "tolerance": {
+      "type": "number",
+      "unit": "mm"
+    },
+    "upper_limit": {
+      "type": "number",
+      "unit": "mm"
+    },
+    "deviation": {
+      "type": "number",
+      "unit": "mm"
+    },
+    "final_status": {
+      "type": "enum",
+      "enum_values": [
+        "PASS",
+        "FAIL",
+        "BLOCKED",
+        "CRITICAL",
+        "OVERRIDDEN",
+        "WARNING"
+      ]
+    },
+    "clause_refs": {
+      "type": "array"
+    }
+  },
+  "path": {
+    "steps": [
+      {
+        "step_id": "lookup_standard_limit",
+        "action": "lookup",
+        "lookup_ref": "standard_limit_by_surface",
+        "input_fields": [
+          "surface_type"
+        ],
+        "output_field": "standard_limit"
+      },
+      {
+        "step_id": "lookup_tolerance",
+        "action": "lookup",
+        "lookup_ref": "tolerance_by_surface",
+        "input_fields": [
+          "surface_type"
+        ],
+        "output_field": "tolerance"
+      },
+      {
+        "step_id": "calc_upper_limit",
+        "action": "formula",
+        "formula_ref": "upper_limit_formula",
+        "output_field": "upper_limit"
+      },
+      {
+        "step_id": "calc_deviation",
+        "action": "formula",
+        "formula_ref": "deviation_formula",
+        "output_field": "deviation"
+      }
+    ],
+    "formulas": {
+      "upper_limit_formula": "standard_limit + tolerance",
+      "deviation_formula": "flatness_measured - standard_limit"
+    },
+    "lookup_tables": {
+      "standard_limit_by_surface": {
+        "subgrade": 15.0,
+        "base": 12.0,
+        "asphalt": 8.0
+      },
+      "tolerance_by_surface": {
+        "subgrade": 2.0,
+        "base": 2.0,
+        "asphalt": 1.0
+      }
+    },
+    "derived_fields": [
+      "standard_limit",
+      "tolerance",
+      "upper_limit",
+      "deviation"
+    ]
+  },
+  "gate": {
+    "rules": [
+      {
+        "rule_id": "upper_tolerance_rule",
+        "condition": {
+          "operator": "tolerance",
+          "mode": "upper_bound",
+          "actual": "flatness_measured",
+          "expected": "standard_limit",
+          "tolerance": "tolerance"
+        },
+        "severity": "blocking",
+        "on_fail": "block",
+        "clause_refs": [
+          "JTG_F80_1_2017.flatness.upper"
+        ]
+      },
+      {
+        "rule_id": "deviation_warning_rule",
+        "condition": {
+          "operator": "between",
+          "actual": "deviation",
+          "min": -100,
+          "max": 100,
+          "include_min": true,
+          "include_max": true
+        },
+        "severity": "warning",
+        "on_fail": "warn",
+        "clause_refs": [
+          "JTG_F80_1_2017.flatness.deviation"
+        ]
+      }
+    ],
+    "references": [
+      "JTG_F80_1_2017.flatness"
+    ],
+    "clause_refs": [
+      "JTG_F80_1_2017.flatness"
+    ]
+  },
+  "state": {
+    "initial_state": "DRAFT",
+    "states": [
+      "DRAFT",
+      "COMPUTED",
+      "VALIDATED",
+      "QUALIFIED",
+      "REJECTED",
+      "OVERRIDDEN",
+      "ARCHIVED"
+    ],
+    "allowed_transitions": [
+      {
+        "from_state": "DRAFT",
+        "to_state": "COMPUTED",
+        "trigger": "path_executed"
+      },
+      {
+        "from_state": "COMPUTED",
+        "to_state": "VALIDATED",
+        "trigger": "gate_executed"
+      },
+      {
+        "from_state": "VALIDATED",
+        "to_state": "QUALIFIED",
+        "trigger": "all_rules_pass"
+      },
+      {
+        "from_state": "VALIDATED",
+        "to_state": "REJECTED",
+        "trigger": "rule_failed"
+      },
+      {
+        "from_state": "VALIDATED",
+        "to_state": "OVERRIDDEN",
+        "trigger": "manual_override_approved"
+      },
+      {
+        "from_state": "QUALIFIED",
+        "to_state": "ARCHIVED",
+        "trigger": "archive_requested"
+      },
+      {
+        "from_state": "REJECTED",
+        "to_state": "ARCHIVED",
+        "trigger": "archive_requested"
+      },
+      {
+        "from_state": "OVERRIDDEN",
+        "to_state": "ARCHIVED",
+        "trigger": "archive_requested"
+      }
+    ],
+    "transitions": [
+      {
+        "from_state": "DRAFT",
+        "to_state": "COMPUTED",
+        "trigger": "path_executed"
+      },
+      {
+        "from_state": "COMPUTED",
+        "to_state": "VALIDATED",
+        "trigger": "gate_executed"
+      },
+      {
+        "from_state": "VALIDATED",
+        "to_state": "QUALIFIED",
+        "trigger": "all_rules_pass"
+      },
+      {
+        "from_state": "VALIDATED",
+        "to_state": "REJECTED",
+        "trigger": "rule_failed"
+      },
+      {
+        "from_state": "VALIDATED",
+        "to_state": "OVERRIDDEN",
+        "trigger": "manual_override_approved"
+      },
+      {
+        "from_state": "QUALIFIED",
+        "to_state": "ARCHIVED",
+        "trigger": "archive_requested"
+      },
+      {
+        "from_state": "REJECTED",
+        "to_state": "ARCHIVED",
+        "trigger": "archive_requested"
+      },
+      {
+        "from_state": "OVERRIDDEN",
+        "to_state": "ARCHIVED",
+        "trigger": "archive_requested"
+      }
+    ],
+    "terminal_states": [
+      "QUALIFIED",
+      "REJECTED",
+      "OVERRIDDEN",
+      "ARCHIVED"
+    ]
+  },
+  "proof": {
+    "proof_fields": [
+      "execution_id",
+      "component_id",
+      "version",
+      "project_id",
+      "input",
+      "normalized_input",
+      "path_outputs",
+      "gate",
+      "state_trace",
+      "final_status",
+      "clause_refs"
+    ],
+    "canonicalization": {
+      "field_order": [
+        "execution_id",
+        "component_id",
+        "version",
+        "project_id",
+        "input",
+        "normalized_input",
+        "path_outputs",
+        "gate",
+        "state_trace",
+        "final_status",
+        "clause_refs"
+      ],
+      "sort_keys": true,
+      "null_policy": "keep"
+    },
+    "hash_algorithm": "sha256",
+    "canonical_order": [
+      "execution_id",
+      "component_id",
+      "version",
+      "project_id",
+      "input",
+      "normalized_input",
+      "path_outputs",
+      "gate",
+      "state_trace",
+      "final_status",
+      "clause_refs"
+    ],
+    "hash_method": "sha256",
+    "signature": {
+      "algorithm": "hmac_sha256",
+      "key_env": "LAYERPEG_PROOF_HMAC_KEY"
+    },
+    "chain": {
+      "enabled": true
+    }
+  },
+  "patches": [],
+  "overrides": []
+}

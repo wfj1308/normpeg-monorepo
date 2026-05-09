@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.70.7",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "eq",
+  "threshold_value": "1",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "70.7",
+  "source_line": "水 1d 后的 7d 无侧限抗压强度为准；试验方法应采用现行无机结合料稳定材料无",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-d939372bc62a",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:8bc027b07cc05f11a531b29c0fd2dcea789cb2d22d1a4fb9e1509b730dd3b431"
+}

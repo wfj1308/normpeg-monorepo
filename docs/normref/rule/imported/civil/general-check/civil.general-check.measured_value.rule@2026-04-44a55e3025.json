@@ -1,0 +1,20 @@
+{
+  "rule_id": "civil.general-check.measured_value.rule",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/civil/general-check/measured_value@2026-04",
+  "category": "civil/general-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "2",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "",
+  "source_line": "2.对适用范围、质量检验评定程序和内容进行了修订，进一步提高了标准的刚性",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-39f24815cf4f43c5",
+  "candidate_id": "cand-23bd05febb13",
+  "source_std_code": "JTG-F80-1-2017",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:44a55e30258a6c1db6faee6459cbc5a83fb8989e2f6133de670acefff6651207"
+}

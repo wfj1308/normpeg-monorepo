@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.elevation.4.4.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/elevation@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "elevation",
+  "operator": "eq",
+  "threshold_value": "3",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "4.4.2",
+  "source_line": "3 纵断高程 (mm) +10，-20 +10，-30 水准仪：每50m测1个断面",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-a314ac6a28f0",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:71511090cadd85dd28276588785273d73453046298e94b80ab6c54be41aba57f"
+}

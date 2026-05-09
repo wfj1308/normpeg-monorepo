@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.length.5.3.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/length@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "length",
+  "operator": "eq",
+  "threshold_value": "100",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "5.3.3",
+  "source_line": "等的累计长度不应超过100m。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-078e39ad7e7d",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:d07588ba78b4c00a5875f548e1d9fd70b28a7bf775c94940ea39e555f25b53b7"
+}

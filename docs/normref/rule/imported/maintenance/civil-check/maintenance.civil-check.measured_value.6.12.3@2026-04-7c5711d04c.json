@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.6.12.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "0.2",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "6.12.3",
+  "source_line": "或设计未规定时超过0.2mm 的裂缝。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-f44b1c7af8f3",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:7c5711d04cae88a93f9d557471b855e0316b87a34e7dd4029e99daa4d849aee0"
+}

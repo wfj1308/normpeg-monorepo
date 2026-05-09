@@ -1,0 +1,191 @@
+﻿{
+  "NormDoc": "1.1",
+  "Header": {
+    "Type": "NormHeader",
+    "Standard": "JTG 3450-2019",
+    "Clause": "T0931",
+    "Title": "Pavement Flatness Record (Continuous IRI)",
+    "Version": "2019",
+    "Replaces": [],
+    "EffectiveDate": "2019-05-01",
+    "IssuingAuthority": "Ministry of Transport",
+    "Scope": [
+      "highway"
+    ],
+    "Lineage": null
+  },
+  "Body": {
+    "Type": "NormBody",
+    "Tables": [
+      {
+        "Type": "NormTable",
+        "TableID": "T0931",
+        "Name": "Flatness Continuous Record",
+        "DataShape": {
+          "mode": "continuous_series",
+          "series_fields": [
+            "IRI_raw_data",
+            "distance_points"
+          ],
+          "sample_rate": "10m"
+        },
+        "CrossSpecLink": {
+          "test_method": {
+            "ref": "JTG_3450_2019.T0931",
+            "alternatives": [],
+            "auto_select": "select by instrument capability and pavement type"
+          },
+          "calculation": {
+            "ref": "JTG_F80_1_2017.7.3.1",
+            "representative_value": "IRI_rep_upper_95",
+            "pass_criteria": "IRI_rep <= designIRI AND qualifiedRate >= 90"
+          },
+          "construction_control": {
+            "ref": "JTG_T_F20_2015.6.2",
+            "note": "construction control is auxiliary trace data"
+          }
+        },
+        "Dependencies": [
+          "calc_iri_average",
+          "calc_iri_std",
+          "calc_iri_representative_upper",
+          "detect_defect_segments"
+        ],
+        "GateRef": "T0931_Gate",
+        "Fields": [
+          {
+            "Type": "NormField",
+            "FieldID": "section_start",
+            "DataType": "StakeRange",
+            "Required": true
+          },
+          {
+            "Type": "NormField",
+            "FieldID": "section_end",
+            "DataType": "StakeRange",
+            "Required": true
+          },
+          {
+            "Type": "NormField",
+            "FieldID": "lane_position",
+            "DataType": "String",
+            "Required": true
+          },
+          {
+            "Type": "NormField",
+            "FieldID": "device_id",
+            "DataType": "String",
+            "Required": true
+          },
+          {
+            "Type": "NormField",
+            "FieldID": "IRI_raw_data",
+            "DataType": "Array",
+            "Required": true
+          },
+          {
+            "Type": "NormField",
+            "FieldID": "distance_points",
+            "DataType": "Array",
+            "Required": true
+          },
+          {
+            "Type": "NormField",
+            "FieldID": "designIRI",
+            "DataType": "Number",
+            "Required": true
+          },
+          {
+            "Type": "NormField",
+            "FieldID": "IRI_rep",
+            "DataType": "Computed",
+            "Formula": "calc_iri_representative_upper",
+            "Critical": true,
+            "GateCheck": true
+          },
+          {
+            "Type": "NormField",
+            "FieldID": "defect_segments",
+            "DataType": "Computed",
+            "Formula": "detect_defect_segments"
+          }
+        ]
+      }
+    ],
+    "Formulas": [
+      {
+        "Type": "Formula",
+        "FormulaID": "calc_iri_average",
+        "Expression": "mean(IRI_raw_data)"
+      },
+      {
+        "Type": "Formula",
+        "FormulaID": "calc_iri_std",
+        "Expression": "std(IRI_raw_data)"
+      },
+      {
+        "Type": "Formula",
+        "FormulaID": "calc_iri_representative_upper",
+        "Expression": "mean(IRI_raw_data) + 1.645 * std(IRI_raw_data) / sqrt(n)"
+      },
+      {
+        "Type": "Formula",
+        "FormulaID": "detect_defect_segments",
+        "Expression": "segment(IRI_raw_data, distance_points, threshold=designIRI*1.2)"
+      }
+    ]
+  },
+  "Gate": {
+    "Type": "NormGate",
+    "GateID": "T0931_Gate",
+    "Rules": [
+      {
+        "Type": "GateRule",
+        "RuleID": "rule_iri_representative",
+        "TargetField": "IRI_rep",
+        "CheckType": "NormCompliance",
+        "Operator": "LessEqual",
+        "ThresholdExpr": "designIRI",
+        "ErrorMessage": "IRI representative value exceeds design limit",
+        "Severity": "Blocking",
+        "ActionOnFail": "BlockSubmit"
+      },
+      {
+        "Type": "GateRule",
+        "RuleID": "rule_iri_qualified_rate",
+        "TargetField": "qualifiedRate",
+        "CheckType": "NormCompliance",
+        "Operator": "GreaterEqual",
+        "Threshold": 90,
+        "ErrorMessage": "qualified rate is below 90%",
+        "Severity": "Warning",
+        "ActionOnFail": "FlagReview"
+      },
+      {
+        "Type": "GateRule",
+        "RuleID": "rule_iri_max_extreme",
+        "TargetField": "IRI_max",
+        "CheckType": "NormCompliance",
+        "Operator": "LessEqual",
+        "ThresholdExpr": "designIRI * 1.5",
+        "ErrorMessage": "IRI extreme value indicates severe local defect",
+        "Severity": "Blocking",
+        "ActionOnFail": "BlockSubmit"
+      }
+    ]
+  },
+  "Trailer": {
+    "xref": [],
+    "trailer": {
+      "Size": 3,
+      "Root": "Header",
+      "Info": "T0931 metadata",
+      "Prev": null
+    },
+    "startxref": 0
+  },
+  "IncrementalUpdates": {
+    "patch": [],
+    "override": []
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "rule_id": "electromechanical.general-check.measured_value.8.4",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/electromechanical/general-check/measured_value@2026-04",
+  "category": "electromechanical/general-check",
+  "field_key": "measured_value",
+  "operator": "lte",
+  "threshold_value": "10",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "8.4",
+  "source_line": "次或BER≤10；以太网传输丢",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-11c05a464c894fef",
+  "candidate_id": "cand-dada95fec463",
+  "source_std_code": "JTG-2182-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:edc212d2017228a92c7760a92e4c60e172062f9f86df061020cfffaf3ed9a232"
+}

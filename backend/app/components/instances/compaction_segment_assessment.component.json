@@ -1,0 +1,413 @@
+{
+  "component_id": "JTG_F80_1_2017.4.2.1.compaction_segment_assessment",
+  "catalog_id": "JTG_F80_1_2017",
+  "standard_id": "JTG F80/1-2017",
+  "standard_version": "2017",
+  "component_name": "压实度段落评定",
+  "version": "v1.0.0",
+  "status": "active",
+  "metadata": {
+    "component_type": "SegmentAssessment",
+    "critical": true,
+    "owner": "quality-center",
+    "description": "段落级压实度组合构件，复用单点压实度构件并聚合代表值。"
+  },
+  "input_dto": {
+    "project_id": {
+      "type": "string",
+      "required": true
+    },
+    "segment_id": {
+      "type": "string",
+      "required": true
+    },
+    "segment_zone": {
+      "type": "enum",
+      "required": true,
+      "enum_values": [
+        "Z96",
+        "Z94",
+        "Z92"
+      ]
+    },
+    "layer_depth": {
+      "type": "enum",
+      "required": true,
+      "enum_values": [
+        "0-0.8m",
+        "0.8-1.5m",
+        ">1.5m"
+      ]
+    },
+    "points": {
+      "type": "array",
+      "required": true
+    },
+    "min_pass_rate": {
+      "type": "number",
+      "required": false,
+      "default": 1.0
+    },
+    "actor_did": {
+      "type": "string",
+      "required": true
+    },
+    "actor_name": {
+      "type": "string",
+      "required": false
+    },
+    "inspected_at": {
+      "type": "string",
+      "required": true
+    },
+    "archive_requested": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    }
+  },
+  "output_dto": {
+    "standard_value": {
+      "type": "number",
+      "unit": "%"
+    },
+    "tolerance": {
+      "type": "number",
+      "unit": "%"
+    },
+    "lower_bound": {
+      "type": "number",
+      "unit": "%"
+    },
+    "segment_representative_value": {
+      "type": "number",
+      "unit": "%"
+    },
+    "segment_min_compaction": {
+      "type": "number",
+      "unit": "%"
+    },
+    "child_pass_rate": {
+      "type": "number"
+    },
+    "final_status": {
+      "type": "enum",
+      "enum_values": [
+        "PASS",
+        "FAIL",
+        "BLOCKED",
+        "CRITICAL",
+        "OVERRIDDEN",
+        "WARNING"
+      ]
+    },
+    "clause_refs": {
+      "type": "array"
+    }
+  },
+  "path": {
+    "steps": [
+      {
+        "step_id": "lookup_standard_value",
+        "action": "lookup",
+        "lookup_ref": "standard_by_zone",
+        "input_fields": [
+          "segment_zone"
+        ],
+        "output_field": "standard_value"
+      },
+      {
+        "step_id": "lookup_tolerance",
+        "action": "lookup",
+        "lookup_ref": "tolerance_by_zone",
+        "input_fields": [
+          "segment_zone"
+        ],
+        "output_field": "tolerance"
+      },
+      {
+        "step_id": "calc_lower_bound",
+        "action": "formula",
+        "formula_ref": "lower_bound_formula",
+        "output_field": "lower_bound"
+      }
+    ],
+    "formulas": {
+      "lower_bound_formula": "standard_value - tolerance"
+    },
+    "lookup_tables": {
+      "standard_by_zone": {
+        "Z96": 95.0,
+        "Z94": 94.0,
+        "Z92": 92.0
+      },
+      "tolerance_by_zone": {
+        "Z96": 2.0,
+        "Z94": 2.0,
+        "Z92": 2.0
+      }
+    },
+    "derived_fields": [
+      "standard_value",
+      "tolerance",
+      "lower_bound"
+    ]
+  },
+  "compose": {
+    "mode": "for_each",
+    "children_output_field": "child_execution_results",
+    "aggregate_output_field": "child_aggregates",
+    "children": [
+      {
+        "child_key": "point_compaction",
+        "invoke_component": "JTG_F80_1_2017.4.2.1.compaction",
+        "source_field": "points",
+        "inherit_fields": [
+          "project_id",
+          "layer_depth",
+          "actor_did",
+          "actor_name",
+          "inspected_at"
+        ],
+        "defaults": {
+          "override_requested": false
+        },
+        "input_mapping": {
+          "stake": "$item.stake",
+          "compaction_degree": "$item.compaction_degree",
+          "representative_value": "$item.representative_value"
+        }
+      }
+    ],
+    "aggregate_from_children": [
+      {
+        "aggregate_id": "segment_representative_value",
+        "from_child": "point_compaction",
+        "field": "path_outputs.compaction_degree_resolved",
+        "method": "t_distribution_95",
+        "output_field": "segment_representative_value"
+      },
+      {
+        "aggregate_id": "segment_min_compaction",
+        "from_child": "point_compaction",
+        "field": "path_outputs.compaction_degree_resolved",
+        "method": "min",
+        "output_field": "segment_min_compaction"
+      },
+      {
+        "aggregate_id": "child_pass_rate",
+        "from_child": "point_compaction",
+        "field": "final_status",
+        "method": "pass_rate",
+        "pass_statuses": [
+          "PASS",
+          "WARNING",
+          "OVERRIDDEN"
+        ],
+        "output_field": "child_pass_rate"
+      },
+      {
+        "aggregate_id": "child_count",
+        "from_child": "point_compaction",
+        "field": "final_status",
+        "method": "count",
+        "output_field": "child_count"
+      }
+    ]
+  },
+  "gate": {
+    "rules": [
+      {
+        "rule_id": "segment_representative_rule",
+        "condition": "segment_representative_value >= standard_value",
+        "severity": "critical",
+        "on_fail": "critical",
+        "clause_refs": [
+          "JTG_F80_1_2017.4.2.1.segment.representative"
+        ]
+      },
+      {
+        "rule_id": "segment_min_point_rule",
+        "condition": "segment_min_compaction >= lower_bound",
+        "severity": "blocking",
+        "on_fail": "block",
+        "clause_refs": [
+          "JTG_F80_1_2017.4.2.1.segment.min_point"
+        ]
+      },
+      {
+        "rule_id": "segment_pass_rate_rule",
+        "condition": "child_pass_rate >= min_pass_rate",
+        "severity": "blocking",
+        "on_fail": "block",
+        "clause_refs": [
+          "JTG_F80_1_2017.4.2.1.segment.pass_rate"
+        ]
+      }
+    ],
+    "references": [
+      "JTG_F80_1_2017.4.2.1"
+    ],
+    "clause_refs": [
+      "JTG_F80_1_2017.4.2.1"
+    ]
+  },
+  "state": {
+    "initial_state": "DRAFT",
+    "states": [
+      "DRAFT",
+      "COMPUTED",
+      "VALIDATED",
+      "QUALIFIED",
+      "REJECTED",
+      "OVERRIDDEN",
+      "ARCHIVED"
+    ],
+    "allowed_transitions": [
+      {
+        "from_state": "DRAFT",
+        "to_state": "COMPUTED",
+        "trigger": "path_executed"
+      },
+      {
+        "from_state": "COMPUTED",
+        "to_state": "VALIDATED",
+        "trigger": "gate_executed"
+      },
+      {
+        "from_state": "VALIDATED",
+        "to_state": "QUALIFIED",
+        "trigger": "all_rules_pass"
+      },
+      {
+        "from_state": "VALIDATED",
+        "to_state": "REJECTED",
+        "trigger": "rule_failed"
+      },
+      {
+        "from_state": "VALIDATED",
+        "to_state": "OVERRIDDEN",
+        "trigger": "manual_override_approved"
+      },
+      {
+        "from_state": "QUALIFIED",
+        "to_state": "ARCHIVED",
+        "trigger": "archive_requested"
+      },
+      {
+        "from_state": "REJECTED",
+        "to_state": "ARCHIVED",
+        "trigger": "archive_requested"
+      },
+      {
+        "from_state": "OVERRIDDEN",
+        "to_state": "ARCHIVED",
+        "trigger": "archive_requested"
+      }
+    ],
+    "terminal_states": [
+      "QUALIFIED",
+      "REJECTED",
+      "OVERRIDDEN",
+      "ARCHIVED"
+    ],
+    "transitions": [
+      {
+        "from_state": "DRAFT",
+        "to_state": "COMPUTED",
+        "trigger": "path_executed"
+      },
+      {
+        "from_state": "COMPUTED",
+        "to_state": "VALIDATED",
+        "trigger": "gate_executed"
+      },
+      {
+        "from_state": "VALIDATED",
+        "to_state": "QUALIFIED",
+        "trigger": "all_rules_pass"
+      },
+      {
+        "from_state": "VALIDATED",
+        "to_state": "REJECTED",
+        "trigger": "rule_failed"
+      },
+      {
+        "from_state": "VALIDATED",
+        "to_state": "OVERRIDDEN",
+        "trigger": "manual_override_approved"
+      },
+      {
+        "from_state": "QUALIFIED",
+        "to_state": "ARCHIVED",
+        "trigger": "archive_requested"
+      },
+      {
+        "from_state": "REJECTED",
+        "to_state": "ARCHIVED",
+        "trigger": "archive_requested"
+      },
+      {
+        "from_state": "OVERRIDDEN",
+        "to_state": "ARCHIVED",
+        "trigger": "archive_requested"
+      }
+    ]
+  },
+  "proof": {
+    "proof_fields": [
+      "execution_id",
+      "component_id",
+      "version",
+      "project_id",
+      "input",
+      "normalized_input",
+      "path_outputs",
+      "gate",
+      "state_trace",
+      "final_status",
+      "clause_refs"
+    ],
+    "canonicalization": {
+      "field_order": [
+        "execution_id",
+        "component_id",
+        "version",
+        "project_id",
+        "input",
+        "normalized_input",
+        "path_outputs",
+        "gate",
+        "state_trace",
+        "final_status",
+        "clause_refs"
+      ],
+      "sort_keys": true,
+      "null_policy": "keep"
+    },
+    "hash_algorithm": "sha256",
+    "canonical_order": [
+      "execution_id",
+      "component_id",
+      "version",
+      "project_id",
+      "input",
+      "normalized_input",
+      "path_outputs",
+      "gate",
+      "state_trace",
+      "final_status",
+      "clause_refs"
+    ],
+    "hash_method": "sha256",
+    "signature": {
+      "algorithm": "hmac_sha256",
+      "key_env": "LAYERPEG_PROOF_HMAC_KEY"
+    },
+    "chain": {
+      "enabled": true
+    }
+  },
+  "patches": [],
+  "overrides": []
+}

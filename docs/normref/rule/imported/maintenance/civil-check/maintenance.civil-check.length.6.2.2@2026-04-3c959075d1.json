@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.length.6.2.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/length@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "length",
+  "operator": "lte",
+  "threshold_value": "200",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "6.2.2",
+  "source_line": "水准仪：长度不大于200m时测5个断",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-4d61ab4dde60",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:3c959075d1faa0e6f8a740807850ad6c3aacec29d8db3c8b47b82232ce52c1f3"
+}

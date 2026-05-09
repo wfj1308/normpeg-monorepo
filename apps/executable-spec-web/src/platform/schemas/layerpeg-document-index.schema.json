@@ -1,0 +1,31 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "layerpeg-document-index.schema.json",
+  "title": "LayerPegDocumentIndexList",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["items"],
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["usi", "docType", "sourceRef", "updatedAt", "version", "decision", "stateCurrent", "payloadType"],
+        "properties": {
+          "usi": { "type": "string" },
+          "docType": {
+            "type": "string",
+            "enum": ["spec", "proof", "report", "form", "sku", "execution", "container", "other"]
+          },
+          "sourceRef": { "type": "string" },
+          "updatedAt": { "type": "string", "format": "date-time" },
+          "version": { "type": "string" },
+          "decision": { "type": "string", "enum": ["pass", "block", "override", "pending"] },
+          "stateCurrent": { "type": "string" },
+          "payloadType": { "type": "string" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.5.17.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "eq",
+  "threshold_value": "6",
+  "unit": "MPa",
+  "severity": "mandatory",
+  "norm_ref": "5.17.2",
+  "source_line": "6Δ 强度(MPa) 符合设计要求 符合设计要求 按附录G检查",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-124ecce788b2",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:cc3799ae8cfddc32b5f52483ec1a573dd637c91c6f1eb376bc317765f508acb9"
+}

@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.rule",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "range",
+  "threshold_value": "4",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "",
+  "source_line": "李哲梁负责起草第 4 章排水养护工程部分、第 8 章、第 9 章及附录 B～附录 L，禹忠",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-df2617883de7",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:8dbe5667ab4b9698acc1f792ab2639a69d68687e1e60751da4a90efbb76586f6"
+}

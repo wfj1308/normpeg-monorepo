@@ -1,0 +1,20 @@
+{
+  "rule_id": "electromechanical.general-check.strength.4.2.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/electromechanical/general-check/strength@2026-04",
+  "category": "electromechanical/general-check",
+  "field_key": "strength",
+  "operator": "gte",
+  "threshold_value": "30",
+  "unit": "MPa",
+  "severity": "mandatory",
+  "norm_ref": "4.2.1",
+  "source_line": "检测强度不小于30MPa",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-2830413cdad646c4",
+  "candidate_id": "cand-b82c6b842ea3",
+  "source_std_code": "JTG-2182-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:775866bab7700edb8ee41259f030927db67f9a2403b9d84c87b2798732623017"
+}

@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.thickness.4.15.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/thickness@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "thickness",
+  "operator": "gte",
+  "threshold_value": "5",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "4.15.2",
+  "source_line": "5△ 厚度(mm) 不小于设计值 尺量：每50m检查3处",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-8331acdf357b",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:352678daaabda8f5e08276e0b7826ea04ffc3ce9ba9266f65ac359fbcac5b8a8"
+}

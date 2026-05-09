@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.0.80",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "eq",
+  "threshold_value": "0.4",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "0.80",
+  "source_line": "C.0.4 当标准小梁合格判定平均弯拉强度f 、最小弯拉强度f 和统计变异系数",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-e152b059a40a",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:61c1db62939b0d512018157c34b15435af6371e541c39d678c7f5b8b7316066e"
+}

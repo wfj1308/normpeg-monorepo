@@ -1,0 +1,13 @@
+Extract gate rules from a standards clause.
+
+Return JSON:
+{
+  "gate_rules": [
+    {
+      "condition": "compaction_degree >= 95%",
+      "action": "BLOCK",
+      "message": "Compaction degree below standard",
+      "severity": "critical"
+    }
+  ]
+}

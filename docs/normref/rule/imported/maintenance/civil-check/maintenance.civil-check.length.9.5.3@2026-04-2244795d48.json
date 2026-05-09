@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.length.9.5.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/length@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "length",
+  "operator": "eq",
+  "threshold_value": "1",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "9.5.3",
+  "source_line": "路基养护工程：长度不超过1km的每一处路基构造物应按下列维修、加固的工艺或方法，",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-ee0d2fe0f02e",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:2244795d488f78981b93ab4e94be09b5933e266676b8b43762857ddc2f3b63bc"
+}

@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.thickness.8.14.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/thickness@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "thickness",
+  "operator": "tolerance",
+  "threshold_value": "8",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "8.14.2",
+  "source_line": "8△ 屏体背板厚度 (mm) ±0.1 游标卡尺：按屏体总块数检查5%",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-e58daaad02a1",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:16229119da15c758a72088f7a1a654af3010bfb2030e80fdc0eb41016210125f"
+}

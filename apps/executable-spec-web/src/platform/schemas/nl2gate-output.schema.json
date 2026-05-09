@@ -1,0 +1,211 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "nl2gate-output.schema.json",
+  "title": "Nl2GateOutput",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["success", "query", "answer", "structured"],
+  "properties": {
+    "success": { "type": "boolean" },
+    "query": { "type": "string" },
+    "answer": { "type": "string" },
+    "errorCode": { "type": "string" },
+    "error": { "type": "string" },
+    "structured": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "intent",
+        "target",
+        "inputs",
+        "context",
+        "spuCandidates",
+        "missing",
+        "missingResponse",
+        "conversation",
+        "command",
+        "execution"
+      ],
+      "properties": {
+        "intent": { "type": ["string", "null"], "enum": ["gate.preview", "gate.evaluate", null] },
+        "target": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["metric", "stake", "spuId", "containerId", "nodeId"],
+          "properties": {
+            "metric": { "type": ["string", "null"], "enum": ["compaction", "thickness", "deflection", null] },
+            "stake": { "type": ["string", "null"] },
+            "spuId": { "type": ["string", "null"] },
+            "containerId": { "type": ["string", "null"] },
+            "nodeId": { "type": ["string", "null"] }
+          }
+        },
+        "inputs": {
+          "type": "object",
+          "additionalProperties": { "type": "number" }
+        },
+        "context": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "spuCandidates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["rank", "spuId", "spuKey", "score", "matchReasons", "requiredMissingInputs"],
+            "properties": {
+              "rank": { "type": "integer", "minimum": 1 },
+              "spuId": { "type": "string" },
+              "spuKey": { "type": "string" },
+              "score": { "type": "number" },
+              "matchReasons": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "requiredMissingInputs": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            }
+          }
+        },
+        "missing": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["field", "reason", "required"],
+            "properties": {
+              "field": { "type": "string" },
+              "reason": { "type": "string" },
+              "required": { "type": "boolean" },
+              "expected": { "type": "string" }
+            }
+          }
+        },
+        "missingResponse": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "required": ["missingFields", "suggestedQuestions", "partialContext"],
+          "properties": {
+            "missingFields": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["field", "reason", "required"],
+                "properties": {
+                  "field": { "type": "string" },
+                  "reason": { "type": "string" },
+                  "required": { "type": "boolean" },
+                  "expected": { "type": "string" }
+                }
+              }
+            },
+            "suggestedQuestions": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "partialContext": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["intent", "target", "collectedInputs", "context"],
+              "properties": {
+                "intent": { "type": ["string", "null"], "enum": ["gate.preview", "gate.evaluate", null] },
+                "target": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["metric", "stake", "spuId", "containerId", "nodeId"],
+                  "properties": {
+                    "metric": { "type": ["string", "null"], "enum": ["compaction", "thickness", "deflection", null] },
+                    "stake": { "type": ["string", "null"] },
+                    "spuId": { "type": ["string", "null"] },
+                    "containerId": { "type": ["string", "null"] },
+                    "nodeId": { "type": ["string", "null"] }
+                  }
+                },
+                "collectedInputs": {
+                  "type": "object",
+                  "additionalProperties": { "type": "number" }
+                },
+                "context": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        },
+        "conversation": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "required": ["conversationId", "pendingIntent", "pendingSpu", "collectedInputs"],
+          "properties": {
+            "conversationId": { "type": "string" },
+            "pendingIntent": { "type": ["string", "null"], "enum": ["gate.preview", "gate.evaluate", null] },
+            "pendingSpu": { "type": ["string", "null"] },
+            "collectedInputs": {
+              "type": "object",
+              "additionalProperties": { "type": "number" }
+            }
+          }
+        },
+        "command": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "required": ["action", "intent", "endpoint", "spuId", "stake", "formData", "context"],
+          "properties": {
+            "action": { "type": "string", "enum": ["validate_spu_direct"] },
+            "intent": { "type": "string", "enum": ["gate.preview", "gate.evaluate"] },
+            "endpoint": { "type": "string", "enum": ["/api/gate/preview", "/api/gate/evaluate", "/api/executor/run"] },
+            "spuId": { "type": "string" },
+            "stake": { "type": "string" },
+            "formData": { "type": "object", "additionalProperties": { "type": "number" } },
+            "context": { "type": "object", "additionalProperties": true }
+          }
+        },
+        "execution": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "required": ["status", "executionId", "outputs", "gate", "proofHash", "intent", "endpoint"],
+          "properties": {
+            "status": { "type": "string", "enum": ["PASS", "FAIL"] },
+            "executionId": { "type": "string" },
+            "outputs": { "type": "object", "additionalProperties": true },
+            "gate": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["passed", "results"],
+              "properties": {
+                "passed": { "type": "boolean" },
+                "results": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                  }
+                }
+              }
+            },
+            "proofHash": { "type": ["string", "null"] },
+            "intent": { "type": "string", "enum": ["gate.preview", "gate.evaluate"] },
+            "endpoint": { "type": "string", "enum": ["/api/gate/preview", "/api/gate/evaluate", "/api/executor/run"] }
+          }
+        }
+      }
+    },
+    "parsed": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "command": {
+      "type": ["object", "null"],
+      "additionalProperties": true
+    },
+    "execution": {
+      "type": ["object", "null"],
+      "additionalProperties": true
+    }
+  }
+}

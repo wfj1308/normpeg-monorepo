@@ -1,0 +1,20 @@
+{
+  "rule_id": "civil.general-check.length.0.00",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/civil/general-check/length@2026-04",
+  "category": "civil/general-check",
+  "field_key": "length",
+  "operator": "eq",
+  "threshold_value": "250",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "0.00",
+  "source_line": "轴向张力：250N；受扭长度：1m；",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-52090a1ca4ce43cb",
+  "candidate_id": "cand-803993547571",
+  "source_std_code": "JTG-F80-1-2017",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:006151784c55e7b13268c05c662fc5d3165dd3a8a6b1d3fb8ce35ec3f4ffe039"
+}

@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.length.6.25.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/length@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "length",
+  "operator": "gte",
+  "threshold_value": "3",
+  "unit": "%",
+  "severity": "mandatory",
+  "norm_ref": "6.25.1",
+  "source_line": "3 钢花管插入锚孔深度不得小于设计长度的95%。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-8180de0a7379",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:f902c8623be78e4edfad89f4d8735b1c980952a4fcc07921d19d51c728464c46"
+}

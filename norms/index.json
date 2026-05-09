@@ -1,0 +1,69 @@
+[
+  {
+    "spec_id": "JTG_F80_1_2017.4.2.1.compaction",
+    "type": "executable_spec",
+    "namespace": "norms.cn.mot.jtg_f80_1_2017.4_2_1",
+    "file_path": "norms/JTG_F80_1_2017/4.2.1.compaction.spec.yaml",
+    "category": "roadbed",
+    "work_item": "earthwork_subgrade",
+    "measured_item": "compaction",
+    "version": "v0.1.0",
+    "status": "active"
+  },
+  {
+    "spec_id": "JTG_F80_1_2017.4.2.2.deflection",
+    "type": "executable_spec",
+    "namespace": "norms.cn.mot.jtg_f80_1_2017.4_2_2",
+    "file_path": "norms/JTG_F80_1_2017/4.2.2.deflection.spec.yaml",
+    "category": "roadbed",
+    "work_item": "earthwork_subgrade",
+    "measured_item": "deflection",
+    "version": "v0.1.0",
+    "status": "active"
+  },
+  {
+    "spec_id": "JTG_F80_1_2017.4.2.3.thickness",
+    "type": "executable_spec",
+    "namespace": "norms.cn.mot.jtg_f80_1_2017.4_2_3",
+    "file_path": "norms/JTG_F80_1_2017/4.2.3.thickness.spec.yaml",
+    "category": "roadbed",
+    "work_item": "earthwork_subgrade",
+    "measured_item": "thickness",
+    "version": "v0.1.0",
+    "status": "active"
+  },
+  {
+    "spec_id": "JTG_F80_1_2017.5.2.1.pavement_compaction",
+    "type": "executable_spec",
+    "namespace": "norms.cn.mot.jtg_f80_1_2017.5_2_1",
+    "file_path": "norms/JTG_F80_1_2017/5.2.1.pavement_compaction.spec.yaml",
+    "category": "pavement",
+    "work_item": "base_and_subbase",
+    "measured_item": "pavement_compaction",
+    "version": "v0.1.0",
+    "status": "active"
+  },
+  {
+    "spec_id": "JTG_F80_1_2017.8.1.1.pile_concrete_strength",
+    "type": "executable_spec",
+    "namespace": "norms.cn.mot.jtg_f80_1_2017.8_1_1",
+    "file_path": "norms/JTG_F80_1_2017/8.1.1.pile_concrete_strength.spec.yaml",
+    "category": "bridge",
+    "work_item": "bored_pile",
+    "measured_item": "pile_concrete_strength",
+    "version": "v0.1.0",
+    "status": "active"
+  },
+  {
+    "spec_id": "JTG_3450_2019.T0921",
+    "type": "executable_spec",
+    "namespace": "norms.cn.mot.jtg_3450_2019.t0921",
+    "file_path": "norms/JTG_3450_2019/T0921.sand_cone.spec.yaml",
+    "category": "test_method",
+    "work_item": "earthwork_subgrade",
+    "measured_item": "compaction",
+    "test_method": "T0921",
+    "version": "v1.0.0",
+    "status": "active"
+  }
+]

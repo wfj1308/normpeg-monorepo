@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.4.5.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "7",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "4.5.2",
+  "source_line": "注：项次7适用于路堤范围内，管道两侧和管顶以上500mm内的压实度，除设计要求用重型击实标准外，",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-7dceb30c58f8",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:79561cdf1aef493c93b23bb9dff1137b0b2c0f3dd4e69da26e7c9587ff09da58"
+}

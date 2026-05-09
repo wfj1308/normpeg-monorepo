@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.70.7",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "eq",
+  "threshold_value": "0.5",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "70.7",
+  "source_line": "F.0.5 水泥砂浆（水泥基注浆材料）强度评为不合格时相应养护单元为不合格。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-0de8d409e46c",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:73767116f14f50c9506c29fc8a8eea1df2bb2e39182fe18fc444ab9ca9fc1904"
+}

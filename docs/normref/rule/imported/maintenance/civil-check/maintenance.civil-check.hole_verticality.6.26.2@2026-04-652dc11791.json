@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.hole_verticality.6.26.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/hole_verticality@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "hole_verticality",
+  "operator": "lte",
+  "threshold_value": "7",
+  "unit": "%",
+  "severity": "mandatory",
+  "norm_ref": "6.26.2",
+  "source_line": "7 接桩的接头平面与桩轴线垂直度（%） ≤0.5",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-9024360d7c94",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:652dc1179166129d6c76511ae54568381800aa0ee965ff0b686c6ba6727e7c62"
+}

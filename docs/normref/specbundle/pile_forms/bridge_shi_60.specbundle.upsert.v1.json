@@ -1,0 +1,112 @@
+{
+  "bundleId": "highway.bridge.pile@v1",
+  "bundleVersion": "v1",
+  "formCode": "bridge_shi_60",
+  "formName": "水下混凝土施工检查表",
+  "dtoType": "pile",
+  "stage": "underwater_concrete_construction_check",
+  "rules": [
+    {
+      "ruleId": "bridge_shi_60.tremie_embed_depth.required",
+      "fieldKeys": [
+        "tremie_embed_depth_m"
+      ],
+      "gateType": "presence",
+      "severity": "blocking",
+      "expression": "tremie_embed_depth_m is not null",
+      "unit": "m",
+      "basis": {
+        "standardCode": "JTG/T3650-2020",
+        "standardName": "??????????",
+        "clause": "??60?",
+        "basisText": "??????????????"
+      },
+      "message": "????????",
+      "unresolved": false
+    },
+    {
+      "ruleId": "bridge_shi_60.first_batch_concrete.required",
+      "fieldKeys": [
+        "first_batch_concrete_m3"
+      ],
+      "gateType": "presence",
+      "severity": "blocking",
+      "expression": "first_batch_concrete_m3 is not null",
+      "unit": "m3",
+      "basis": {
+        "standardCode": "JTG/T3650-2020",
+        "standardName": "??????????",
+        "clause": "??60?",
+        "basisText": "?????????????????"
+      },
+      "message": "???????????",
+      "unresolved": false
+    },
+    {
+      "ruleId": "bridge_shi_60.tremie_embed_depth.min_control",
+      "fieldKeys": [
+        "tremie_embed_depth_m"
+      ],
+      "gateType": "threshold",
+      "severity": "blocking",
+      "expression": "tremie_embed_depth_m >= min_tremie_embed_depth_m",
+      "unit": "m",
+      "basis": {
+        "standardCode": "JTG/T3650-2020",
+        "standardName": "??????????",
+        "clause": "????",
+        "basisText": "??????????"
+      },
+      "message": "????????????",
+      "unresolved": true
+    },
+    {
+      "ruleId": "bridge_shi_60.first_batch_concrete.min_control",
+      "fieldKeys": [
+        "first_batch_concrete_m3"
+      ],
+      "gateType": "threshold",
+      "severity": "warning",
+      "expression": "first_batch_concrete_m3 >= min_first_batch_concrete_m3",
+      "unit": "m3",
+      "basis": {
+        "standardCode": "JTG/T3650-2020",
+        "standardName": "??????????",
+        "clause": "????",
+        "basisText": "?????????????"
+      },
+      "message": "????????????????",
+      "unresolved": true
+    }
+  ],
+  "fieldRuleMap": [
+    {
+      "fieldKey": "tremie_embed_depth_m",
+      "fieldName": "????",
+      "gateRequired": true,
+      "ruleIds": [
+        "bridge_shi_60.tremie_embed_depth.required",
+        "bridge_shi_60.tremie_embed_depth.min_control"
+      ],
+      "valueSource": "manual"
+    },
+    {
+      "fieldKey": "first_batch_concrete_m3",
+      "fieldName": "???????",
+      "gateRequired": true,
+      "ruleIds": [
+        "bridge_shi_60.first_batch_concrete.required",
+        "bridge_shi_60.first_batch_concrete.min_control"
+      ],
+      "valueSource": "manual"
+    }
+  ],
+  "metadata": {
+    "sourceDocument": "1、桩基(1).docx",
+    "sourcePath": "c:\\Users\\xm_91\\Desktop\\1、桩基(1).docx",
+    "autogen": true,
+    "status": "draft_partially_executable",
+    "notes": "??60??????????????????????????? unresolved?",
+    "encoding": "utf-8"
+  }
+}

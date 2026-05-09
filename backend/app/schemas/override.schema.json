@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://layerpeg.local/schemas/override.schema.json",
+  "title": "Override Schema",
+  "description": "Project-level override payload for component DSL.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "override_id",
+    "component_id",
+    "project_id",
+    "target",
+    "value",
+    "approved_by",
+    "evidence",
+    "effective_date"
+  ],
+  "properties": {
+    "override_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "component_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "target": {
+      "type": "string",
+      "minLength": 1
+    },
+    "value": {
+      "oneOf": [
+        { "type": "number" },
+        { "type": "string" },
+        { "type": "boolean" },
+        { "type": "object" },
+        { "type": "array" },
+        { "type": "null" }
+      ]
+    },
+    "approved_by": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence": {
+      "oneOf": [
+        { "type": "string" },
+        { "type": "object" }
+      ]
+    },
+    "effective_date": {
+      "type": "string",
+      "format": "date"
+    }
+  }
+}

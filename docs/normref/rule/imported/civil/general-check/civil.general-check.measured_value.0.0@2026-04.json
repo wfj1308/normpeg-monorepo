@@ -1,0 +1,20 @@
+{
+  "rule_id": "civil.general-check.measured_value.0.0",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/civil/general-check/measured_value@2026-04",
+  "category": "civil/general-check",
+  "field_key": "measured_value",
+  "operator": "lte",
+  "threshold_value": "70",
+  "unit": "℃",
+  "severity": "mandatory",
+  "norm_ref": "0.0",
+  "source_line": "70°℃，24h，滴出填充复合物≤",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-52090a1ca4ce43cb",
+  "candidate_id": "cand-0e84026cbc2b",
+  "source_std_code": "JTG-F80-1-2017",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:307629b6c65b788b9747b557808084ebe6f0728ca317cefd0cb19d72e549a8e4"
+}

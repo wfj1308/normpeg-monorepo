@@ -1,0 +1,420 @@
+{
+  "checks": [
+    {
+      "api": "POST /v1/pdf/parse",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "api": "POST /v1/spu/generate",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "api": "POST /v1/mapping/resolve",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "api": "POST /v1/gate/evaluate(pass)",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "api": "POST /v1/gate/evaluate(fail)",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "api": "POST /v1/state/transition",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "api": "GET /v1/state/{vuri}",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "api": "GET /v1/spec/{spuId}",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "api": "POST /v1/spec/validate",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "api": "POST /v1/path/execute",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "api": "POST /v1/proof/generate",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "api": "POST /v1/proof/verify",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "api": "POST /v1/form/render",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "api": "POST /v1/report/generate",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "api": "POST /v1/image/recognize",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "api": "POST /v1/voice/transcribe",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "api": "POST /v1/mapping/query-range",
+      "status": 200,
+      "ok": true
+    }
+  ],
+  "samples": {
+    "pdf": {
+      "parseId": "parse_20260422032121468543",
+      "status": "success",
+      "extractedData": {
+        "metadata": {
+          "title": "公路工程质量检验评定标准 第一册 土建工程",
+          "version": "2017",
+          "publisher": "交通运输部",
+          "effectiveDate": "2018-05-01",
+          "standardCode": "JTG F80/1-2017",
+          "fileName": "JTG_F80_1_2017.pdf",
+          "pageCount": 1,
+          "textExtractEngine": "pypdf",
+          "textLength": 0,
+          "detectedClauseCount": 0,
+          "options": {
+            "extractTables": true,
+            "extractFormulas": true
+          },
+          "fileSizeBytes": 431,
+          "sha256": "ad6a2f312dc8e78011dd88831456a5cfd2f091432e0e94a670d0d1e6ab5f8dee",
+          "pageEstimate": 2,
+          "parsedAt": "2026-04-22T03:21:22Z",
+          "provider": {
+            "mode": "builtin"
+          }
+        },
+        "chapters": [
+          {
+            "id": "4",
+            "title": "路基工程",
+            "clauses": [
+              {
+                "id": "4.2.1",
+                "title": "压实度",
+                "text": "路基压实度应符合表4.2.1的规定...",
+                "tables": [
+                  "TABLE-4-2-1"
+                ],
+                "formulas": [
+                  "FORMULA-4-2-1"
+                ]
+              },
+              {
+                "id": "4.2.2",
+                "title": "弯沉",
+                "text": "路基弯沉应符合表4.2.2的规定...",
+                "tables": [
+                  "TABLE-4-2-2"
+                ],
+                "formulas": [
+                  "FORMULA-4-2-2"
+                ]
+              }
+            ]
+          }
+        ],
+        "tables": [
+          {
+            "id": "TABLE-4-2-1",
+            "headers": [
+              "路床顶面以下深度",
+              "压实度(%)"
+            ],
+            "rows": [
+              [
+                "上路床0-0.3m",
+                "≥96"
+              ],
+              [
+                "下路床0.3-0.8m",
+                "≥96"
+              ],
+              [
+                "上路堤0.8-1.5m",
+                "≥94"
+              ],
+              [
+                "下路堤>1.5m",
+                "≥93"
+              ]
+            ]
+          },
+          {
+            "id": "TABLE-4-2-2",
+            "headers": [
+              "检测项目",
+              "允许值(mm)"
+            ],
+            "rows": [
+              [
+                "弯沉代表值",
+                "≤2.4"
+              ]
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "id": "FORMULA-4-2-1",
+            "latex": "K = \\frac{\\rho_d}{\\rho_{dmax}} \\times 100",
+            "description": "压实度计算公式"
+          },
+          {
+            "id": "FORMULA-4-2-2",
+            "latex": "L_r = mean(L_i) + 1.645\\sigma",
+            "description": "弯沉代表值计算公式"
+          }
+        ],
+        "clauseCatalog": [
+          {
+            "id": "4.2.1",
+            "title": "压实度",
+            "text": "路基压实度应符合表4.2.1的规定...",
+            "chapterId": "4",
+            "chapterTitle": "路基工程",
+            "tables": [
+              "TABLE-4-2-1"
+            ],
+            "formulas": [
+              "FORMULA-4-2-1"
+            ]
+          },
+          {
+            "id": "4.2.2",
+            "title": "弯沉",
+            "text": "路基弯沉应符合表4.2.2的规定...",
+            "chapterId": "4",
+            "chapterTitle": "路基工程",
+            "tables": [
+              "TABLE-4-2-2"
+            ],
+            "formulas": [
+              "FORMULA-4-2-2"
+            ]
+          }
+        ],
+        "clauseCount": 2
+      },
+      "confidence": 0.76,
+      "reviewRequired": true,
+      "estimatedSPU": "highway.subgrade.compaction.4.2.1@v1",
+      "rawText": ""
+    },
+    "spu": {
+      "spuId": "highway.subgrade.compaction.4.2.1.soil@v1",
+      "resolvedSpuId": "JTG_F80_1_2017.4.2.1.compaction",
+      "status": "generated",
+      "formats": {
+        "yaml": "https://api.normref.com/v1/spu/highway.subgrade.compaction.4.2.1.soil@v1.yaml",
+        "json": "https://api.normref.com/v1/spu/highway.subgrade.compaction.4.2.1.soil@v1.json",
+        "markdown": "https://api.normref.com/v1/spu/highway.subgrade.compaction.4.2.1.soil@v1.md"
+      },
+      "bundle": "https://api.normref.com/v1/spu/highway.subgrade.compaction.4.2.1.soil@v1.specbundle",
+      "confidence": 0.94,
+      "reviewPoints": [
+        {
+          "type": "threshold_value",
+          "field": "standard_compaction",
+          "current": 96,
+          "suggestion": "请确认96区标准值是否为96%，部分项目可能要求97%",
+          "severity": "warning"
+        },
+        {
+          "type": "formula_accuracy",
+          "field": "calc_compaction",
+          "message": "公式已验证，请确认单位换算",
+          "severity": "info"
+        }
+      ],
+      "generatedAt": "2026-04-22T03:21:22Z",
+      "estimatedReviewTime": "15分钟",
+      "parseId": "parse_20260422032121468543",
+      "clauseId": "4.2.1",
+      "standardCode": "JTG F80/1-2017",
+      "options": {
+        "includeForm": true,
+        "includePath": true,
+        "includeGate": true
+      },
+      "modulesEnabled": {
+        "form": true,
+        "path": true,
+        "gate": true
+      },
+      "sourceParseStatus": "success",
+      "clauseTitle": "压实度",
+      "availableClauseIds": [
+        "4.2.1",
+        "4.2.2"
+      ]
+    },
+    "mapping": {
+      "location": {
+        "stake": "K15+200",
+        "absoluteChainage": 15200,
+        "projectOffset": 5200,
+        "projectId": "DB-01",
+        "branchId": null,
+        "coordinates": {
+          "lat": 30.123456,
+          "lng": 120.654321
+        }
+      },
+      "containers": [
+        {
+          "containerId": "DB-01",
+          "projectId": "DB-01",
+          "branchId": "main",
+          "type": "subgrade",
+          "vuri": "v:/cn.highway/dajin/subgrade/DB-01/container/K15+200",
+          "state": "active",
+          "range": "K15+000~K16+000"
+        }
+      ],
+      "volumes": [
+        {
+          "volumeId": "K15+200",
+          "containerId": "DB-01-K15+200",
+          "layer": "zone-96",
+          "geometry": {
+            "length": 20.0,
+            "width": 12.5,
+            "height": 5.002,
+            "slopeRatio": "1:1.5",
+            "shape": {
+              "type": "polygon",
+              "coordinates": [
+                [
+                  3845231.1,
+                  456789.0
+                ],
+                [
+                  3845235.0,
+                  456792.2
+                ],
+                [
+                  3845234.2,
+                  456796.5
+                ],
+                [
+                  3845229.4,
+                  456793.1
+                ]
+              ]
+            }
+          },
+          "quantity": 1250.5,
+          "unit": "m³"
+        }
+      ],
+      "activeSpecs": [
+        {
+          "spuId": "highway.subgrade.compaction.4.2.1.soil@v1",
+          "name": "路基压实度（土质）",
+          "formStatus": "qualified",
+          "lastProof": "0xabc123def456...",
+          "executedAt": "2026-04-15T14:30:00Z"
+        },
+        {
+          "spuId": "highway.subgrade.deflection.4.2.2@v1",
+          "name": "弯沉",
+          "formStatus": "pending",
+          "lastProof": null,
+          "executedAt": "2026-04-19T10:00:00Z"
+        }
+      ],
+      "pendingActions": [
+        {
+          "actionType": "deflection_test_required",
+          "description": "压实度已合格，需进行弯沉检测",
+          "deadline": "2026-04-20",
+          "assignedTo": "did:peg:ins_002",
+          "priority": "high"
+        }
+      ]
+    },
+    "gate_pass": {
+      "detail": "UTXO already exists: v://cn.highway/dajin%2Fsubgrade%2FDB-01%2FK15+200?version=genesis&time=1776775165#main"
+    },
+    "gate_fail": {
+      "detail": "UTXO already exists: v://cn.highway/dajin%2Fsubgrade%2FDB-01%2FK15+200?version=genesis&time=1776775165#main"
+    },
+    "state_transition": {
+      "transitionId": "trans_20260422032122443469",
+      "status": "completed",
+      "vuri": "v:/cn.highway/dajin/subgrade/DB-01/K15+200",
+      "stateMachine": {
+        "previous": "COMPUTED",
+        "current": "VALIDATED",
+        "next": [
+          "QUALIFIED",
+          "REJECTED"
+        ],
+        "pendingSignatures": [
+          "supervision"
+        ]
+      },
+      "history": [
+        {
+          "state": "DRAFT",
+          "enteredAt": "2026-04-17T09:00:00Z",
+          "triggeredBy": "did:peg:ins_001"
+        },
+        {
+          "state": "COMPUTED",
+          "enteredAt": "2026-04-17T10:00:01Z",
+          "triggeredBy": "system:gate_pass"
+        },
+        {
+          "state": "VALIDATED",
+          "enteredAt": "2026-04-17T10:15:30Z",
+          "triggeredBy": "did:peg:ins_001",
+          "signatures": [
+            "lab"
+          ]
+        }
+      ],
+      "nextActions": [
+        {
+          "action": "supervision_review",
+          "description": "监理审核并签字",
+          "deadline": "2026-04-17T18:00:00Z"
+        }
+      ]
+    },
+    "proof_verify": {
+      "detail": "proofId or proofHash is required"
+    }
+  }
+}

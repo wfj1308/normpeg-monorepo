@@ -1,0 +1,20 @@
+{
+  "rule_id": "bridge.pile-hole-check.measured_value.4.4.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/bridge/pile-hole-check/measured_value@2026-04",
+  "category": "bridge/pile-hole-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "5",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "4.4.1",
+  "source_line": "5粒料桩：施工工艺应符合规范规定；施工前应进行成桩工艺和成桩挤密试验；",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-06a75ca21ccc44ec",
+  "candidate_id": "cand-aca2814fd79c",
+  "source_std_code": "JTG-F80-1-2017",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:a7d6cc5307a863c8126125a288e4aa8aac781e207cc0e39922a4711efbb0835f"
+}

@@ -1,0 +1,86 @@
+﻿{
+  "uri": "v://normref.com/schema/qc-v1",
+  "version": "v1",
+  "protocol_type": "QualityCheckProtocol",
+  "domain": "construction/highway",
+  "anchor": {
+    "boq_item_uri": "v://.../boq/{boq_item_id}",
+    "component_uri": "v://.../component/{component_id}"
+  },
+  "structure": {
+    "metadata": {
+      "norm_code": "string",
+      "boq_item_id": "string",
+      "bridge_uri": "string?",
+      "component_type": "string?"
+    },
+    "gates": [
+      {
+        "check_id": "string",
+        "label": "string",
+        "norm_ref": "string",
+        "threshold": {
+          "value": "number|[number,number]|string",
+          "operator": "gte|lte|range|eq",
+          "unit": "string?"
+        },
+        "severity": "mandatory|warning",
+        "explain": "string?"
+      }
+    ],
+    "verdict_logic": "input -> boolean + explain + proof",
+    "output_schema": {
+      "result": "PASS|FAIL|WARNING",
+      "failed_gates": "array<string>",
+      "explain": "string",
+      "proof_hash": "string",
+      "sealed_at": "ISO-8601"
+    },
+    "layers": {
+      "header": {
+        "doc_type": "string",
+        "doc_id": "string",
+        "v_uri": "string",
+        "project_ref": "string",
+        "version": "string",
+        "created_at": "ISO-8601",
+        "jurisdiction": "string"
+      },
+      "gate": {
+        "pre_conditions": "array<string>",
+        "entry_rules": "array<object>",
+        "required_trip_roles": "array<string>"
+      },
+      "body": {
+        "basic": "object",
+        "test_data": "array<object>",
+        "relations": "array<string>"
+      },
+      "proof": {
+        "data_hash": "string",
+        "proof_hash": "string",
+        "signatures": "array<string>",
+        "witness_logs": "array<string>",
+        "timestamps": "object"
+      },
+      "state": {
+        "lifecycle_stage": "draft|inspecting|approved|rejected|archived",
+        "state_matrix": {
+          "component_count": "number",
+          "forms_per_component": "number",
+          "expected_qc_table_count": "number",
+          "generated_qc_table_count": "number",
+          "signed_pass_table_count": "number",
+          "pending_qc_table_count": "number",
+          "total_qc_tables": "number",
+          "total": "number",
+          "generated": "number",
+          "signed": "number",
+          "pending": "number"
+        },
+        "next_action": "string",
+        "valid_until": "ISO-8601|string"
+      }
+    }
+  }
+}

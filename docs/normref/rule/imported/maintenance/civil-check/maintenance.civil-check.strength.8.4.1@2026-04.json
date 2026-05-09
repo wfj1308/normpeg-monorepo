@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.8.4.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "eq",
+  "threshold_value": "61",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "8.4.1",
+  "source_line": "料的强度、质量应符合设计要求和现行《公路圬工桥涵设计规范》（JTG D61）的",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-12dea68f21b5",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:76cf49c5fe005c9218fd53d5f569b5a62469033357717a45bf3cb2bab45fa139"
+}

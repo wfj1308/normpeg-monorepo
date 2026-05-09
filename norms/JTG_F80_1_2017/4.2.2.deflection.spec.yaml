@@ -1,0 +1,334 @@
+spec_id: JTG_F80_1_2017.4.2.2.deflection
+type: executable_spec
+version: v0.1.0
+namespace: norms.cn.mot.jtg_f80_1_2017.4_2_2
+
+semantics:
+  name: Deflection
+  clause: "4.2.2"
+  definition: Vertical deformation under standard axle load used to evaluate bearing capacity.
+  applicable_scopes:
+    - Roadbed top surface
+    - Asphalt pavement acceptance
+    - Concrete pavement base acceptance
+  standard_reference: JTG F80/1-2017 4.2.2
+  test_method: Beckman Beam (JTG 3450 T0951) or automatic deflectometer
+  frequency: One point every 20m per lane (or by contract)
+  unit: 0.01mm
+  standard_id: JTG_F80_1_2017
+  standard_name: JTG F80/1-2017 Highway Engineering Quality Inspection and Evaluation Standard
+  standard_version: "2017"
+  clause_id: "4.2.2"
+  clause_refs:
+    - JTG_F80_1_2017.4.2.2
+    - JTG_3450_2019.T0951
+  catalog_id: JTG_F80_1_2017
+  component_id: JTG_F80_1_2017.4.2.2.deflection
+  component_name: deflection
+  component_type: MeasuredItem
+  category: roadbed
+  work_item: earthwork_subgrade
+  work_item_family: earthwork_subgrade_specir_family
+  measured_item: deflection
+  form_type: T0951-2008
+  status: active
+  owner: quality-center
+  critical: true
+  source:
+    normdoc: normdocs/library/cn/mot/t0951/2008/normdoc.json
+    external_form_type: T0951-2008
+    normdoc_table_id: table.t0951
+  description: Pavement deflection executable specification from T0951 form rules
+  generated_at: "2026-04-17T00:00:00Z"
+
+logic:
+  language: specir/v1
+  execution_mode: deterministic
+  stages:
+    - inputs
+    - path
+    - gate
+    - state
+    - proof
+
+inputs:
+  input_dto:
+    stake:
+      type: string
+      required: false
+    section:
+      type: string
+      required: false
+    project_id:
+      type: string
+      required: true
+    road_class:
+      type: string
+      required: false
+    lane_position:
+      type: enum
+      required: false
+      enum_values: ["left", "right", "overtake", "shoulder"]
+    deflection:
+      type: number
+      unit: 0.01mm
+      precision: 2
+      required: true
+    initial_reading:
+      type: number
+      unit: 0.01mm
+      precision: 2
+      required: false
+    final_reading:
+      type: number
+      unit: 0.01mm
+      precision: 2
+      required: false
+    temperature:
+      type: number
+      unit: C
+      precision: 1
+      required: false
+    season_factor:
+      type: number
+      required: false
+      default: 1.0
+    structural_factor:
+      type: number
+      required: false
+      default: 1.0
+    design_deflection:
+      type: number
+      unit: 0.01mm
+      precision: 2
+      required: false
+    paragraph_values:
+      type: array
+      required: false
+      items:
+        type: number
+        precision: 2
+    actor_did:
+      type: string
+      required: true
+    actor_name:
+      type: string
+      required: false
+    inspected_at:
+      type: string
+      required: true
+    override_requested:
+      type: boolean
+      required: false
+      default: false
+    override_evidence:
+      type: object
+      required: false
+    archive_requested:
+      type: boolean
+      required: false
+      default: false
+
+path:
+  steps:
+    - step_id: normalize_road_class
+      action: formula
+      formula_ref: normalize_road_class_formula
+      output_field: road_class_normalized
+    - step_id: resolve_design_deflection
+      action: formula
+      formula_ref: resolve_design_deflection_formula
+      output_field: design_deflection_resolved
+    - step_id: calc_deflection_from_readings
+      action: formula
+      formula_ref: calc_deflection_from_readings_formula
+      output_field: deflection_from_readings
+      when: exists(initial_reading) and exists(final_reading)
+    - step_id: resolve_deflection
+      action: formula
+      formula_ref: resolve_deflection_value_formula
+      output_field: deflection_resolved
+    - step_id: resolve_season_factor
+      action: formula
+      formula_ref: resolve_season_factor_formula
+      output_field: season_factor_resolved
+    - step_id: resolve_structural_factor
+      action: formula
+      formula_ref: resolve_structural_factor_formula
+      output_field: structural_factor_resolved
+    - step_id: calc_deflection_corrected
+      action: formula
+      formula_ref: calc_deflection_corrected_formula
+      output_field: deflection_corrected
+    - step_id: resolve_representative_candidates
+      action: formula
+      formula_ref: resolve_representative_candidates_formula
+      output_field: representative_candidates
+    - step_id: calc_representative_deflection
+      action: aggregate
+      method: t_distribution_95_upper
+      input_field: representative_candidates
+      output_field: representative_deflection
+
+  formulas:
+    normalize_road_class_formula: coalesce(road_class, "default")
+    resolve_design_deflection_formula: coalesce(design_deflection, project.design_params.pavement.deflection.max, override.pavement.deflection.max, 180)
+    calc_deflection_from_readings_formula: (final_reading - initial_reading) * 2
+    resolve_deflection_value_formula: coalesce(deflection, deflection_from_readings)
+    resolve_season_factor_formula: coalesce(season_factor, 1)
+    resolve_structural_factor_formula: coalesce(structural_factor, 1)
+    calc_deflection_corrected_formula: deflection_resolved * season_factor_resolved * structural_factor_resolved
+    resolve_representative_candidates_formula: coalesce(paragraph_values, [deflection_corrected])
+
+  lookup_tables:
+    default_limit_by_road_class:
+      default: 180
+
+  derived_fields:
+    - road_class_normalized
+    - design_deflection_resolved
+    - deflection_from_readings
+    - deflection_resolved
+    - season_factor_resolved
+    - structural_factor_resolved
+    - deflection_corrected
+    - representative_deflection
+
+gate:
+  rules:
+    - rule_id: rule.deflection.single_point_limit
+      condition:
+        operator: "<="
+        actual: deflection_corrected
+        expected: design_deflection_resolved * 1.2
+      severity: blocking
+      on_fail: block
+      error_message: Single-point deflection exceeds design deflection by more than 20%.
+      clause_refs:
+        - JTG_F80_1_2017.4.2.2
+    - rule_id: rule.deflection.representative_limit
+      condition:
+        operator: "<="
+        actual: representative_deflection
+        expected: design_deflection_resolved
+      severity: critical
+      on_fail: critical
+      error_message: Representative deflection exceeds design limit.
+      clause_refs:
+        - JTG_F80_1_2017.4.2.2
+    - rule_id: rule.deflection.temperature_range
+      condition: coalesce(temperature, 20) >= 5 and coalesce(temperature, 20) <= 35
+      severity: warning
+      on_fail: warn
+      error_message: Temperature is outside 5-35C reference range; correction should be recorded.
+      clause_refs:
+        - JTG_F80_1_2017.4.2.2
+        - JTG_3450_2019.T0951
+  references:
+    - JTG_F80_1_2017.4.2.2
+    - JTG_3450_2019.T0951
+  clause_refs:
+    - JTG_F80_1_2017.4.2.2
+    - JTG_3450_2019.T0951
+
+state:
+  initial_state: DRAFT
+  states: [DRAFT, COMPUTED, VALIDATED, QUALIFIED, REJECTED, OVERRIDDEN, ARCHIVED]
+  allowed_transitions:
+    - from_state: DRAFT
+      to_state: COMPUTED
+      trigger: path_executed
+    - from_state: COMPUTED
+      to_state: VALIDATED
+      trigger: gate_executed
+    - from_state: VALIDATED
+      to_state: QUALIFIED
+      trigger: all_rules_pass
+    - from_state: VALIDATED
+      to_state: REJECTED
+      trigger: rule_failed
+    - from_state: VALIDATED
+      to_state: OVERRIDDEN
+      trigger: manual_override_approved
+    - from_state: QUALIFIED
+      to_state: ARCHIVED
+      trigger: archive_requested
+    - from_state: REJECTED
+      to_state: ARCHIVED
+      trigger: archive_requested
+    - from_state: OVERRIDDEN
+      to_state: ARCHIVED
+      trigger: archive_requested
+  terminal_states: [QUALIFIED, REJECTED, OVERRIDDEN, ARCHIVED]
+
+proof:
+  proof_fields:
+    - execution_id
+    - component_id
+    - version
+    - project_id
+    - input
+    - normalized_input
+    - path_outputs
+    - gate
+    - state_trace
+    - final_status
+    - clause_refs
+  canonicalization:
+    field_order:
+      - execution_id
+      - component_id
+      - version
+      - project_id
+      - input
+      - normalized_input
+      - path_outputs
+      - gate
+      - state_trace
+      - final_status
+      - clause_refs
+    sort_keys: true
+    null_policy: keep
+  hash_algorithm: sha256
+  canonical_order:
+    - execution_id
+    - component_id
+    - version
+    - project_id
+    - input
+    - normalized_input
+    - path_outputs
+    - gate
+    - state_trace
+    - final_status
+    - clause_refs
+  hash_method: sha256
+  signature:
+    algorithm: hmac_sha256
+    key_env: LAYERPEG_PROOF_HMAC_KEY
+  chain:
+    enabled: true
+  template:
+    - input_hash: sha256(raw readings + stake + lane)
+    - calculation_trace:
+        - reading delta and support correction
+        - correction factor application
+        - representative value calculation
+    - gate_decisions: single-point check + representative check
+    - representative_value: t_distribution_95_upper output
+    - temperature_record: optional
+    - correction_factors: season + structure factors
+    - timestamp: ISO8601
+    - signatures: inspector + supervisor + system key
+    - vuri_anchor: v://cn.highway/{project}/section/{stake}/deflection
+
+metadata:
+  specir_version: v0.1.0
+  source_normdoc_file: normdocs/library/cn/mot/t0951/2008/normdoc.json
+  source_normdoc_version: v1
+  source_gate_rule: rule.deflection.representative_limit
+  migration_note: normalized from NormDoc T0951 into SpecIR asset
+  patchable: true
+  related_specs:
+    - JTG_3450_2019.T0951
+    - JTG_F80_1_2017.4.2.1.compaction

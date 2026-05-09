@@ -1,0 +1,20 @@
+{
+  "rule_id": "civil.general-check.measured_value.3.1.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/civil/general-check/measured_value@2026-04",
+  "category": "civil/general-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "1",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "3.1.3",
+  "source_line": "1分项工程完工后，应根据本标准进行检验，对工程质量进行评定。隐蔽工程在",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-39f24815cf4f43c5",
+  "candidate_id": "cand-f92143b71a79",
+  "source_std_code": "JTG-F80-1-2017",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:6c474931e0b4daeffe62fd98a55dedf2574660d5e39d305f596fe15c8cac3856"
+}

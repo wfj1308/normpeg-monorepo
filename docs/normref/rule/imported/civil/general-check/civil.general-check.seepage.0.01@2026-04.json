@@ -1,0 +1,20 @@
+{
+  "rule_id": "civil.general-check.seepage.0.01",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/civil/general-check/seepage@2026-04",
+  "category": "civil/general-check",
+  "field_key": "seepage",
+  "operator": "eq",
+  "threshold_value": "3",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "0.01",
+  "source_line": "3m长试样，平放24h，无渗水",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-52090a1ca4ce43cb",
+  "candidate_id": "cand-911d1e570b13",
+  "source_std_code": "JTG-F80-1-2017",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:1a8919ee706bea56cb9a0130ceb0bc551e74b75c45548e3de57f5ead3b1b11c2"
+}

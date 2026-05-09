@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.3.3.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "3",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "3.3.3",
+  "source_line": "3 外观质量应满足要求。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-e5f8e77e31ae",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:74b1d9b77fa53682a1eccaca04e8d981e20b0a510e9b5962292dff985fcef6a6"
+}

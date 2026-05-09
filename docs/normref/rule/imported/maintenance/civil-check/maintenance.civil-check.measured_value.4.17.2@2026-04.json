@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.4.17.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "5",
+  "unit": "%",
+  "severity": "mandatory",
+  "norm_ref": "4.17.2",
+  "source_line": "5 锚杆垫板 与框架梁紧贴 目测：抽查锚杆数的50%",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-2923d7cf0bc2",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:29d090231c93ec721e7c1736db49bacad560853f259fab725285ee61268e2881"
+}

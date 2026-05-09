@@ -1,0 +1,20 @@
+{
+  "rule_id": "civil.general-check.measured_value.3.2.7",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/civil/general-check/measured_value@2026-04",
+  "category": "civil/general-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "4",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "3.2.7",
+  "source_line": "4质量控制指标的试验记录和质量检验汇总图表；",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-06a75ca21ccc44ec",
+  "candidate_id": "cand-1eb6438f2f4c",
+  "source_std_code": "JTG-F80-1-2017",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:d06852ea11e19a72581fff56d4e196b624df518bc997cd80ff32e9435d58ceaf"
+}

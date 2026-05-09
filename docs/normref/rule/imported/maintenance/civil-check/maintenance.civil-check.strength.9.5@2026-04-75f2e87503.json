@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.9.5",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "eq",
+  "threshold_value": "168",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "9.5",
+  "source_line": "附录E 喷射混凝土抗压强度评定 ......................................................................... 168",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-7f602ad4d2dd",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:75f2e875039e975bcba7741c19e6998149b2d0deaf497cfb721cdc95cdd62b80"
+}

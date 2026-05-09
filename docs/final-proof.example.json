@@ -1,0 +1,63 @@
+{
+  "kind": "finalProof",
+  "proofId": "proof_abc123",
+  "hash": "abc123",
+  "schemaVersion": "proof.final@v1",
+  "executionId": "archive_container_1_1745400000000",
+  "spuId": "container:aggregate",
+  "nodeId": null,
+  "containerId": "container_1",
+  "inputSnapshot": {
+    "nodeCount": 3,
+    "geoSlotRef": "v://space/slot/K19+070"
+  },
+  "resultSnapshot": {
+    "overallStatus": "PASS",
+    "passedNodeCount": 3,
+    "failedNodeCount": 0
+  },
+  "matchedSpecVersion": "aggregate@v1",
+  "matchedRules": [],
+  "status": "PASS",
+  "signatures": [
+    {
+      "role": "lab_user",
+      "signer": "lab_user",
+      "signature": null,
+      "status": "SIGNED",
+      "signedAt": "2026-04-23T10:02:00Z"
+    },
+    {
+      "role": "supervisor_user",
+      "signer": "supervisor_user",
+      "signature": null,
+      "status": "SIGNED",
+      "signedAt": "2026-04-23T10:02:10Z"
+    }
+  ],
+  "timestamps": {
+    "createdAt": "2026-04-23T10:02:10Z",
+    "evaluatedAt": "2026-04-23T10:02:10Z",
+    "finalizedAt": "2026-04-23T10:02:10Z",
+    "archivedAt": "2026-04-23T10:02:10Z"
+  },
+  "archiveStatus": "ARCHIVED",
+  "technicalDetails": {
+    "auditTrailCount": 12,
+    "latestNodeIds": ["node_1", "node_2", "node_3"]
+  },
+  "geoSlotRef": "v://space/slot/K19+070",
+  "overallStatus": "PASS",
+  "specResults": [
+    {
+      "spuId": "highway.subgrade.compaction.4.2.1.soil@v1",
+      "status": "PASS",
+      "finalNodeId": "node_1",
+      "attempts": 1
+    }
+  ],
+  "legacySignatures": ["lab_user", "supervisor_user"],
+  "auditTrail": [],
+  "archivedAt": "2026-04-23T10:02:10Z",
+  "extensions": {}
+}

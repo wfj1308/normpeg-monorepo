@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.6.26.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "lte",
+  "threshold_value": "0.5",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "6.26.2",
+  "source_line": "管节外形 管端椭圆度（mm） ±0.5%D，且不大于5 尺量：抽查10%桩，各测3",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-5f9ec7921660",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:beb0b779deb3bc2e162845ea2285fbd5bfcf4fb2a974f95e7a1e98cc0fc3046d"
+}

@@ -1,0 +1,184 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "layerpeg-document.schema.json",
+  "title": "LayerPegDocument",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["header", "gate", "body", "proof", "state"],
+  "properties": {
+    "header": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["usi", "docType", "version", "createdAt"],
+      "properties": {
+        "usi": { "type": "string", "minLength": 1 },
+        "docType": {
+          "type": "string",
+          "enum": ["spec", "proof", "report", "form", "sku", "execution", "container", "other"]
+        },
+        "version": { "type": "string", "minLength": 1 },
+        "ownerDid": { "type": ["string", "null"] },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "rootRef": { "type": ["string", "null"] },
+        "projectRef": { "type": ["string", "null"] },
+        "normRef": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "properties": {
+            "normRefId": { "type": "string" },
+            "norm": { "type": "string" },
+            "clause": { "type": "string" },
+            "version": { "type": "string" }
+          }
+        }
+      }
+    },
+    "gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["decision", "decisionReason", "entryConditions", "executionPath", "dependencyGraph", "evaluation"],
+      "properties": {
+        "decision": { "type": "string", "enum": ["pass", "block", "override", "pending"] },
+        "decisionReason": { "type": "string" },
+        "policyRef": { "type": ["string", "null"] },
+        "entryConditions": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "executionPath": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["step"],
+            "properties": {
+              "step": { "type": "string" },
+              "expression": { "type": "string" },
+              "result": {}
+            }
+          }
+        },
+        "dependencyGraph": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["nodeId", "dependsOn"],
+            "properties": {
+              "nodeId": { "type": "string" },
+              "dependsOn": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            }
+          }
+        },
+        "evaluation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["ruleTotal", "passed", "failed"],
+          "properties": {
+            "ruleTotal": { "type": "integer", "minimum": 0 },
+            "passed": { "type": "integer", "minimum": 0 },
+            "failed": { "type": "integer", "minimum": 0 }
+          }
+        }
+      }
+    },
+    "body": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["payloadType", "inputDto", "outputDto", "data", "tables", "formulas"],
+      "properties": {
+        "payloadType": { "type": "string" },
+        "inputDto": { "type": "object", "additionalProperties": true },
+        "outputDto": { "type": "object", "additionalProperties": true },
+        "data": { "type": "object", "additionalProperties": true },
+        "tables": {
+          "type": "array",
+          "items": { "type": "object", "additionalProperties": true }
+        },
+        "formulas": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "proof": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["proofHash", "payloadHash", "merkleRoot", "signatures", "anchors", "evidence"],
+      "properties": {
+        "proofHash": { "type": ["string", "null"] },
+        "payloadHash": { "type": ["string", "null"] },
+        "merkleRoot": { "type": ["string", "null"] },
+        "signatures": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["signer"],
+            "properties": {
+              "signer": { "type": "string" },
+              "signedAt": { "type": "string", "format": "date-time" },
+              "source": { "type": "string", "enum": ["human", "device", "system"] }
+            }
+          }
+        },
+        "anchors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["target", "ref"],
+            "properties": {
+              "anchorId": { "type": "string" },
+              "target": { "type": "string" },
+              "ref": { "type": "string" },
+              "anchoredAt": { "type": "string", "format": "date-time" }
+            }
+          }
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      }
+    },
+    "state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["current", "stateMachine", "pendingActions", "transitionRules", "history"],
+      "properties": {
+        "current": { "type": "string" },
+        "stateMachine": { "type": "string" },
+        "pendingActions": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "transitionRules": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "history": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["to", "at"],
+            "properties": {
+              "from": { "type": "string" },
+              "to": { "type": "string" },
+              "at": { "type": "string", "format": "date-time" },
+              "by": { "type": "string" },
+              "reason": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

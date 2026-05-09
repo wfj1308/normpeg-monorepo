@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.9.3.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "lte",
+  "threshold_value": "3",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "9.3.2",
+  "source_line": "3△ 杂 草 含 量 (％) ≤5 观察、钢卷尺：每100m2抽检1处5m2",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-5c00cced3040",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:10ea4148ebf9af3336ad610022c734c4e481c4a37970b52fcc917e3f4ca4c437"
+}

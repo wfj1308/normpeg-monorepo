@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.4.6.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "eq",
+  "threshold_value": "1",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "4.6.1",
+  "source_line": "1 砌筑井体时，井基混凝土强度应达到设计要求。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-18814d83a1a9",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:d84876798dac242f3ea315dd407285c0707bcda37af6dd841427f773e8ce2f3c"
+}

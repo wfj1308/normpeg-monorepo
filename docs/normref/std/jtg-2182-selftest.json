@@ -1,0 +1,28 @@
+{
+  "run_at": "2026-04-09T20:24:58.597083",
+  "publish": false,
+  "write_to_docs": false,
+  "version_tag": "2026-04",
+  "approve_threshold": 0.75,
+  "ocr_max_pages": 200,
+  "jobs": [
+    {
+      "ok": true,
+      "file": "c:\\Users\\xm_91\\Downloads\\公路工程质量检验评定标准 第二册 机电工程（JTG 2182-2020）.pdf",
+      "job_id": "ingest-a3545340252842cb",
+      "std_code": "JTG-2182-2020",
+      "status": "review_required",
+      "candidate_count": 880,
+      "status_summary": {
+        "pending": 315,
+        "approved": 565,
+        "rejected": 0
+      },
+      "warnings": [
+        "ocr_selected"
+      ],
+      "auto_approved_count": 565
+    }
+  ],
+  "published": []
+}

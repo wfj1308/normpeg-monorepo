@@ -1,0 +1,44 @@
+{
+  "uri": "v://normref.com/rule/bridge/pile-hole-check/slurry-index-range@2026-04",
+  "schema_uri": "v://normref.com/schema/qc-v1",
+  "rule_id": "bridge.pile-hole-check.slurry-index-range",
+  "version": "2026-04",
+  "metadata": {
+    "norm_code": "JTG F80/1-2017",
+    "chapter_ref": "7.1",
+    "description": "泥浆性能区间控制规则（比重）",
+    "severity": "warning"
+  },
+  "gates": [
+    {
+      "check_id": "slurry_specific_gravity",
+      "label": "泥浆比重",
+      "norm_ref": "JTG F80/1-2017 7.1",
+      "threshold": {
+        "value": [
+          1.03,
+          1.12
+        ],
+        "operator": "range",
+        "unit": "g/cm3"
+      },
+      "severity": "warning"
+    }
+  ],
+  "verdict_logic": {
+    "rule": "1.03 <= actual <= 1.12 => PASS else WARNING",
+    "input": {
+      "actual_values": {
+        "slurry_specific_gravity": 0
+      },
+      "design_values": {}
+    },
+    "output": {
+      "result": "PASS|FAIL|WARNING",
+      "failed_gates": [],
+      "explain": "",
+      "proof_hash": ""
+    }
+  }
+}
+

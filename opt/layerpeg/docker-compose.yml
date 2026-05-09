@@ -1,0 +1,27 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: peg-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: layerpeg
+      POSTGRES_PASSWORD: layerpeg
+      POSTGRES_DB: layerpeg
+    volumes:
+      - ./data/pgdata:/var/lib/postgresql/data
+
+  gate-engine:
+    image: layerpeg/gate:latest
+    container_name: gate-engine
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"
+    environment:
+      PROJECT_ID: ${PROJECT_ID:-GXX_2024_XXX}
+      OFFLINE_MODE: ${OFFLINE_MODE:-true}
+      DATABASE_URL: postgresql://layerpeg:layerpeg@postgres:5432/layerpeg
+    volumes:
+      - ./gate/norms:/app/norms:ro
+      - ./projects:/app/projects:ro

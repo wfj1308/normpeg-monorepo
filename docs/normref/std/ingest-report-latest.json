@@ -1,0 +1,114 @@
+{
+  "ok": true,
+  "generated_at": "2026-04-13T07:06:16.427391+00:00",
+  "input_count": 1,
+  "publish_enabled": true,
+  "write_to_docs": true,
+  "jobs": [
+    {
+      "input_file": "C:\\Users\\xm_91\\Desktop\\新表.pdf",
+      "job": {
+        "job_id": "ingest-7f5c246324794657",
+        "std_code": "JTG-F80-1-2017",
+        "title": "",
+        "level": "industry",
+        "file_name": "新表.pdf",
+        "file_hash": "sha256:5d8c7a1079a533f27e825caca822f57b616ac18bef397511b76fb256605e90af",
+        "status": "completed",
+        "created_at": "2026-04-13T07:06:13.527461+00:00",
+        "updated_at": "2026-04-13T07:06:16.427391+00:00",
+        "completed_at": "2026-04-13T07:06:16.427391+00:00",
+        "warnings": [
+          "ocr_selected"
+        ],
+        "sections": [],
+        "candidates": [
+          {
+            "candidate_id": "cand-9aa2accb552b",
+            "job_id": "ingest-7f5c246324794657",
+            "rule_id": "civil.general-check.measured_value.rule",
+            "category": "civil/general-check",
+            "field_key": "measured_value",
+            "operator": "eq",
+            "threshold_value": "",
+            "unit": "mm",
+            "severity": "mandatory",
+            "norm_ref": "",
+            "source_line": "孔位偏差（mm）",
+            "confidence": 0.58,
+            "status": "approved",
+            "notes": ""
+          },
+          {
+            "candidate_id": "cand-7085c667e5ac",
+            "job_id": "ingest-7f5c246324794657",
+            "rule_id": "civil.general-check.thickness.rule",
+            "category": "civil/general-check",
+            "field_key": "thickness",
+            "operator": "eq",
+            "threshold_value": "",
+            "unit": "mm",
+            "severity": "mandatory",
+            "norm_ref": "",
+            "source_line": "沉淀层厚度（mm）",
+            "confidence": 0.58,
+            "status": "approved",
+            "notes": ""
+          }
+        ],
+        "source_text_preview": "眉县至太白高速公路\n桩基灌注混凝土前检查表\n施工单位：\n监理单位：\n合同段：\n起讫桩号：\n第页共页\n桥施8表\n工程名称\n桩位\n检查日期\n护筒顶高程（m）\n护筒长度（m）\n倾斜度（mm）\n设计直径（m）\n10000\n终孔直径（m）\n45445\n孔位偏差（mm）\n灌注前孔底高程\n设计孔底高程（m）\n30\n34\n沉淀层厚度（mm）\n10\n(m)\n灌注前泥浆比重\n粘度（s）\n含砂率（%）\n(g/cm²)\n桩基支承形式\n钻孔出现的\n问题及处理\n是否清孔、清孔\n方法及效果\n主筋直径及根数\n主筋长度（m）\n(根)\n钢筋骨架\n骨架总长（m）\n骨架底面高程（m）\n焊接方法及搭接\n骨架每节长度（m）\n长度（mm）\n检查\n记录\n复核\n施工单位意见：\n签名：\n年\n月\n日\n监理工程师意见：\n签名：\n年\n月\n日"
+      },
+      "approved_count": 2,
+      "publish": {
+        "ok": true,
+        "job_id": "ingest-7f5c246324794657",
+        "version_tag": "2026-04",
+        "published_count": 2,
+        "snapshot_hash": "sha256:4ec163c5d78574488c5da0ee7505353e1e104bae1c550b0917a97f9be6c82d66",
+        "rules": [
+          {
+            "rule_id": "civil.general-check.measured_value.rule",
+            "version": "2026-04",
+            "uri": "v://normref.com/rule/civil/general-check/measured_value@2026-04",
+            "category": "civil/general-check",
+            "field_key": "measured_value",
+            "operator": "eq",
+            "threshold_value": "",
+            "unit": "mm",
+            "severity": "mandatory",
+            "norm_ref": "",
+            "source_line": "孔位偏差（mm）",
+            "confidence": 0.58,
+            "ingest_job_id": "ingest-7f5c246324794657",
+            "candidate_id": "cand-9aa2accb552b",
+            "source_std_code": "JTG-F80-1-2017",
+            "source_level": "industry",
+            "scope": "industry",
+            "hash": "sha256:e2d40ecf7912df0b20633a3be67ea3df81ce1c470eaf4b3b2e4651e5a0de75a4"
+          },
+          {
+            "rule_id": "civil.general-check.thickness.rule",
+            "version": "2026-04",
+            "uri": "v://normref.com/rule/civil/general-check/thickness@2026-04",
+            "category": "civil/general-check",
+            "field_key": "thickness",
+            "operator": "eq",
+            "threshold_value": "",
+            "unit": "mm",
+            "severity": "mandatory",
+            "norm_ref": "",
+            "source_line": "沉淀层厚度（mm）",
+            "confidence": 0.58,
+            "ingest_job_id": "ingest-7f5c246324794657",
+            "candidate_id": "cand-7085c667e5ac",
+            "source_std_code": "JTG-F80-1-2017",
+            "source_level": "industry",
+            "scope": "industry",
+            "hash": "sha256:d9a7ff24ec41fc3eea0dc09456b73aff5d41d73ea178a4edcb0942ef4da2a26d"
+          }
+        ],
+        "write_to_docs": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,161 @@
+{
+  "generatedAt": "2026-04-22T14:06:21.658Z",
+  "before": {
+    "total": 3,
+    "averageScore": 0.3333,
+    "cases": [
+      {
+        "caseId": "compaction_case",
+        "metrics": {
+          "clauseMatched": false,
+          "clauseConfidence": "medium",
+          "formulasExpected": 1,
+          "formulasFullMatched": 0,
+          "formulasPartialMatched": 0,
+          "inputsExpected": 4,
+          "inputsMatched": 0,
+          "rulesExpected": 1,
+          "rulesMatched": 0,
+          "warningsCount": 2,
+          "score": {
+            "clause": 0,
+            "formula": 0,
+            "tableInputs": 0,
+            "rules": 0,
+            "overall": 0
+          }
+        }
+      },
+      {
+        "caseId": "deflection_case",
+        "metrics": {
+          "clauseMatched": true,
+          "clauseConfidence": "medium",
+          "formulasExpected": 1,
+          "formulasFullMatched": 0,
+          "formulasPartialMatched": 0,
+          "inputsExpected": 2,
+          "inputsMatched": 0,
+          "rulesExpected": 1,
+          "rulesMatched": 1,
+          "warningsCount": 1,
+          "score": {
+            "clause": 1,
+            "formula": 0,
+            "tableInputs": 0,
+            "rules": 1,
+            "overall": 0.5
+          }
+        }
+      },
+      {
+        "caseId": "thickness_case",
+        "metrics": {
+          "clauseMatched": true,
+          "clauseConfidence": "medium",
+          "formulasExpected": 2,
+          "formulasFullMatched": 0,
+          "formulasPartialMatched": 0,
+          "inputsExpected": 2,
+          "inputsMatched": 0,
+          "rulesExpected": 1,
+          "rulesMatched": 1,
+          "warningsCount": 1,
+          "score": {
+            "clause": 1,
+            "formula": 0,
+            "tableInputs": 0,
+            "rules": 1,
+            "overall": 0.5
+          }
+        }
+      }
+    ]
+  },
+  "after": {
+    "total": 3,
+    "averageScore": 0.7917,
+    "cases": [
+      {
+        "caseId": "compaction_case",
+        "metrics": {
+          "clauseMatched": true,
+          "clauseConfidence": "high",
+          "formulasExpected": 1,
+          "formulasFullMatched": 0,
+          "formulasPartialMatched": 1,
+          "inputsExpected": 4,
+          "inputsMatched": 4,
+          "rulesExpected": 1,
+          "rulesMatched": 1,
+          "warningsCount": 3,
+          "score": {
+            "clause": 1,
+            "formula": 0.5,
+            "tableInputs": 1,
+            "rules": 1,
+            "overall": 0.875
+          }
+        }
+      },
+      {
+        "caseId": "deflection_case",
+        "metrics": {
+          "clauseMatched": true,
+          "clauseConfidence": "medium",
+          "formulasExpected": 1,
+          "formulasFullMatched": 0,
+          "formulasPartialMatched": 0,
+          "inputsExpected": 2,
+          "inputsMatched": 2,
+          "rulesExpected": 1,
+          "rulesMatched": 1,
+          "warningsCount": 4,
+          "score": {
+            "clause": 1,
+            "formula": 0,
+            "tableInputs": 1,
+            "rules": 1,
+            "overall": 0.75
+          }
+        }
+      },
+      {
+        "caseId": "thickness_case",
+        "metrics": {
+          "clauseMatched": true,
+          "clauseConfidence": "high",
+          "formulasExpected": 2,
+          "formulasFullMatched": 0,
+          "formulasPartialMatched": 0,
+          "inputsExpected": 2,
+          "inputsMatched": 2,
+          "rulesExpected": 1,
+          "rulesMatched": 1,
+          "warningsCount": 3,
+          "score": {
+            "clause": 1,
+            "formula": 0,
+            "tableInputs": 1,
+            "rules": 1,
+            "overall": 0.75
+          }
+        }
+      }
+    ]
+  },
+  "comparison": {
+    "clauseDelta": 0.3333,
+    "formulaDelta": 0.1667,
+    "inputDelta": 1,
+    "ruleDelta": 0.3333,
+    "overallDelta": 0.4584,
+    "improvedCases": [
+      "compaction_case",
+      "deflection_case",
+      "thickness_case"
+    ],
+    "regressedCases": []
+  },
+  "report": "Extraction Benchmark Report\n\nOverall:\n- before: 0.3333\n- after: 0.7917\n- delta: +0.4584\n\nClause:\n- before: 0.6667\n- after: 1.0000\n- delta: +0.3333\nFormula:\n- before: 0.0000\n- after: 0.1667\n- delta: +0.1667\nInput:\n- before: 0.0000\n- after: 1.0000\n- delta: +1.0000\nRule:\n- before: 0.6667\n- after: 1.0000\n- delta: +0.3333\n\nImproved Cases:\n- compaction_case\n- deflection_case\n- thickness_case\n\nRegressed Cases:\n- none\n\nMost Improved Case: compaction_case (+0.8750)"
+}

@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.4.4.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "7",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "4.4.2",
+  "source_line": "7 边坡 每50m抽查1处",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-1fd9aba86716",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:45d51e112e07b90ca4599d3550cb043b8091f6d5ba0bf1c2992d43c2126a2ce1"
+}

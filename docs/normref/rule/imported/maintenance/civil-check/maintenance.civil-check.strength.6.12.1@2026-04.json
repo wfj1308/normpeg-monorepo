@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.6.12.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "eq",
+  "threshold_value": "5",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "6.12.1",
+  "source_line": "5 支架和模板的强度、刚度、稳定性应符合相关施工技术规范的规定。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-7c7b9cf12d47",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:d0e15c0bd6ef0a003c7d419cb2720aefcfc2e024c4e3115d4cc4c05c16a01955"
+}

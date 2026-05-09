@@ -1,0 +1,50 @@
+{
+  "generatedAt": "2026-04-22T13:50:36.794Z",
+  "samples": [
+    {
+      "case": "compaction",
+      "primaryClauseBefore": "4.2.1",
+      "primaryClauseAfter": "4.2.1",
+      "formulasFullBefore": 1,
+      "formulasFullAfter": 1,
+      "formulasPartialBefore": 1,
+      "formulasPartialAfter": 1,
+      "inputCountBefore": 1,
+      "inputCountAfter": 1,
+      "ruleCountBefore": 1,
+      "ruleCountAfter": 1,
+      "warningsBefore": 10,
+      "warningsAfter": 10
+    },
+    {
+      "case": "thickness",
+      "primaryClauseBefore": "4.2.1",
+      "primaryClauseAfter": "4.2.1",
+      "formulasFullBefore": 1,
+      "formulasFullAfter": 1,
+      "formulasPartialBefore": 1,
+      "formulasPartialAfter": 1,
+      "inputCountBefore": 1,
+      "inputCountAfter": 1,
+      "ruleCountBefore": 1,
+      "ruleCountAfter": 1,
+      "warningsBefore": 10,
+      "warningsAfter": 10
+    },
+    {
+      "case": "deflection",
+      "primaryClauseBefore": "4.2.1",
+      "primaryClauseAfter": "4.2.1",
+      "formulasFullBefore": 1,
+      "formulasFullAfter": 1,
+      "formulasPartialBefore": 1,
+      "formulasPartialAfter": 1,
+      "inputCountBefore": 1,
+      "inputCountAfter": 1,
+      "ruleCountBefore": 1,
+      "ruleCountAfter": 1,
+      "warningsBefore": 10,
+      "warningsAfter": 10
+    }
+  ]
+}

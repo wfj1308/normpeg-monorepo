@@ -1,0 +1,20 @@
+{
+  "rule_id": "electromechanical.general-check.measured_value.1.0.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/electromechanical/general-check/measured_value@2026-04",
+  "category": "electromechanical/general-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "100",
+  "unit": "%",
+  "severity": "mandatory",
+  "norm_ref": "1.0.3",
+  "source_line": "检为100%；监理单位抽检不低于30%；检测单位交工质量检测不低于30%，峻工",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-11c05a464c894fef",
+  "candidate_id": "cand-c53372606a4c",
+  "source_std_code": "JTG-2182-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:7caa5a526acf980f4d8f001b1a3087b8c3ec80913ac5d182f2947e30d185ceaa"
+}

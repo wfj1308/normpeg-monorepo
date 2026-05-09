@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.9.4.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "20",
+  "unit": "cm",
+  "severity": "mandatory",
+  "norm_ref": "9.4.2",
+  "source_line": "注：L为设计间距；根颈指乔木主干基部20cm的部分。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-8db97dd2a91e",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:7ee530ac91cfb42df9989278cce65650b834b0ec857c56741542b247022f2ace"
+}

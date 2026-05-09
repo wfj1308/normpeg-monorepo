@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.thickness.6.9.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/thickness@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "thickness",
+  "operator": "eq",
+  "threshold_value": "80",
+  "unit": "%",
+  "severity": "mandatory",
+  "norm_ref": "6.9.2",
+  "source_line": "80%点的厚度＞设计 测厚仪：每100m2 测10点，且不少于",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-de373d6d9b3e",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:3951df1aeffd0922f2d580676519e24aed2ded8cd9f17cf8d23aecf4f8abbeb0"
+}

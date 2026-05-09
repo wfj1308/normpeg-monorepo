@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.width.5.2.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/width@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "width",
+  "operator": "gte",
+  "threshold_value": "4",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "5.2.2",
+  "source_line": "4 宽度(mm) 不小于设计值 钢卷尺：每100m测2个断面",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-4faf92c6541f",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:d5edda2112a6aa78d3a9853631580e96b908e0e427224fcb2cc6b66c4bed6369"
+}

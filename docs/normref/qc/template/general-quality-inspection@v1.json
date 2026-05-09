@@ -1,0 +1,86 @@
+{
+  "uri": "v://normref.com/qc/template/general-quality-inspection@v1",
+  "schema_uri": "v://normref.com/schema/qc-v1",
+  "version": "v1",
+  "metadata": {
+    "norm_code": "GB50204 / JTG F80 / SL223",
+    "description": "????????",
+    "domain": "construction/highway"
+  },
+  "gates": [],
+  "verdict_logic": {
+    "rule": "?? entry_rules ? gates ????",
+    "input": {
+      "actual_values": {},
+      "design_values": {}
+    },
+    "output": {
+      "result": "PASS|FAIL|WARNING",
+      "failed_gates": [],
+      "explain": "",
+      "proof_hash": ""
+    }
+  },
+  "output_schema": {
+    "result": "PASS|FAIL|WARNING",
+    "failed_gates": [],
+    "explain": "",
+    "proof_hash": "",
+    "sealed_at": "ISO-8601"
+  },
+  "layers": {
+    "header": {
+      "normref_uri": "v://normref.com/qc/[specific]@v1",
+      "doc_type": "quality-inspection",
+      "jurisdiction": "GB50204 / JTG F80 / SL223",
+      "industry": "highway",
+      "version": "v1"
+    },
+    "gate": {
+      "required_trip_roles": [
+        "inspector.quality.check",
+        "supervisor.approve"
+      ],
+      "pre_conditions": [
+        "?????",
+        "??????"
+      ],
+      "entry_rules": []
+    },
+    "body": {
+      "basic": {
+        "location": "string",
+        "component_type": "string",
+        "quantity": 0
+      },
+      "test_data": [
+        {
+          "item": "string",
+          "standard": "string",
+          "measured": "any",
+          "unit": "string",
+          "result": "??|???|??"
+        }
+      ],
+      "relations": [
+        "v://..."
+      ]
+    },
+    "proof": {
+      "signatures": [],
+      "data_hash": "sha256:...",
+      "witness_logs": [],
+      "proof_hash": ""
+    },
+    "state": {
+      "lifecycle_stage": "draft",
+      "state_matrix": {
+        "total_tables": 0,
+        "generated": 0,
+        "signed": 0,
+        "pending": 0
+      },
+      "next_action": "???????? entry_rules ? gates"
+    }
+  }
+}

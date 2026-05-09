@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.rebar.5.10.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/rebar@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "rebar",
+  "operator": "eq",
+  "threshold_value": "4",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "5.10.1",
+  "source_line": "4 接缝位置、规格、尺寸及传力杆、拉杆、钢筋网位置应符合设计要求。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-07bfc8be92dd",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:ccebf0ce4fbe2703b08e49bc7552e35f5d738b50c6b6f068aff105df14bf9f84"
+}

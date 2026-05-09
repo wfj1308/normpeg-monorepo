@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.9.4.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "gte",
+  "threshold_value": "95",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "9.4.2",
+  "source_line": "平原、微丘区 ≥95",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-fa8e6dd67a4d",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:070bab3be365c49d09116dc31ebbfd3d3049afae4c00041c51381e23e21dd1be"
+}

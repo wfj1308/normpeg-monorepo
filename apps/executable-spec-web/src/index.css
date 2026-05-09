@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    margin: 0;
+    background-color: rgb(241 245 249);
+    color: rgb(15 23 42);
+    font-family: "Noto Sans SC", "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  }
+}
+
+@layer components {
+  pre {
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+}

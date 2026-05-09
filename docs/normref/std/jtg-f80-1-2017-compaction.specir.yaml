@@ -1,0 +1,109 @@
+spec_id: "JTG_F80_1_2017.4.2.1.compaction"
+standard_code: "JTG F80/1-2017"
+standard_name: "公路工程质量检验评定标准 第一册 土建工程"
+version: "2017"
+source_pdf:
+  file_name: "JTG_F80_1_2017.pdf"
+  file_hash: "sha256:replace_with_real_pdf_hash"
+  pages: 312
+  storage_uri: "standards/raw/JTG_F80_1_2017.pdf"
+  extracted_at: "2026-04-28T00:00:00Z"
+catalog:
+  category: "路基工程"
+  work_item: "路基压实"
+  measured_item: "压实度"
+  path:
+    - "路基工程"
+    - "路基压实"
+    - "压实度"
+clauses:
+  - clause_id: "JTG_F80_1_2017.4.2.1"
+    clause_no: "4.2.1"
+    title: "压实度"
+    original_text: "压实度应符合设计及规范要求，检测结果应满足相应评定标准。"
+    page: 128
+    parent_clause_id: "JTG_F80_1_2017.4.2"
+    level: 3
+  - clause_id: "JTG_F80_1_2017.4.2"
+    clause_no: "4.2"
+    title: "路基实测项目"
+    original_text: "路基实测项目应按规定频率检测，并按本标准进行评定。"
+    page: 126
+    parent_clause_id: "JTG_F80_1_2017.4"
+    level: 2
+components:
+  - component_id: "compaction.subgrade.surface"
+    category: "路基工程"
+    work_item: "路基压实"
+    measured_item: "压实度"
+    test_method: "灌砂法"
+    bound_clause_ids:
+      - "JTG_F80_1_2017.4.2.1"
+rules:
+  - rule_id: "rule.compaction.degree.minimum"
+    component_id: "compaction.subgrade.surface"
+    clause_id: "JTG_F80_1_2017.4.2.1"
+    input_schema:
+      type: object
+      required:
+        - compaction_degree
+        - design_minimum
+      properties:
+        compaction_degree:
+          type: number
+          description: "现场实测压实度(%)"
+        design_minimum:
+          type: number
+          description: "设计或标准要求最小压实度(%)"
+        section_id:
+          type: string
+        lane_id:
+          type: string
+    path_logic:
+      compute:
+        - name: "delta"
+          expr: "compaction_degree - design_minimum"
+        - name: "pass_flag"
+          expr: "compaction_degree >= design_minimum"
+    gate_condition:
+      expression: "pass_flag == true"
+      fail_severity: "blocking"
+      fail_message: "压实度不满足规范下限要求"
+      pass_message: "压实度满足规范要求"
+    state_machine:
+      initial: "RAW"
+      states:
+        - "RAW"
+        - "COMPUTED"
+        - "PASS"
+        - "FAIL"
+      transitions:
+        - from: "RAW"
+          to: "COMPUTED"
+          on: "path_executed"
+        - from: "COMPUTED"
+          to: "PASS"
+          on: "gate_passed"
+        - from: "COMPUTED"
+          to: "FAIL"
+          on: "gate_failed"
+    proof_template:
+      template_id: "proof.compaction.degree.v1"
+      fields:
+        - "rule_id"
+        - "component_id"
+        - "clause_id"
+        - "input.compaction_degree"
+        - "input.design_minimum"
+        - "path.delta"
+        - "gate.result"
+        - "timestamp"
+      signature:
+        required: true
+        algorithm: "sha256"
+metadata:
+  created_at: "2026-04-28T00:00:00Z"
+  created_by: "specbot"
+  language: "zh-CN"
+  compile_target: "spec.json"
+  notes: "original_text 字段必须保留 PDF 原文，禁止任何 AI 改写。"

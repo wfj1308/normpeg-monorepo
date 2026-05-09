@@ -1,0 +1,309 @@
+{
+  "schema": {
+    "schema_id": "rule.impact.graph.v1",
+    "required_inputs": [
+      "specir_id",
+      "rule_id",
+      "gate_id",
+      "slotKey"
+    ],
+    "impact_targets": [
+      "form_code",
+      "executor",
+      "DTO",
+      "ProofTemplate",
+      "API",
+      "runtime executor"
+    ]
+  },
+  "meta": {
+    "generated_at": "2026-05-08T05:03:24.667555Z",
+    "specir_id": "JTG_F80_1_2017.4.2.1.compaction",
+    "rule_id": "single_point_rule",
+    "gate_id": "default",
+    "slotKey": "compaction_degree"
+  },
+  "dependency_graph": {
+    "nodes": [
+      {
+        "id": "spec:JTG_F80_1_2017.4.2.1.compaction",
+        "type": "spec",
+        "label": "JTG_F80_1_2017.4.2.1.compaction"
+      },
+      {
+        "id": "rule:single_point_rule",
+        "type": "rule",
+        "label": "single_point_rule"
+      },
+      {
+        "id": "gate:default",
+        "type": "gate",
+        "label": "default"
+      },
+      {
+        "id": "slot:compaction_degree",
+        "type": "slot",
+        "label": "compaction_degree"
+      },
+      {
+        "id": "artifact:form_code",
+        "type": "artifact",
+        "label": "form_code"
+      },
+      {
+        "id": "artifact:executor",
+        "type": "artifact",
+        "label": "executor"
+      },
+      {
+        "id": "artifact:DTO",
+        "type": "artifact",
+        "label": "DTO"
+      },
+      {
+        "id": "artifact:ProofTemplate",
+        "type": "artifact",
+        "label": "ProofTemplate"
+      },
+      {
+        "id": "artifact:API",
+        "type": "artifact",
+        "label": "API"
+      },
+      {
+        "id": "artifact:runtime_executor",
+        "type": "artifact",
+        "label": "runtime executor"
+      }
+    ],
+    "edges": [
+      {
+        "from": "spec:JTG_F80_1_2017.4.2.1.compaction",
+        "to": "rule:single_point_rule",
+        "relation": "defines"
+      },
+      {
+        "from": "rule:single_point_rule",
+        "to": "gate:default",
+        "relation": "checked_by"
+      },
+      {
+        "from": "slot:compaction_degree",
+        "to": "rule:single_point_rule",
+        "relation": "used_by"
+      },
+      {
+        "from": "gate:default",
+        "to": "artifact:executor",
+        "relation": "drives"
+      },
+      {
+        "from": "rule:single_point_rule",
+        "to": "artifact:form_code",
+        "relation": "renders"
+      },
+      {
+        "from": "slot:compaction_degree",
+        "to": "artifact:DTO",
+        "relation": "shapes"
+      },
+      {
+        "from": "rule:single_point_rule",
+        "to": "artifact:ProofTemplate",
+        "relation": "evidence_fields"
+      },
+      {
+        "from": "rule:single_point_rule",
+        "to": "artifact:API",
+        "relation": "contract_constraints"
+      },
+      {
+        "from": "artifact:executor",
+        "to": "artifact:runtime_executor",
+        "relation": "runtime_impl"
+      }
+    ],
+    "context": {
+      "standard_id": "JTG_F80_1_2017",
+      "catalog_id": "JTG_F80_1_2017",
+      "work_item": "earthwork_subgrade",
+      "measured_item": "compaction",
+      "clause_refs": [
+        "JTG_F80_1_2017.4.2.1",
+        "JTG_3450_2019.T0921"
+      ],
+      "target_rule_snapshot": {
+        "rule_id": "single_point_rule",
+        "condition": {
+          "operator": "tolerance",
+          "mode": "lower_bound",
+          "actual": "compaction_degree_resolved",
+          "expected": "standard_value",
+          "tolerance": "tolerance"
+        },
+        "severity": "blocking",
+        "on_fail": "block",
+        "clause_refs": [
+          "JTG_F80_1_2017.4.2.1.single_point"
+        ]
+      },
+      "proof_fields": [
+        "execution_id",
+        "component_id",
+        "version",
+        "project_id",
+        "input",
+        "normalized_input",
+        "path_outputs",
+        "gate",
+        "state_trace",
+        "final_status",
+        "clause_refs"
+      ],
+      "input_slot_keys": [
+        "actor_did",
+        "actor_name",
+        "archive_requested",
+        "compaction_degree",
+        "inspected_at",
+        "layer_depth",
+        "override_evidence",
+        "override_requested",
+        "paragraph_values",
+        "project_id",
+        "raw_data",
+        "representative_value",
+        "stake",
+        "test_method"
+      ],
+      "form_candidates": [
+        "compaction_form",
+        "compaction_report_form",
+        "field_compaction_degree"
+      ]
+    }
+  },
+  "propagation_algorithm": {
+    "name": "layered_bfs_propagation",
+    "steps": [
+      "1) 以 rule/gate/slot 为种子节点",
+      "2) 向上追溯来源规范（specir_id, standard_id, clause_refs）",
+      "3) 向下传播到 form_code/executor/DTO/ProofTemplate/API/runtime executor",
+      "4) 聚合受影响业务域（工作项/检测项）"
+    ]
+  },
+  "upstream_trace": {
+    "source_spec": {
+      "standard_id": "JTG_F80_1_2017",
+      "spec_hint": "compaction",
+      "clause_refs": [
+        "JTG_F80_1_2017.4.2.1",
+        "JTG_3450_2019.T0921"
+      ]
+    }
+  },
+  "downstream_impacts": {
+    "form_code": {
+      "impacted": true,
+      "affected_forms": [
+        "compaction_form",
+        "compaction_report_form",
+        "field_compaction_degree"
+      ],
+      "reason": "rule/gate/slot 变化会影响表单字段渲染与校验提示"
+    },
+    "executor": {
+      "impacted": true,
+      "reason": "gate 判定逻辑直接驱动 executor 决策"
+    },
+    "DTO": {
+      "impacted": true,
+      "reason": "slotKey 与 rule 字段映射决定 DTO 输入输出契约"
+    },
+    "ProofTemplate": {
+      "impacted": true,
+      "affected_fields": [
+        "execution_id",
+        "component_id",
+        "version",
+        "project_id",
+        "input",
+        "normalized_input",
+        "path_outputs",
+        "gate",
+        "state_trace",
+        "final_status",
+        "clause_refs"
+      ],
+      "reason": "rule 变化会改变证据字段/判定结果摘要"
+    },
+    "API": {
+      "impacted": true,
+      "reason": "规则阈值与操作符变化会改变 API 校验/错误语义"
+    },
+    "runtime executor": {
+      "impacted": true,
+      "reason": "executor 逻辑变更将传导到 runtime 执行分支"
+    }
+  },
+  "impact_summary": {
+    "form_code": {
+      "impacted": true,
+      "affected_forms": [
+        "compaction_form",
+        "compaction_report_form",
+        "field_compaction_degree"
+      ],
+      "reason": "rule/gate/slot 变化会影响表单字段渲染与校验提示"
+    },
+    "executor": {
+      "impacted": true,
+      "reason": "gate 判定逻辑直接驱动 executor 决策"
+    },
+    "DTO": {
+      "impacted": true,
+      "reason": "slotKey 与 rule 字段映射决定 DTO 输入输出契约"
+    },
+    "ProofTemplate": {
+      "impacted": true,
+      "affected_fields": [
+        "execution_id",
+        "component_id",
+        "version",
+        "project_id",
+        "input",
+        "normalized_input",
+        "path_outputs",
+        "gate",
+        "state_trace",
+        "final_status",
+        "clause_refs"
+      ],
+      "reason": "rule 变化会改变证据字段/判定结果摘要"
+    },
+    "API": {
+      "impacted": true,
+      "reason": "规则阈值与操作符变化会改变 API 校验/错误语义"
+    },
+    "runtime executor": {
+      "impacted": true,
+      "reason": "executor 逻辑变更将传导到 runtime 执行分支"
+    },
+    "affected_businesses": [
+      "earthwork_subgrade",
+      "compaction",
+      "JTG_F80_1_2017"
+    ],
+    "question_answer": "修改这个规则会影响哪些表单：compaction_form, compaction_report_form, field_compaction_degree"
+  },
+  "page_plan": {
+    "page_name": "Impact Graph",
+    "required_blocks": [
+      "输入区（specir_id/rule_id/gate_id/slotKey）",
+      "依赖图（dependency graph）",
+      "传播路径（向上追溯 + 向下传播）",
+      "影响结果（form_code/executor/DTO/ProofTemplate/API/runtime executor）",
+      "重点问题：修改这个规则会影响哪些表单"
+    ]
+  }
+}

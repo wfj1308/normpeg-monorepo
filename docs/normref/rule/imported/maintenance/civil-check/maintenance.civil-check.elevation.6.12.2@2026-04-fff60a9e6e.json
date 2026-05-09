@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.elevation.6.12.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/elevation@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "elevation",
+  "operator": "tolerance",
+  "threshold_value": "4",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "6.12.2",
+  "source_line": "4 顶面或底面高程(mm) ±20 水准仪：测5处",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-bc48e321714a",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:fff60a9e6ef51f6512b8131c2ce15a33b6177ad912c30b8c02556bba3ddb99e3"
+}

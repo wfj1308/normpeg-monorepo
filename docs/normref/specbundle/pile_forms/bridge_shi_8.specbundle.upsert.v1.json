@@ -1,0 +1,112 @@
+{
+  "bundleId": "highway.bridge.pile@v1",
+  "bundleVersion": "v1",
+  "formCode": "bridge_shi_8",
+  "formName": "灌注桩桩底压浆检查表",
+  "dtoType": "pile",
+  "stage": "pile_base_grouting_check",
+  "rules": [
+    {
+      "ruleId": "bridge_shi_8.grouting_pressure.required",
+      "fieldKeys": [
+        "grouting_pressure_mpa"
+      ],
+      "gateType": "presence",
+      "severity": "blocking",
+      "expression": "grouting_pressure_mpa is not null",
+      "unit": "MPa",
+      "basis": {
+        "standardCode": "JTG/T3650-2020",
+        "standardName": "??????????",
+        "clause": "??8?",
+        "basisText": "?????????????"
+      },
+      "message": "????????",
+      "unresolved": false
+    },
+    {
+      "ruleId": "bridge_shi_8.grouting_volume.required",
+      "fieldKeys": [
+        "grouting_volume_l"
+      ],
+      "gateType": "presence",
+      "severity": "blocking",
+      "expression": "grouting_volume_l is not null",
+      "unit": "L",
+      "basis": {
+        "standardCode": "JTG/T3650-2020",
+        "standardName": "??????????",
+        "clause": "??8?",
+        "basisText": "????????????"
+      },
+      "message": "???????",
+      "unresolved": false
+    },
+    {
+      "ruleId": "bridge_shi_8.grouting_pressure.range_control",
+      "fieldKeys": [
+        "grouting_pressure_mpa"
+      ],
+      "gateType": "range",
+      "severity": "blocking",
+      "expression": "min_grouting_pressure_mpa <= grouting_pressure_mpa <= max_grouting_pressure_mpa",
+      "unit": "MPa",
+      "basis": {
+        "standardCode": "JTG/T3650-2020",
+        "standardName": "??????????",
+        "clause": "????",
+        "basisText": "????????????"
+      },
+      "message": "?????????????",
+      "unresolved": true
+    },
+    {
+      "ruleId": "bridge_shi_8.grouting_volume.min_control",
+      "fieldKeys": [
+        "grouting_volume_l"
+      ],
+      "gateType": "threshold",
+      "severity": "warning",
+      "expression": "grouting_volume_l >= min_grouting_volume_l",
+      "unit": "L",
+      "basis": {
+        "standardCode": "JTG/T3650-2020",
+        "standardName": "??????????",
+        "clause": "????",
+        "basisText": "?????????"
+      },
+      "message": "????????????",
+      "unresolved": true
+    }
+  ],
+  "fieldRuleMap": [
+    {
+      "fieldKey": "grouting_pressure_mpa",
+      "fieldName": "????",
+      "gateRequired": true,
+      "ruleIds": [
+        "bridge_shi_8.grouting_pressure.required",
+        "bridge_shi_8.grouting_pressure.range_control"
+      ],
+      "valueSource": "manual"
+    },
+    {
+      "fieldKey": "grouting_volume_l",
+      "fieldName": "???",
+      "gateRequired": true,
+      "ruleIds": [
+        "bridge_shi_8.grouting_volume.required",
+        "bridge_shi_8.grouting_volume.min_control"
+      ],
+      "valueSource": "manual"
+    }
+  ],
+  "metadata": {
+    "sourceDocument": "1、桩基(1).docx",
+    "sourcePath": "c:\\Users\\xm_91\\Desktop\\1、桩基(1).docx",
+    "autogen": true,
+    "status": "draft_partially_executable",
+    "notes": "??8??????????????????????????? unresolved?",
+    "encoding": "utf-8"
+  }
+}

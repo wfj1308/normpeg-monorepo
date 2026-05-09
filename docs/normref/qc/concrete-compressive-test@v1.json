@@ -1,0 +1,135 @@
+{
+  "uri": "v://normref.com/qc/concrete-compressive-test@v1",
+  "schema_uri": "v://normref.com/schema/qc-v1",
+  "version": "v1",
+  "metadata": {
+    "norm_code": "GB/T 50081 + JTG F80/1-2017",
+    "description": "???????????",
+    "domain": "construction/highway"
+  },
+  "gates": [
+    {
+      "check_id": "sample_size",
+      "label": "??????",
+      "norm_ref": "GB/T 50081",
+      "threshold": {
+        "value": 3,
+        "operator": "gte",
+        "unit": "?"
+      },
+      "severity": "mandatory"
+    },
+    {
+      "check_id": "test_age",
+      "label": "????",
+      "norm_ref": "GB/T 50081",
+      "threshold": {
+        "value": 28,
+        "operator": "eq",
+        "unit": "d"
+      },
+      "severity": "mandatory"
+    },
+    {
+      "check_id": "compressive_strength",
+      "label": "????",
+      "norm_ref": "JTG F80/1-2017",
+      "threshold": {
+        "value": 30,
+        "operator": "gte",
+        "unit": "MPa"
+      },
+      "severity": "mandatory"
+    }
+  ],
+  "verdict_logic": {
+    "rule": "sample_size/test_age/compressive_strength ????? PASS",
+    "input": {
+      "actual_values": {},
+      "design_values": {}
+    },
+    "output": {
+      "result": "PASS|FAIL|WARNING",
+      "failed_gates": [],
+      "explain": "",
+      "proof_hash": ""
+    }
+  },
+  "output_schema": {
+    "result": "PASS|FAIL|WARNING",
+    "failed_gates": [],
+    "explain": "",
+    "proof_hash": "",
+    "sealed_at": "ISO-8601"
+  },
+  "layers": {
+    "header": {
+      "normref_uri": "v://normref.com/qc/concrete-compressive-test@v1",
+      "doc_type": "quality-inspection",
+      "jurisdiction": "GB/T 50081 + JTG F80/1-2017",
+      "industry": "highway",
+      "version": "v1"
+    },
+    "gate": {
+      "required_trip_roles": [
+        "inspector.quality.check",
+        "supervisor.approve"
+      ],
+      "pre_conditions": [
+        "?????",
+        "??????"
+      ],
+      "entry_rules": [
+        {
+          "name": "min_sample_size",
+          "value": 3
+        },
+        {
+          "name": "curing_method",
+          "value": "????28d"
+        },
+        {
+          "name": "test_age",
+          "value": "28d"
+        }
+      ]
+    },
+    "body": {
+      "basic": {
+        "concrete_grade": "C30",
+        "pouring_volume": 0
+      },
+      "test_data": [
+        {
+          "group_id": "string",
+          "measured": [
+            0,
+            0,
+            0
+          ],
+          "average": 0,
+          "min_value": 0,
+          "result": "??|???"
+        }
+      ],
+      "relations": [
+        "v://.../boq/{boq_item_id}",
+        "v://.../component/{component_id}"
+      ]
+    },
+    "proof": {
+      "signatures": [],
+      "data_hash": "sha256:...",
+      "witness_logs": [],
+      "proof_hash": ""
+    },
+    "state": {
+      "lifecycle_stage": "draft",
+      "state_matrix": {
+        "total_groups": 0,
+        "qualified_groups": 0
+      },
+      "next_action": "??????????????? Proof"
+    }
+  }
+}

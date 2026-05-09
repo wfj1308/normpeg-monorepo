@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.thickness.6.31.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/thickness@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "thickness",
+  "operator": "tolerance",
+  "threshold_value": "5",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "6.31.2",
+  "source_line": "断面尺寸 厚度 ±5",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-fa166bdd730d",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:995f1ffefb527f0cd2d21154988ca4d433120c598d566ea480f8c092aea2e1d2"
+}

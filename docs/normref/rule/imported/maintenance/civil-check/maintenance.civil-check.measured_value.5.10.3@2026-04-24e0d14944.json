@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.5.10.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "0.3",
+  "unit": "%",
+  "severity": "mandatory",
+  "norm_ref": "5.10.3",
+  "source_line": "一级公路不得超过受检面积的0.3%，其他公路不得超过0.4%。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-bcb80b438f16",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:24e0d149448996ad6566d62a4eaed1de73f039a9f479e70e1ef94b458e96e90a"
+}

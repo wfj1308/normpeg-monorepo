@@ -1,0 +1,20 @@
+{
+  "rule_id": "civil.general-check.measured_value.rule",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/civil/general-check/measured_value@2026-04",
+  "category": "civil/general-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "8",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "",
+  "source_line": "8.保持与公路工程相关标准的协调一致，调整了相应的检验评定指标、检查方法",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-06a75ca21ccc44ec",
+  "candidate_id": "cand-676eb214c424",
+  "source_std_code": "JTG-F80-1-2017",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:c257147348e8e0976a25fe9d98d87324389493ac9763fee828ae5feb0a6546f5"
+}

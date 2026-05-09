@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.5.6.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "lte",
+  "threshold_value": "1",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "5.6.2",
+  "source_line": "1△ 渗水系数 (mL/min) ≤10 渗水试验仪：每1500m2测1处",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-2c80758b0ba9",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:5f079c3af3b8b7c9ad80cfb2bfe42517b8a21d49011d01ce5d6670af03eccf37"
+}

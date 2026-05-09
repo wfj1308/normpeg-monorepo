@@ -1,0 +1,20 @@
+{
+  "rule_id": "bridge.pile-hole-check.measured_value.4.4.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/bridge/pile-hole-check/measured_value@2026-04",
+  "category": "bridge/pile-hole-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "0.1",
+  "unit": "%",
+  "severity": "mandatory",
+  "norm_ref": "4.4.2",
+  "source_line": "抽查桩数的0.1%且不少于3处",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-06a75ca21ccc44ec",
+  "candidate_id": "cand-2e7fd0eb2fd3",
+  "source_std_code": "JTG-F80-1-2017",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:bcc48703c3be476ec37bb1348546a11265fde1e861b96e31f351a9477559dabf"
+}

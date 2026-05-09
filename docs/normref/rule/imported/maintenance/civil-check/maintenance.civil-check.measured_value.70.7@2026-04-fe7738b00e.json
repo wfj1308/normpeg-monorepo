@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.70.7",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "0.2",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "70.7",
+  "source_line": "L.0.2 路面横向力系数以养护单元为检验评定单元，全线连续、每车道每20m 测1",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-9511b8c60563",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:fe7738b00e79938bc62f5dceaaab71d50a105bd3c11d124ceba148d359516585"
+}

@@ -1,0 +1,27 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://normpeg.dev/schemas/normdoc.schema.json",
+  "title": "NormDoc",
+  "type": "object",
+  "required": [
+    "schema_uri",
+    "version",
+    "header",
+    "body",
+    "gate",
+    "trailer",
+    "incremental_updates",
+    "term_cmap"
+  ],
+  "properties": {
+    "schema_uri": {"type": "string"},
+    "version": {"type": "string"},
+    "header": {"type": "object"},
+    "body": {"type": "object"},
+    "gate": {"type": "object"},
+    "trailer": {"type": "object"},
+    "incremental_updates": {"type": "object"},
+    "term_cmap": {"type": "array"}
+  },
+  "additionalProperties": true
+}

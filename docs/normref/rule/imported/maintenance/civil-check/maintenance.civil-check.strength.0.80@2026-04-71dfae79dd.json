@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.0.80",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "eq",
+  "threshold_value": "0553",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "0.80",
+  "source_line": "方体抗压强度试验方法（T0553）测得极限抗压强度，乘以 0.95 的系数（精确到",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-7177d453e081",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:71dfae79dd30e24b63a7d9084dd2f7f2f635ab8398c0e05727f24e8f2440c7f3"
+}

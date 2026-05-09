@@ -1,0 +1,41 @@
+{
+  "name": "executable-spec-web",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5175",
+    "api:dev": "node --experimental-transform-types server/platform-api.ts",
+    "api:start": "node --experimental-transform-types server/platform-api.ts",
+    "quality:start": "node --experimental-transform-types server/quality-api.ts",
+    "build": "tsc -b && vite build",
+    "test:quality": "node --experimental-transform-types src/quality-system/engine.test.ts",
+    "test:platform": "node --experimental-transform-types src/platform/runtime/rule-engine.test.ts && node --experimental-transform-types src/platform/demo/subgrade-demo.test.ts",
+    "test:spu-regression": "node --experimental-transform-types tests/spu_regression/spu-regression-suite.test.ts",
+    "preview": "vite preview --port 4175",
+    "test": "node --experimental-transform-types src/layerpeg/project-utxo.test.ts && node --experimental-transform-types src/layerpeg/proof-merkle.test.ts && node --experimental-transform-types src/spu-loader.test.ts && node --experimental-transform-types src/spu-runtime.test.ts && node --experimental-transform-types src/workitem-runtime.test.ts && node --experimental-transform-types src/spu-mcp-tools.test.ts && node --experimental-transform-types src/spu-nl-dispatch.test.ts && node --experimental-transform-types src/spu-workitem-dispatch.test.ts && node --experimental-transform-types src/specbot/core/dual-output.test.ts && node --experimental-transform-types src/specbot/core/core-assets.test.ts && node --experimental-transform-types src/lib/specbundle-loader.test.ts",
+    "generate:core-spec-assets": "node --experimental-transform-types scripts/generate-core-assets.ts",
+    "generate:subgrade-template-bundles": "node --experimental-transform-types scripts/generate-subgrade-template-bundles.ts",
+    "demo": "node --experimental-transform-types src/demo.ts",
+    "demo:subgrade": "node --experimental-transform-types src/platform/demo/subgrade-demo.ts"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.1",
+    "jszip": "^3.10.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-markdown": "^10.1.0"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^25.6.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "autoprefixer": "^10.5.0",
+    "postcss": "^8.5.10",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.10"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "parse_id": "parse_demo",
+  "form_code": "bridge13",
+  "published_at": "2026-05-07T09:05:25.354647+00:00",
+  "signature_count": 0,
+  "signatures": [],
+  "asset_signatures": [],
+  "assets": {
+    "document_ir": "D:\\wfj\\project\\normpeg-monorepo\\pdf-parser-api\\app\\runtime\\parse_results\\parse_demo\\document_ir.json",
+    "normref": "D:\\wfj\\project\\normpeg-monorepo\\pdf-parser-api\\app\\runtime\\parse_results\\parse_demo\\normref.json",
+    "specir_candidates": "D:\\wfj\\project\\normpeg-monorepo\\pdf-parser-api\\app\\runtime\\parse_results\\parse_demo\\specir_candidates.json",
+    "specir_approved": "D:\\wfj\\project\\normpeg-monorepo\\pdf-parser-api\\app\\runtime\\parse_results\\parse_demo\\specir_approved.json",
+    "rulepack": "D:\\wfj\\project\\normpeg-monorepo\\pdf-parser-api\\app\\runtime\\parse_results\\rulepacks\\bridge13.rulepack.json"
+  }
+}

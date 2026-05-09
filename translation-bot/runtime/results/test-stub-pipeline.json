@@ -1,0 +1,52 @@
+{
+  "task_id": "test-stub-pipeline",
+  "status": "done",
+  "standard_code": "JTG F80/1-2017",
+  "input_file": "d:\\wfj\\project\\normpeg-monorepo\\uploads\\normref\\20260415122744-c0a274e3-1_JTG_T_3610-2019____________.pdf",
+  "created_at": "2026-04-21T07:46:05Z",
+  "updated_at": "2026-04-21T07:46:07Z",
+  "result_yaml": "schema_uri: v://normref.com/schema/docpeg-specir-v1.1\nspec_id: JTG_F80_1_2017.4.2.1.measured_value\ntype: measured_item\nversion: '2026-04-21T07:46:07Z'\nnamespace: cn.mot.highway\nsemantics:\n  name: Measured Value\n  clause: 4.2.1\n  definition: ???????95%\n  standard_reference: JTG F80/1-2017\n  test_method: ''\n  frequency: ''\nlogic:\n  inputs:\n  - name: measured_value\n    type: number\n    unit: ''\n    required: true\n  path:\n  - op: passthrough\n    id: step_1\n    input: measured_value\n    output: measured_value\n  gate:\n  - condition: manual_review_required\n    action: WARNING\n    message: No explicit threshold was extracted; review required.\n    severity: warning\n  state:\n    initial: CHECK_PENDING\n    transitions:\n    - from: CHECK_PENDING\n      true: PASS\n      to: QUALIFIED\n    - from: CHECK_PENDING\n      true: BLOCK\n      to: REJECTED\n    - from: CHECK_PENDING\n      true: CRITICAL\n      to: REJECTED\n    - from: CHECK_PENDING\n      true: WARNING\n      to: MANUAL_REVIEW\n    - from: MANUAL_REVIEW\n      true: PASS\n      to: QUALIFIED\n    - from: MANUAL_REVIEW\n      true: BLOCK\n      to: REJECTED\n    terminal:\n    - QUALIFIED\n    - REJECTED\nproof:\n  anchors:\n  - name: raw_input\n    required: true\n  - name: normalized_input\n    required: true\n  - name: path_outputs\n    required: true\n  - name: gate_result\n    required: true\n  hash:\n    algorithm: sha256\n  lineage:\n    patchable: true\nmetadata:\n  author: NormRef Translation Bot MVP\n  last_updated: '2026-04-21T07:46:07Z'\n  confidence: 0.72\n  patchable: true\n  human_review_required: true\n  source_clause_title: ???",
+  "confidence": 0.72,
+  "review_points": [],
+  "parse_result": {
+    "parseId": "parse_stub_001",
+    "status": "success",
+    "extractedData": {
+      "metadata": {
+        "fileName": "x.pdf",
+        "standardCode": "JTG F80/1-2017"
+      },
+      "chapters": [
+        {
+          "id": "chapter_1",
+          "title": "??? ??",
+          "page": 1,
+          "line": 1
+        }
+      ],
+      "tables": [],
+      "formulas": [
+        {
+          "expression": "a = b / c"
+        }
+      ],
+      "clauses": [
+        {
+          "clauseId": "4.2.1",
+          "title": "???",
+          "text": "???????95%",
+          "page": 1,
+          "line": 10
+        }
+      ]
+    },
+    "rawText": "??? ??\n4.2.1 ???????95%",
+    "confidence": 0.91,
+    "reviewRequired": false
+  },
+  "validate_result": {
+    "valid": true,
+    "errors": []
+  },
+  "error": ""
+}

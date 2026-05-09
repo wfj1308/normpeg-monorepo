@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.flatness.4.15.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/flatness@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "flatness",
+  "operator": "lte",
+  "threshold_value": "3",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "4.15.2",
+  "source_line": "3 表面平整度(mm) ≤30 每50m检查3处",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-5a5416523065",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:9d0623560f7987e8ab04157fade419e9d6586b0885a196e8a239906f9f09294c"
+}

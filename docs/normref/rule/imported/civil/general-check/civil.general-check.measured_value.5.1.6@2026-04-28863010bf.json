@@ -1,0 +1,20 @@
+{
+  "rule_id": "civil.general-check.measured_value.5.1.6",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/civil/general-check/measured_value@2026-04",
+  "category": "civil/general-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "8",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "5.1.6",
+  "source_line": "排水泵站明开挖基础可按本标准第8章的要求进行检验。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-06a75ca21ccc44ec",
+  "candidate_id": "cand-7338e5dda884",
+  "source_std_code": "JTG-F80-1-2017",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:28863010bf9b964419611a5fad2ac297ffd07748a38969a7190bf2aa7c4c6005"
+}

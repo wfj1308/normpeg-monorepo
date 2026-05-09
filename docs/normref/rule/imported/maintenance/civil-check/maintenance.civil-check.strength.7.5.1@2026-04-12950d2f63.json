@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.7.5.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "eq",
+  "threshold_value": "4",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "7.5.1",
+  "source_line": "4 采用钢纤维喷射混凝土时，钢纤维抗拉强度应满足设计要求，设计无要求时",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-d86a280575ff",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:12950d2f63f06ede5dfe5d943ab8fec7fc30f2877b982e674e720ccae0521d95"
+}

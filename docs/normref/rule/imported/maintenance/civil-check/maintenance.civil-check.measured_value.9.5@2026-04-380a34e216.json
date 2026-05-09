@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.9.5",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "100",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "9.5",
+  "source_line": "附录B 路基、路面压实度评定 ............................................................................. 100",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-2220f0c0c322",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:380a34e216a87f631985a200701b09c725ce968fe7b35d2b1e9cc6da844922d2"
+}

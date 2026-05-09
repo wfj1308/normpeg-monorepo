@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.6.12.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "eq",
+  "threshold_value": "1",
+  "unit": "MPa",
+  "severity": "mandatory",
+  "norm_ref": "6.12.2",
+  "source_line": "1△ 混凝土强度 (MPa) 在合格标准内 按附录D检查",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-5eb51b49319c",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:8ee5da9f8f12769b7943e163b54ab714f5f6c2abe3b79379ab7b22f34383d07b"
+}

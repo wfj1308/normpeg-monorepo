@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.9.5.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "100",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "9.5.2",
+  "source_line": "加工成 100mm×100mm ×100mm 的立方体试件（可制成 3 块）。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-0378e51075c2",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:0d476f1793a92cb49c7be46aee74ef14093198048e67b4787a2b523b1c34fc55"
+}

@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.length.9.5.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/length@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "length",
+  "operator": "range",
+  "threshold_value": "1",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "9.5.3",
+  "source_line": "绿化养护 每 1～3km 累计施工长度的下列养护作业，分别作为一个养护单元，包括：栽植土补缺、",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-ae18581669e0",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:f752dde6a7b47dc9400ca97604a87e12c55a9ef998cfb2b1c9d85ed0b1fda8d8"
+}

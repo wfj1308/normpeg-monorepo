@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.7.10.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "6",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "7.10.2",
+  "source_line": "6 焊缝密实性 满足设计要求 充气法：每20m检查1处焊缝",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-2294f0fc86b1",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:eeec5a8896e79be53aa4124a1b570dd58239be0b28deeb296acd2d520877a547"
+}

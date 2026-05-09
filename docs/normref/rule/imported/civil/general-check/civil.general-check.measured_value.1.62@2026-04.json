@@ -1,0 +1,20 @@
+{
+  "rule_id": "civil.general-check.measured_value.1.62",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/civil/general-check/measured_value@2026-04",
+  "category": "civil/general-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "1.80",
+  "unit": "cm",
+  "severity": "mandatory",
+  "norm_ref": "1.62",
+  "source_line": "最大于密度（g/cm²）1.80",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-a3748bb53d744b15",
+  "candidate_id": "cand-87fcd3cd6c81",
+  "source_std_code": "JTG-F80-1-2017",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:509ead6f2102e2b2eddb3941b089548385c03c9bc5bd2dda92df7de6a794cf3e"
+}

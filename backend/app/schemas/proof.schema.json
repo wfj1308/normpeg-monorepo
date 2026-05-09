@@ -1,0 +1,283 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://layerpeg.local/schemas/proof.schema.json",
+  "title": "Unified Proof Schema",
+  "description": "Unified proof object for gate proofFragment and execution finalProof.",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/ProofFragment"
+    },
+    {
+      "$ref": "#/$defs/FinalProof"
+    }
+  ],
+  "$defs": {
+    "ProofStatus": {
+      "type": "string",
+      "enum": [
+        "PASS",
+        "FAIL",
+        "BLOCK",
+        "PENDING"
+      ]
+    },
+    "ArchiveStatus": {
+      "type": "string",
+      "enum": [
+        "NOT_ARCHIVED",
+        "ARCHIVED"
+      ]
+    },
+    "MatchedRule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ruleId",
+        "passed"
+      ],
+      "properties": {
+        "ruleId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "condition": {
+          "type": "string"
+        },
+        "passed": {
+          "type": "boolean"
+        },
+        "severity": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "actual": {},
+        "expected": {}
+      }
+    },
+    "ProofSignature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "role",
+        "status"
+      ],
+      "properties": {
+        "role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "signer": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "signature": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "PENDING",
+            "SIGNED"
+          ]
+        },
+        "signedAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        }
+      }
+    },
+    "ProofTimestamps": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "createdAt"
+      ],
+      "properties": {
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "evaluatedAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "finalizedAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "archivedAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        }
+      }
+    },
+    "ProofCore": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "kind",
+        "executionId",
+        "spuId",
+        "nodeId",
+        "containerId",
+        "inputSnapshot",
+        "resultSnapshot",
+        "matchedSpecVersion",
+        "matchedRules",
+        "status",
+        "signatures",
+        "timestamps",
+        "archiveStatus"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "proofFragment",
+            "finalProof"
+          ]
+        },
+        "executionId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "spuId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "nodeId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "containerId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "inputSnapshot": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "resultSnapshot": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "matchedSpecVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "matchedRules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/MatchedRule"
+          }
+        },
+        "status": {
+          "$ref": "#/$defs/ProofStatus"
+        },
+        "signatures": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ProofSignature"
+          }
+        },
+        "timestamps": {
+          "$ref": "#/$defs/ProofTimestamps"
+        },
+        "archiveStatus": {
+          "$ref": "#/$defs/ArchiveStatus"
+        },
+        "proofId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "hash": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "schemaVersion": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "technicalDetails": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "extensions": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    },
+    "ProofFragment": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/ProofCore"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "proofFragment"
+            },
+            "archiveStatus": {
+              "const": "NOT_ARCHIVED"
+            }
+          }
+        }
+      ]
+    },
+    "FinalProof": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/ProofCore"
+        },
+        {
+          "type": "object",
+          "required": [
+            "proofId"
+          ],
+          "properties": {
+            "kind": {
+              "const": "finalProof"
+            },
+            "proofId": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,34 @@
+services:
+  nl2gate:
+    build:
+      context: ../../..
+      dockerfile: ops/docker/nl2gate-api/Dockerfile
+    image: layerpeg/nl2gate:edge-local
+    container_name: nl2gate-edge
+    ports:
+      - "8081:8081"
+    environment:
+      GATE_URL: ${GATE_URL:-http://host.docker.internal:8080/v1/gate/validate}
+      NORMPEG_REPO_ROOT: /repo
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_BASE_URL: ${OPENAI_BASE_URL:-http://host.docker.internal:11434/v1}
+      NORMPEG_AI_MODEL: ${NORMPEG_AI_MODEL:-deepseek-chat}
+    volumes:
+      - ../../../projects:/repo/projects:ro
+      - ../../../normdocs:/repo/normdocs:ro
+      - ../../../standards:/repo/standards:ro
+      - ../../../mappings:/repo/mappings:ro
+      - ../../../tools:/repo/tools:ro
+      - ../../../uploads:/repo/uploads
+      - ../../../docs/playbooks:/repo/docs/playbooks:ro
+    restart: unless-stopped
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8081/health', timeout=2)"
+      interval: 15s
+      timeout: 3s
+      retries: 5
+      start_period: 10s

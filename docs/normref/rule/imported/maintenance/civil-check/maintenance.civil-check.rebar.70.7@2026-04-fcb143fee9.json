@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.rebar.70.7",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/rebar@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "rebar",
+  "operator": "eq",
+  "threshold_value": "1",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "70.7",
+  "source_line": "1当检验结果全部为钢筋破坏时，该检验批植筋拉拔承载力评为合格。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-53c5e23b08f7",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:fcb143fee956658945031ac851491a4a7f3979ce3566953a8be35668d34544eb"
+}

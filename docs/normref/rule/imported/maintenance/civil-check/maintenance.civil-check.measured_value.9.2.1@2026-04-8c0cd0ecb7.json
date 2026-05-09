@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.9.2.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "1000",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "9.2.1",
+  "source_line": "外运土方 1000 m3以上时，应该进行土壤的理化指标检验。栽植土壤的理化指标，当",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-02281a13c34f",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:8c0cd0ecb7d4d4840f8d2eb225c1fa7473e101b9b62e13369f4e08251e145216"
+}

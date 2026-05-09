@@ -1,0 +1,44 @@
+{
+  "uri": "v://normref.com/rule/bridge/pile-hole-check/hole-diameter-tolerance@2026-04",
+  "schema_uri": "v://normref.com/schema/qc-v1",
+  "rule_id": "bridge.pile-hole-check.hole-diameter-tolerance",
+  "version": "2026-04",
+  "metadata": {
+    "norm_code": "JTG F80/1-2017",
+    "chapter_ref": "7.1",
+    "description": "成孔孔径偏差控制规则",
+    "severity": "mandatory"
+  },
+  "gates": [
+    {
+      "check_id": "hole_diameter",
+      "label": "孔径检查",
+      "norm_ref": "JTG F80/1-2017 7.1",
+      "threshold": {
+        "value": 0.05,
+        "operator": "lte",
+        "unit": "%",
+        "symmetric": true
+      },
+      "severity": "mandatory"
+    }
+  ],
+  "verdict_logic": {
+    "rule": "abs(actual-design)/design <= 5% => PASS",
+    "input": {
+      "actual_values": {
+        "hole_diameter": 0
+      },
+      "design_values": {
+        "hole_diameter": 0
+      }
+    },
+    "output": {
+      "result": "PASS|FAIL|WARNING",
+      "failed_gates": [],
+      "explain": "",
+      "proof_hash": ""
+    }
+  }
+}
+

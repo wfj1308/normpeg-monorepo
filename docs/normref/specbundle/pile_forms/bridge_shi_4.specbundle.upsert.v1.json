@@ -1,0 +1,120 @@
+{
+  "bundleId": "highway.bridge.pile@v1",
+  "bundleVersion": "v1",
+  "formCode": "bridge_shi_4",
+  "formName": "钻孔灌注桩钢筋笼检查表",
+  "dtoType": "pile",
+  "stage": "rebar_cage_acceptance_check",
+  "rules": [
+    {
+      "ruleId": "bridge_shi_4.rebar_cage_length.required",
+      "fieldKeys": [
+        "rebar_cage_length_m"
+      ],
+      "gateType": "presence",
+      "severity": "blocking",
+      "expression": "rebar_cage_length_m is not null",
+      "unit": "m",
+      "basis": {
+        "standardCode": "JTG/T3650-2020",
+        "standardName": "??????????",
+        "clause": "??4?",
+        "basisText": "?????????????"
+      },
+      "message": "?????????",
+      "unresolved": false
+    },
+    {
+      "ruleId": "bridge_shi_4.rebar_cage_diameter.required",
+      "fieldKeys": [
+        "rebar_cage_diameter_m"
+      ],
+      "gateType": "presence",
+      "severity": "blocking",
+      "expression": "rebar_cage_diameter_m is not null",
+      "unit": "m",
+      "basis": {
+        "standardCode": "JTG/T3650-2020",
+        "standardName": "??????????",
+        "clause": "??4?",
+        "basisText": "?????????????"
+      },
+      "message": "?????????",
+      "unresolved": false
+    },
+    {
+      "ruleId": "bridge_shi_4.rebar_cage_diameter.max_negative_deviation",
+      "fieldKeys": [
+        "rebar_cage_diameter_m",
+        "design_pile_diameter_m"
+      ],
+      "gateType": "compare",
+      "severity": "blocking",
+      "expression": "rebar_cage_diameter_m <= design_pile_diameter_m",
+      "unit": "m",
+      "basis": {
+        "standardCode": "JTG/T3650-2020",
+        "standardName": "??????????",
+        "clause": "????",
+        "basisText": "????????????????"
+      },
+      "message": "??????????????????",
+      "unresolved": true
+    },
+    {
+      "ruleId": "bridge_shi_4.main_bar_count.required",
+      "fieldKeys": [
+        "main_bar_count"
+      ],
+      "gateType": "presence",
+      "severity": "warning",
+      "expression": "main_bar_count is not null",
+      "unit": null,
+      "basis": {
+        "standardCode": "JTG/T3650-2020",
+        "standardName": "??????????",
+        "clause": "????",
+        "basisText": "?????????"
+      },
+      "message": "??????????",
+      "unresolved": true
+    }
+  ],
+  "fieldRuleMap": [
+    {
+      "fieldKey": "rebar_cage_length_m",
+      "fieldName": "?????",
+      "gateRequired": true,
+      "ruleId": "bridge_shi_4.rebar_cage_length.required",
+      "valueSource": "manual"
+    },
+    {
+      "fieldKey": "rebar_cage_diameter_m",
+      "fieldName": "?????",
+      "gateRequired": true,
+      "ruleId": "bridge_shi_4.rebar_cage_diameter.required",
+      "valueSource": "manual"
+    },
+    {
+      "fieldKey": "design_pile_diameter_m",
+      "fieldName": "????",
+      "gateRequired": true,
+      "valueSource": "source_form"
+    },
+    {
+      "fieldKey": "main_bar_count",
+      "fieldName": "????",
+      "gateRequired": false,
+      "ruleId": "bridge_shi_4.main_bar_count.required",
+      "valueSource": "manual"
+    }
+  ],
+  "metadata": {
+    "sourceDocument": "1、桩基(1).docx",
+    "sourcePath": "c:\\Users\\xm_91\\Desktop\\1、桩基(1).docx",
+    "autogen": true,
+    "status": "draft_partially_executable",
+    "notes": "??4??????????????????????????? unresolved?",
+    "encoding": "utf-8"
+  }
+}

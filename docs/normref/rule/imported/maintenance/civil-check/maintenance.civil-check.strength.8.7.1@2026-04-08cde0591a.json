@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.8.7.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "eq",
+  "threshold_value": "100",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "8.7.1",
+  "source_line": "厚度不超过100mm）夯实；立柱埋入混凝土中时，基础混凝土的几何尺寸、强度等",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-422978dfed5b",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:08cde0591ae6c3aeb42c7f1e6cf48b373ac794f2d85f19a002950199b282ce8e"
+}

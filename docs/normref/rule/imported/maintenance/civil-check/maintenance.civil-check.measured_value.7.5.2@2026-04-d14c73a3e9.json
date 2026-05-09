@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.7.5.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "gte",
+  "threshold_value": "50",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "7.5.2",
+  "source_line": "值，且≥50 1条测线，连续检测。每10m检",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-5bfa5f8a2608",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:d14c73a3e90e5cf1bfffe9a7f86cbc9a8dc867450a9f38db62297290cc0659d0"
+}

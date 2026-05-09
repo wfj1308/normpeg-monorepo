@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.6.33.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "gte",
+  "threshold_value": "5",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "6.33.1",
+  "source_line": "5 勾缝砂浆强度不得小于砌筑砂浆强度。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-b93ca6bb34f7",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:87881836135f9384d95cd90c75398e724dcbad3374fdd73e57bce20bcf2be564"
+}

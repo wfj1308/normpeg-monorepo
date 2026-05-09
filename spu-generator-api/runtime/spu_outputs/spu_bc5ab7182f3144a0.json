@@ -1,0 +1,11 @@
+{
+  "taskId": "spu_bc5ab7182f3144a0",
+  "status": "failed",
+  "spu": null,
+  "markdown": null,
+  "json": null,
+  "confidence": 0.0,
+  "reviewPoints": [],
+  "error": "UNSUPPORTED_METRIC",
+  "downloadUrl": null
+}

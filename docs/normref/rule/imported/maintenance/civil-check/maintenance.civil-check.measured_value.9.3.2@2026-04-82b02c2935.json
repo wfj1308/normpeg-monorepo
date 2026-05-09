@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.9.3.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "1.30",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "9.3.2",
+  "source_line": "注：Φ为植株的设计胸径，即树木主干离地表面1.30 m处的直径； h为植株的设计高度；p为植株的设计",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-6bf9c2f66e47",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:82b02c2935786697365e9d851a3384990c5aa90351f0e5a769c2ec5aa2feadea"
+}

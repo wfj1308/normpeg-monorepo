@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.0.80",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "eq",
+  "threshold_value": "0.1",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "0.80",
+  "source_line": "式中：m ——同批n组试件抗压强度的平均值（MPa），精确到0.1 MPa；",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-6263a039eb31",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:8095e0c5f82a0a2ff4caef3e3c003293ae42bfcbbf2cfef02483d2aac538f8ca"
+}

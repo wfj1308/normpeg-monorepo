@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.5.2.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "lte",
+  "threshold_value": "8",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "5.2.2",
+  "source_line": "8 弯沉值d (0.01mm) 不大于设计值 按附录J检查",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-2b15046b1da4",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:b1ca9f71989dfc7bdd6e884a097c27c777091bc97800503f343c97cc371d85d1"
+}

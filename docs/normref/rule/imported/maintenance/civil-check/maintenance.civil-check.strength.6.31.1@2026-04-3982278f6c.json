@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.6.31.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "eq",
+  "threshold_value": "5",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "6.31.1",
+  "source_line": "5 浇筑混凝土的模板的强度、刚度、稳定性应满足施工技术规范的要求。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-76719cd4d0ad",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:3982278f6cd866dfe11365d495473be137a5ed51f0f9aef24feca0538273fec1"
+}

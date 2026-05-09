@@ -1,0 +1,68 @@
+﻿{
+  "NormDoc": "1.1",
+  "Header": {
+    "Type": "NormHeader",
+    "Standard": "JTG F80/1-2017",
+    "Clause": "MeasuredItems",
+    "Title": "Evaluation Standard Links",
+    "Version": "2017",
+    "Replaces": [
+      "JTG F80/1-2004"
+    ],
+    "EffectiveDate": "2018-05-01",
+    "IssuingAuthority": "Ministry of Transport",
+    "Scope": [
+      "highway"
+    ],
+    "Lineage": null
+  },
+  "Body": {
+    "Type": "NormBody",
+    "MeasuredItems": [
+      {
+        "item_id": "compaction",
+        "clause": "4.2.1",
+        "form_type": "T0921-2019",
+        "calculation": {
+          "ref": "JTG_F80_1_2017.Appendix_B",
+          "representative_value": "t_distribution_95",
+          "pass_criteria": "representative >= standard AND single >= standard - 2"
+        }
+      },
+      {
+        "item_id": "flatness",
+        "clause": "7.3.1",
+        "form_type": "T0931-2019",
+        "calculation": {
+          "ref": "JTG_F80_1_2017.7.3.1",
+          "representative_value": "IRI_rep_upper_95",
+          "pass_criteria": "IRI_rep <= designIRI AND qualifiedRate >= 90"
+        }
+      },
+      {
+        "item_id": "deflection",
+        "clause": "4.2.2",
+        "form_type": "T0951-2008",
+        "calculation": {
+          "ref": "JTG_F80_1_2017.4.2.2",
+          "representative_value": "t_distribution_95_upper",
+          "pass_criteria": "representative_deflection <= design_deflection AND single <= design_deflection * 1.2"
+        }
+      }
+    ]
+  },
+  "Trailer": {
+    "xref": [],
+    "trailer": {
+      "Size": 3,
+      "Root": "Header",
+      "Info": "JTG_F80_1_2017 cross references",
+      "Prev": null
+    },
+    "startxref": 0
+  },
+  "IncrementalUpdates": {
+    "patch": [],
+    "override": []
+  }
+}

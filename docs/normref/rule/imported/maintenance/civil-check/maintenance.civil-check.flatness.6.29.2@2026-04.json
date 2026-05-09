@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.flatness.6.29.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/flatness@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "flatness",
+  "operator": "lte",
+  "threshold_value": "4",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "6.29.2",
+  "source_line": "4 大面积平整度(mm) ≤8",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-4b20fb66f49c",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:2a4f95a85153f7a8d57919da76fece42b990e48d935fa1addebfa4815a593bb3"
+}

@@ -1,0 +1,33 @@
+{
+  "version": "v1",
+  "samples": [
+    {
+      "sample_id": "bridge13",
+      "norm_id": "jtg-t-3650-2020",
+      "norm_name": "桥施13",
+      "form_code": "bridge13",
+      "baseline_ready": false,
+      "metrics": {
+        "page_count": 0,
+        "block_count": 0,
+        "heading_count": 0,
+        "clause_count": 0,
+        "table_count": 0
+      }
+    },
+    {
+      "sample_id": "JTG/T 3650-2020",
+      "norm_id": "jtg-t-3650-2020",
+      "norm_name": "JTG/T 3650-2020",
+      "form_code": "bridge13",
+      "baseline_ready": false,
+      "metrics": {
+        "page_count": 0,
+        "block_count": 0,
+        "heading_count": 0,
+        "clause_count": 0,
+        "table_count": 0
+      }
+    }
+  ]
+}

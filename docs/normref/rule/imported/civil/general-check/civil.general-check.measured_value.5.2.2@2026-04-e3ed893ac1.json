@@ -1,0 +1,20 @@
+{
+  "rule_id": "civil.general-check.measured_value.5.2.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/civil/general-check/measured_value@2026-04",
+  "category": "civil/general-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "10",
+  "unit": "%",
+  "severity": "mandatory",
+  "norm_ref": "5.2.2",
+  "source_line": "尺量：抽查10%管节，每管节测1点，且不少于5点",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-06a75ca21ccc44ec",
+  "candidate_id": "cand-c47cb21e2ffa",
+  "source_std_code": "JTG-F80-1-2017",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:e3ed893ac1595a0248cc3b3a4ccb642a65fe072fa0ed2ca01e90cad21f05e72c"
+}

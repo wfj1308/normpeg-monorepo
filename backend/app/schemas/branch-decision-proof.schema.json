@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://layerpeg.local/schemas/branch-decision-proof.schema.json",
+  "title": "Branch Decision Proof Schema",
+  "description": "Canonical proof payload for branch merge/abandon decisions.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "action",
+    "project_id",
+    "source_branch",
+    "decision",
+    "timestamp",
+    "actor_did"
+  ],
+  "properties": {
+    "action": {
+      "type": "string",
+      "enum": [
+        "MERGE",
+        "ABANDON"
+      ]
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_branch": {
+      "type": "string",
+      "minLength": 1
+    },
+    "target_branch": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "fork_point": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "decision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "timestamp": {
+      "type": "string",
+      "minLength": 1
+    },
+    "actor_did": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

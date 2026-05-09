@@ -1,0 +1,204 @@
+{
+  "schema_version": "runtime-semantic-graph-readiness@v1",
+  "updated_at": "2026-05-08T00:00:00Z",
+  "subject": "Runtime Semantic Graph Final Acceptance Standard",
+  "statuses": [
+    "prototype",
+    "runtime_ready",
+    "semantic_twin_ready"
+  ],
+  "readiness_model": {
+    "score_range": [0, 100],
+    "gating_rules": {
+      "prototype": {
+        "min_score": 0,
+        "max_score": 59,
+        "required_must_pass": []
+      },
+      "runtime_ready": {
+        "min_score": 60,
+        "max_score": 84,
+        "required_must_pass": [
+          "body_runtimeization",
+          "gate_realtime_execution",
+          "proof_immutable_chain",
+          "conclusion_live_aggregation",
+          "dependency_auto_propagation",
+          "runtime_realtime_streaming"
+        ]
+      },
+      "semantic_twin_ready": {
+        "min_score": 85,
+        "max_score": 100,
+        "required_must_pass": [
+          "body_runtimeization",
+          "gate_realtime_execution",
+          "proof_immutable_chain",
+          "conclusion_live_aggregation",
+          "dependency_auto_propagation",
+          "replay_version_isolation",
+          "trust_computability",
+          "runtime_realtime_streaming",
+          "end_to_end_traceability"
+        ]
+      }
+    }
+  },
+  "acceptance_criteria": [
+    {
+      "id": "body_runtimeization",
+      "title": "Body truly runtimeized",
+      "weight": 12,
+      "must_pass_for": ["runtime_ready", "semantic_twin_ready"],
+      "checks": [
+        "Body supports live update from sensor/mobile/BIM/manual sources",
+        "Body supports rollback and replay for runtime events",
+        "Body timeline is queryable with event_id/operator/timestamp",
+        "Body update produces downstream impact signal"
+      ],
+      "evidence": [
+        "API: /api/v1/runtime-body/update|rollback|replay|timeline",
+        "Runtime events include slotKey + source + operator"
+      ]
+    },
+    {
+      "id": "gate_realtime_execution",
+      "title": "Gate truly real-time executable",
+      "weight": 12,
+      "must_pass_for": ["runtime_ready", "semantic_twin_ready"],
+      "checks": [
+        "Gate executes on live body update without manual batch-only trigger",
+        "Failed gate appears in live failed-gate stream",
+        "Gate override is tracked with reviewer identity and reason",
+        "Gate execution emits runtime trace and audit record"
+      ],
+      "evidence": [
+        "API: /api/v1/gate/evaluate or live runtime worker processing",
+        "Live Runtime Center shows live failed gates"
+      ]
+    },
+    {
+      "id": "proof_immutable_chain",
+      "title": "Proof forms immutable chain",
+      "weight": 12,
+      "must_pass_for": ["runtime_ready", "semantic_twin_ready"],
+      "checks": [
+        "Each runtime execution generates proof artifact",
+        "Proof contains previousProofId/proofHash lineage link",
+        "Proof chain supports audit export and replay verification",
+        "Proof mutation is append-only (no in-place overwrite of history)"
+      ],
+      "evidence": [
+        "API: /api/v1/immutable-proof-chain/* or proof chain endpoints",
+        "Proof includes chain link fields and signatures"
+      ]
+    },
+    {
+      "id": "conclusion_live_aggregation",
+      "title": "Conclusion live aggregation",
+      "weight": 10,
+      "must_pass_for": ["runtime_ready", "semantic_twin_ready"],
+      "checks": [
+        "Conclusion refreshes after proof/gate update",
+        "Conclusion stream reflects PASS/FAIL/REVIEW_REQUIRED in near real-time",
+        "Aggregation supports project/form scope",
+        "Conclusion refresh is traceable to source events"
+      ],
+      "evidence": [
+        "API: /api/v1/live-conclusion/* or live runtime snapshot conclusion stream"
+      ]
+    },
+    {
+      "id": "dependency_auto_propagation",
+      "title": "Dependency auto linkage",
+      "weight": 10,
+      "must_pass_for": ["runtime_ready", "semantic_twin_ready"],
+      "checks": [
+        "Body change auto-resolves affected Gates/Proofs/Conclusions",
+        "Gate change invalidates dependent proofs",
+        "Proof change refreshes dependent conclusions",
+        "Engine supports incremental + lazy recompute + cycle prevention"
+      ],
+      "evidence": [
+        "API: /api/v1/runtime-dependency-graph/schema|recompute"
+      ]
+    },
+    {
+      "id": "replay_version_isolation",
+      "title": "Replay supports isolated versioned rerun",
+      "weight": 10,
+      "must_pass_for": ["semantic_twin_ready"],
+      "checks": [
+        "Historical body_snapshot can replay under old/new rulepack",
+        "Replay returns old_result/new_result/diff/affected_gates/changed_conclusions",
+        "Replay generates ReplayProof",
+        "Replay does not pollute live runtime state"
+      ],
+      "evidence": [
+        "API: /api/v1/runtime-replay/schema|run"
+      ]
+    },
+    {
+      "id": "trust_computability",
+      "title": "Trust is computable",
+      "weight": 10,
+      "must_pass_for": ["semantic_twin_ready"],
+      "checks": [
+        "Trust score includes calibration/signature/proof completeness/override frequency/anomaly",
+        "Trust level classifies trusted/review_required/suspicious/untrusted",
+        "Untrusted blocks auto final compliance",
+        "Dashboard exposes low trust proofs/suspicious overrides/missing evidence"
+      ],
+      "evidence": [
+        "API: /api/v1/runtime-trust/schema|evaluate|dashboard|finalize-compliance"
+      ]
+    },
+    {
+      "id": "runtime_realtime_streaming",
+      "title": "Runtime supports real-time event streaming",
+      "weight": 12,
+      "must_pass_for": ["runtime_ready", "semantic_twin_ready"],
+      "checks": [
+        "Supports sensor/mobile/BIM/manual_override ingest",
+        "Supports async queue + worker drain processing",
+        "Provides active runtime events/live failed gates/current risk/proof stream",
+        "Supports replay/rollback/audit/traceability over event stream"
+      ],
+      "evidence": [
+        "API: /api/v1/live-runtime/schema|ingest|worker/drain|snapshot|replay|rollback|audit|traceability"
+      ]
+    },
+    {
+      "id": "end_to_end_traceability",
+      "title": "All runtime results traceable: Body -> Gate -> Proof -> SpecIR -> normRef",
+      "weight": 12,
+      "must_pass_for": ["semantic_twin_ready"],
+      "checks": [
+        "Every conclusion can resolve originating proof_id/event_id",
+        "Proof links to rule_id/rule_version/specir context and normdoc/normRef identifiers",
+        "Gate decision trace links to body snapshot and slotKey",
+        "Trace query can reconstruct full chain without manual data stitching"
+      ],
+      "evidence": [
+        "Proof fields: rule_id, rule_version, normdoc_id, clause_id, inputs_hash, decision_trace",
+        "Trace endpoints: runtime traceability + proof replay/audit"
+      ]
+    }
+  ],
+  "acceptance_execution_protocol": {
+    "run_order": [
+      "body_runtimeization",
+      "gate_realtime_execution",
+      "proof_immutable_chain",
+      "conclusion_live_aggregation",
+      "dependency_auto_propagation",
+      "replay_version_isolation",
+      "trust_computability",
+      "runtime_realtime_streaming",
+      "end_to_end_traceability"
+    ],
+    "pass_rule": "criterion passes only if all checks in criterion are true",
+    "score_rule": "sum(weight of passed criteria)",
+    "final_status_rule": "highest status whose min_score and must_pass_for conditions are both satisfied"
+  }
+}

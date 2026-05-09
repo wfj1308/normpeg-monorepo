@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.4.5.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "gte",
+  "threshold_value": "85",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "4.5.2",
+  "source_line": "内 ≥85 按T0923：两井之间每层每侧测1 组",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-116fdf909407",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:882a0dcae3e6ab458ae0b66adccca6715f6af93514df85460cc3e2a01c4b10be"
+}

@@ -1,0 +1,130 @@
+{
+  "bundleId": "highway.bridge.pile@v1",
+  "bundleVersion": "v1",
+  "formCode": "bridge_shi_5",
+  "formName": "桩基成孔检查表",
+  "dtoType": "pile",
+  "stage": "borehole_acceptance_check",
+  "rules": [
+    {
+      "ruleId": "bridge_shi_5.hole_depth.required",
+      "fieldKeys": [
+        "hole_depth_m"
+      ],
+      "gateType": "presence",
+      "severity": "blocking",
+      "expression": "hole_depth_m is not null",
+      "unit": "m",
+      "basis": {
+        "standardCode": "JTG/T3650-2020",
+        "standardName": "??????????",
+        "clause": "??5?",
+        "basisText": "?????????"
+      },
+      "message": "??????",
+      "unresolved": false
+    },
+    {
+      "ruleId": "bridge_shi_5.hole_bottom_elevation.required",
+      "fieldKeys": [
+        "hole_bottom_elevation_m"
+      ],
+      "gateType": "presence",
+      "severity": "blocking",
+      "expression": "hole_bottom_elevation_m is not null",
+      "unit": "m",
+      "basis": {
+        "standardCode": "JTG/T3650-2020",
+        "standardName": "??????????",
+        "clause": "??5?",
+        "basisText": "???????????"
+      },
+      "message": "????????",
+      "unresolved": false
+    },
+    {
+      "ruleId": "bridge_shi_5.verticality.deviation_max_percent",
+      "fieldKeys": [
+        "verticality_deviation_percent"
+      ],
+      "gateType": "threshold",
+      "severity": "blocking",
+      "expression": "verticality_deviation_percent <= threshold_verticality_percent",
+      "unit": "%",
+      "basis": {
+        "standardCode": "JTG/T3650-2020",
+        "standardName": "??????????",
+        "clause": "????",
+        "basisText": "???????????"
+      },
+      "message": "????????????",
+      "unresolved": true
+    },
+    {
+      "ruleId": "bridge_shi_5.hole_diameter.min_design",
+      "fieldKeys": [
+        "hole_diameter_m",
+        "design_pile_diameter_m"
+      ],
+      "gateType": "compare",
+      "severity": "blocking",
+      "expression": "hole_diameter_m >= design_pile_diameter_m",
+      "unit": "m",
+      "basis": {
+        "standardCode": "JTG/T3650-2020",
+        "standardName": "??????????",
+        "clause": "????",
+        "basisText": "?????????????????"
+      },
+      "message": "??????????",
+      "unresolved": true
+    }
+  ],
+  "fieldRuleMap": [
+    {
+      "fieldKey": "hole_depth_m",
+      "fieldName": "??",
+      "gateRequired": true,
+      "ruleId": "bridge_shi_5.hole_depth.required",
+      "valueSource": "manual"
+    },
+    {
+      "fieldKey": "hole_bottom_elevation_m",
+      "fieldName": "????",
+      "gateRequired": true,
+      "ruleId": "bridge_shi_5.hole_bottom_elevation.required",
+      "valueSource": "manual"
+    },
+    {
+      "fieldKey": "verticality_deviation_percent",
+      "fieldName": "?????",
+      "gateRequired": true,
+      "ruleId": "bridge_shi_5.verticality.deviation_max_percent",
+      "valueSource": "manual"
+    },
+    {
+      "fieldKey": "hole_diameter_m",
+      "fieldName": "??",
+      "gateRequired": true,
+      "ruleId": "bridge_shi_5.hole_diameter.min_design",
+      "valueSource": "manual",
+      "compareFields": [
+        "design_pile_diameter_m"
+      ]
+    },
+    {
+      "fieldKey": "design_pile_diameter_m",
+      "fieldName": "????",
+      "gateRequired": true,
+      "valueSource": "source_form"
+    }
+  ],
+  "metadata": {
+    "sourceDocument": "1、桩基(1).docx",
+    "sourcePath": "c:\\Users\\xm_91\\Desktop\\1、桩基(1).docx",
+    "autogen": true,
+    "status": "draft_partially_executable",
+    "notes": "??5??????????????????????????? unresolved?",
+    "encoding": "utf-8"
+  }
+}

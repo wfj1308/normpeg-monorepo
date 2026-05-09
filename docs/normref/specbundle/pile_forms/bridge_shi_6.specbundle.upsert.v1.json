@@ -1,0 +1,112 @@
+{
+  "bundleId": "highway.bridge.pile@v1",
+  "bundleVersion": "v1",
+  "formCode": "bridge_shi_6",
+  "formName": "桩基灌注混凝土前检查表",
+  "dtoType": "pile",
+  "stage": "pre_concrete_pour_check",
+  "rules": [
+    {
+      "ruleId": "bridge_shi_6.slurry_density.required",
+      "fieldKeys": [
+        "slurry_density"
+      ],
+      "gateType": "presence",
+      "severity": "blocking",
+      "expression": "slurry_density is not null",
+      "unit": "g/cm3",
+      "basis": {
+        "standardCode": "JTG/T3650-2020",
+        "standardName": "??????????",
+        "clause": "??6?",
+        "basisText": "????????????"
+      },
+      "message": "????????",
+      "unresolved": false
+    },
+    {
+      "ruleId": "bridge_shi_6.slurry_sand_rate.required",
+      "fieldKeys": [
+        "slurry_sand_rate_percent"
+      ],
+      "gateType": "presence",
+      "severity": "blocking",
+      "expression": "slurry_sand_rate_percent is not null",
+      "unit": "%",
+      "basis": {
+        "standardCode": "JTG/T3650-2020",
+        "standardName": "??????????",
+        "clause": "??6?",
+        "basisText": "?????????????"
+      },
+      "message": "?????????",
+      "unresolved": false
+    },
+    {
+      "ruleId": "bridge_shi_6.slurry_density.range_control",
+      "fieldKeys": [
+        "slurry_density"
+      ],
+      "gateType": "range",
+      "severity": "blocking",
+      "expression": "min_slurry_density <= slurry_density <= max_slurry_density",
+      "unit": "g/cm3",
+      "basis": {
+        "standardCode": "JTG/T3650-2020",
+        "standardName": "??????????",
+        "clause": "????",
+        "basisText": "????????????"
+      },
+      "message": "?????????????",
+      "unresolved": true
+    },
+    {
+      "ruleId": "bridge_shi_6.slurry_sand_rate.max_control",
+      "fieldKeys": [
+        "slurry_sand_rate_percent"
+      ],
+      "gateType": "threshold",
+      "severity": "blocking",
+      "expression": "slurry_sand_rate_percent <= max_slurry_sand_rate_percent",
+      "unit": "%",
+      "basis": {
+        "standardCode": "JTG/T3650-2020",
+        "standardName": "??????????",
+        "clause": "????",
+        "basisText": "???????????"
+      },
+      "message": "?????????????",
+      "unresolved": true
+    }
+  ],
+  "fieldRuleMap": [
+    {
+      "fieldKey": "slurry_density",
+      "fieldName": "????",
+      "gateRequired": true,
+      "ruleIds": [
+        "bridge_shi_6.slurry_density.required",
+        "bridge_shi_6.slurry_density.range_control"
+      ],
+      "valueSource": "manual"
+    },
+    {
+      "fieldKey": "slurry_sand_rate_percent",
+      "fieldName": "?????",
+      "gateRequired": true,
+      "ruleIds": [
+        "bridge_shi_6.slurry_sand_rate.required",
+        "bridge_shi_6.slurry_sand_rate.max_control"
+      ],
+      "valueSource": "manual"
+    }
+  ],
+  "metadata": {
+    "sourceDocument": "1、桩基(1).docx",
+    "sourcePath": "c:\\Users\\xm_91\\Desktop\\1、桩基(1).docx",
+    "autogen": true,
+    "status": "draft_partially_executable",
+    "notes": "??6??????????????????????????? unresolved?",
+    "encoding": "utf-8"
+  }
+}

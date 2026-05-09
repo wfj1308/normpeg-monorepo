@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.5.16.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "tolerance",
+  "threshold_value": "5",
+  "unit": "%",
+  "severity": "mandatory",
+  "norm_ref": "5.16.2",
+  "source_line": "5 横坡（%） － ±0.5 ±0.3 ±0.5 水准仪：每100m测2个断面",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-5bf539eac839",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:7f6a57def7f85173e00c1f803c377c5ed48fac9ccb66e47fcc17a0ac154cce67"
+}

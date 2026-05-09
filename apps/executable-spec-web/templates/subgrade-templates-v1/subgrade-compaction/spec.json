@@ -1,0 +1,37 @@
+{
+  "spuId": "highway.subgrade.compaction.4.2.1.soil@v1",
+  "meta": {
+    "name": "路基压实度（土质）",
+    "norm": "JTG F80/1-2017",
+    "clause": "4.2.1",
+    "version": "v1",
+    "category": "subgrade",
+    "measuredItem": "compaction"
+  },
+  "data": {
+    "inputs": [
+      { "name": "massHoleSand", "type": "number", "unit": "g" },
+      { "name": "volumeSand", "type": "number", "unit": "cm3" },
+      { "name": "moistureContent", "type": "number", "unit": "%" },
+      { "name": "maxDryDensity", "type": "number", "unit": "g/cm3" }
+    ],
+    "outputs": ["wetDensity", "dryDensity", "compactionDegree"]
+  },
+  "path": [
+    { "step": "wet", "formula": "wetDensity = massHoleSand / volumeSand" },
+    { "step": "dry", "formula": "dryDensity = wetDensity / (1 + moistureContent / 100)" },
+    { "step": "compaction", "formula": "compactionDegree = (dryDensity / maxDryDensity) * 100" }
+  ],
+  "rules": [
+    {
+      "field": "compactionDegree",
+      "operator": ">=",
+      "value": 93,
+      "message": "压实度必须 ≥ 93%"
+    }
+  ],
+  "proof": {
+    "resultField": "compactionDegree",
+    "requiredSignatures": ["lab", "supervision"]
+  }
+}

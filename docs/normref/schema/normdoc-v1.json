@@ -1,0 +1,1056 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "v://normref.com/schema/normdoc-v1",
+  "title": "NormDoc v1",
+  "description": "NormDoc canonical schema for standards-as-document execution.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_uri",
+    "version",
+    "header",
+    "body",
+    "gate",
+    "trailer",
+    "incremental_updates",
+    "term_cmap"
+  ],
+  "properties": {
+    "schema_uri": {
+      "type": "string",
+      "const": "v://normref.com/schema/normdoc-v1"
+    },
+    "version": {
+      "type": "string",
+      "const": "v1"
+    },
+    "header": {
+      "$ref": "#/$defs/header"
+    },
+    "body": {
+      "$ref": "#/$defs/body"
+    },
+    "gate": {
+      "$ref": "#/$defs/gate"
+    },
+    "trailer": {
+      "$ref": "#/$defs/trailer"
+    },
+    "incremental_updates": {
+      "$ref": "#/$defs/incremental_updates"
+    },
+    "term_cmap": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/term_map_entry"
+      }
+    },
+    "normref_bundle": {
+      "$ref": "#/$defs/normref_bundle"
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "iso_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "clause": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "clause_id",
+        "title",
+        "text"
+      ],
+      "properties": {
+        "clause_id": {
+          "$ref": "#/$defs/id"
+        },
+        "title": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          }
+        }
+      }
+    },
+    "header": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "standard_id",
+        "version",
+        "issuer",
+        "effective_date",
+        "scope"
+      ],
+      "properties": {
+        "standard_id": {
+          "$ref": "#/$defs/id"
+        },
+        "version": {
+          "$ref": "#/$defs/id"
+        },
+        "replaces": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "issuer": {
+          "type": "string"
+        },
+        "effective_date": {
+          "$ref": "#/$defs/iso_date"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        },
+        "jurisdiction": {
+          "type": "string"
+        },
+        "source_uri": {
+          "type": "string"
+        },
+        "source_hash": {
+          "type": "string"
+        },
+        "lineage": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "type": "object"
+            }
+          ]
+        }
+      }
+    },
+    "measured_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "item_id",
+        "check_item",
+        "required_value",
+        "tolerance",
+        "check_method"
+      ],
+      "properties": {
+        "item_id": {
+          "$ref": "#/$defs/id"
+        },
+        "check_item": {
+          "type": "string"
+        },
+        "required_value": {},
+        "tolerance": {},
+        "check_method": {
+          "type": "string"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "severity": {
+          "type": "string",
+          "enum": [
+            "mandatory",
+            "warning"
+          ]
+        }
+      }
+    },
+    "work_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "work_item_id",
+        "name",
+        "basic_requirements",
+        "measured_items",
+        "visual_inspection",
+        "documentation"
+      ],
+      "properties": {
+        "work_item_id": {
+          "$ref": "#/$defs/id"
+        },
+        "name": {
+          "type": "string"
+        },
+        "basic_requirements": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/clause"
+          }
+        },
+        "measured_items": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/measured_item"
+          }
+        },
+        "visual_inspection": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/clause"
+          }
+        },
+        "documentation": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/clause"
+          }
+        }
+      }
+    },
+    "table_object": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "table_id",
+        "title",
+        "fields"
+      ],
+      "properties": {
+        "table_id": {
+          "$ref": "#/$defs/id"
+        },
+        "title": {
+          "type": "string"
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "field_id",
+              "name"
+            ],
+            "properties": {
+              "field_id": {
+                "$ref": "#/$defs/id"
+              },
+              "name": {
+                "type": "string"
+              },
+              "data_type": {
+                "type": "string"
+              },
+              "required": {
+                "type": "boolean"
+              },
+              "unit": {
+                "type": "string"
+              },
+              "precision": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "range": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": {
+                  "type": "number"
+                }
+              },
+              "validation": {
+                "type": "string"
+              },
+              "format_regex": {
+                "type": "string"
+              },
+              "examples": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "semantic_type": {
+                "type": "string"
+              },
+              "instrument_link": {
+                "type": "boolean"
+              },
+              "instrument_type": {
+                "type": "string"
+              },
+              "calibrate_ref": {
+                "type": "string"
+              },
+              "formula_ref": {
+                "type": "string"
+              },
+              "inputs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "source": {
+                "type": "string"
+              },
+              "editable": {
+                "type": "boolean"
+              },
+              "critical": {
+                "type": "boolean"
+              },
+              "gate_check": {
+                "type": "boolean"
+              },
+              "state_trigger": {
+                "type": "boolean"
+              },
+              "meta": {
+                "type": "object",
+                "additionalProperties": true
+              }
+            }
+          }
+        }
+      }
+    },
+    "formula_object": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "formula_id",
+        "name",
+        "expression"
+      ],
+      "properties": {
+        "formula_id": {
+          "$ref": "#/$defs/id"
+        },
+        "name": {
+          "type": "string"
+        },
+        "expression": {
+          "type": "string"
+        },
+        "depends_on": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          }
+        },
+        "scope": {
+          "type": "string"
+        },
+        "variables": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "name",
+              "source"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "unit": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "physical_constraint": {
+          "type": "string"
+        }
+      }
+    },
+    "reference_entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ref_id",
+        "target"
+      ],
+      "properties": {
+        "ref_id": {
+          "$ref": "#/$defs/id"
+        },
+        "target": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        }
+      }
+    },
+    "body": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "chapters",
+        "tables",
+        "formulas",
+        "ref_dictionary"
+      ],
+      "properties": {
+        "chapters": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "terms_stream",
+            "general_rules",
+            "work_items",
+            "evaluation_methods"
+          ],
+          "properties": {
+            "terms_stream": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "term",
+                  "definition"
+                ],
+                "properties": {
+                  "term": {
+                    "type": "string"
+                  },
+                  "definition": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "general_rules": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/clause"
+              }
+            },
+            "work_items": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/work_item"
+              }
+            },
+            "evaluation_methods": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/clause"
+              }
+            }
+          }
+        },
+        "tables": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "inspection_record_tables",
+            "evaluation_tables",
+            "summary_tables"
+          ],
+          "properties": {
+            "inspection_record_tables": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/table_object"
+              }
+            },
+            "evaluation_tables": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/table_object"
+              }
+            },
+            "summary_tables": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/table_object"
+              }
+            }
+          }
+        },
+        "formulas": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "representative_value_formula",
+            "pass_rate_formula",
+            "score_formula"
+          ],
+          "properties": {
+            "representative_value_formula": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/formula_object"
+              }
+            },
+            "pass_rate_formula": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/formula_object"
+              }
+            },
+            "score_formula": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/formula_object"
+              }
+            }
+          }
+        },
+        "ref_dictionary": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "outbound_refs",
+            "inbound_refs",
+            "patch_refs"
+          ],
+          "properties": {
+            "outbound_refs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/reference_entry"
+              }
+            },
+            "inbound_refs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/reference_entry"
+              }
+            },
+            "patch_refs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/reference_entry"
+              }
+            }
+          }
+        }
+      }
+    },
+    "gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "clause_xref_table",
+        "table_rule_tree",
+        "dependency_graph",
+        "diff_xref"
+      ],
+      "properties": {
+        "clause_xref_table": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "clause_id",
+              "offset_key",
+              "in_use"
+            ],
+            "properties": {
+              "clause_id": {
+                "$ref": "#/$defs/id"
+              },
+              "offset_key": {
+                "type": "string"
+              },
+              "object_type": {
+                "type": "string",
+                "enum": [
+                  "Chapter",
+                  "Clause",
+                  "Table",
+                  "Formula",
+                  "Rule",
+                  "Patch"
+                ]
+              },
+              "generation": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "in_use": {
+                "type": "boolean"
+              },
+              "content": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "table_rule_tree": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "table_id",
+              "field_rules"
+            ],
+            "properties": {
+              "table_id": {
+                "$ref": "#/$defs/id"
+              },
+              "field_rules": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "field_id",
+                    "operator",
+                    "value"
+                  ],
+                  "properties": {
+                    "rule_id": {
+                      "$ref": "#/$defs/id"
+                    },
+                    "field_id": {
+                      "$ref": "#/$defs/id"
+                    },
+                    "operator": {
+                      "type": "string",
+                      "enum": [
+                        "gt",
+                        "gte",
+                        "lt",
+                        "lte",
+                        "eq",
+                        "neq",
+                        "range",
+                        "in"
+                      ]
+                    },
+                    "value": {},
+                    "severity": {
+                      "type": "string",
+                      "enum": [
+                        "mandatory",
+                        "warning"
+                      ]
+                    },
+                    "action": {
+                      "type": "string"
+                    },
+                    "error_message": {
+                      "type": "string"
+                    },
+                    "action_on_fail": {
+                      "type": "string"
+                    },
+                    "allow_override": {
+                      "type": "boolean"
+                    },
+                    "override_requires": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": true
+                      }
+                    },
+                    "scope": {
+                      "type": "string"
+                    },
+                    "aggregation": {
+                      "type": "object",
+                      "additionalProperties": true
+                    },
+                    "check_type": {
+                      "type": "string"
+                    },
+                    "expression": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "dependency_graph": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "nodes",
+            "edges"
+          ],
+          "properties": {
+            "nodes": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "id",
+                  "node_type"
+                ],
+                "properties": {
+                  "id": {
+                    "$ref": "#/$defs/id"
+                  },
+                  "node_type": {
+                    "type": "string",
+                    "enum": [
+                      "field",
+                      "formula",
+                      "clause",
+                      "table",
+                      "rule"
+                    ]
+                  }
+                }
+              }
+            },
+            "edges": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "from",
+                  "to",
+                  "relation"
+                ],
+                "properties": {
+                  "from": {
+                    "$ref": "#/$defs/id"
+                  },
+                  "to": {
+                    "$ref": "#/$defs/id"
+                  },
+                  "relation": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "diff_xref": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "from_version",
+              "to_version",
+              "target_id",
+              "change_type"
+            ],
+            "properties": {
+              "from_version": {
+                "type": "string"
+              },
+              "to_version": {
+                "type": "string"
+              },
+              "target_id": {
+                "$ref": "#/$defs/id"
+              },
+              "change_type": {
+                "type": "string",
+                "enum": [
+                  "add",
+                  "remove",
+                  "modify",
+                  "replace"
+                ]
+              },
+              "reason": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "trailer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "root",
+        "info",
+        "prev"
+      ],
+      "properties": {
+        "root": {
+          "$ref": "#/$defs/id"
+        },
+        "info": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "chief_editor_org",
+            "contributors",
+            "revision_history"
+          ],
+          "properties": {
+            "chief_editor_org": {
+              "type": "string"
+            },
+            "contributors": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "revision_history": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "version",
+                  "date",
+                  "summary"
+                ],
+                "properties": {
+                  "version": {
+                    "type": "string"
+                  },
+                  "date": {
+                    "$ref": "#/$defs/iso_date"
+                  },
+                  "summary": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "prev": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    "patch_entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "patch_id",
+        "target",
+        "replace",
+        "effective_date",
+        "authority"
+      ],
+      "properties": {
+        "patch_id": {
+          "$ref": "#/$defs/id"
+        },
+        "target": {
+          "$ref": "#/$defs/id"
+        },
+        "replace": {
+          "type": "object"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "effective_date": {
+          "$ref": "#/$defs/iso_date"
+        },
+        "authority": {
+          "type": "string"
+        }
+      }
+    },
+    "errata_entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "errata_id",
+        "target",
+        "content",
+        "effective_date"
+      ],
+      "properties": {
+        "errata_id": {
+          "$ref": "#/$defs/id"
+        },
+        "target": {
+          "$ref": "#/$defs/id"
+        },
+        "content": {
+          "type": "string"
+        },
+        "effective_date": {
+          "$ref": "#/$defs/iso_date"
+        }
+      }
+    },
+    "project_override_entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "override_id",
+        "target",
+        "replace",
+        "scope",
+        "approved_by",
+        "effective_date"
+      ],
+      "properties": {
+        "override_id": {
+          "$ref": "#/$defs/id"
+        },
+        "target": {
+          "$ref": "#/$defs/id"
+        },
+        "replace": {
+          "type": "object"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "approved_by": {
+          "type": "string"
+        },
+        "effective_date": {
+          "$ref": "#/$defs/iso_date"
+        }
+      }
+    },
+    "incremental_updates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "patches",
+        "errata_stream",
+        "project_overrides"
+      ],
+      "properties": {
+        "patches": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/patch_entry"
+          }
+        },
+        "errata_stream": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/errata_entry"
+          }
+        },
+        "project_overrides": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/project_override_entry"
+          }
+        }
+      }
+    },
+    "term_map_entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_term",
+        "standard_term",
+        "standard_code"
+      ],
+      "properties": {
+        "source_term": {
+          "type": "string"
+        },
+        "standard_term": {
+          "type": "string"
+        },
+        "standard_code": {
+          "$ref": "#/$defs/id"
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "normref_bundle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "document_markdown",
+        "document_json",
+        "table_schema",
+        "meta"
+      ],
+      "properties": {
+        "document_markdown": {
+          "type": "string"
+        },
+        "document_json": {
+          "type": "object"
+        },
+        "table_schema": {
+          "type": "object"
+        },
+        "meta": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "source",
+            "pipeline"
+          ],
+          "properties": {
+            "source": {
+              "type": "string"
+            },
+            "pipeline": {
+              "type": "string",
+              "const": "NormRef -> LayerPeg Gate -> FormPeg"
+            }
+          }
+        }
+      }
+    }
+  }
+}

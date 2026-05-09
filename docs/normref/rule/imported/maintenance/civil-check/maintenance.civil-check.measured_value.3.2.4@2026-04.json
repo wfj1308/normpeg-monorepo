@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.3.2.4",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "1",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "3.2.4",
+  "source_line": "1 应对检查项目按规定的检查方法和频率进行随机抽样检验并计算合格率，采",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-0e85a8ff29db",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:7cd87ccf87b24d575abf2b7632402b3e4238a51adf5555956fb8bf5600163d5a"
+}

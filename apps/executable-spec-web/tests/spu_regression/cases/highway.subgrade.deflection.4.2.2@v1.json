@@ -1,0 +1,107 @@
+{
+  "spuId": "highway.subgrade.deflection.4.2.2@v1",
+  "passCases": [
+    {
+      "caseId": "deflection_pass_typical",
+      "title": "measured deflection below allowed value should pass",
+      "inputs": {
+        "deflectionValue": 18,
+        "maxAllowedDeflection": 20
+      },
+      "expected": {
+        "status": "PASS",
+        "result": {
+          "outcome": "PASS",
+          "gateStatus": "PASS",
+          "passed": true
+        },
+        "explanationIncludes": [
+          "Gate evaluation passed"
+        ],
+        "matchedRules": [
+          {
+            "ruleId": "RULE-DEFLECTION-001",
+            "passed": true
+          }
+        ],
+        "outputChecks": [
+          {
+            "field": "deflectionOutput",
+            "operator": "lte",
+            "value": 20
+          }
+        ]
+      }
+    }
+  ],
+  "failCases": [
+    {
+      "caseId": "deflection_fail_above_allowed",
+      "title": "measured deflection above allowed value should fail",
+      "inputs": {
+        "deflectionValue": 22,
+        "maxAllowedDeflection": 20
+      },
+      "expected": {
+        "status": "FAIL",
+        "result": {
+          "outcome": "FAIL",
+          "gateStatus": "FAIL",
+          "passed": false
+        },
+        "explanationIncludes": [
+          "Gate evaluation failed",
+          "RULE-DEFLECTION-001"
+        ],
+        "matchedRules": [
+          {
+            "ruleId": "RULE-DEFLECTION-001",
+            "passed": false
+          }
+        ],
+        "outputChecks": [
+          {
+            "field": "deflectionOutput",
+            "operator": "gte",
+            "value": 20.000001
+          }
+        ]
+      }
+    }
+  ],
+  "boundaryCases": [
+    {
+      "caseId": "deflection_boundary_equal_allowed",
+      "title": "measured deflection equal to allowed value should pass",
+      "inputs": {
+        "deflectionValue": 20,
+        "maxAllowedDeflection": 20
+      },
+      "expected": {
+        "status": "PASS",
+        "result": {
+          "outcome": "PASS",
+          "gateStatus": "PASS",
+          "passed": true
+        },
+        "explanationIncludes": [
+          "Gate evaluation passed"
+        ],
+        "matchedRules": [
+          {
+            "ruleId": "RULE-DEFLECTION-001",
+            "passed": true
+          }
+        ],
+        "outputChecks": [
+          {
+            "field": "deflectionOutput",
+            "operator": "approx",
+            "value": 20,
+            "tolerance": 0.000001
+          }
+        ]
+      }
+    }
+  ]
+}

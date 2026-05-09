@@ -1,0 +1,20 @@
+{
+  "rule_id": "civil.general-check.measured_value.4.3.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/civil/general-check/measured_value@2026-04",
+  "category": "civil/general-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "200",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "4.3.2",
+  "source_line": "水准仪：中线位置每200m测2点",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-06a75ca21ccc44ec",
+  "candidate_id": "cand-432d4cfa55f9",
+  "source_std_code": "JTG-F80-1-2017",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:3a31f1caa33e3b92325789fbaf68873a1c7687e0f80d5d2c540ae1e726a8ee41"
+}

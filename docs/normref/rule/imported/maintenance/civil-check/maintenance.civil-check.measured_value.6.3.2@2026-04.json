@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.6.3.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "7",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "6.3.2",
+  "source_line": "7 焊缝尺寸(mm) 满足设计要求 量规：检查全部，每条焊缝检查2处",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-3d05109483f5",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:0ed7971c26d0c9a114616f1bcd12be5149ed711fdac61f32cb3d8d5c6667a672"
+}

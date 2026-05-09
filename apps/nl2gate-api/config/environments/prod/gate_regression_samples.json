@@ -1,0 +1,62 @@
+{
+  "bridge_shi_13": {
+    "samples": [
+      {
+        "gate_id": "gate.JTG/T 3650-2020.9_7_1.component",
+        "measured": { "hole.inclination": 0.8 },
+        "design": {},
+        "expected_result": "PASS"
+      },
+      {
+        "gate_id": "gate.JTG/T 3650-2020.9_7_1.component",
+        "measured": { "hole.inclination": 1.0 },
+        "design": {},
+        "expected_result": "PASS"
+      },
+      {
+        "gate_id": "gate.JTG/T 3650-2020.9_7_1.component",
+        "measured": { "hole.inclination": 1.2 },
+        "design": {},
+        "expected_result": "FAIL"
+      },
+
+      {
+        "gate_id": "gate.JTG/T 3650-2020.9_7_2.component",
+        "measured": { "hole.sedimentThickness": 120 },
+        "design": {},
+        "expected_result": "PASS"
+      },
+      {
+        "gate_id": "gate.JTG/T 3650-2020.9_7_2.component",
+        "measured": { "hole.sedimentThickness": 0 },
+        "design": {},
+        "expected_result": "PASS"
+      },
+      {
+        "gate_id": "gate.JTG/T 3650-2020.9_7_2.component",
+        "measured": {},
+        "design": {},
+        "expected_result": "FAIL"
+      },
+
+      {
+        "gate_id": "gate.JTG/T 3650-2020.9_7_3.component",
+        "measured": { "pile.centerXYDiff": 40 },
+        "design": {},
+        "expected_result": "PASS"
+      },
+      {
+        "gate_id": "gate.JTG/T 3650-2020.9_7_3.component",
+        "measured": { "pile.centerXYDiff": 50 },
+        "design": {},
+        "expected_result": "PASS"
+      },
+      {
+        "gate_id": "gate.JTG/T 3650-2020.9_7_3.component",
+        "measured": { "pile.centerXYDiff": 60 },
+        "design": {},
+        "expected_result": "FAIL"
+      }
+    ]
+  }
+}

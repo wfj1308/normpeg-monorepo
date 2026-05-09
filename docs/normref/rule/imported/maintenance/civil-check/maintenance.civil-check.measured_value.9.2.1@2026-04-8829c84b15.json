@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.9.2.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "9",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "9.2.1",
+  "source_line": "设计有专门要求时应符合设计要求；设计无专门要求时，可以参考表 9-1 的要求。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-5be285ec6917",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:8829c84b157319364bfdf2d85e43a6594f98b0e0a9aada00ca0afa597702baa4"
+}

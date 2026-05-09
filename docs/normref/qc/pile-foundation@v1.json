@@ -1,0 +1,131 @@
+{
+  "uri": "v://normref.com/qc/pile-foundation@v1",
+  "schema_uri": "v://normref.com/schema/qc-v1",
+  "version": "v1",
+  "metadata": {
+    "norm_code": "JTG F80/1-2017",
+    "description": "????????",
+    "domain": "construction/highway"
+  },
+  "gates": [
+    {
+      "check_id": "verticality",
+      "label": "?????",
+      "norm_ref": "JTG F80/1-2017",
+      "threshold": {
+        "value": 1,
+        "operator": "lte",
+        "unit": "%"
+      },
+      "severity": "mandatory"
+    },
+    {
+      "check_id": "concrete_strength",
+      "label": "???????",
+      "norm_ref": "JTG F80/1-2017",
+      "threshold": {
+        "value": 30,
+        "operator": "gte",
+        "unit": "MPa"
+      },
+      "severity": "mandatory"
+    }
+  ],
+  "verdict_logic": {
+    "rule": "verticality ? concrete_strength ????? PASS",
+    "input": {
+      "actual_values": {},
+      "design_values": {}
+    },
+    "output": {
+      "result": "PASS|FAIL|WARNING",
+      "failed_gates": [],
+      "explain": "",
+      "proof_hash": ""
+    }
+  },
+  "output_schema": {
+    "result": "PASS|FAIL|WARNING",
+    "failed_gates": [],
+    "explain": "",
+    "proof_hash": "",
+    "sealed_at": "ISO-8601"
+  },
+  "layers": {
+    "header": {
+      "normref_uri": "v://normref.com/qc/pile-foundation@v1",
+      "doc_type": "quality-inspection",
+      "jurisdiction": "JTG F80/1-2017",
+      "industry": "highway",
+      "version": "v1"
+    },
+    "gate": {
+      "required_trip_roles": [
+        "inspector.quality.check",
+        "supervisor.approve"
+      ],
+      "pre_conditions": [
+        "?????",
+        "??????"
+      ],
+      "entry_rules": [
+        {
+          "name": "verticality",
+          "operator": "lte",
+          "value": 1,
+          "unit": "%"
+        },
+        {
+          "name": "concrete_strength",
+          "operator": "gte",
+          "value": 30,
+          "unit": "MPa"
+        }
+      ]
+    },
+    "body": {
+      "basic": {
+        "pile_id": "P3",
+        "length": 0,
+        "diameter": 0
+      },
+      "test_data": [
+        {
+          "item": "verticality",
+          "measured": 0,
+          "result": "??|???"
+        },
+        {
+          "item": "integrity",
+          "measured": 0,
+          "result": "??|???"
+        },
+        {
+          "item": "bearing_capacity",
+          "measured": 0,
+          "result": "??|???"
+        }
+      ],
+      "relations": [
+        "v://.../boq/{boq_item_id}",
+        "v://.../component/{component_id}"
+      ]
+    },
+    "proof": {
+      "signatures": [],
+      "data_hash": "sha256:...",
+      "witness_logs": [],
+      "proof_hash": ""
+    },
+    "state": {
+      "lifecycle_stage": "draft",
+      "state_matrix": {
+        "total_tables": 0,
+        "generated": 0,
+        "signed": 0,
+        "pending": 0
+      },
+      "next_action": "????????????????? Proof"
+    }
+  }
+}

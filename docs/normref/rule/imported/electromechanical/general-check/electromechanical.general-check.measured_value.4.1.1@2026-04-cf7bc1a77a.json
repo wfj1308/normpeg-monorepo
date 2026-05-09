@@ -1,0 +1,20 @@
+{
+  "rule_id": "electromechanical.general-check.measured_value.4.1.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/electromechanical/general-check/measured_value@2026-04",
+  "category": "electromechanical/general-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "4.1",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "4.1.1",
+  "source_line": "车辆检测器实测项目应符合表4.1.2的规定。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-11c05a464c894fef",
+  "candidate_id": "cand-bfe0922c2279",
+  "source_std_code": "JTG-2182-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:cf7bc1a77a0cb6580e7027d865d5dc35ba9d74d0b3ba2b26166d9dae653bbd2c"
+}

@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.9.2.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "3",
+  "unit": "kg",
+  "severity": "mandatory",
+  "norm_ref": "9.2.1",
+  "source_line": "项目 pH 值 有机质(g/kg) 密度(g/cm3) 石灰反应(g/kg)",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-5f9baceb362d",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:d03c3b06a42dcdec5d5ed2283fde5fe251af6df545c6a328b490167c73e7924c"
+}

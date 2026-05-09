@@ -1,0 +1,20 @@
+{
+  "rule_id": "civil.general-check.measured_value.4.4.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/civil/general-check/measured_value@2026-04",
+  "category": "civil/general-check",
+  "field_key": "measured_value",
+  "operator": "range",
+  "threshold_value": "4.4",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "4.4.2",
+  "source_line": "软土地基处置实测项目应符合表4.4.2-1～表4.4.2-6的规定。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-06a75ca21ccc44ec",
+  "candidate_id": "cand-035d31a617be",
+  "source_std_code": "JTG-F80-1-2017",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:a7589467234d56ddd35db3a6a022ad1ed60cd6a9713c607ccd3343d098a42761"
+}

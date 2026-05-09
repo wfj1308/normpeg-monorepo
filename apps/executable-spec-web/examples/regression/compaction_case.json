@@ -1,0 +1,60 @@
+{
+  "caseId": "compaction_case",
+  "fileName": "compaction.pdf",
+  "warnings": [
+    {
+      "code": "OCR_USED",
+      "message": "OCR was used for extraction"
+    }
+  ],
+  "originalDraftMarkdown": "# 路基压实度（土质法）\n规范来源：JTG F80/1-2017\n条款号：4.2.1\n版本：v1\n分类：subgrade\n检测项：compaction\n\n## 输入参数\n- massHoleSand | number | g | 灌入砂质量\n- volumeSand | number | cm3 | 标定体积\n\n## 输出参数\n- wetDensity\n- compactionDegree\n\n## 计算步骤\n1. wetDensity = massHoleSand / volumeSand\n2. compactionDegree = wetDensity * 100\n\n## 判定规则\n- compactionDegree >= 93 | 压实度必须 >= 93%\n\n## 签字要求\n- lab\n- supervision\n\n## 依赖\n- none\n",
+  "editedMarkdown": "# 路基压实度（土质法）\n规范来源：JTG F80/1-2017\n条款号：4.2.1\n版本：v1\n分类：subgrade\n检测项：compaction\n\n## 输入参数\n- massHoleSand | number | g | 灌入砂质量\n- volumeSand | number | cm3 | 标定体积\n- moistureContent | number | % | 含水率\n- maxDryDensity | number | g/cm3 | 最大干密度\n\n## 输出参数\n- wetDensity\n- dryDensity\n- compactionDegree\n\n## 计算步骤\n1. wetDensity = massHoleSand / volumeSand\n2. dryDensity = wetDensity / (1 + moistureContent / 100)\n3. compactionDegree = (dryDensity / maxDryDensity) * 100\n\n## 判定规则\n- compactionDegree >= 93 | 压实度必须 >= 93%\n\n## 签字要求\n- lab\n- supervision\n\n## 依赖\n- none\n",
+  "clauseReviewItems": [
+    {
+      "id": "clause_source",
+      "title": "规范来源",
+      "message": "已确认",
+      "riskLevel": "high",
+      "required": true,
+      "confirmed": true
+    },
+    {
+      "id": "clause_number",
+      "title": "条款号",
+      "message": "已确认",
+      "riskLevel": "high",
+      "required": true,
+      "confirmed": true
+    },
+    {
+      "id": "calc_path",
+      "title": "计算步骤",
+      "message": "已确认",
+      "riskLevel": "high",
+      "required": true,
+      "confirmed": true
+    },
+    {
+      "id": "decision_rules",
+      "title": "判定规则",
+      "message": "已确认",
+      "riskLevel": "high",
+      "required": true,
+      "confirmed": true
+    },
+    {
+      "id": "depends_on",
+      "title": "依赖",
+      "message": "已确认",
+      "riskLevel": "medium",
+      "required": false,
+      "confirmed": true
+    }
+  ],
+  "expectedDecision": {
+    "status": "warning",
+    "warningReasonsContains": [
+      "计算步骤被修改"
+    ]
+  }
+}

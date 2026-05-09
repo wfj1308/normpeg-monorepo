@@ -1,0 +1,35 @@
+<!-- 单文件HTML，放手机浏览器里就能用 -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width">
+    <title>LayerPeg 现场助手</title>
+</head>
+<body>
+    <h2>LayerPeg 智能质检</h2>
+    
+    <input type="text" id="msg" placeholder="输入：K15+200压实度94%" style="width:80%">
+    <button onclick="ask()">问</button>
+    
+    <div id="result"></div>
+
+<script>
+async function ask() {
+    const msg = document.getElementById('msg').value;
+    const res = await fetch('http://192.168.1.100:8081/chat', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            message: msg,
+            project_id: 'GXX_2024_XXX',
+            user_id: 'inspector_001'
+        })
+    });
+    const data = await res.json();
+    document.getElementById('result').innerHTML = 
+        `<p><b>${data.natural_reply}</b></p>
+         <pre>${JSON.stringify(data.gate_result, null, 2)}</pre>`;
+}
+</script>
+</body>
+</html>

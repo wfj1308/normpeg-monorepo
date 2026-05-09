@@ -1,0 +1,40 @@
+name: Rulepack Schema Validation
+
+on:
+  pull_request:
+    paths:
+      - "apps/nl2gate-api/**"
+      - "packages/normpeg-schemas/**"
+      - "tests/rulepack/**"
+      - ".github/workflows/rulepack-schema-validation.yml"
+      - "requirements-dev.txt"
+  push:
+    branches: ["main"]
+    paths:
+      - "apps/nl2gate-api/**"
+      - "packages/normpeg-schemas/**"
+      - "tests/rulepack/**"
+      - ".github/workflows/rulepack-schema-validation.yml"
+      - "requirements-dev.txt"
+
+jobs:
+  rulepack-schema-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt
+          pip install pytest
+
+      - name: Run rulepack schema tests
+        run: |
+          pytest -q tests/rulepack

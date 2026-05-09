@@ -1,0 +1,36 @@
+{
+  "spuId": "highway.subgrade.deflection@v1",
+  "meta": {
+    "name": "路基弯沉",
+    "norm": "JTG F80/1-2017",
+    "clause": "4.2.x",
+    "version": "v1",
+    "category": "subgrade",
+    "measuredItem": "deflection"
+  },
+  "data": {
+    "inputs": [
+      { "name": "measuredDeflection", "type": "number" },
+      { "name": "maxAllowedDeflection", "type": "number" }
+    ],
+    "outputs": ["deflectionResult"]
+  },
+  "path": [
+    {
+      "step": "assign",
+      "formula": "deflectionResult = measuredDeflection"
+    }
+  ],
+  "rules": [
+    {
+      "field": "deflectionResult",
+      "operator": "<=",
+      "value": "maxAllowedDeflection",
+      "message": "弯沉必须 ≤ 允许值"
+    }
+  ],
+  "proof": {
+    "resultField": "deflectionResult",
+    "requiredSignatures": ["lab", "supervision"]
+  }
+}

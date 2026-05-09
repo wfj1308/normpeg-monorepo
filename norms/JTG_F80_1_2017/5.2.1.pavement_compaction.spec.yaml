@@ -1,0 +1,215 @@
+spec_id: JTG_F80_1_2017.5.2.1.pavement_compaction
+type: executable_spec
+version: v0.1.0
+namespace: norms.cn.mot.jtg_f80_1_2017.5_2_1
+
+semantics:
+  standard_id: JTG_F80_1_2017
+  standard_name: JTG F80/1-2017 Highway Engineering Quality Inspection and Evaluation Standard
+  standard_version: "2017"
+  clause_id: "5.2.1"
+  clause_refs:
+    - JTG_F80_1_2017.5.2.1
+    - JTG_3450_2019.T0921
+  catalog_id: JTG_F80_1_2017
+  component_id: JTG_F80_1_2017.5.2.1.pavement_compaction
+  component_name: pavement_compaction
+  component_type: MeasuredItem
+  category: pavement
+  work_item: base_and_subbase
+  measured_item: compaction
+  status: active
+  owner: quality-center
+  critical: true
+  source: norms/JTG_F80_1_2017/5.2.1.pavement_compaction.spec.yaml
+  description: Base and subbase compaction executable specification
+  generated_at: "2026-04-27T00:00:00Z"
+
+logic:
+  language: specir/v1
+  execution_mode: deterministic
+  stages:
+    - inputs
+    - path
+    - gate
+    - state
+    - proof
+
+inputs:
+  input_dto:
+    stake:
+      type: string
+      required: true
+    layer_type:
+      type: enum
+      required: false
+      enum_values: ["base", "subbase"]
+      default: base
+    zone_type:
+      type: enum
+      required: false
+      enum_values: ["Z96", "Z98"]
+      default: Z98
+    compaction_degree:
+      type: number
+      unit: "%"
+      precision: 2
+      required: true
+    representative_value:
+      type: number
+      unit: "%"
+      precision: 2
+      required: false
+    actor_did:
+      type: string
+      required: true
+    inspected_at:
+      type: string
+      required: true
+    project_id:
+      type: string
+      required: true
+    override_requested:
+      type: boolean
+      required: false
+      default: false
+    override_evidence:
+      type: object
+      required: false
+    archive_requested:
+      type: boolean
+      required: false
+      default: false
+
+path:
+  steps:
+    - step_id: resolve_standard
+      action: lookup
+      lookup_ref: standard_by_zone
+      input_fields: [zone_type]
+      output_field: standard_value
+    - step_id: resolve_tolerance
+      action: lookup
+      lookup_ref: tolerance_by_zone
+      input_fields: [zone_type]
+      output_field: tolerance
+    - step_id: calc_lower_bound
+      action: formula
+      formula_ref: lower_bound_formula
+      output_field: lower_bound
+    - step_id: resolve_representative
+      action: formula
+      formula_ref: representative_formula
+      output_field: representative_value_resolved
+
+  formulas:
+    lower_bound_formula: standard_value - tolerance
+    representative_formula: if(exists(representative_value), representative_value, compaction_degree)
+
+  lookup_tables:
+    standard_by_zone:
+      Z96: 96
+      Z98: 98
+    tolerance_by_zone:
+      Z96: 2
+      Z98: 2
+
+  derived_fields:
+    - standard_value
+    - tolerance
+    - lower_bound
+    - representative_value_resolved
+
+gate:
+  rules:
+    - rule_id: single_point_rule
+      condition: compaction_degree >= lower_bound
+      severity: blocking
+      on_fail: block
+      clause_refs: [JTG_F80_1_2017.5.2.1.single_point]
+    - rule_id: representative_rule
+      condition: representative_value_resolved >= standard_value
+      severity: critical
+      on_fail: critical
+      clause_refs: [JTG_F80_1_2017.5.2.1.representative]
+    - rule_id: override_evidence_rule
+      condition: override_requested == False or exists(override_evidence)
+      severity: blocking
+      on_fail: manual_override
+      clause_refs: [JTG_F80_1_2017.override]
+  references:
+    - JTG_F80_1_2017.5.2.1
+  clause_refs:
+    - JTG_F80_1_2017.5.2.1
+
+state:
+  initial_state: DRAFT
+  states: [DRAFT, COMPUTED, VALIDATED, QUALIFIED, REJECTED, OVERRIDDEN, ARCHIVED]
+  allowed_transitions:
+    - from_state: DRAFT
+      to_state: COMPUTED
+      trigger: path_executed
+    - from_state: COMPUTED
+      to_state: VALIDATED
+      trigger: gate_executed
+    - from_state: VALIDATED
+      to_state: QUALIFIED
+      trigger: all_rules_pass
+    - from_state: VALIDATED
+      to_state: REJECTED
+      trigger: rule_failed
+    - from_state: VALIDATED
+      to_state: OVERRIDDEN
+      trigger: manual_override_approved
+    - from_state: QUALIFIED
+      to_state: ARCHIVED
+      trigger: archive_requested
+    - from_state: REJECTED
+      to_state: ARCHIVED
+      trigger: archive_requested
+    - from_state: OVERRIDDEN
+      to_state: ARCHIVED
+      trigger: archive_requested
+  terminal_states: [QUALIFIED, REJECTED, OVERRIDDEN, ARCHIVED]
+
+proof:
+  proof_fields:
+    - execution_id
+    - component_id
+    - version
+    - project_id
+    - input
+    - normalized_input
+    - path_outputs
+    - gate
+    - state_trace
+    - final_status
+    - clause_refs
+  canonicalization:
+    field_order:
+      - execution_id
+      - component_id
+      - version
+      - project_id
+      - input
+      - normalized_input
+      - path_outputs
+      - gate
+      - state_trace
+      - final_status
+      - clause_refs
+    sort_keys: true
+    null_policy: keep
+  hash_algorithm: sha256
+  hash_method: sha256
+  signature:
+    algorithm: hmac_sha256
+    key_env: LAYERPEG_PROOF_HMAC_KEY
+  chain:
+    enabled: true
+
+metadata:
+  specir_version: v0.1.0
+  source_component_file: norms/JTG_F80_1_2017/5.2.1.pavement_compaction.spec.yaml
+  source_component_version: v0.1.0
+  migration_note: generated from JTG F80/1-2017 pavement compaction clause

@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://layerpeg.local/schemas/anchor.schema.json",
+  "title": "Proof Anchor Schema",
+  "description": "External anchoring record for proof hash reservation interface.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "anchor_id",
+    "proof_hash",
+    "anchor_type",
+    "target_system",
+    "anchored_at",
+    "status",
+    "external_ref"
+  ],
+  "properties": {
+    "anchor_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "proof_hash": {
+      "type": "string",
+      "minLength": 16
+    },
+    "anchor_type": {
+      "type": "string",
+      "enum": [
+        "mock_anchor",
+        "timestamp_authority",
+        "blockchain",
+        "notary"
+      ]
+    },
+    "target_system": {
+      "type": "string",
+      "minLength": 1
+    },
+    "anchored_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "PENDING",
+        "ANCHORED",
+        "FAILED"
+      ]
+    },
+    "external_ref": {
+      "oneOf": [
+        { "type": "string" },
+        { "type": "null" }
+      ]
+    }
+  },
+  "examples": [
+    {
+      "anchor_id": "anchor_0f9e9f1e2a3045a4a5c6b7d8e9f01234",
+      "proof_hash": "a2f6b3d8a5197cc1fca99d2f3ed9f1194f0fc43022f1d49598963cae8a90ac4e",
+      "anchor_type": "mock_anchor",
+      "target_system": "local_mock_anchor_service",
+      "anchored_at": "2026-04-16T12:00:00Z",
+      "status": "ANCHORED",
+      "external_ref": "mock://anchor/local/000001"
+    }
+  ]
+}

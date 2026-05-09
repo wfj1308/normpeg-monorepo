@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.width.4.5.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/width@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "width",
+  "operator": "eq",
+  "threshold_value": "3",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "4.5.2",
+  "source_line": "3 基础宽度 (mm) +15，0 钢卷尺：每两井之间每侧测2处",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-a35de186555f",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:0c3d66a65314e85a41b1523e085dba465e4b608c9ff582366ff27d30a669d82f"
+}

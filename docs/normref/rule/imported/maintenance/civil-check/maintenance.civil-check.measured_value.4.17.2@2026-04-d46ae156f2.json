@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.4.17.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "0",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "4.17.2",
+  "source_line": "断面尺寸(mm) 0，+20 钢卷尺：每10m检查3个断面",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-5abc54ec70f3",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:d46ae156f2eb56fad4784bb2dcc37b31f1856f73271e86052a4cf5d8a2c70062"
+}

@@ -1,0 +1,86 @@
+{
+  "containerId": "container_demo_k19_070",
+  "geoSlotRef": "slot_demo_k19_070",
+  "overallStatus": "PASS",
+  "specResults": [
+    {
+      "spuId": "highway.subgrade.compaction.4.2.1@v1",
+      "status": "FINAL_PASS",
+      "finalNodeId": "node_compaction_attempt_2",
+      "attempts": 2,
+      "value": {
+        "resultField": "compactionDegree",
+        "resultValue": 96.703282
+      }
+    },
+    {
+      "spuId": "highway.subgrade.thickness.4.2.3@v1",
+      "status": "FINAL_PASS",
+      "finalNodeId": "node_thickness_attempt_1",
+      "attempts": 1,
+      "value": {
+        "resultField": "thicknessValue",
+        "resultValue": 205
+      }
+    },
+    {
+      "spuId": "highway.subgrade.deflection.4.2.2@v1",
+      "status": "FINAL_PASS",
+      "finalNodeId": "node_deflection_attempt_1",
+      "attempts": 1,
+      "value": {
+        "resultField": "deflectionOutput",
+        "resultValue": 18
+      }
+    }
+  ],
+  "signatures": ["lab", "supervision"],
+  "auditTrail": [
+    {
+      "eventId": "ev_container_created",
+      "entityType": "container",
+      "entityId": "container_demo_k19_070",
+      "eventType": "CONTAINER_CREATED",
+      "payload": {},
+      "timestamp": "2026-04-20T06:20:00.000Z"
+    },
+    {
+      "eventId": "ev_compaction_fail",
+      "entityType": "node",
+      "entityId": "node_compaction_attempt_1",
+      "eventType": "NODE_FINALIZED",
+      "payload": {
+        "status": "FINAL_FAIL"
+      },
+      "timestamp": "2026-04-20T06:22:00.000Z"
+    },
+    {
+      "eventId": "ev_compaction_pass",
+      "entityType": "node",
+      "entityId": "node_compaction_attempt_2",
+      "eventType": "NODE_FINALIZED",
+      "payload": {
+        "status": "FINAL_PASS"
+      },
+      "timestamp": "2026-04-20T06:24:00.000Z"
+    },
+    {
+      "eventId": "ev_container_archived",
+      "entityType": "container",
+      "entityId": "container_demo_k19_070",
+      "eventType": "CONTAINER_ARCHIVED",
+      "payload": {},
+      "timestamp": "2026-04-20T06:30:00.000Z"
+    }
+  ],
+  "hash": "243c5857458a200d96f79e0b032f6d9dbc61333d27891b80b91522c91d6539e7",
+  "archivedAt": "2026-04-20T06:30:00.000Z",
+  "schemaVersion": "container-proof@v1",
+  "extensions": {
+    "anchorReceipt": {
+      "anchorId": "anchor_demo",
+      "hash": "243c5857458a200d96f79e0b032f6d9dbc61333d27891b80b91522c91d6539e7",
+      "anchoredAt": "2026-04-20T06:30:01.000Z"
+    }
+  }
+}

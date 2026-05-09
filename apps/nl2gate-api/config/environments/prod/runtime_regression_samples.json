@@ -1,0 +1,56 @@
+{
+  "bridge_shi_13": {
+    "samples": [
+      {
+        "name": "all_pass_case",
+        "measured": {
+          "hole.inclination": 0.9,
+          "hole.sedimentThickness": 80,
+          "pile.centerXYDiff": 45
+        },
+        "design": {},
+        "expected_result": "PASS",
+        "expected_gates": {
+          "gate.JTG/T 3650-2020.9_7_1.component": "PASS",
+          "gate.JTG/T 3650-2020.9_7_2.component": "PASS",
+          "gate.JTG/T 3650-2020.9_7_3.component": "PASS"
+        },
+        "expected_proof": {
+          "result": "PASS"
+        }
+      },
+      {
+        "name": "inclination_fail_case",
+        "measured": {
+          "hole.inclination": 1.3,
+          "hole.sedimentThickness": 80,
+          "pile.centerXYDiff": 45
+        },
+        "design": {},
+        "expected_result": "FAIL",
+        "expected_gates": {
+          "gate.JTG/T 3650-2020.9_7_1.component": "FAIL"
+        },
+        "expected_proof": {
+          "result": "FAIL"
+        }
+      },
+      {
+        "name": "center_diff_fail_case",
+        "measured": {
+          "hole.inclination": 0.9,
+          "hole.sedimentThickness": 80,
+          "pile.centerXYDiff": 70
+        },
+        "design": {},
+        "expected_result": "FAIL",
+        "expected_gates": {
+          "gate.JTG/T 3650-2020.9_7_3.component": "FAIL"
+        },
+        "expected_proof": {
+          "result": "FAIL"
+        }
+      }
+    ]
+  }
+}

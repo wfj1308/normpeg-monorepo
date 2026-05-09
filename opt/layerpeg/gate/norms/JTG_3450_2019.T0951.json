@@ -1,0 +1,165 @@
+﻿{
+  "NormDoc": "1.1",
+  "Header": {
+    "Type": "NormHeader",
+    "Standard": "JTG 3450-2019",
+    "Clause": "T0951",
+    "Title": "Deflection Test Record",
+    "Version": "2019",
+    "Replaces": [
+      "JTG E60-2008.T0951"
+    ],
+    "EffectiveDate": "2019-05-01",
+    "IssuingAuthority": "Ministry of Transport",
+    "Scope": [
+      "highway"
+    ],
+    "Lineage": null
+  },
+  "Body": {
+    "Type": "NormBody",
+    "Tables": [
+      {
+        "Type": "NormTable",
+        "TableID": "T0951",
+        "Name": "Deflection Test Record",
+        "DataShape": {
+          "mode": "discrete_with_upper_confidence",
+          "description": "discrete points with upper confidence representative value"
+        },
+        "CrossSpecLink": {
+          "test_method": {
+            "ref": "JTG_3450_2019.T0951",
+            "alternatives": [
+              "automatic_deflectometer"
+            ],
+            "auto_select": "select by available instrument and approved test plan"
+          },
+          "calculation": {
+            "ref": "JTG_F80_1_2017.4.2.2",
+            "representative_value": "t_distribution_95_upper",
+            "pass_criteria": "representative_deflection <= design_deflection AND single <= design_deflection * 1.2"
+          },
+          "construction_control": {
+            "ref": "JTG_T_F20_2015.5.4",
+            "note": "construction control data is used for root-cause tracing"
+          }
+        },
+        "MethodPaths": {
+          "beckmann": {
+            "ref": "JTG_3450_2019.T0951.beckmann",
+            "path": [
+              "deflection_road = (final_reading - initial_reading) * 2",
+              "deflection_corrected = deflection_road * season_factor * structural_factor"
+            ]
+          },
+          "automatic_deflectometer": {
+            "ref": "JTG_3450_2019.T0951.automatic_deflectometer",
+            "path": [
+              "deflection_corrected = instrument_reading * season_factor * structural_factor"
+            ]
+          }
+        },
+        "Dependencies": [
+          "calc_deflection_corrected",
+          "calc_deflection_representative_upper"
+        ],
+        "GateRef": "T0951_Gate",
+        "Fields": [
+          {
+            "Type": "NormField",
+            "FieldID": "stake",
+            "DataType": "StakeRange",
+            "Required": true
+          },
+          {
+            "Type": "NormField",
+            "FieldID": "lane_position",
+            "DataType": "String",
+            "Required": true
+          },
+          {
+            "Type": "NormField",
+            "FieldID": "test_method",
+            "DataType": "String",
+            "Required": true
+          },
+          {
+            "Type": "NormField",
+            "FieldID": "deflection_series",
+            "DataType": "Array",
+            "Required": true
+          },
+          {
+            "Type": "NormField",
+            "FieldID": "design_deflection",
+            "DataType": "Number",
+            "Required": true
+          },
+          {
+            "Type": "NormField",
+            "FieldID": "representative_deflection",
+            "DataType": "Computed",
+            "Formula": "calc_deflection_representative_upper",
+            "Critical": true,
+            "GateCheck": true
+          }
+        ]
+      }
+    ],
+    "Formulas": [
+      {
+        "Type": "Formula",
+        "FormulaID": "calc_deflection_corrected",
+        "Expression": "method_specific"
+      },
+      {
+        "Type": "Formula",
+        "FormulaID": "calc_deflection_representative_upper",
+        "Expression": "avg(deflection_series) + t_distribution_95(n - 1) * std(deflection_series) / sqrt(n)"
+      }
+    ]
+  },
+  "Gate": {
+    "Type": "NormGate",
+    "GateID": "T0951_Gate",
+    "Rules": [
+      {
+        "Type": "GateRule",
+        "RuleID": "rule_deflection_single_extreme",
+        "TargetField": "single_deflection",
+        "CheckType": "NormCompliance",
+        "Operator": "LessEqual",
+        "ThresholdExpr": "design_deflection * 1.2",
+        "ErrorMessage": "single deflection exceeds 20% tolerance",
+        "Severity": "Blocking",
+        "ActionOnFail": "BlockSubmit"
+      },
+      {
+        "Type": "GateRule",
+        "RuleID": "rule_deflection_representative",
+        "TargetField": "representative_deflection",
+        "CheckType": "NormCompliance",
+        "Operator": "LessEqual",
+        "ThresholdExpr": "design_deflection",
+        "ErrorMessage": "representative deflection exceeds design value",
+        "Severity": "Critical",
+        "ActionOnFail": "BlockSubmit"
+      }
+    ]
+  },
+  "Trailer": {
+    "xref": [],
+    "trailer": {
+      "Size": 3,
+      "Root": "Header",
+      "Info": "T0951 metadata",
+      "Prev": null
+    },
+    "startxref": 0
+  },
+  "IncrementalUpdates": {
+    "patch": [],
+    "override": []
+  }
+}

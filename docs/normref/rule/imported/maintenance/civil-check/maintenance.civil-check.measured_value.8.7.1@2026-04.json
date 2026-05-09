@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.8.7.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "18226",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "8.7.1",
+  "source_line": "果，应符合设计要求和现行《公路交通工程钢构件防腐技术条件》（GB/T 18226）",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-42518ad94d83",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:d8fcf0e63a49b08e106b37825559dd02e4db1a67c31d689e2505f90e31fa354a"
+}

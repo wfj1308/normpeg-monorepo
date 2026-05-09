@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.flatness.7.7.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/flatness@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "flatness",
+  "operator": "eq",
+  "threshold_value": "3",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "7.7.2",
+  "source_line": "3 墙面平整度(mm) 20 2m直尺：每20m每侧检查3处",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-ef8f5320d4a1",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:e8019639f429951938fa85a9d4a88f9cc94c85cdf338dd70878205a648f7a36a"
+}

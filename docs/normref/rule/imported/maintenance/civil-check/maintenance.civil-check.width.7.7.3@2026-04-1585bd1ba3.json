@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.width.7.7.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/width@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "width",
+  "operator": "lte",
+  "threshold_value": "3",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "7.7.3",
+  "source_line": "3 混凝土表面裂缝宽度应不大于0.2mm。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-c7dd0c7defc7",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:1585bd1ba347bb18dbaa5a770afd6956cd4384d461dd4fcb5830e163d2b82f6d"
+}

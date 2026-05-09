@@ -1,0 +1,20 @@
+{
+  "rule_id": "civil.general-check.measured_value.4.4.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/civil/general-check/measured_value@2026-04",
+  "category": "civil/general-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "0.2",
+  "unit": "%",
+  "severity": "mandatory",
+  "norm_ref": "4.4.2",
+  "source_line": "查施工记录并结合取芯检查0.2%，且不少于3根",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-06a75ca21ccc44ec",
+  "candidate_id": "cand-62092ea68023",
+  "source_std_code": "JTG-F80-1-2017",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:2a5bc10b93d94833bbec4f8e79bdb1f534d0dfee4b9a765c0b5739a73c460e79"
+}

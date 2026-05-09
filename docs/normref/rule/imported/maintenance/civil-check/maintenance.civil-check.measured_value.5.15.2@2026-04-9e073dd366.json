@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.5.15.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "0911",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "5.15.2",
+  "source_line": "横坡（％） 符合设计要求 T0911：每100m测1个断面",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-f9acbaa078ab",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:9e073dd3661e9f6c99cbfff3f60bccc81da1e64260c5d144b12e1c7244b0c3fa"
+}

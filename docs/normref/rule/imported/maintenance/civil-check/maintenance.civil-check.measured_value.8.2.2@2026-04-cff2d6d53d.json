@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.8.2.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "7",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "8.2.2",
+  "source_line": "7 基础尺寸(mm) ＋100，－50 钢卷尺：每基础长、宽各测2点",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-b5a27983a8ea",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:cff2d6d53d5719336b595aaf1c4f93884412626ef478a7af5bf428b8901c52ef"
+}

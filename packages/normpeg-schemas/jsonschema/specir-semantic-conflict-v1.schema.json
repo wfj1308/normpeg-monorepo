@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://normpeg.local/schemas/specir-semantic-conflict-v1.schema.json",
+  "title": "SpecIR Semantic Conflict Report v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["job_id", "generated_at", "count", "conflicts"],
+  "properties": {
+    "job_id": { "type": "string", "minLength": 1 },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "count": { "type": "integer", "minimum": 0 },
+    "conflicts": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/conflict" }
+    }
+  },
+  "$defs": {
+    "conflict": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "conflict_id",
+        "slotKey",
+        "condition",
+        "conflict_type",
+        "left",
+        "right",
+        "override_required",
+        "override_status"
+      ],
+      "properties": {
+        "conflict_id": { "type": "string", "minLength": 1 },
+        "slotKey": { "type": "string", "minLength": 1 },
+        "condition": { "type": "string" },
+        "conflict_type": {
+          "type": "string",
+          "enum": [
+            "threshold_conflict",
+            "unit_conflict",
+            "scope_conflict",
+            "version_conflict",
+            "duplicate_rule",
+            "stricter_rule_override"
+          ]
+        },
+        "left": { "$ref": "#/$defs/side" },
+        "right": { "$ref": "#/$defs/side" },
+        "override_required": { "type": "boolean" },
+        "override_status": {
+          "type": "string",
+          "enum": ["pending", "approved", "rejected"]
+        },
+        "override_comment": { "type": "string" },
+        "override_by": { "type": "string" },
+        "override_at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "side": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["specir_id", "normRef", "operator", "threshold", "unit", "standard_code", "version"],
+      "properties": {
+        "specir_id": { "type": "string", "minLength": 1 },
+        "normRef": { "type": "string", "minLength": 1 },
+        "operator": { "type": "string" },
+        "threshold": { "type": "string" },
+        "unit": { "type": "string" },
+        "standard_code": { "type": "string" },
+        "version": { "type": "string" }
+      }
+    }
+  }
+}

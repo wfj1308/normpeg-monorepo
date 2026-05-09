@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.elevation.6.12.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/elevation@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "elevation",
+  "operator": "eq",
+  "threshold_value": "6",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "6.12.1",
+  "source_line": "6 支架变形及支承的下沉量应满足施工后构件设计高程的要求。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-3cfb3011f513",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:9a1b77da7a080f494659dcf462dfc03816529c4941a0785d8a8f9e05788150eb"
+}

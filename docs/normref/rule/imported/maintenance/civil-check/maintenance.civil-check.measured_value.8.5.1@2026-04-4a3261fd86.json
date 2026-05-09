@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.8.5.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "31439.2",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "8.5.1",
+  "source_line": "栏》（GB/T 31439.2）的规定，防腐层质量应符合现行《公路交通工程钢构件防腐",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-48d18009d885",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:4a3261fd863a4e6d6ddcf7eeca7f598e4f1d22890470578cf72a4f573b9d831a"
+}

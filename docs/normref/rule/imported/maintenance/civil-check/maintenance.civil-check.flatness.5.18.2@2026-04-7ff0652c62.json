@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.flatness.5.18.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/flatness@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "flatness",
+  "operator": "lte",
+  "threshold_value": "2",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "5.18.2",
+  "source_line": "2 平整度 (mm) ≤8 ≤12 ≤12 ≤15 3m直尺：每200m测2处×10尺",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-43afca3e3941",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:7ff0652c62621d407f7818069b691dc591b49eb0d14a03406714b2be7094773d"
+}

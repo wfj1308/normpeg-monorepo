@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.4.5.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "500",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "4.5.2",
+  "source_line": "均用轻型击实标准。柔性管道的管底至管顶以上500mm范围内，应采用人工回填、轻型压实设备夯实；回填中、",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-78c6be90d483",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:ce680e8670b7ee9acb6192f6f0519bc7cd06d300ee9402b1e712117a16b461a3"
+}

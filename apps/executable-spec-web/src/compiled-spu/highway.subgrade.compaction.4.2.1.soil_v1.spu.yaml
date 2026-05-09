@@ -1,0 +1,57 @@
+spuId: "highway.subgrade.compaction.4.2.1.soil@v1"
+
+meta:
+  name: "路基压实度（土质）"
+  norm: "JTG F80/1-2017"
+  clause: "4.2.1"
+  version: "v1"
+
+forms:
+  - formCode: "SUBGRADE_COMPACTION_FORM"
+    role: "lab"
+    required: true
+
+data:
+  inputs:
+    - name: massHoleSand
+      type: number
+      label: "灌入砂质量(g)"
+    - name: massSandCone
+      type: number
+      label: "锥体砂质量(g)"
+    - name: volumeSand
+      type: number
+      label: "标定体积(cm3)"
+    - name: moistureContent
+      type: number
+      label: "含水率(%)"
+    - name: maxDryDensity
+      type: number
+      label: "最大干密度(g/cm3)"
+  outputs:
+    - name: wetDensity
+    - name: dryDensity
+    - name: compactionDegree
+
+path:
+  - step: calc_wet_density
+    formula: "wetDensity = massHoleSand / volumeSand"
+  - step: calc_dry_density
+    formula: "dryDensity = wetDensity / (1 + moistureContent / 100)"
+  - step: calc_compaction
+    formula: "compactionDegree = (dryDensity / maxDryDensity) * 100"
+
+rules:
+  - ruleId: "RULE-COMPACTION-001"
+    field: "compactionDegree"
+    operator: ">="
+    value: 93
+    message: "压实度必须 ≥ 93%"
+
+proof:
+  resultField: "compactionDegree"
+  passMessage: "压实度达标"
+  failMessage: "压实度不达标"
+  requiredSignatures:
+    - lab
+    - supervision

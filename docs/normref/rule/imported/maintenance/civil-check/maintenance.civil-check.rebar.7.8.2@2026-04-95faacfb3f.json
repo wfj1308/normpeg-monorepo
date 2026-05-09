@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.rebar.7.8.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/rebar@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "rebar",
+  "operator": "gte",
+  "threshold_value": "3",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "7.8.2",
+  "source_line": "3 钢筋保护层厚度(mm) 不小于设计值 尺量：每10m检查1个断面，每个断面检查3处",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-847e4ecb35e7",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:95faacfb3fa2e86b9f34544ea134e204920d54d752d162c9d32d02e81e163b06"
+}

@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.4.13.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "eq",
+  "threshold_value": "3",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "4.13.1",
+  "source_line": "3 石料强度和规格应符合规范要求。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-c7588ea13c8e",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:b5bafef576af7da4abf9b2caa550957107ad89b8389109785596029eaea699d2"
+}

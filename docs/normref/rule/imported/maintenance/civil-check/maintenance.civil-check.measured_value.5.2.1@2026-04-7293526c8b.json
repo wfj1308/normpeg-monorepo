@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.5.2.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "7",
+  "unit": "℃",
+  "severity": "mandatory",
+  "norm_ref": "5.2.1",
+  "source_line": "7 路面应完成压实并冷却至表面温度低于 50℃后方可开放交通或在路面上进行",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-ff9d61c43584",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:7293526c8ba064748eaaec435de98d56ebb3daae12d539fb29e142f3d0d355c1"
+}

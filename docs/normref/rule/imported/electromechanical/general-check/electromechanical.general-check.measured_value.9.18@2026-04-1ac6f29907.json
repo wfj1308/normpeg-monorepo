@@ -1,0 +1,20 @@
+{
+  "rule_id": "electromechanical.general-check.measured_value.9.18",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/electromechanical/general-check/measured_value@2026-04",
+  "category": "electromechanical/general-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "85",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "9.18",
+  "source_line": "附件公路工程质量检验评定标准第二册机电工程条文说明......－85-",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-11c05a464c894fef",
+  "candidate_id": "cand-4d57ee7e29f0",
+  "source_std_code": "JTG-2182-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:1ac6f299071c99400b870e4cbbd8f98babc05c58633a9678212031e7116c588f"
+}

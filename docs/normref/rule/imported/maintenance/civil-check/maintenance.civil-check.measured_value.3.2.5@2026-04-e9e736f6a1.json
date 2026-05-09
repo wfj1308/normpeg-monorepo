@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.3.2.5",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "100",
+  "unit": "%",
+  "severity": "mandatory",
+  "norm_ref": "3.2.5",
+  "source_line": "厂加工制造的桥梁金属构件的合格率应为 100%，不符合要求时该检查项目应为不",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-cc2bbf2389a1",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:e9e736f6a105b81c463fc91729c57019db78c3a169872f1115da77d130b192d5"
+}

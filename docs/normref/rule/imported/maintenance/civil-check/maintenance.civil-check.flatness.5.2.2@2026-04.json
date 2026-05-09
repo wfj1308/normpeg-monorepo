@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.flatness.5.2.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/flatness@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "flatness",
+  "operator": "eq",
+  "threshold_value": "3",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "5.2.2",
+  "source_line": "b表内σ为平整度仪测定的标准差；IRI为国际平整度指数；h为3m直尺与面层的最大间隙。表中平整",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-d4c17f3bac5b",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:c8c6059c8476036a5cb47edbfcc5fa5fb1e1e0c7a14e2385e15bd7a0a85f14dc"
+}

@@ -1,0 +1,20 @@
+{
+  "rule_id": "electromechanical.general-check.measured_value.4.2.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/electromechanical/general-check/measured_value@2026-04",
+  "category": "electromechanical/general-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "-50",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "4.2.2",
+  "source_line": "（-50,+100）mm",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-11c05a464c894fef",
+  "candidate_id": "cand-f7ccbb7752bc",
+  "source_std_code": "JTG-2182-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:63b50b5f89a13ff97be317558d513e087099e79e8663982a5b18fa0fff86706f"
+}

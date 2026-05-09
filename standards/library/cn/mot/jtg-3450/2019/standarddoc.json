@@ -1,0 +1,59 @@
+{
+  "schema_uri": "v://normref.com/schema/standarddoc-v1",
+  "version": "v1",
+  "standard_code": "JTG 3450-2019",
+  "header": {
+    "title": "Highway Engineering Test Methods",
+    "issuer": "Ministry of Transport",
+    "effective_date": "2019-05-01",
+    "role": "test_method_standard"
+  },
+  "body": {
+    "key_clauses": [
+      {
+        "clause_id": "T0921",
+        "topic": "sand replacement method",
+        "rule_summary": "compaction_degree from dry density ratio"
+      },
+      {
+        "clause_id": "T0931",
+        "topic": "roughness measurement",
+        "rule_summary": "IRI acquisition with profile method"
+      },
+      {
+        "clause_id": "T0912",
+        "topic": "thickness measurement",
+        "rule_summary": "core sampling for layer thickness"
+      },
+      {
+        "clause_id": "T0951",
+        "topic": "deflection measurement",
+        "rule_summary": "deflection by standard beam method"
+      }
+    ],
+    "indicator_links": [
+      {
+        "indicator": "compaction_degree",
+        "form_type": "T0921-2019"
+      },
+      {
+        "indicator": "roughness_iri",
+        "form_type": "T0931-2019"
+      },
+      {
+        "indicator": "thickness",
+        "form_type": "T0912-2019"
+      },
+      {
+        "indicator": "deflection",
+        "form_type": "T0951-2008"
+      }
+    ],
+    "cross_standard_refs": [
+      {
+        "to_standard": "JTG F80/1-2017",
+        "relation": "evaluation_target"
+      }
+    ]
+  }
+}

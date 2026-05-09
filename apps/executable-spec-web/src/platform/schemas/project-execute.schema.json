@@ -1,0 +1,113 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "project-execute.schema.json",
+  "title": "ProjectExecuteIO",
+  "type": "object",
+  "$defs": {
+    "Task": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["spuId", "status"],
+      "properties": {
+        "spuId": { "type": "string", "minLength": 1 },
+        "status": { "type": "string", "enum": ["ready", "blocked", "running", "pass", "fail", "failed"] }
+      }
+    },
+    "ContainerInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["containerId", "tasks"],
+      "properties": {
+        "containerId": { "type": "string", "minLength": 1 },
+        "tasks": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/Task" }
+        },
+        "normRef": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["order"],
+          "properties": {
+            "order": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        "status": { "type": "string", "enum": ["running", "ready", "blocked", "pass"] }
+      }
+    },
+    "ProjectSchedulerInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["containers"],
+      "properties": {
+        "containers": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/ContainerInput" }
+        }
+      }
+    },
+    "ProjectScheduleDecision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "action",
+        "nextContainer",
+        "nextTask",
+        "summary",
+        "reason",
+        "containerDetails",
+        "taskDetails"
+      ],
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": ["PROJECT_EXECUTE", "PROJECT_WAIT", "PROJECT_BLOCKED", "PROJECT_COMPLETE"]
+        },
+        "nextContainer": { "type": ["string", "null"] },
+        "nextTask": { "type": ["string", "null"] },
+        "summary": { "type": "string" },
+        "reason": { "type": "string" },
+        "containerDetails": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        },
+        "taskDetails": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        },
+        "blockedByContainer": { "type": "string" }
+      }
+    },
+    "ProjectExecuteRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["input"],
+      "properties": {
+        "input": { "$ref": "#/$defs/ProjectSchedulerInput" }
+      }
+    },
+    "ProjectExecuteResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["generatedAt", "input", "decision"],
+      "properties": {
+        "generatedAt": { "type": "string", "format": "date-time" },
+        "input": { "$ref": "#/$defs/ProjectSchedulerInput" },
+        "decision": { "$ref": "#/$defs/ProjectScheduleDecision" }
+      }
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "request": { "$ref": "#/$defs/ProjectExecuteRequest" },
+    "response": { "$ref": "#/$defs/ProjectExecuteResponse" }
+  }
+}

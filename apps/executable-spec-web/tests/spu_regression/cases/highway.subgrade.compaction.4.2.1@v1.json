@@ -1,0 +1,116 @@
+{
+  "spuId": "highway.subgrade.compaction.4.2.1@v1",
+  "passCases": [
+    {
+      "caseId": "compaction_pass_typical",
+      "title": "typical passing compaction sample",
+      "inputs": {
+        "massHoleSand": 1980,
+        "massSandCone": 500,
+        "volumeSand": 1000,
+        "moistureContent": 5,
+        "maxDryDensity": 1.95
+      },
+      "expected": {
+        "status": "PASS",
+        "result": {
+          "outcome": "PASS",
+          "gateStatus": "PASS",
+          "passed": true
+        },
+        "explanationIncludes": [
+          "Gate evaluation passed"
+        ],
+        "matchedRules": [
+          {
+            "ruleId": "RULE-COMPACTION-001",
+            "passed": true
+          }
+        ],
+        "outputChecks": [
+          {
+            "field": "compactionDegree",
+            "operator": "gte",
+            "value": 93
+          }
+        ]
+      }
+    }
+  ],
+  "failCases": [
+    {
+      "caseId": "compaction_fail_low_density",
+      "title": "low density should fail gate",
+      "inputs": {
+        "massHoleSand": 1500,
+        "massSandCone": 500,
+        "volumeSand": 1000,
+        "moistureContent": 5,
+        "maxDryDensity": 1.95
+      },
+      "expected": {
+        "status": "FAIL",
+        "result": {
+          "outcome": "FAIL",
+          "gateStatus": "FAIL",
+          "passed": false
+        },
+        "explanationIncludes": [
+          "Gate evaluation failed",
+          "RULE-COMPACTION-001"
+        ],
+        "matchedRules": [
+          {
+            "ruleId": "RULE-COMPACTION-001",
+            "passed": false
+          }
+        ],
+        "outputChecks": [
+          {
+            "field": "compactionDegree",
+            "operator": "lte",
+            "value": 92.999999
+          }
+        ]
+      }
+    }
+  ],
+  "boundaryCases": [
+    {
+      "caseId": "compaction_boundary_equal_threshold",
+      "title": "computed compaction degree at threshold should pass",
+      "inputs": {
+        "massHoleSand": 1904.175,
+        "massSandCone": 500,
+        "volumeSand": 1000,
+        "moistureContent": 5,
+        "maxDryDensity": 1.95
+      },
+      "expected": {
+        "status": "PASS",
+        "result": {
+          "outcome": "PASS",
+          "gateStatus": "PASS",
+          "passed": true
+        },
+        "explanationIncludes": [
+          "Gate evaluation passed"
+        ],
+        "matchedRules": [
+          {
+            "ruleId": "RULE-COMPACTION-001",
+            "passed": true
+          }
+        ],
+        "outputChecks": [
+          {
+            "field": "compactionDegree",
+            "operator": "approx",
+            "value": 93,
+            "tolerance": 0.001
+          }
+        ]
+      }
+    }
+  ]
+}

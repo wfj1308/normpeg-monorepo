@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.9.2.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "lte",
+  "threshold_value": "60",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "9.2.2",
+  "source_line": "小乔木及大、中灌木 ≤60",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-754d01b61be4",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:582998bd95c8b33c3f1ca0d1050ed923cf3eed972d059da65ee05bf69495967e"
+}

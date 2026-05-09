@@ -1,0 +1,43 @@
+﻿name: Asset Validation
+
+on:
+  pull_request:
+    paths:
+      - "standards/**"
+      - "normdocs/**"
+      - "projects/**"
+      - "packages/normpeg-schemas/**"
+      - "tools/validate_assets.py"
+      - "requirements-dev.txt"
+      - ".github/workflows/asset-validation.yml"
+  push:
+    branches: ["main"]
+    paths:
+      - "standards/**"
+      - "normdocs/**"
+      - "projects/**"
+      - "packages/normpeg-schemas/**"
+      - "tools/validate_assets.py"
+      - "requirements-dev.txt"
+      - ".github/workflows/asset-validation.yml"
+
+jobs:
+  validate-assets:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt
+
+      - name: Validate standards and norms
+        run: |
+          python tools/validate_assets.py

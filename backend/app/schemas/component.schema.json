@@ -1,0 +1,1020 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://layerpeg.local/schemas/component.schema.json",
+  "title": "Executable Component Schema",
+  "description": "Canonical schema for DSL-driven executable components.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "component_id",
+    "catalog_id",
+    "standard_id",
+    "standard_version",
+    "component_name",
+    "version",
+    "status",
+    "metadata",
+    "input_dto",
+    "output_dto",
+    "path",
+    "gate",
+    "state",
+    "proof",
+    "patches",
+    "overrides"
+  ],
+  "properties": {
+    "component_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_type": {
+      "type": "string",
+      "enum": [
+        "builtin",
+        "specir"
+      ]
+    },
+    "catalog_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "standard_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "standard_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "component_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "active",
+        "deprecated",
+        "archived"
+      ]
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "input_dto": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "$ref": "#/$defs/field_definition"
+      }
+    },
+    "raw_data_dto": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/field_definition"
+      }
+    },
+    "resolved_value_dto": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/field_definition"
+      }
+    },
+    "output_dto": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "$ref": "#/$defs/field_definition"
+      }
+    },
+    "path": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "steps",
+        "formulas",
+        "lookup_tables",
+        "derived_fields"
+      ],
+      "properties": {
+        "steps": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/path_step"
+          }
+        },
+        "formulas": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "lookup_tables": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/lookup_table"
+          }
+        },
+        "derived_fields": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rules",
+        "references"
+      ],
+      "properties": {
+        "rules": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/gate_rule"
+          }
+        },
+        "references": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "clause_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "initial_state",
+        "states",
+        "allowed_transitions",
+        "terminal_states"
+      ],
+      "properties": {
+        "initial_state": {
+          "type": "string"
+        },
+        "states": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "allowed_transitions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/state_transition"
+          }
+        },
+        "transitions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/state_transition"
+          }
+        },
+        "terminal_states": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "archive_trigger_field": {
+          "type": "string",
+          "minLength": 1
+        },
+        "override_requested_field": {
+          "type": "string",
+          "minLength": 1
+        },
+        "override_evidence_field": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "proof": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "proof_fields",
+        "canonicalization",
+        "hash_algorithm"
+      ],
+      "properties": {
+        "proof_fields": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "canonicalization": {
+          "$ref": "#/$defs/canonicalization"
+        },
+        "hash_algorithm": {
+          "type": "string",
+          "enum": [
+            "sha256",
+            "sha3_256",
+            "blake3"
+          ]
+        },
+        "canonical_order": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "hash_method": {
+          "type": "string",
+          "enum": [
+            "sha256",
+            "sha3_256",
+            "blake3"
+          ]
+        },
+        "signature": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "algorithm",
+            "key_env"
+          ],
+          "properties": {
+            "algorithm": {
+              "type": "string",
+              "enum": [
+                "hmac_sha256"
+              ]
+            },
+            "key_env": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "chain": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            }
+          }
+        },
+        "template": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "compose": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "children",
+        "aggregate_from_children"
+      ],
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": [
+            "for_each",
+            "single"
+          ],
+          "default": "for_each"
+        },
+        "children_output_field": {
+          "type": "string",
+          "minLength": 1
+        },
+        "aggregate_output_field": {
+          "type": "string",
+          "minLength": 1
+        },
+        "children": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/compose_child"
+          }
+        },
+        "aggregate_from_children": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/compose_aggregate"
+          }
+        }
+      }
+    },
+    "patches": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/patch_item"
+      }
+    },
+    "overrides": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/override_item"
+      }
+    }
+  },
+  "$defs": {
+    "field_definition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "number",
+            "integer",
+            "string",
+            "boolean",
+            "enum",
+            "object",
+            "array"
+          ]
+        },
+        "unit": {
+          "type": "string"
+        },
+        "precision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "enum_values": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "description": {
+          "type": "string"
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/field_definition"
+          }
+        },
+        "items": {
+          "$ref": "#/$defs/field_definition"
+        },
+        "strict": {
+          "type": "boolean"
+        },
+        "default": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "object"
+            },
+            {
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "path_step": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "step_id",
+        "action"
+      ],
+      "properties": {
+        "step_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "action": {
+          "type": "string",
+          "enum": [
+            "formula",
+            "lookup",
+            "transform",
+            "aggregate"
+          ]
+        },
+        "id": {
+          "type": "string"
+        },
+        "formula": {
+          "type": "string"
+        },
+        "lookup": {
+          "type": "object"
+        },
+        "formula_ref": {
+          "type": "string"
+        },
+        "lookup_ref": {
+          "type": "string"
+        },
+        "input_fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "output_field": {
+          "type": "string"
+        },
+        "output": {
+          "type": "string"
+        },
+        "input_field": {
+          "type": "string"
+        },
+        "method": {
+          "type": "string",
+          "enum": [
+            "mean",
+            "avg",
+            "t_distribution_95",
+            "t_distribution_95_lower",
+            "t_distribution_95_upper",
+            "min",
+            "max",
+            "sum",
+            "count",
+            "first",
+            "last"
+          ]
+        },
+        "when": {
+          "type": "string"
+        },
+        "default": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "lookup_table": {
+      "type": "object",
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "object"
+          },
+          {
+            "type": "array"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      }
+    },
+    "gate_rule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rule_id",
+        "condition",
+        "severity"
+      ],
+      "properties": {
+        "rule_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "condition": {
+          "oneOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "$ref": "#/$defs/comparison_condition"
+            }
+          ]
+        },
+        "severity": {
+          "type": "string",
+          "enum": [
+            "info",
+            "warning",
+            "blocking",
+            "critical"
+          ]
+        },
+        "on_fail": {
+          "type": "string",
+          "enum": [
+            "pass",
+            "warn",
+            "block",
+            "critical",
+            "manual_override"
+          ]
+        },
+        "clause_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "comparison_condition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "operator",
+        "actual"
+      ],
+      "properties": {
+        "operator": {
+          "type": "string",
+          "enum": [
+            ">=",
+            "<=",
+            ">",
+            "<",
+            "==",
+            "between",
+            "tolerance"
+          ]
+        },
+        "actual": {
+          "$ref": "#/$defs/value_ref"
+        },
+        "expected": {
+          "$ref": "#/$defs/value_ref"
+        },
+        "min": {
+          "$ref": "#/$defs/value_ref"
+        },
+        "max": {
+          "$ref": "#/$defs/value_ref"
+        },
+        "tolerance": {
+          "$ref": "#/$defs/value_ref"
+        },
+        "mode": {
+          "type": "string",
+          "enum": [
+            "lower_bound",
+            "upper_bound",
+            "absolute"
+          ]
+        },
+        "include_min": {
+          "type": "boolean"
+        },
+        "include_max": {
+          "type": "boolean"
+        }
+      }
+    },
+    "value_ref": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ref": {
+              "type": "string"
+            },
+            "value": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "boolean"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "state_transition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "from_state",
+        "to_state",
+        "trigger"
+      ],
+      "properties": {
+        "from_state": {
+          "type": "string",
+          "minLength": 1
+        },
+        "to_state": {
+          "type": "string",
+          "minLength": 1
+        },
+        "trigger": {
+          "type": "string",
+          "minLength": 1
+        },
+        "condition": {
+          "type": "string"
+        }
+      }
+    },
+    "canonicalization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "field_order",
+        "sort_keys",
+        "null_policy"
+      ],
+      "properties": {
+        "field_order": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "sort_keys": {
+          "type": "boolean"
+        },
+        "null_policy": {
+          "type": "string",
+          "enum": [
+            "keep",
+            "drop"
+          ]
+        }
+      }
+    },
+    "compose_child": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "child_key",
+        "invoke_component"
+      ],
+      "properties": {
+        "child_key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "invoke_component": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_field": {
+          "type": "string",
+          "minLength": 1
+        },
+        "input_mapping": {
+          "type": "object",
+          "additionalProperties": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "object"
+              },
+              {
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "inherit_fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "defaults": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    },
+    "compose_aggregate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "aggregate_id",
+        "from_child",
+        "method"
+      ],
+      "properties": {
+        "aggregate_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "from_child": {
+          "type": "string",
+          "minLength": 1
+        },
+        "field": {
+          "type": "string",
+          "minLength": 1
+        },
+        "method": {
+          "type": "string",
+          "enum": [
+            "mean",
+            "avg",
+            "sum",
+            "min",
+            "max",
+            "count",
+            "first",
+            "last",
+            "t_distribution_95",
+            "pass_rate"
+          ]
+        },
+        "output_field": {
+          "type": "string",
+          "minLength": 1
+        },
+        "pass_statuses": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "patch_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "patch_id",
+        "component_id",
+        "target",
+        "operation",
+        "old_value",
+        "new_value",
+        "effective_date",
+        "reason",
+        "author"
+      ],
+      "properties": {
+        "patch_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "component_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "target": {
+          "type": "string",
+          "minLength": 1
+        },
+        "operation": {
+          "type": "string",
+          "enum": [
+            "replace",
+            "add",
+            "remove"
+          ]
+        },
+        "old_value": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "object"
+            },
+            {
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "new_value": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "object"
+            },
+            {
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "effective_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "author": {
+          "type": "string",
+          "minLength": 1
+        },
+        "project_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "override_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "override_id",
+        "component_id",
+        "project_id",
+        "target",
+        "value",
+        "approved_by",
+        "evidence",
+        "effective_date"
+      ],
+      "properties": {
+        "override_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "component_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "project_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "target": {
+          "type": "string",
+          "minLength": 1
+        },
+        "value": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "object"
+            },
+            {
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "approved_by": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object"
+            }
+          ]
+        },
+        "effective_date": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    }
+  }
+}

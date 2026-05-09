@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.6.20.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "7",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "6.20.1",
+  "source_line": "7 锚具、锚头防护应满足设计要求，锚具防护罩应安装牢固，内填油脂充盈。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-5884f3055a76",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:bdf6c8ed71a9d36b826833aabae5a46eecca1c9f2700e2f8b068114c81d9732a"
+}

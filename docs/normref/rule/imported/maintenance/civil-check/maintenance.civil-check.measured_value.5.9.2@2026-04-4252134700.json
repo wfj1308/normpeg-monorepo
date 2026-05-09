@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.5.9.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "lte",
+  "threshold_value": "6",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "5.9.2",
+  "source_line": "6 相邻板高差 (mm) ≤2.0 ≤3.0",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-a8a5be8bc21d",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:42521347006cf223d96599e929e007706991fdd301329063a4bc8f6876277529"
+}

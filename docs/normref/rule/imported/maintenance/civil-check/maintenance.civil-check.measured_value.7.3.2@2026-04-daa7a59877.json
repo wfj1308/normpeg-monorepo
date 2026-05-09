@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.7.3.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "25",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "7.3.2",
+  "source_line": "预制板 水平尺：每25m检查1处",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-ff2536c5f04c",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:daa7a59877b683979e22cdda9dd808d1ae5d9a2271063712d165f6f42d40ae7a"
+}

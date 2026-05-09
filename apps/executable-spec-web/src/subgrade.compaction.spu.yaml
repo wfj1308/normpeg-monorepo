@@ -1,0 +1,57 @@
+spuId: "highway.subgrade.compaction.4.2.1.soil@v1"
+
+meta:
+  name: "Subgrade Compaction (Soil)"
+  norm: "JTG F80/1-2017"
+  clause: "4.2.1"
+  version: "v1"
+
+forms:
+  - formCode: "SUBGRADE_COMPACTION_FORM"
+    role: "lab"
+    required: true
+
+data:
+  inputs:
+    - name: massHoleSand
+      type: number
+      label: "Mass of sand in hole (g)"
+    - name: massSandCone
+      type: number
+      label: "Mass of sand in cone (g)"
+    - name: volumeSand
+      type: number
+      label: "Calibrated volume (cm3)"
+    - name: moistureContent
+      type: number
+      label: "Moisture content (%)"
+    - name: maxDryDensity
+      type: number
+      label: "Maximum dry density (g/cm3)"
+  outputs:
+    - name: wetDensity
+    - name: dryDensity
+    - name: compactionDegree
+
+path:
+  - step: calc_wet_density
+    formula: "wetDensity = massHoleSand / volumeSand"
+  - step: calc_dry_density
+    formula: "dryDensity = wetDensity / (1 + moistureContent / 100)"
+  - step: calc_compaction_degree
+    formula: "compactionDegree = (dryDensity / maxDryDensity) * 100"
+
+rules:
+  - ruleId: "RULE-COMPACTION-001"
+    field: "compactionDegree"
+    operator: ">="
+    value: 93
+    message: "Compaction degree must be >= 93%"
+
+proof:
+  resultField: "compactionDegree"
+  passMessage: "Compaction meets acceptance criteria."
+  failMessage: "Compaction does not meet acceptance criteria."
+  requiredSignatures:
+    - lab
+    - supervision

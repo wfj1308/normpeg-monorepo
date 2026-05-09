@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.7.6.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "eq",
+  "threshold_value": "5",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "7.6.1",
+  "source_line": "5钢架安装基底高程不足时，不得用石块、碎石砌垫，应设置钢板或采用强度等",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-ad074a689949",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:de8e4809e18ca811970a76389309b46c54c4218f2c423f221c62b573df20cd74"
+}

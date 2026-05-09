@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.thickness.70.7",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/thickness@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "thickness",
+  "operator": "eq",
+  "threshold_value": "0.2",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "70.7",
+  "source_line": "H.0.2 路面结构层厚度应以养护单元为检验评定单元。采用 T0912 方法进行路",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-682d9823cce6",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:cedfc0e585adf2fb0c38a1f9128d9f7bcf97486d3186f0f8a86f248e21be989a"
+}

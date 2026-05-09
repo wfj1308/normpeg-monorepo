@@ -1,0 +1,158 @@
+﻿{
+  "specDocument": {
+    "header": {
+      "usi": "v://spec/highway.subgrade.compaction.4.2.1.soil%40v1",
+      "docType": "spec",
+      "version": "v1",
+      "ownerDid": "did:person:owner-001",
+      "createdAt": "2026-04-23T10:00:00.000Z",
+      "rootRef": null,
+      "projectRef": null,
+      "normRef": {
+        "normRefId": "JTG F80/1-2017:4.2.1",
+        "norm": "JTG F80/1-2017",
+        "clause": "4.2.1",
+        "version": "v1"
+      }
+    },
+    "gate": {
+      "decision": "pending",
+      "decisionReason": "spec_definition_ready",
+      "policyRef": "JTG F80/1-2017:4.2.1",
+      "entryConditions": ["compactionDegree >= 93"],
+      "executionPath": [{ "step": "step_1", "expression": "compactionDegree = (dryDensity / maxDryDensity) * 100" }],
+      "dependencyGraph": [{ "nodeId": "highway.subgrade.compaction.4.2.1.soil@v1", "dependsOn": [] }],
+      "evaluation": { "ruleTotal": 1, "passed": 0, "failed": 0 }
+    },
+    "body": {
+      "payloadType": "spu_definition",
+      "inputDto": { "dryDensity": "number" },
+      "outputDto": { "compactionDegree": "unknown" },
+      "data": { "spuId": "highway.subgrade.compaction.4.2.1.soil@v1" },
+      "tables": [],
+      "formulas": ["compactionDegree = (dryDensity / maxDryDensity) * 100"]
+    },
+    "proof": {
+      "proofHash": null,
+      "payloadHash": null,
+      "merkleRoot": null,
+      "signatures": [{ "signer": "lab", "source": "human" }],
+      "anchors": [],
+      "evidence": []
+    },
+    "state": {
+      "current": "DRAFT",
+      "stateMachine": "layerpeg_spec_lifecycle@v1",
+      "pendingActions": ["review", "register"],
+      "transitionRules": ["DRAFT->VALIDATED"],
+      "history": [{ "to": "DRAFT", "at": "2026-04-23T10:00:00.000Z", "by": "did:person:owner-001", "reason": "spec_created" }]
+    }
+  },
+  "executionDocument": {
+    "header": {
+      "usi": "v://execution/node_1",
+      "docType": "execution",
+      "version": "execution-node@v1",
+      "ownerDid": "did:person:lab-001",
+      "createdAt": "2026-04-23T10:05:00.000Z",
+      "rootRef": null,
+      "projectRef": "v://space/container/container_1",
+      "normRef": {
+        "normRefId": "JTG F80/1-2017:4.2.1",
+        "norm": "JTG F80/1-2017",
+        "clause": "4.2.1",
+        "version": "v1"
+      }
+    },
+    "gate": {
+      "decision": "pass",
+      "decisionReason": "all_rules_passed",
+      "policyRef": "JTG F80/1-2017:4.2.1",
+      "entryConditions": ["RULE-001: compactionDegree >= 93"],
+      "executionPath": [{ "step": "step_1", "expression": "compactionDegree = (dryDensity / maxDryDensity) * 100", "result": 95.38 }],
+      "dependencyGraph": [{ "nodeId": "highway.subgrade.compaction.4.2.1.soil@v1", "dependsOn": [] }],
+      "evaluation": { "ruleTotal": 1, "passed": 1, "failed": 0 }
+    },
+    "body": {
+      "payloadType": "execution_node",
+      "inputDto": { "dryDensity": 1.86, "maxDryDensity": 1.95 },
+      "outputDto": { "compactionDegree": 95.38 },
+      "data": { "nodeId": "node_1", "spuId": "highway.subgrade.compaction.4.2.1.soil@v1", "attemptIndex": 1 },
+      "tables": [],
+      "formulas": ["compactionDegree = (dryDensity / maxDryDensity) * 100"]
+    },
+    "proof": {
+      "proofHash": "abc123",
+      "payloadHash": null,
+      "merkleRoot": null,
+      "signatures": [{ "signer": "lab", "source": "human" }],
+      "anchors": [],
+      "evidence": [{ "traceLength": 1 }]
+    },
+    "state": {
+      "current": "QUALIFIED",
+      "stateMachine": "execution_node_state_machine@v1",
+      "pendingActions": [],
+      "transitionRules": ["VALIDATED->QUALIFIED"],
+      "history": []
+    }
+  },
+  "containerProofDocument": {
+    "header": {
+      "usi": "v://proof/container/container_1",
+      "docType": "proof",
+      "version": "proof.final@v1",
+      "ownerDid": "did:person:qa-admin",
+      "createdAt": "2026-04-23T10:10:00.000Z",
+      "rootRef": null,
+      "projectRef": "v://space/container/container_1",
+      "normRef": null
+    },
+    "gate": {
+      "decision": "pass",
+      "decisionReason": "container_all_required_specs_passed",
+      "policyRef": null,
+      "entryConditions": ["highway.subgrade.compaction.4.2.1.soil@v1:PASS"],
+      "executionPath": [{ "step": "highway.subgrade.compaction.4.2.1.soil@v1", "result": "PASS" }],
+      "dependencyGraph": [{ "nodeId": "highway.subgrade.compaction.4.2.1.soil@v1", "dependsOn": [] }],
+      "evaluation": { "ruleTotal": 1, "passed": 1, "failed": 0 }
+    },
+    "body": {
+      "payloadType": "container_proof",
+      "inputDto": {},
+      "outputDto": {},
+      "data": { "containerId": "container_1", "geoSlotRef": "v://space/slot/K19+070" },
+      "tables": [{ "spuId": "highway.subgrade.compaction.4.2.1.soil@v1", "status": "PASS", "attempts": 1 }],
+      "formulas": []
+    },
+    "proof": {
+      "proofHash": "abc123",
+      "payloadHash": null,
+      "merkleRoot": null,
+      "signatures": [{ "signer": "did:person:lab-001", "source": "human" }],
+      "anchors": [],
+      "evidence": [{ "eventType": "CONTAINER_ARCHIVED" }]
+    },
+    "state": {
+      "current": "ARCHIVED",
+      "stateMachine": "container_lifecycle_state_machine@v1",
+      "pendingActions": [],
+      "transitionRules": ["QUALIFIED->ARCHIVED"],
+      "history": [{ "to": "ARCHIVED", "at": "2026-04-23T10:10:00.000Z", "reason": "CONTAINER_ARCHIVED" }]
+    }
+  },
+  "documentIndex": {
+    "items": [
+      {
+        "usi": "v://spec/highway.subgrade.compaction.4.2.1.soil%40v1",
+        "docType": "spec",
+        "sourceRef": "spec:highway.subgrade.compaction.4.2.1.soil@v1",
+        "updatedAt": "2026-04-23T10:10:01.000Z",
+        "version": "v1",
+        "decision": "pending",
+        "stateCurrent": "DRAFT",
+        "payloadType": "spu_definition"
+      }
+    ]
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "schema": {
+    "schema_id": "rule.testing.framework.v1",
+    "required_sections": [
+      "rule_tests",
+      "gate_tests",
+      "executor_tests",
+      "summary"
+    ],
+    "rule_test_types": [
+      "unit_test",
+      "edge_case",
+      "threshold_case",
+      "invalid_input"
+    ],
+    "gate_test_types": [
+      "logic_test",
+      "and_or_branch_test",
+      "action_trigger_test"
+    ],
+    "executor_test_types": [
+      "dto_validation",
+      "runtime_validation"
+    ]
+  },
+  "meta": {
+    "generated_at": "2026-05-08T04:59:13.752955Z",
+    "form_code": "test.form",
+    "pass_rate_threshold": 0.85
+  },
+  "sandbox_strategy": {
+    "name": "auto_sandbox_case_generator",
+    "description": "从 gate 规则自动生成边界值、阈值、非法输入与分支测试样本",
+    "generated_case_count": 2
+  },
+  "sandbox_cases": [
+    {
+      "case_id": "case_unit_1",
+      "type": "unit_test",
+      "input": {
+        "x": 1
+      },
+      "expected": {
+        "status": "PASS"
+      }
+    },
+    {
+      "case_id": "case_invalid_1",
+      "type": "invalid_input",
+      "input": {},
+      "expected": {
+        "status": "FAIL"
+      }
+    }
+  ],
+  "runtime_validator": {
+    "dto_checks": [
+      "required field",
+      "type compatibility",
+      "null/empty rejection"
+    ],
+    "runtime_checks": [
+      "gate decision available",
+      "final_status available",
+      "rule_results structured"
+    ]
+  },
+  "rule_tests": [
+    {
+      "test_type": "unit_test",
+      "case_id": "case_unit_1",
+      "passed": true,
+      "input": {
+        "x": 1
+      },
+      "expected": {
+        "status": "PASS"
+      }
+    },
+    {
+      "test_type": "invalid_input",
+      "case_id": "case_invalid_1",
+      "passed": false,
+      "input": {},
+      "expected": {
+        "status": "FAIL"
+      }
+    }
+  ],
+  "gate_tests": [
+    {
+      "test_type": "logic_test",
+      "passed": false,
+      "details": "gate rules present"
+    },
+    {
+      "test_type": "and_or_branch_test",
+      "passed": false,
+      "details": {
+        "has_and": false,
+        "has_or": false
+      }
+    },
+    {
+      "test_type": "action_trigger_test",
+      "passed": false,
+      "details": {
+        "actions": []
+      }
+    }
+  ],
+  "executor_tests": [
+    {
+      "test_type": "dto_validation",
+      "passed": false,
+      "details": {
+        "required_fields": []
+      }
+    },
+    {
+      "test_type": "runtime_validation",
+      "passed": false,
+      "details": {
+        "gate_rule_count": 0
+      }
+    }
+  ],
+  "summary": {
+    "total": 7,
+    "passed": 1,
+    "failed": 6,
+    "pass_rate": 0.1429,
+    "publish_gate": {
+      "blocked": true,
+      "reason": "test pass rate < threshold"
+    }
+  },
+  "page_plan": {
+    "page_name": "Rule Test Center",
+    "blocks": [
+      "输入区（form_code/rulepack/threshold）",
+      "自动生成 sandbox case 列表",
+      "Rule/Gate/Executor 测试结果",
+      "pass rate + 发布门禁",
+      "test_report.json 预览"
+    ]
+  }
+}

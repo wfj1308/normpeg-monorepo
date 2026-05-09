@@ -1,0 +1,20 @@
+{
+  "rule_id": "civil.general-check.measured_value.4.4.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/civil/general-check/measured_value@2026-04",
+  "category": "civil/general-check",
+  "field_key": "measured_value",
+  "operator": "tolerance",
+  "threshold_value": "150",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "4.4.2",
+  "source_line": "±150",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-06a75ca21ccc44ec",
+  "candidate_id": "cand-4d732f0bc3ff",
+  "source_std_code": "JTG-F80-1-2017",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:5be437b0197a6631d1102c4409a8687f7c1d0915383ffb9b7733f377ecc50c91"
+}

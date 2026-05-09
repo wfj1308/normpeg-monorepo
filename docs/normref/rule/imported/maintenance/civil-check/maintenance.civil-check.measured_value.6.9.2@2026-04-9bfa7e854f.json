@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.6.9.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "2",
+  "unit": "MPa",
+  "severity": "mandatory",
+  "norm_ref": "6.9.2",
+  "source_line": "2 灌胶压力(MPa) 符合设计要求 压力表读数：全部",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-d4cf1db2d5e8",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:9bfa7e854f5d4be2e51367fdf5c7bd9dad272c36ab1d92d8d3cdbc5274e00a11"
+}

@@ -1,0 +1,99 @@
+{
+  "specId": "highway.bridge.pile.strength.quality@v1",
+  "format": "SPU-v1",
+  "generatedBy": "SpecBot-v1.0",
+  "generatedAt": "2026-04-20T07:58:01.354Z",
+  "spuId": "highway.bridge.pile.strength.quality@v1",
+  "meta": {
+    "name": "Bridge Pile Strength",
+    "norm": "JTG/T 3650-2020",
+    "clause": "6.3.4",
+    "version": "v1"
+  },
+  "forms": [
+    {
+      "formCode": "BRIDGE_PILE_STRENGTH_FORM",
+      "role": "lab",
+      "required": true
+    }
+  ],
+  "data": {
+    "inputs": [
+      {
+        "name": "measuredStrength",
+        "type": "number",
+        "label": "Measured compressive strength (MPa)"
+      },
+      {
+        "name": "designStrength",
+        "type": "number",
+        "label": "Design strength (MPa)"
+      },
+      {
+        "name": "pileLength",
+        "type": "number",
+        "label": "Pile length (m)"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "pileStrength"
+      },
+      {
+        "name": "strengthRatio"
+      },
+      {
+        "name": "lengthCheck"
+      }
+    ]
+  },
+  "path": [
+    {
+      "step": "calc_pile_strength",
+      "formula": "pileStrength = measuredStrength"
+    },
+    {
+      "step": "calc_strength_ratio",
+      "formula": "strengthRatio = (pileStrength / designStrength) * 100"
+    },
+    {
+      "step": "calc_length_check",
+      "formula": "lengthCheck = pileLength"
+    }
+  ],
+  "rules": [
+    {
+      "ruleId": "RULE-PILE-STRENGTH-001",
+      "field": "strengthRatio",
+      "operator": ">=",
+      "value": 100,
+      "message": "Measured pile strength must be at least design strength."
+    }
+  ],
+  "proof": {
+    "resultField": "strengthRatio",
+    "passMessage": "Pile strength meets acceptance criteria.",
+    "failMessage": "Pile strength does not meet acceptance criteria.",
+    "requiredSignatures": [
+      "lab",
+      "supervision"
+    ]
+  },
+  "markdownRef": "highway.bridge.pile.strength.quality@v1.md",
+  "output": {
+    "formats": [
+      "markdown",
+      "json"
+    ],
+    "bundling": true
+  },
+  "integrity": {
+    "algorithm": "sha256",
+    "hashScope": "json-without-integrity",
+    "markdownRef": "highway.bridge.pile.strength.quality@v1.md",
+    "jsonRef": "highway.bridge.pile.strength.quality@v1.json",
+    "markdownSha256": "32b2ca0ca29540ddbd464601e3fdb625e449e4801d80514d233eb691d454741a",
+    "jsonPayloadSha256": "2dbebdd25a5bbf32defb1ad9f15eb7734bd80e5e3dd090aca4570209136739c7",
+    "bindingSha256": "65b2521dc52d0e05622cd669106607c371821f4785e583b9ad8e70b836bd3f43"
+  }
+}

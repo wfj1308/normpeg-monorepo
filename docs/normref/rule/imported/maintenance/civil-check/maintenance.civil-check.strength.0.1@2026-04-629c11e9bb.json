@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.0.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "gte",
+  "threshold_value": "0.85",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "0.1",
+  "source_line": "压强度应不小于0.85倍设计值。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-ca0039c52f7b",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:629c11e9bb0855bcd920ee729aa54cdde896b00fe20c334e1ad4361d58c9be6b"
+}

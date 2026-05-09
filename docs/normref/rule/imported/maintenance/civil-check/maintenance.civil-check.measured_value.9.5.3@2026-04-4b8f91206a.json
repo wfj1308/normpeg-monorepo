@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.9.5.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "gte",
+  "threshold_value": "100",
+  "unit": "%",
+  "severity": "mandatory",
+  "norm_ref": "9.5.3",
+  "source_line": "评定路段的压实度合格率为100%；当K≥ K 时，按测定值不低于规定值减1个百分",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-7f30c8f905ba",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:4b8f91206a55bebe83962b3a07dc0761ac3770721aef09eb9423e29a53bea197"
+}

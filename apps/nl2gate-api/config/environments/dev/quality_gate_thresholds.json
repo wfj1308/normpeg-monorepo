@@ -1,0 +1,5 @@
+{
+  "min_rule_correctness_rate": 0.99,
+  "min_gate_executability_rate": 0.98,
+  "min_traceability_rate": 1.0
+}

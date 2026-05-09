@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://normpeg.dev/schemas/rulepack-v2.schema.json",
+  "title": "NormPeg Rulepack v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["meta", "components", "rules", "gates"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "form_code",
+        "norm_id",
+        "norm_version",
+        "rulepack_version",
+        "selection_mode",
+        "generated_at",
+        "counts"
+      ],
+      "properties": {
+        "schema_version": { "type": "string", "const": "v2" },
+        "form_code": { "type": "string", "minLength": 1 },
+        "norm_id": { "type": "string", "minLength": 1 },
+        "norm_version": { "type": "string", "minLength": 1 },
+        "rulepack_version": { "type": "string", "const": "v2" },
+        "selection_mode": {
+          "type": "string",
+          "enum": ["whitelist", "specbundle_mapping", "form_code_derived", "manual", "unknown"]
+        },
+        "generated_at": { "type": "string", "format": "date-time" },
+        "source_schema_version": { "type": "string" },
+        "migration": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["from", "at"],
+          "properties": {
+            "from": { "type": "string" },
+            "at": { "type": "string", "format": "date-time" }
+          }
+        },
+        "counts": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["components", "rules", "gates"],
+          "properties": {
+            "components": { "type": "integer", "minimum": 0 },
+            "rules": { "type": "integer", "minimum": 0 },
+            "gates": { "type": "integer", "minimum": 0 }
+          }
+        }
+      }
+    },
+    "components": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "title", "normRef", "source_clause", "type"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "title": { "type": "string", "minLength": 1 },
+          "normRef": { "type": "string", "minLength": 1 },
+          "source_clause": { "type": "string", "minLength": 1 },
+          "type": { "type": "string", "enum": ["measurement", "input", "derived", "inspection", "composite"] }
+        }
+      }
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "component_id", "source_clause", "field", "operator", "threshold", "unit", "condition", "normRef", "lineage"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "component_id": { "type": "string", "minLength": 1 },
+          "source_clause": { "type": "string", "minLength": 1 },
+          "field": { "type": "string", "minLength": 1 },
+          "operator": { "type": "string", "enum": ["<", "<=", ">", ">=", "==", "!=", "between", "in", "exists"] },
+          "threshold": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["value", "min", "max", "unit", "operator", "raw_text"],
+            "properties": {
+              "value": { "type": ["number", "string", "array", "null"] },
+              "min": { "type": ["number", "null"] },
+              "max": { "type": ["number", "null"] },
+              "unit": { "type": "string" },
+              "operator": { "type": "string", "enum": [">=", "<=", "=", "between", "in", "exists"] },
+              "raw_text": { "type": "string" }
+            }
+          },
+          "unit": { "type": "string", "minLength": 1 },
+          "condition": { "type": "string", "minLength": 1 },
+          "normRef": { "type": "string", "minLength": 1 },
+          "lineage": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["norm_id", "norm_version", "normRef", "source_text", "source_file_hash", "created_by", "reviewed_by", "published_by", "published_at"],
+            "properties": {
+              "norm_id": { "type": "string", "minLength": 1 },
+              "norm_version": { "type": "string", "minLength": 1 },
+              "normRef": { "type": "string", "minLength": 1 },
+              "source_text": { "type": "string" },
+              "source_file_hash": { "type": "string", "minLength": 1 },
+              "created_by": { "type": "string" },
+              "reviewed_by": { "type": "string" },
+              "published_by": { "type": "string" },
+              "published_at": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "gates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "gateRef", "ruleRefs", "decision_logic", "on_pass", "on_fail", "lineage"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "gateRef": { "type": "string", "minLength": 1 },
+          "ruleRefs": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "decision_logic": { "type": "string", "enum": ["all_pass", "any_pass", "threshold_compare", "range_check", "custom_expr"] },
+          "on_pass": { "type": "string", "enum": ["pass", "warn", "record_only"] },
+          "on_fail": { "type": "string", "enum": ["fail", "warn", "block"] },
+          "lineage": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["norm_id", "norm_version", "normRef", "source_text", "source_file_hash", "created_by", "reviewed_by", "published_by", "published_at"],
+            "properties": {
+              "norm_id": { "type": "string", "minLength": 1 },
+              "norm_version": { "type": "string", "minLength": 1 },
+              "normRef": { "type": "string", "minLength": 1 },
+              "source_text": { "type": "string" },
+              "source_file_hash": { "type": "string", "minLength": 1 },
+              "created_by": { "type": "string" },
+              "reviewed_by": { "type": "string" },
+              "published_by": { "type": "string" },
+              "published_at": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

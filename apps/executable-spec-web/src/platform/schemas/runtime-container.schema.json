@@ -1,0 +1,94 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "runtime-container.schema.json",
+  "title": "RuntimeContainerModel",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "containerId",
+    "lifecycleState",
+    "overallStatus",
+    "runtime",
+    "specBindings",
+    "latestNodeStatusBySpu",
+    "nextExecution"
+  ],
+  "properties": {
+    "containerId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "lifecycleState": {
+      "type": "string",
+      "enum": ["DRAFT", "RUNNING", "VERIFIED", "ARCHIVED"]
+    },
+    "overallStatus": {
+      "type": "string",
+      "enum": ["PENDING", "PASS", "FAIL"]
+    },
+    "runtime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["currentSpuId", "currentNodeId", "phase"],
+      "properties": {
+        "currentSpuId": { "type": ["string", "null"] },
+        "currentNodeId": { "type": ["string", "null"] },
+        "phase": {
+          "type": "string",
+          "enum": ["idle", "running", "signing", "completed"]
+        }
+      }
+    },
+    "specBindings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["spuId", "status", "latestNodeId", "attempts", "dependsOn"],
+        "properties": {
+          "spuId": { "type": "string", "minLength": 1 },
+          "status": { "type": "string", "enum": ["DRAFT", "RUNNING", "PASS", "FAIL"] },
+          "latestNodeId": { "type": ["string", "null"] },
+          "attempts": { "type": "integer", "minimum": 0 },
+          "dependsOn": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 }
+          }
+        }
+      }
+    },
+    "latestNodeStatusBySpu": {
+      "type": "object",
+      "additionalProperties": {
+        "type": ["string", "null"],
+        "enum": [
+          "DRAFT",
+          "RUNNING",
+          "PASS",
+          "FAIL",
+          "SIGNING",
+          "FINAL_PASS",
+          "FINAL_FAIL",
+          null
+        ]
+      }
+    },
+    "nextExecution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["action", "nextTask", "blockedBy", "reason"],
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": ["EXECUTE", "RETRY_FAILED", "WAIT", "ARCHIVE_READY"]
+        },
+        "nextTask": { "type": ["string", "null"] },
+        "blockedBy": {
+          "type": ["array", "null"],
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "reason": { "type": "string" }
+      }
+    }
+  }
+}

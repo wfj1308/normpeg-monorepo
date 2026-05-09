@@ -1,0 +1,37 @@
+services:
+  platform-api:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile.platform-api
+    image: normpeg/platform-api:latest
+    container_name: normpeg-platform-api
+    restart: unless-stopped
+    environment:
+      NORMPEG_ENV: ${NORMPEG_ENV:-staging}
+      NORMPEG_HOST: ${NORMPEG_HOST:-0.0.0.0}
+      PLATFORM_API_PORT: ${PLATFORM_API_PORT:-8790}
+      NORMPEG_PUBLIC_BASE_URL: ${NORMPEG_PUBLIC_BASE_URL:-http://localhost:8790}
+      NORMPEG_DB_DRIVER: ${NORMPEG_DB_DRIVER:-memory}
+      NORMPEG_DB_URL: ${NORMPEG_DB_URL:-}
+      NORMPEG_DB_SCHEMA: ${NORMPEG_DB_SCHEMA:-public}
+      NORMPEG_DB_SSL: ${NORMPEG_DB_SSL:-false}
+      NORMPEG_DB_POOL_MIN: ${NORMPEG_DB_POOL_MIN:-1}
+      NORMPEG_DB_POOL_MAX: ${NORMPEG_DB_POOL_MAX:-10}
+      NORMPEG_STORAGE_DRIVER: ${NORMPEG_STORAGE_DRIVER:-local}
+      NORMPEG_STORAGE_LOCAL_DIR: ${NORMPEG_STORAGE_LOCAL_DIR:-/app/.runtime-storage}
+      NORMPEG_STORAGE_BUCKET: ${NORMPEG_STORAGE_BUCKET:-}
+      NORMPEG_STORAGE_REGION: ${NORMPEG_STORAGE_REGION:-}
+      NORMPEG_STORAGE_ENDPOINT: ${NORMPEG_STORAGE_ENDPOINT:-}
+      NORMPEG_STORAGE_FORCE_PATH_STYLE: ${NORMPEG_STORAGE_FORCE_PATH_STYLE:-false}
+      NORMPEG_LOG_LEVEL: ${NORMPEG_LOG_LEVEL:-info}
+      NORMPEG_LOG_JSON: ${NORMPEG_LOG_JSON:-true}
+    ports:
+      - "${PLATFORM_API_PORT:-8790}:${PLATFORM_API_PORT:-8790}"
+    volumes:
+      - normpeg_runtime_storage:/app/.runtime-storage
+      - normpeg_execution_logs:/app/.execution-logs
+
+volumes:
+  normpeg_runtime_storage:
+  normpeg_execution_logs:
+

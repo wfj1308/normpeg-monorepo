@@ -1,0 +1,20 @@
+{
+  "rule_id": "electromechanical.general-check.measured_value.3.1.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/electromechanical/general-check/measured_value@2026-04",
+  "category": "electromechanical/general-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "1",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "3.1.3",
+  "source_line": "1分项工程完工后，应根据本标准进行检验，对工程质量进行评定。隐蔽工",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-936f61b7bf274584",
+  "candidate_id": "cand-d0f2f61c4033",
+  "source_std_code": "JTG-2182-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:75247f8d2344b24c88bd77abb2a61d9de60a67ff83565f2a488f47e0c5cc90b5"
+}

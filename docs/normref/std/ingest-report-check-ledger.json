@@ -1,0 +1,101 @@
+{
+  "ok": true,
+  "generated_at": "2026-04-13T07:19:35.398540+00:00",
+  "input_count": 1,
+  "publish_enabled": false,
+  "write_to_docs": false,
+  "jobs": [
+    {
+      "input_file": "C:\\Users\\xm_91\\Desktop\\新表.pdf",
+      "category": {
+        "tag": "unknown",
+        "label": "未分类",
+        "business_object": "generic_lab_document"
+      },
+      "suggested_forms": [
+        {
+          "form_code": "lab.generic.document.v1",
+          "name": "通用实验资料表"
+        }
+      ],
+      "ledger": {
+        "report_no": "",
+        "sample_no": "",
+        "batch_no": "",
+        "material_code": "",
+        "test_date": "",
+        "conclusion": "",
+        "valid_until": "",
+        "missing_keys": [
+          "report_no",
+          "sample_no",
+          "batch_no",
+          "material_code",
+          "test_date",
+          "conclusion",
+          "valid_until"
+        ]
+      },
+      "gate_precheck": [
+        {
+          "rule": "test_date_in_valid_window",
+          "status": "unknown",
+          "reason": "missing_test_date"
+        }
+      ],
+      "job": {
+        "job_id": "ingest-e569b1bda1f44bce",
+        "std_code": "JTG-F80-1-2017",
+        "title": "",
+        "level": "industry",
+        "file_name": "新表.pdf",
+        "file_hash": "sha256:5d8c7a1079a533f27e825caca822f57b616ac18bef397511b76fb256605e90af",
+        "status": "review_required",
+        "created_at": "2026-04-13T07:19:20.130987+00:00",
+        "updated_at": "2026-04-13T07:19:20.130987+00:00",
+        "completed_at": "2026-04-13T07:19:20.130987+00:00",
+        "warnings": [
+          "ocr_selected"
+        ],
+        "sections": [],
+        "candidates": [
+          {
+            "candidate_id": "cand-58db23b4a156",
+            "job_id": "ingest-e569b1bda1f44bce",
+            "rule_id": "civil.general-check.measured_value.rule",
+            "category": "civil/general-check",
+            "field_key": "measured_value",
+            "operator": "eq",
+            "threshold_value": "",
+            "unit": "mm",
+            "severity": "mandatory",
+            "norm_ref": "",
+            "source_line": "孔位偏差（mm）",
+            "confidence": 0.58,
+            "status": "pending",
+            "notes": ""
+          },
+          {
+            "candidate_id": "cand-33e492951569",
+            "job_id": "ingest-e569b1bda1f44bce",
+            "rule_id": "civil.general-check.thickness.rule",
+            "category": "civil/general-check",
+            "field_key": "thickness",
+            "operator": "eq",
+            "threshold_value": "",
+            "unit": "mm",
+            "severity": "mandatory",
+            "norm_ref": "",
+            "source_line": "沉淀层厚度（mm）",
+            "confidence": 0.58,
+            "status": "pending",
+            "notes": ""
+          }
+        ],
+        "source_text_preview": "眉县至太白高速公路\n桩基灌注混凝土前检查表\n施工单位：\n监理单位：\n合同段：\n起讫桩号：\n第页共页\n桥施8表\n工程名称\n桩位\n检查日期\n护筒顶高程（m）\n护筒长度（m）\n倾斜度（mm）\n设计直径（m）\n10000\n终孔直径（m）\n45445\n孔位偏差（mm）\n灌注前孔底高程\n设计孔底高程（m）\n30\n34\n沉淀层厚度（mm）\n10\n(m)\n灌注前泥浆比重\n粘度（s）\n含砂率（%）\n(g/cm²)\n桩基支承形式\n钻孔出现的\n问题及处理\n是否清孔、清孔\n方法及效果\n主筋直径及根数\n主筋长度（m）\n(根)\n钢筋骨架\n骨架总长（m）\n骨架底面高程（m）\n焊接方法及搭接\n骨架每节长度（m）\n长度（mm）\n检查\n记录\n复核\n施工单位意见：\n签名：\n年\n月\n日\n监理工程师意见：\n签名：\n年\n月\n日"
+      },
+      "approved_count": 0,
+      "publish": {}
+    }
+  ]
+}

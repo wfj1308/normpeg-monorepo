@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.7.5.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "10",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "7.5.2",
+  "source_line": "10m 检查 1 个断面，每个断面自拱顶每 3m 检查 1 点。凿孔法适合于各级围岩条件下",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-a8551840557c",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:6a532ef53c996e2478c380e732ce1307052828339013798637254a86bf676741"
+}

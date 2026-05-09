@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.8.1.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "495",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "8.1.2",
+  "source_line": "检验可以按现行《公路交通安全设施质量检验抽样方法》（JT/T 495）或相关产品",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-414dd80ce5f4",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:2199d2a7235dde63f24d22ecff0329b26e0e1e1a34674d71a2def4bf306423a0"
+}

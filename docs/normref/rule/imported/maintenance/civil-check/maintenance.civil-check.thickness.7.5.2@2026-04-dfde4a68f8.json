@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.thickness.7.5.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/thickness@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "thickness",
+  "operator": "gte",
+  "threshold_value": "80",
+  "unit": "%",
+  "severity": "mandatory",
+  "norm_ref": "7.5.2",
+  "source_line": "有衬砌 80%≥设计值；最小厚度≥0.8设计 顶和两侧拱腰、两侧边墙各布置",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-a8a6353e5b6b",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:dfde4a68f8e92fad1fbb574ed1fddff13d71b9ab35bad5db6766aa1f2d05124d"
+}

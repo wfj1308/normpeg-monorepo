@@ -1,0 +1,278 @@
+{
+  "project_id": "GXX-2024-XXX",
+  "project_name": "XX高速XX段",
+  "section_range": "K15+000~K25+000",
+  "total_length": "10.0km",
+  "normdoc_bindings": {
+    "T0921-2019": "t0921/2019/normdoc.json",
+    "T0931-2019": "t0931/2019/normdoc.json",
+    "T0912-2019": "t0912/2019/normdoc.json",
+    "T0951-2008": "t0951/2008/normdoc.json"
+  },
+  "normative_subset": {
+    "status": "confirmed",
+    "confirmed_at": "2026-04-15",
+    "confirmation_basis": "Day1-2 baseline for current highway section",
+    "owner_role": "chief_engineer",
+    "standards": [
+      {
+        "code": "JTG F80/1-2017",
+        "role": "evaluation_standard",
+        "version": "2017"
+      },
+      {
+        "code": "JTG 3450-2019",
+        "role": "test_method_standard",
+        "version": "2019"
+      },
+      {
+        "code": "JTG/T F20-2015",
+        "role": "construction_control_standard",
+        "version": "2015"
+      }
+    ],
+    "focus_indicators": [
+      "compaction_degree",
+      "roughness_iri",
+      "thickness",
+      "deflection"
+    ],
+    "indicator_form_map": {
+      "compaction_degree": "T0921-2019",
+      "roughness_iri": "T0931-2019",
+      "thickness": "T0912-2019",
+      "deflection": "T0951-2008"
+    }
+  },
+  "digital_standards": {
+    "status": "completed",
+    "completed_at": "2026-04-15",
+    "standards": [
+      {
+        "code": "JTG F80/1-2017",
+        "file": "jtg-f80-1/2017/standarddoc.json",
+        "role": "evaluation_standard"
+      },
+      {
+        "code": "JTG 3450-2019",
+        "file": "jtg-3450/2019/standarddoc.json",
+        "role": "test_method_standard"
+      },
+      {
+        "code": "JTG/T F20-2015",
+        "file": "jtg-t-f20/2015/standarddoc.json",
+        "role": "construction_control_standard"
+      }
+    ]
+  },
+  "design_params": {
+    "road_class": "expressway",
+    "design_speed": 100,
+    "design_year": 20,
+    "traffic_load": "heavy",
+    "subgrade": {
+      "zones": {
+        "96区": {
+          "standard_value": 96,
+          "tolerance": -2,
+          "representative_coefficient": 0.95,
+          "applies_to": [
+            "路床0-0.8m",
+            "上路堤0.8-1.5m"
+          ],
+          "norm_ref": "JTG F80/1-2017 4.2.1"
+        },
+        "94区": {
+          "standard_value": 94,
+          "tolerance": -2,
+          "representative_coefficient": 0.95,
+          "applies_to": [
+            "下路堤>1.5m"
+          ],
+          "norm_ref": "JTG F80/1-2017 4.2.1"
+        },
+        "92区": {
+          "standard_value": 92,
+          "tolerance": -2,
+          "representative_coefficient": 0.9,
+          "applies_to": [
+            "零填及挖方0-0.8m"
+          ],
+          "norm_ref": "JTG F80/1-2017 4.2.1"
+        }
+      },
+      "test_method": "T0921-2019",
+      "frequency": "每200m每压实层测2处"
+    },
+    "pavement": {
+      "structure": [
+        {
+          "layer": "上面层",
+          "material": "SMA-13",
+          "thickness": 40,
+          "compaction": 96
+        },
+        {
+          "layer": "中面层",
+          "material": "AC-20C",
+          "thickness": 60,
+          "compaction": 96
+        },
+        {
+          "layer": "下面层",
+          "material": "AC-25C",
+          "thickness": 80,
+          "compaction": 96
+        },
+        {
+          "layer": "基层",
+          "material": "水泥稳定碎石",
+          "thickness": 360,
+          "compaction": 98
+        },
+        {
+          "layer": "底基层",
+          "material": "低剂量水泥稳定碎石",
+          "thickness": 200,
+          "compaction": 96
+        }
+      ],
+      "flatness": {
+        "upper_layer": {
+          "IRI": 2.0,
+          "standard_deviation": 1.2
+        },
+        "base_course": {
+          "IRI": 2.5,
+          "standard_deviation": 1.5
+        }
+      }
+    }
+  },
+  "project_overrides": [
+    {
+      "id": "override_001",
+      "name": "业主内控标准",
+      "applies_to": "全段落",
+      "effective_date": "2024-01-01",
+      "rules": [
+        {
+          "target": "subgrade.96区.standard_value",
+          "original": 96,
+          "override": 96,
+          "note": "维持规范，但代表值系数提高至0.98",
+          "representative_coefficient": 0.98
+        },
+        {
+          "target": "pavement.base_course.compaction",
+          "original": 98,
+          "override": 98,
+          "note": "基层压实度要求100%合格，不允许极值",
+          "allow_extreme": false
+        }
+      ],
+      "approved_by": "did:peg:owner_001",
+      "document_ref": "项目专用技术规范第3.2条"
+    },
+    {
+      "id": "override_002",
+      "name": "软基处理段特殊要求",
+      "applies_to": "K18+500~K19+200",
+      "reason": "软土地基，沉降控制",
+      "rules": [
+        {
+          "target": "subgrade.96区.standard_value",
+          "override": 97,
+          "note": "软基段压实度提高1个百分点"
+        }
+      ]
+    }
+  ],
+  "personnel": {
+    "inspectors": [
+      {
+        "did": "did:peg:ins_001",
+        "name": "试验员A",
+        "role": "field_inspector",
+        "cert_no": "JLY20240001",
+        "scope": [
+          "压实度",
+          "平整度",
+          "厚度"
+        ],
+        "valid_until": "2024-12-31"
+      },
+      {
+        "did": "did:peg:ins_002",
+        "name": "试验员B",
+        "role": "field_inspector",
+        "cert_no": "JLY20240002",
+        "scope": [
+          "弯沉",
+          "原材料"
+        ],
+        "valid_until": "2024-12-31"
+      }
+    ],
+    "supervisors": [
+      {
+        "did": "did:peg:sup_001",
+        "name": "监理工程师",
+        "role": "supervisor",
+        "can_override": true,
+        "max_override_amount": 5
+      }
+    ],
+    "chief_engineer": {
+      "did": "did:peg:ce_001",
+      "name": "项目总工",
+      "role": "chief_engineer",
+      "can_override": true,
+      "requires_photo_evidence": true
+    }
+  },
+  "instruments": {
+    "sand_bottles": [
+      {
+        "id": "SB_2024_001",
+        "calibrated_density": 1.456,
+        "valid_until": "2024-09-01",
+        "cert_hash": "sha256:abc123..."
+      },
+      {
+        "id": "SB_2024_002",
+        "calibrated_density": 1.458,
+        "valid_until": "2024-09-01",
+        "cert_hash": "sha256:def456..."
+      }
+    ],
+    "deflection_devices": [
+      {
+        "id": "DF_2024_001",
+        "type": "beckmann",
+        "calibration_date": "2024-03-01"
+      }
+    ]
+  },
+  "sync_config": {
+    "mode": "offline_first",
+    "sync_interval": 3600,
+    "retention_days": 365,
+    "anchor_to_arweave": true,
+    "anchor_frequency": "daily"
+  },
+  "alert_rules": {
+    "compaction_critical_low": {
+      "condition": "compaction_degree < standard - 3",
+      "action": "immediate_alert",
+      "notify": [
+        "did:peg:ce_001",
+        "did:peg:sup_001"
+      ]
+    },
+    "instrument_expiry": {
+      "condition": "expiry_within_7_days",
+      "action": "daily_reminder"
+    }
+  }
+}

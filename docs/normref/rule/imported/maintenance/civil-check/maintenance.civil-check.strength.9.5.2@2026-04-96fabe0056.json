@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.9.5.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "eq",
+  "threshold_value": "350",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "9.5.2",
+  "source_line": "一定强度的支护上，用凿岩机打密排钻孔，取出长 350mm、宽约 150mm 的混凝土块，",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-35af4daee7b8",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:96fabe00564f4e96c41a2c202d4b3b5609e40c50d8b89b018d1bb57c5caae872"
+}

@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.thickness.4.5.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/thickness@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "thickness",
+  "operator": "gte",
+  "threshold_value": "2",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "4.5.2",
+  "source_line": "2 基础厚度 (mm) 不小于设计值 钢卷尺：每两井之间每侧测2处",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-b1c4e5b5dfc2",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:e38805d720b0f271e7e90289dd04b882fc641eed115fc95c95db5af2eddade38"
+}

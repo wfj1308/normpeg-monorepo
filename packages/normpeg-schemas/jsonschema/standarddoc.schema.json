@@ -1,0 +1,15 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://normpeg.dev/schemas/standarddoc.schema.json",
+  "title": "StandardDoc",
+  "type": "object",
+  "required": ["schema_uri", "version", "standard_code", "header", "body"],
+  "properties": {
+    "schema_uri": {"type": "string"},
+    "version": {"type": "string"},
+    "standard_code": {"type": "string"},
+    "header": {"type": "object"},
+    "body": {"type": "object"}
+  },
+  "additionalProperties": true
+}

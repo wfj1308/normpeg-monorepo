@@ -1,0 +1,35 @@
+{
+  "risk": {
+    "highRiskWarnings": [
+      "CLAUSE_AMBIGUOUS",
+      "FORMULA_PARTIAL",
+      "MANUAL_REVIEW_REQUIRED",
+      "OCR_CLAUSE_LOW_CONFIDENCE",
+      "OCR_FORMULA_LOW_CONFIDENCE"
+    ],
+    "mediumRiskWarnings": [
+      "INPUTS_INFERRED",
+      "RULES_INFERRED",
+      "OCR_TEXT_NOISY",
+      "OCR_TABLE_LOW_CONFIDENCE"
+    ],
+    "lowRiskWarnings": [
+      "OCR_USED"
+    ]
+  },
+  "diff": {
+    "highRiskSections": ["条款号", "计算步骤", "判定规则", "依赖"],
+    "mediumRiskSections": ["规范来源", "输入参数", "输出参数", "签字要求"],
+    "lowRiskSections": ["标题", "版本", "分类", "检测项"]
+  },
+  "clause": {
+    "requiredHighRiskSections": ["规范来源", "条款号", "计算步骤", "判定规则"],
+    "optionalMediumRiskSections": ["输入参数", "输出参数", "签字要求", "依赖"]
+  },
+  "gate": {
+    "blockOnHighWarning": true,
+    "blockOnUnconfirmedHighClause": true,
+    "warnOnHighRiskDiff": true,
+    "warnOnMediumClausePending": true
+  }
+}

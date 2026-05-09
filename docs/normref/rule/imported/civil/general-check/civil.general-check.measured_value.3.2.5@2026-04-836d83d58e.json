@@ -1,0 +1,20 @@
+{
+  "rule_id": "civil.general-check.measured_value.3.2.5",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/civil/general-check/measured_value@2026-04",
+  "category": "civil/general-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "4",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "3.2.5",
+  "source_line": "4采用本标准附录B至附录S所列方法进行检验评定的检查项目，不满足要求",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-06a75ca21ccc44ec",
+  "candidate_id": "cand-35d21a39b921",
+  "source_std_code": "JTG-F80-1-2017",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:836d83d58ee7bb2332785ee8a8adfdeb66979f5ccc309988318aa178cff12398"
+}

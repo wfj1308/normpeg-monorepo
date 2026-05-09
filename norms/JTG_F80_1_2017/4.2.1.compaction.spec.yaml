@@ -1,0 +1,437 @@
+spec_id: JTG_F80_1_2017.4.2.1.compaction
+type: executable_spec
+version: v2.1.0
+namespace: norms.cn.mot.jtg_f80_1_2017.4_2_1
+
+semantics:
+  standard_id: JTG_F80_1_2017
+  standard_name: JTG F80/1-2017 Highway Engineering Quality Inspection and Evaluation Standard
+  standard_version: "2017"
+  clause_id: "4.2.1"
+  clause_refs:
+    - JTG_F80_1_2017.4.2.1
+    - JTG_3450_2019.T0921
+  catalog_id: JTG_F80_1_2017
+  component_id: JTG_F80_1_2017.4.2.1.compaction
+  component_name: compaction
+  component_type: MeasuredItem
+  work_item: earthwork_subgrade
+  measured_item: compaction
+  status: active
+  owner: quality-center
+  critical: true
+  source: backend/app/components/instances/compaction.component.json
+  description: Earthwork subgrade compaction executable specification
+  generated_at: "2026-04-17T00:00:00Z"
+
+logic:
+  language: specir/v1
+  execution_mode: deterministic
+  stages:
+    - inputs
+    - path
+    - gate
+    - state
+    - proof
+
+inputs:
+  input_dto:
+    stake:
+      type: string
+      required: true
+    layer_depth:
+      type: enum
+      required: true
+      enum_values: ["0-0.8m", "0.8-1.5m", ">1.5m"]
+    test_method:
+      type: enum
+      required: false
+      enum_values: ["T0921", "T0923", "T0924"]
+      default: T0921
+    actor_did:
+      type: string
+      required: true
+    actor_name:
+      type: string
+      required: false
+    inspected_at:
+      type: string
+      required: true
+    project_id:
+      type: string
+      required: true
+    raw_data:
+      type: object
+      required: false
+    compaction_degree:
+      type: number
+      unit: "%"
+      precision: 2
+      required: false
+    representative_value:
+      type: number
+      unit: "%"
+      precision: 2
+      required: false
+    paragraph_values:
+      type: array
+      required: false
+      items:
+        type: number
+        precision: 2
+    override_requested:
+      type: boolean
+      required: false
+      default: false
+    override_evidence:
+      type: object
+      required: false
+    archive_requested:
+      type: boolean
+      required: false
+      default: false
+
+  raw_data_dto:
+    stake:
+      type: string
+      required: true
+    layer_depth:
+      type: enum
+      required: true
+      enum_values: ["0-0.8m", "0.8-1.5m", ">1.5m"]
+    project_id:
+      type: string
+      required: true
+    actor_did:
+      type: string
+      required: true
+    inspected_at:
+      type: string
+      required: true
+    raw_data:
+      type: object
+      required: true
+      strict: true
+      properties:
+        sand_density:
+          type: number
+          unit: g/cm3
+          precision: 3
+          required: true
+        mass_hole_sand:
+          type: number
+          unit: g
+          precision: 1
+          required: true
+        volume_ring:
+          type: number
+          unit: cm3
+          precision: 1
+          required: true
+        moisture_content:
+          type: number
+          unit: "%"
+          precision: 1
+          required: true
+        max_dry_density:
+          type: number
+          unit: g/cm3
+          precision: 3
+          required: true
+    representative_value:
+      type: number
+      unit: "%"
+      precision: 2
+      required: false
+    paragraph_values:
+      type: array
+      required: false
+      items:
+        type: number
+        precision: 2
+    override_requested:
+      type: boolean
+      required: false
+      default: false
+    override_evidence:
+      type: object
+      required: false
+    archive_requested:
+      type: boolean
+      required: false
+      default: false
+
+  resolved_value_dto:
+    stake:
+      type: string
+      required: true
+    layer_depth:
+      type: enum
+      required: true
+      enum_values: ["0-0.8m", "0.8-1.5m", ">1.5m"]
+    project_id:
+      type: string
+      required: true
+    actor_did:
+      type: string
+      required: true
+    inspected_at:
+      type: string
+      required: true
+    compaction_degree:
+      type: number
+      unit: "%"
+      precision: 2
+      required: true
+    representative_value:
+      type: number
+      unit: "%"
+      precision: 2
+      required: false
+    paragraph_values:
+      type: array
+      required: false
+      items:
+        type: number
+        precision: 2
+    override_requested:
+      type: boolean
+      required: false
+      default: false
+    override_evidence:
+      type: object
+      required: false
+    archive_requested:
+      type: boolean
+      required: false
+      default: false
+
+  output_dto:
+    standard_value:
+      type: number
+      unit: "%"
+    tolerance:
+      type: number
+      unit: "%"
+    lower_bound:
+      type: number
+      unit: "%"
+    representative_value:
+      type: number
+      unit: "%"
+    single_point_passed:
+      type: boolean
+    representative_passed:
+      type: boolean
+    final_status:
+      type: enum
+      enum_values: [PASS, FAIL, BLOCKED, CRITICAL, OVERRIDDEN, WARNING]
+    clause_refs:
+      type: array
+    proof_hash:
+      type: string
+
+path:
+  steps:
+    - step_id: determine_zone
+      action: lookup
+      lookup_ref: zone_by_layer_depth
+      input_fields: [layer_depth]
+      output_field: zone_type
+    - step_id: determine_standard
+      action: lookup
+      lookup_ref: standard_by_zone
+      input_fields: [zone_type]
+      output_field: standard_value
+    - step_id: lookup_tolerance
+      action: lookup
+      lookup_ref: tolerance_by_zone
+      input_fields: [zone_type]
+      output_field: tolerance
+    - step_id: calc_lower_bound
+      action: formula
+      formula_ref: lower_bound_formula
+      output_field: lower_bound
+    - step_id: calc_wet_density
+      action: formula
+      formula_ref: wet_density_formula
+      output_field: wet_density
+      when: exists(raw_data)
+    - step_id: calc_dry_density
+      action: formula
+      formula_ref: dry_density_formula
+      output_field: dry_density
+      when: exists(raw_data)
+    - step_id: calc_compaction
+      action: formula
+      formula_ref: compaction_from_raw_formula
+      output_field: compaction_degree_from_raw
+      when: exists(raw_data)
+    - step_id: resolve_compaction_degree
+      action: formula
+      formula_ref: resolve_compaction_formula
+      output_field: compaction_degree_resolved
+    - step_id: calc_representative_from_paragraph
+      action: aggregate
+      method: t_distribution_95
+      input_field: paragraph_values
+      output_field: paragraph_representative
+      when: exists(paragraph_values)
+    - step_id: resolve_representative_value
+      action: formula
+      formula_ref: resolve_representative_formula
+      output_field: representative_value_resolved
+
+  formulas:
+    lower_bound_formula: standard_value - tolerance
+    wet_density_formula: (raw_data.mass_hole_sand / raw_data.sand_density) / raw_data.volume_ring
+    dry_density_formula: wet_density / (1 + raw_data.moisture_content / 100)
+    compaction_from_raw_formula: dry_density / raw_data.max_dry_density * 100
+    resolve_compaction_formula: if(exists(compaction_degree_from_raw), compaction_degree_from_raw, compaction_degree)
+    resolve_representative_formula: if(exists(paragraph_representative), paragraph_representative, if(exists(representative_value), representative_value, compaction_degree_resolved))
+
+  lookup_tables:
+    zone_by_layer_depth:
+      "0-0.8m": Z96
+      "0.8-1.5m": Z96
+      ">1.5m": Z94
+    standard_by_zone:
+      Z96: 95.0
+      Z94: 94.0
+      Z92: 92.0
+    tolerance_by_zone:
+      Z96: 2.0
+      Z94: 2.0
+      Z92: 2.0
+
+  derived_fields:
+    - zone_type
+    - standard_value
+    - tolerance
+    - lower_bound
+    - wet_density
+    - dry_density
+    - compaction_degree_resolved
+    - representative_value_resolved
+
+gate:
+  rules:
+    - rule_id: single_point_rule
+      condition:
+        operator: tolerance
+        mode: lower_bound
+        actual: compaction_degree_resolved
+        expected: standard_value
+        tolerance: tolerance
+      severity: blocking
+      on_fail: block
+      clause_refs: [JTG_F80_1_2017.4.2.1.single_point]
+    - rule_id: representative_value_rule
+      condition: representative_value_resolved >= standard_value
+      severity: critical
+      on_fail: critical
+      clause_refs: [JTG_F80_1_2017.4.2.1.representative]
+    - rule_id: extreme_value_rule
+      condition: compaction_degree_resolved >= lower_bound - 1
+      severity: warning
+      on_fail: warn
+      clause_refs: [JTG_F80_1_2017.4.2.1.extreme]
+    - rule_id: override_evidence_rule
+      condition: override_requested == False or exists(override_evidence)
+      severity: blocking
+      on_fail: manual_override
+      clause_refs: [JTG_F80_1_2017.override]
+  references:
+    - JTG_F80_1_2017.4.2.1
+    - JTG_3450_2019.T0921
+  clause_refs:
+    - JTG_F80_1_2017.4.2.1
+    - JTG_3450_2019.T0921
+
+state:
+  initial_state: DRAFT
+  states: [DRAFT, COMPUTED, VALIDATED, QUALIFIED, REJECTED, OVERRIDDEN, ARCHIVED]
+  allowed_transitions:
+    - from_state: DRAFT
+      to_state: COMPUTED
+      trigger: path_executed
+    - from_state: COMPUTED
+      to_state: VALIDATED
+      trigger: gate_executed
+    - from_state: VALIDATED
+      to_state: QUALIFIED
+      trigger: all_rules_pass
+    - from_state: VALIDATED
+      to_state: REJECTED
+      trigger: rule_failed
+    - from_state: VALIDATED
+      to_state: OVERRIDDEN
+      trigger: manual_override_approved
+    - from_state: QUALIFIED
+      to_state: ARCHIVED
+      trigger: archive_requested
+    - from_state: REJECTED
+      to_state: ARCHIVED
+      trigger: archive_requested
+    - from_state: OVERRIDDEN
+      to_state: ARCHIVED
+      trigger: archive_requested
+  terminal_states: [QUALIFIED, REJECTED, OVERRIDDEN, ARCHIVED]
+
+proof:
+  proof_fields:
+    - execution_id
+    - component_id
+    - version
+    - project_id
+    - input
+    - normalized_input
+    - path_outputs
+    - gate
+    - state_trace
+    - final_status
+    - clause_refs
+  canonicalization:
+    field_order:
+      - execution_id
+      - component_id
+      - version
+      - project_id
+      - input
+      - normalized_input
+      - path_outputs
+      - gate
+      - state_trace
+      - final_status
+      - clause_refs
+    sort_keys: true
+    null_policy: keep
+  hash_algorithm: sha256
+  canonical_order:
+    - execution_id
+    - component_id
+    - version
+    - project_id
+    - input
+    - normalized_input
+    - path_outputs
+    - gate
+    - state_trace
+    - final_status
+    - clause_refs
+  hash_method: sha256
+  signature:
+    algorithm: hmac_sha256
+    key_env: LAYERPEG_PROOF_HMAC_KEY
+  chain:
+    enabled: true
+
+metadata:
+  specir_version: v0.1.0
+  source_component_file: backend/app/components/instances/compaction.component.json
+  source_component_version: v2.1.0
+  migration_note: generated by reverse mapping from executable component
+  related_specs:
+    - JTG_3450_2019.T0921
+    - JTG_3450_2019.T0923
+    - JTG_3450_2019.T0924

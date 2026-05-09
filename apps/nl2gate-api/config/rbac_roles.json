@@ -1,0 +1,6 @@
+{
+  "strict": false,
+  "users": {
+    "*": ["editor", "reviewer", "publisher", "admin"]
+  }
+}

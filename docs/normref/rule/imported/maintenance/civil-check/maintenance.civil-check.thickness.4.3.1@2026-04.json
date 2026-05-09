@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.thickness.4.3.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/thickness@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "thickness",
+  "operator": "eq",
+  "threshold_value": "200",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "4.3.1",
+  "source_line": "大型压实机具的工作面，分层的最大松铺厚度应不超过200mm。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-c20ba6628cbc",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:370627b2d16a4039bfce1a13d97a8654eae88cd9606a7f6df528c9662391910e"
+}

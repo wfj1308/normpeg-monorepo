@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.0.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "eq",
+  "threshold_value": "0.1",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "0.1",
+  "source_line": "F.0.1 评定砌筑用水泥砂浆强度，应以标准养生 28d 的试件为准；试件为边长",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-8506bdd4454e",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:d041d7f1d0a8ca141bc7319d441af91d9c7e285aa82cfbe9657933360e12d680"
+}

@@ -1,0 +1,20 @@
+{
+  "rule_id": "civil.general-check.measured_value.4.2.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/civil/general-check/measured_value@2026-04",
+  "category": "civil/general-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "3",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "4.2.1",
+  "source_line": "3应设置施工临时排水系统，避免冲刷边坡，路床顶面不得积水。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-06a75ca21ccc44ec",
+  "candidate_id": "cand-c511a2f5febf",
+  "source_std_code": "JTG-F80-1-2017",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:ffeea8c8a54203c21f06474079b05f48974286c3a2cf160255a665aab6fa790c"
+}

@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.hole_diameter.4.11.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/hole_diameter@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "hole_diameter",
+  "operator": "gte",
+  "threshold_value": "4",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "4.11.2",
+  "source_line": "4 孔径(mm) 不小于设计值 钢卷尺：抽查10%",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-ea2994e37572",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:ea50faab301df858268e6108c27b43e62f7152894bd571c86da988d6bfe1f1f1"
+}

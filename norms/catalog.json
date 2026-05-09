@@ -1,0 +1,282 @@
+﻿{
+  "catalog_id": "JTG_F80_1_2017",
+  "catalog_name": "公路工程质量检验评定标准（土建工程）",
+  "categories": [
+    {
+      "category_id": "subgrade",
+      "category_name": "路基工程",
+      "work_items": [
+        {
+          "work_item_id": "earthwork",
+          "work_item_name": "土方路基",
+          "measured_items": [
+            {
+              "measured_item_id": "compaction",
+              "measured_item_name": "压实度",
+              "spec_id": "4.2.1.compaction",
+              "test_methods": [
+                { "method_id": "T0921", "spec_id": "JTG_3450_2019.T0921" }
+              ],
+              "components": [
+                {
+                  "component_id": "highway.subgrade.compaction.4.2.1",
+                  "category": "路基工程",
+                  "work_item": "土方路基",
+                  "measured_item": "压实度",
+                  "test_method": "T0921",
+                  "bound_clause_ids": ["JTG_F80_1_2017.4.2.1"],
+                  "input_schema": {
+                    "type": "object",
+                    "required": ["compaction_degree", "design_minimum"],
+                    "properties": {
+                      "compaction_degree": { "type": "number" },
+                      "design_minimum": { "type": "number" }
+                    }
+                  },
+                  "path_logic": {
+                    "compute": [
+                      { "name": "pass_flag", "expr": "compaction_degree >= design_minimum" }
+                    ]
+                  },
+                  "gate_condition": {
+                    "expression": "pass_flag == true",
+                    "on_fail": "FAIL"
+                  },
+                  "state_machine": {
+                    "initial": "RAW",
+                    "states": ["RAW", "COMPUTED", "PASS", "FAIL"]
+                  },
+                  "proof_template": {
+                    "template_id": "proof.compaction.v1",
+                    "fields": ["component_id", "bound_clause_ids", "inputs", "result"]
+                  },
+                  "clause_trace": {
+                    "clause_id": "JTG_F80_1_2017.4.2.1",
+                    "clause_no": "4.2.1",
+                    "original_text": "压实度应符合设计及规范要求，检测结果应满足相应评定标准。"
+                  }
+                }
+              ]
+            },
+            {
+              "measured_item_id": "deflection",
+              "measured_item_name": "弯沉",
+              "spec_id": "4.2.2.deflection",
+              "test_methods": [
+                { "method_id": "T0951", "spec_id": "JTG_3450_2019.T0951" }
+              ],
+              "components": [
+                {
+                  "component_id": "highway.subgrade.deflection.4.2.2",
+                  "category": "路基工程",
+                  "work_item": "土方路基",
+                  "measured_item": "弯沉",
+                  "test_method": "T0951",
+                  "bound_clause_ids": ["JTG_F80_1_2017.4.2.2"],
+                  "input_schema": {
+                    "type": "object",
+                    "required": ["deflection", "design_deflection"],
+                    "properties": {
+                      "deflection": { "type": "number" },
+                      "design_deflection": { "type": "number" }
+                    }
+                  },
+                  "path_logic": {
+                    "compute": [
+                      { "name": "pass_flag", "expr": "deflection <= design_deflection" }
+                    ]
+                  },
+                  "gate_condition": {
+                    "expression": "pass_flag == true",
+                    "on_fail": "FAIL"
+                  },
+                  "state_machine": {
+                    "initial": "RAW",
+                    "states": ["RAW", "COMPUTED", "PASS", "FAIL"]
+                  },
+                  "proof_template": {
+                    "template_id": "proof.deflection.v1",
+                    "fields": ["component_id", "bound_clause_ids", "inputs", "result"]
+                  },
+                  "clause_trace": {
+                    "clause_id": "JTG_F80_1_2017.4.2.2",
+                    "clause_no": "4.2.2",
+                    "original_text": "弯沉检测结果应满足设计及相关规范要求。"
+                  }
+                }
+              ]
+            },
+            {
+              "measured_item_id": "thickness",
+              "measured_item_name": "厚度",
+              "spec_id": "4.2.3.thickness",
+              "test_methods": [
+                { "method_id": "T0912", "spec_id": "JTG_3450_2019.T0912" }
+              ],
+              "components": [
+                {
+                  "component_id": "highway.subgrade.thickness.4.2.3",
+                  "category": "路基工程",
+                  "work_item": "土方路基",
+                  "measured_item": "厚度",
+                  "test_method": "T0912",
+                  "bound_clause_ids": ["JTG_F80_1_2017.4.2.3"],
+                  "input_schema": {
+                    "type": "object",
+                    "required": ["thickness", "design_thickness"],
+                    "properties": {
+                      "thickness": { "type": "number" },
+                      "design_thickness": { "type": "number" }
+                    }
+                  },
+                  "path_logic": {
+                    "compute": [
+                      { "name": "pass_flag", "expr": "thickness >= design_thickness" }
+                    ]
+                  },
+                  "gate_condition": {
+                    "expression": "pass_flag == true",
+                    "on_fail": "FAIL"
+                  },
+                  "state_machine": {
+                    "initial": "RAW",
+                    "states": ["RAW", "COMPUTED", "PASS", "FAIL"]
+                  },
+                  "proof_template": {
+                    "template_id": "proof.thickness.v1",
+                    "fields": ["component_id", "bound_clause_ids", "inputs", "result"]
+                  },
+                  "clause_trace": {
+                    "clause_id": "JTG_F80_1_2017.4.2.3",
+                    "clause_no": "4.2.3",
+                    "original_text": "厚度检测结果应满足设计及相关规范要求。"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": "pavement",
+      "category_name": "路面工程",
+      "work_items": [
+        {
+          "work_item_id": "base_subbase",
+          "work_item_name": "基层和底基层",
+          "measured_items": [
+            {
+              "measured_item_id": "pavement_compaction",
+              "measured_item_name": "压实度",
+              "spec_id": "5.2.1.pavement_compaction",
+              "test_methods": [
+                { "method_id": "T0921", "spec_id": "JTG_3450_2019.T0921" }
+              ],
+              "components": [
+                {
+                  "component_id": "highway.pavement.compaction.5.2.1",
+                  "category": "路面工程",
+                  "work_item": "基层和底基层",
+                  "measured_item": "压实度",
+                  "test_method": "T0921",
+                  "bound_clause_ids": ["JTG_F80_1_2017.5.2.1"],
+                  "input_schema": {
+                    "type": "object",
+                    "required": ["compaction_degree", "design_minimum"],
+                    "properties": {
+                      "compaction_degree": { "type": "number" },
+                      "design_minimum": { "type": "number" }
+                    }
+                  },
+                  "path_logic": {
+                    "compute": [
+                      { "name": "pass_flag", "expr": "compaction_degree >= design_minimum" }
+                    ]
+                  },
+                  "gate_condition": {
+                    "expression": "pass_flag == true",
+                    "on_fail": "FAIL"
+                  },
+                  "state_machine": {
+                    "initial": "RAW",
+                    "states": ["RAW", "COMPUTED", "PASS", "FAIL"]
+                  },
+                  "proof_template": {
+                    "template_id": "proof.pavement.compaction.v1",
+                    "fields": ["component_id", "bound_clause_ids", "inputs", "result"]
+                  },
+                  "clause_trace": {
+                    "clause_id": "JTG_F80_1_2017.5.2.1",
+                    "clause_no": "5.2.1",
+                    "original_text": "基层和底基层压实度应满足设计及规范要求。"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": "bridge",
+      "category_name": "桥梁工程",
+      "work_items": [
+        {
+          "work_item_id": "bored_pile",
+          "work_item_name": "钻孔灌注桩",
+          "measured_items": [
+            {
+              "measured_item_id": "pile_concrete_strength",
+              "measured_item_name": "混凝土强度",
+              "spec_id": "8.1.1.pile_concrete_strength",
+              "test_methods": [
+                { "method_id": "JTG_T_Bridge_Strength", "spec_id": "JTG_F80_1_2017.8.1.1.pile_concrete_strength" }
+              ],
+              "components": [
+                {
+                  "component_id": "highway.bridge.pile.concrete_strength.8.1.1",
+                  "category": "桥梁工程",
+                  "work_item": "钻孔灌注桩",
+                  "measured_item": "混凝土强度",
+                  "test_method": "JTG_T_Bridge_Strength",
+                  "bound_clause_ids": ["JTG_F80_1_2017.8.1.1"],
+                  "input_schema": {
+                    "type": "object",
+                    "required": ["strength", "design_strength"],
+                    "properties": {
+                      "strength": { "type": "number" },
+                      "design_strength": { "type": "number" }
+                    }
+                  },
+                  "path_logic": {
+                    "compute": [
+                      { "name": "pass_flag", "expr": "strength >= design_strength" }
+                    ]
+                  },
+                  "gate_condition": {
+                    "expression": "pass_flag == true",
+                    "on_fail": "FAIL"
+                  },
+                  "state_machine": {
+                    "initial": "RAW",
+                    "states": ["RAW", "COMPUTED", "PASS", "FAIL"]
+                  },
+                  "proof_template": {
+                    "template_id": "proof.pile.concrete_strength.v1",
+                    "fields": ["component_id", "bound_clause_ids", "inputs", "result"]
+                  },
+                  "clause_trace": {
+                    "clause_id": "JTG_F80_1_2017.8.1.1",
+                    "clause_no": "8.1.1",
+                    "original_text": "混凝土强度应满足设计及相关规范要求。"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

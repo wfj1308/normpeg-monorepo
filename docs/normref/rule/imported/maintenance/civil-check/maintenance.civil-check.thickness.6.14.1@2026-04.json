@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.thickness.6.14.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/thickness@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "thickness",
+  "operator": "eq",
+  "threshold_value": "6",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "6.14.1",
+  "source_line": "6 胶黏剂厚度、压力注胶时的注胶压力及稳压时间应满足设计要求。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-9ff16b3be241",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:e83fac571d01b9832662bc105deabe0b3e7b7de293e14278f712ec3d1a19a7d4"
+}

@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.length.4.11.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/length@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "length",
+  "operator": "eq",
+  "threshold_value": "1",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "4.11.2",
+  "source_line": "1△ 排水管长度（mm） 符合设计要求 钢卷尺：抽检20%",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-d7d904453173",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:3fe01c79dd8f853365cb83eb0fd19bfd9b5a0d33470a4c725beeecb09fe3527e"
+}

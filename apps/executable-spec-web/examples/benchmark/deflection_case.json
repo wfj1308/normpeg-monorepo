@@ -1,0 +1,35 @@
+{
+  "caseId": "deflection_case",
+  "fileName": "deflection.pdf",
+  "category": "deflection",
+  "rawText": "第4.4.1条 路基弯沉\n参数名  单位  说明\n实测弯沉  0.01mm  贝克曼梁实测\n允许最大弯沉  0.01mm  规范允许值\n弯沉余量 = 允许最大弯沉 - 实测弯沉\n实测弯沉 <= 20",
+  "expected": {
+    "primaryClause": "4.4.1",
+    "formulas": [
+      {
+        "leftVar": "deflectionMargin",
+        "expression": "maxAllowedDeflection - measuredDeflection",
+        "completeness": "full"
+      }
+    ],
+    "inputs": [
+      {
+        "name": "measuredDeflection",
+        "unit": "0.01mm",
+        "label": "measuredDeflection"
+      },
+      {
+        "name": "maxAllowedDeflection",
+        "unit": "0.01mm",
+        "label": "maxAllowedDeflection"
+      }
+    ],
+    "rules": [
+      {
+        "field": "measuredDeflection",
+        "operator": "<=",
+        "value": 20
+      }
+    ]
+  }
+}

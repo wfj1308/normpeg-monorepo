@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.length.8.7.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/length@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "length",
+  "operator": "eq",
+  "threshold_value": "1",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "8.7.1",
+  "source_line": "1 缆索护栏的防撞等级和路侧最小设置长度应符合现行《公路交通安全设施设",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-1629a7639841",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:3c2012070a4002ee5075fffa125083331f09e5261d29e5972a9f07f4ca1d996f"
+}

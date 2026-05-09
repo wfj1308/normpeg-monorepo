@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.thickness.6.16.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/thickness@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "thickness",
+  "operator": "eq",
+  "threshold_value": "2",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "6.16.2",
+  "source_line": "2 总干膜厚度(µm) 测点数量不超过10%，任意 查：抽查20%且不少于5件，每10m2测10",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-280a6eaef6c2",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:f3df7419e689e5712be41c32141d7d118fa9b94a4639b62db9ed236928ac9847"
+}

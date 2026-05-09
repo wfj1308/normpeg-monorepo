@@ -1,0 +1,340 @@
+{
+  "schema_uri": "v://normref.com/schema/normdoc-v1",
+  "version": "v1",
+  "header": {
+    "standard_id": "JTG F80/1-2017",
+    "version": "2017",
+    "replaces": "JTG F80/1-2004",
+    "issuer": "Ministry of Transport",
+    "effective_date": "2018-05-01",
+    "scope": "Highway engineering quality inspection and evaluation",
+    "language": "zh-CN",
+    "jurisdiction": "CN-MOT",
+    "source_uri": "local://JTG-F80-1-2017.pdf",
+    "source_hash": "sha256:sample"
+  },
+  "body": {
+    "chapters": {
+      "terms_stream": [
+        {
+          "term": "compaction degree",
+          "definition": "Quality index of compacted material."
+        }
+      ],
+      "general_rules": [
+        {
+          "clause_id": "clause.3.1.1",
+          "title": "General Rule",
+          "text": "Measured items shall be checked according to standard methods."
+        }
+      ],
+      "work_items": [
+        {
+          "work_item_id": "work-item.roadbed.1",
+          "name": "Roadbed Compaction",
+          "basic_requirements": [
+            {
+              "clause_id": "clause.3.2.1",
+              "title": "Basic Requirement",
+              "text": "Compaction and thickness shall meet design requirements."
+            }
+          ],
+          "measured_items": [
+            {
+              "item_id": "work-item.roadbed.1.measured.1",
+              "check_item": "compaction degree",
+              "required_value": 96,
+              "tolerance": -2,
+              "check_method": "sand replacement method",
+              "unit": "%",
+              "severity": "mandatory"
+            }
+          ],
+          "visual_inspection": [
+            {
+              "clause_id": "clause.3.2.2",
+              "title": "Visual Inspection",
+              "text": "Surface shall be flat and free of defects."
+            }
+          ],
+          "documentation": [
+            {
+              "clause_id": "clause.3.2.3",
+              "title": "Documentation",
+              "text": "Inspection records and certificates shall be complete."
+            }
+          ]
+        }
+      ],
+      "evaluation_methods": [
+        {
+          "clause_id": "clause.3.3.1",
+          "title": "Evaluation Method",
+          "text": "Use representative value and pass rate for final grading."
+        }
+      ]
+    },
+    "tables": {
+      "inspection_record_tables": [
+        {
+          "table_id": "table.t0921",
+          "title": "Compaction Inspection Record",
+          "fields": [
+            {
+              "field_id": "table.t0921.field.stake",
+              "name": "stake",
+              "data_type": "string",
+              "required": true
+            },
+            {
+              "field_id": "table.t0921.field.compaction",
+              "name": "compaction_degree",
+              "data_type": "number",
+              "required": true
+            }
+          ]
+        }
+      ],
+      "evaluation_tables": [
+        {
+          "table_id": "table.eval.1",
+          "title": "Section Evaluation",
+          "fields": [
+            {
+              "field_id": "table.eval.1.field.pass_rate",
+              "name": "pass_rate",
+              "data_type": "number",
+              "required": false
+            }
+          ]
+        }
+      ],
+      "summary_tables": [
+        {
+          "table_id": "table.summary.1",
+          "title": "Project Summary",
+          "fields": [
+            {
+              "field_id": "table.summary.1.field.result",
+              "name": "result",
+              "data_type": "string",
+              "required": false
+            }
+          ]
+        }
+      ]
+    },
+    "formulas": {
+      "representative_value_formula": [
+        {
+          "formula_id": "formula.rep.1",
+          "name": "Representative Value",
+          "expression": "avg(values) - k * std(values)",
+          "depends_on": [
+            "table.t0921.field.compaction"
+          ]
+        }
+      ],
+      "pass_rate_formula": [
+        {
+          "formula_id": "formula.pass.1",
+          "name": "Pass Rate",
+          "expression": "pass_count / total_count",
+          "depends_on": [
+            "formula.rep.1"
+          ]
+        }
+      ],
+      "score_formula": [
+        {
+          "formula_id": "formula.score.1",
+          "name": "Score",
+          "expression": "weighted_sum(item_scores)",
+          "depends_on": [
+            "formula.pass.1"
+          ]
+        }
+      ]
+    },
+    "ref_dictionary": {
+      "outbound_refs": [
+        {
+          "ref_id": "ref.jtg-d60.5",
+          "target": "JTG D60-2015 Chapter 5",
+          "kind": "normative_reference"
+        }
+      ],
+      "inbound_refs": [],
+      "patch_refs": []
+    }
+  },
+  "gate": {
+    "clause_xref_table": [
+      {
+        "clause_id": "chapter.3",
+        "offset_key": "0000",
+        "object_type": "Chapter",
+        "generation": 0,
+        "in_use": true
+      },
+      {
+        "clause_id": "clause.3.2.1",
+        "offset_key": "0156",
+        "object_type": "Clause",
+        "generation": 0,
+        "in_use": true
+      },
+      {
+        "clause_id": "table.t0921",
+        "offset_key": "0289",
+        "object_type": "Table",
+        "generation": 0,
+        "in_use": true
+      },
+      {
+        "clause_id": "formula.rep.1",
+        "offset_key": "0456",
+        "object_type": "Formula",
+        "generation": 0,
+        "in_use": true
+      },
+      {
+        "clause_id": "rule.compaction.1",
+        "offset_key": "0523",
+        "object_type": "Rule",
+        "generation": 1,
+        "in_use": true
+      }
+    ],
+    "table_rule_tree": [
+      {
+        "table_id": "table.t0921",
+        "field_rules": [
+          {
+            "field_id": "table.t0921.field.compaction",
+            "operator": "gte",
+            "value": 96,
+            "severity": "mandatory",
+            "action": "BLOCK_SUBMIT"
+          }
+        ]
+      }
+    ],
+    "dependency_graph": {
+      "nodes": [
+        {
+          "id": "table.t0921.field.compaction",
+          "node_type": "field"
+        },
+        {
+          "id": "formula.rep.1",
+          "node_type": "formula"
+        },
+        {
+          "id": "rule.compaction.1",
+          "node_type": "rule"
+        }
+      ],
+      "edges": [
+        {
+          "from": "table.t0921.field.compaction",
+          "to": "formula.rep.1",
+          "relation": "input"
+        },
+        {
+          "from": "formula.rep.1",
+          "to": "rule.compaction.1",
+          "relation": "evaluates"
+        }
+      ]
+    },
+    "diff_xref": [
+      {
+        "from_version": "2017",
+        "to_version": "2024-patch-1",
+        "target_id": "clause.3.2.1",
+        "change_type": "modify",
+        "reason": "Raised durability requirement."
+      }
+    ]
+  },
+  "trailer": {
+    "root": "normdoc.root",
+    "info": {
+      "chief_editor_org": "Highway Standards Committee",
+      "contributors": [
+        "Editor A",
+        "Editor B"
+      ],
+      "revision_history": [
+        {
+          "version": "2017",
+          "date": "2018-05-01",
+          "summary": "Initial release."
+        },
+        {
+          "version": "2024-patch-1",
+          "date": "2024-06-01",
+          "summary": "Local clause patch."
+        }
+      ]
+    },
+    "prev": "v://normref.com/std/jtg-f80-1-2017@2017"
+  },
+  "incremental_updates": {
+    "patches": [
+      {
+        "patch_id": "patch.2024.1",
+        "target": "clause.3.2.1",
+        "replace": {
+          "required_value": 96
+        },
+        "reason": "Improve mountainous highway durability.",
+        "effective_date": "2024-06-01",
+        "authority": "MOT Announcement 2024-XX"
+      }
+    ],
+    "errata_stream": [
+      {
+        "errata_id": "errata.2024.1",
+        "target": "clause.3.2.2",
+        "content": "Fix typo in wording.",
+        "effective_date": "2024-07-15"
+      }
+    ],
+    "project_overrides": [
+      {
+        "override_id": "override.project.001",
+        "target": "clause.3.2.1",
+        "replace": {
+          "required_value": 97
+        },
+        "scope": "did:layerpeg:project_001",
+        "approved_by": "did:layerpeg:chief_engineer_003",
+        "effective_date": "2025-01-01"
+      }
+    ]
+  },
+  "term_cmap": [
+    {
+      "source_term": "water-stabilized base",
+      "standard_term": "cement stabilized crushed stone base",
+      "standard_code": "term.cement_stabilized_base",
+      "confidence": 0.96
+    }
+  ],
+  "normref_bundle": {
+    "document_markdown": "# Sample NormDoc",
+    "document_json": {
+      "schema_uri": "v://normref.com/schema/normdoc-v1",
+      "version": "v1"
+    },
+    "table_schema": {
+      "schema_version": "1.5.0"
+    },
+    "meta": {
+      "source": "sample",
+      "pipeline": "NormRef -> LayerPeg Gate -> FormPeg"
+    }
+  }
+}

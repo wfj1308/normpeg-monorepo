@@ -1,0 +1,20 @@
+{
+  "rule_id": "civil.general-check.measured_value.1.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/civil/general-check/measured_value@2026-04",
+  "category": "civil/general-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "3",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "1.2",
+  "source_line": "3.三、四级公路铺筑沥青混凝土或水泥混凝土路面时路基压实度应采用二级公路标准。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-06a75ca21ccc44ec",
+  "candidate_id": "cand-a588ad1b59ba",
+  "source_std_code": "JTG-F80-1-2017",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:c53783a9f4d4cddd69fa140c719fe25ceea80e91b03ae7b9b4f3514af8d61ced"
+}

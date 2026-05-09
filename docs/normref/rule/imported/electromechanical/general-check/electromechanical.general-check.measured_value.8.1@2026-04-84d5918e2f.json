@@ -1,0 +1,20 @@
+{
+  "rule_id": "electromechanical.general-check.measured_value.8.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/electromechanical/general-check/measured_value@2026-04",
+  "category": "electromechanical/general-check",
+  "field_key": "measured_value",
+  "operator": "tolerance",
+  "threshold_value": "700",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "8.1",
+  "source_line": "(700±30）mV",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-11c05a464c894fef",
+  "candidate_id": "cand-8e6e95f5e6e2",
+  "source_std_code": "JTG-2182-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:84d5918e2f4c9c2b8ecbcaeec0bde17660d3661b0b2dff979359de9a61c275ed"
+}

@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.4.17.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "gte",
+  "threshold_value": "4",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "4.17.1",
+  "source_line": "4 注浆锚杆的灌浆强度应不小于设计和规范要求，锚杆孔内灌浆应密实、饱满。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-a07a34c59487",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:88e485a191f48d863181ec36be6d92b43981b56b17c97e5cbcbe1ebc2000624e"
+}

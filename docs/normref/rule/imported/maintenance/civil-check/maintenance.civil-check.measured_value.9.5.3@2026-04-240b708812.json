@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.9.5.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "99",
+  "unit": "%",
+  "severity": "mandatory",
+  "norm_ref": "9.5.3",
+  "source_line": "采用的保证率：高速公路、一级公路的基层、底基层为 99%，路基、",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-058a6735b814",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:240b70881268f6e6826d0050ad1cfec187dc718004675839e3d9c9052fce26bf"
+}

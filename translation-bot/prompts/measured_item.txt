@@ -1,0 +1,17 @@
+Extract measured-item definition from a standards clause.
+
+Return JSON:
+{
+  "name": "item name",
+  "field_key": "normalized_field_key",
+  "definition": "short definition",
+  "standard_value": "threshold value",
+  "tolerance": "tolerance or range",
+  "test_method": "method id if available",
+  "frequency": "inspection frequency",
+  "operator": "gte/lte/gt/lt/range/eq",
+  "unit": "%",
+  "parameters": [
+    {"name": "field_key", "unit": "%", "required": true}
+  ]
+}

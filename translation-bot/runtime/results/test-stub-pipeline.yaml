@@ -1,0 +1,73 @@
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.4.2.1.measured_value
+type: measured_item
+version: '2026-04-21T07:46:07Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: 4.2.1
+  definition: ???????95%
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: NormRef Translation Bot MVP
+  last_updated: '2026-04-21T07:46:07Z'
+  confidence: 0.72
+  patchable: true
+  human_review_required: true
+  source_clause_title: ???

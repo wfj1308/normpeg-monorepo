@@ -1,0 +1,109 @@
+﻿{
+  "CommonStructure": {
+    "test_method": {
+      "ref": "string",
+      "alternatives": ["string"],
+      "auto_select": "string"
+    },
+    "calculation": {
+      "ref": "string",
+      "representative_value": "string",
+      "pass_criteria": "string"
+    },
+    "construction_control": {
+      "ref": "string",
+      "note": "string"
+    }
+  },
+  "Links": [
+    {
+      "link_id": "link_compaction",
+      "item_id": "compaction",
+      "form_type": "T0921-2019",
+      "target_clause": "JTG_F80_1_2017.4.2.1",
+      "linked_clauses": [
+        "JTG_3450_2019.T0921",
+        "JTG_F80_1_2017.Appendix_B",
+        "JTG_T_F20_2015.4.3"
+      ],
+      "affected_forms": [
+        "T0921-2019"
+      ],
+      "test_method": {
+        "ref": "JTG_3450_2019.T0921",
+        "alternatives": [
+          "JTG_3450_2019.T0923",
+          "JTG_3450_2019.T0924"
+        ],
+        "auto_select": "select by filler_type and layer_position"
+      },
+      "calculation": {
+        "ref": "JTG_F80_1_2017.Appendix_B",
+        "representative_value": "t_distribution_95",
+        "pass_criteria": "representative >= standard AND single >= standard - 2"
+      },
+      "construction_control": {
+        "ref": "JTG_T_F20_2015.4.3",
+        "note": "auxiliary trace data"
+      }
+    },
+    {
+      "link_id": "link_flatness",
+      "item_id": "flatness",
+      "form_type": "T0931-2019",
+      "target_clause": "JTG_F80_1_2017.7.3.1",
+      "linked_clauses": [
+        "JTG_3450_2019.T0931",
+        "JTG_F80_1_2017.7.3.1",
+        "JTG_T_F20_2015.6.2"
+      ],
+      "affected_forms": [
+        "T0931-2019"
+      ],
+      "test_method": {
+        "ref": "JTG_3450_2019.T0931",
+        "alternatives": [],
+        "auto_select": "select by instrument capability"
+      },
+      "calculation": {
+        "ref": "JTG_F80_1_2017.7.3.1",
+        "representative_value": "IRI_rep_upper_95",
+        "pass_criteria": "IRI_rep <= designIRI AND qualifiedRate >= 90"
+      },
+      "construction_control": {
+        "ref": "JTG_T_F20_2015.6.2",
+        "note": "auxiliary trace data"
+      }
+    },
+    {
+      "link_id": "link_deflection",
+      "item_id": "deflection",
+      "form_type": "T0951-2008",
+      "target_clause": "JTG_F80_1_2017.4.2.2",
+      "linked_clauses": [
+        "JTG_3450_2019.T0951",
+        "JTG_F80_1_2017.4.2.2",
+        "JTG_T_F20_2015.5.4"
+      ],
+      "affected_forms": [
+        "T0951-2008"
+      ],
+      "test_method": {
+        "ref": "JTG_3450_2019.T0951",
+        "alternatives": [
+          "automatic_deflectometer"
+        ],
+        "auto_select": "select by device availability and project test plan"
+      },
+      "calculation": {
+        "ref": "JTG_F80_1_2017.4.2.2",
+        "representative_value": "t_distribution_95_upper",
+        "pass_criteria": "representative_deflection <= design_deflection AND single <= design_deflection * 1.2"
+      },
+      "construction_control": {
+        "ref": "JTG_T_F20_2015.5.4",
+        "note": "auxiliary trace data"
+      }
+    }
+  ]
+}

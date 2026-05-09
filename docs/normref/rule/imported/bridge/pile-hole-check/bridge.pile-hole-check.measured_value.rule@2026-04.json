@@ -1,0 +1,20 @@
+{
+  "rule_id": "bridge.pile-hole-check.measured_value.rule",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/bridge/pile-hole-check/measured_value@2026-04",
+  "category": "bridge/pile-hole-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "2026~04",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "",
+  "source_line": "- `v://normref.com/rule/bridge/pile-hole-check/hole-diameter-tolerance@2026-04`",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-dd714974e5d74843",
+  "candidate_id": "cand-6d7d4a6d9d09",
+  "source_std_code": "JTG-F80-1-2017",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:5202c37a36f2bf42f6a1145ac5a0a0275ca2b489ecae5f83a109da5e5fb7a46d"
+}

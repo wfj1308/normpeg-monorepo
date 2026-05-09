@@ -1,0 +1,291 @@
+{
+  "schema_uri": "v://normref.com/schema/normdoc-v1",
+  "version": "v1",
+  "header": {
+    "standard_id": "JTG 3450-2019",
+    "version": "2019",
+    "replaces": "JTG 3450-2008",
+    "issuer": "Ministry of Transport",
+    "effective_date": "2019-05-01",
+    "scope": "Highway compaction inspection record",
+    "language": "zh-CN",
+    "jurisdiction": "CN-MOT",
+    "source_uri": "local://JTG-3450-2019-T0921.pdf",
+    "source_hash": "sha256:t0921-sample"
+  },
+  "body": {
+    "chapters": {
+      "terms_stream": [
+        {
+          "term": "compaction degree",
+          "definition": "dry_density / max_dry_density * 100"
+        }
+      ],
+      "general_rules": [
+        {
+          "clause_id": "clause.t0921.1",
+          "title": "Sampling rule",
+          "text": "Sampling and recording follow T0921."
+        }
+      ],
+      "work_items": [
+        {
+          "work_item_id": "work-item.t0921.compaction",
+          "name": "Roadbed compaction",
+          "basic_requirements": [
+            {
+              "clause_id": "clause.t0921.1.1",
+              "title": "Basic requirement",
+              "text": "Compaction must satisfy standard threshold."
+            }
+          ],
+          "measured_items": [
+            {
+              "item_id": "item.t0921.compaction_degree",
+              "check_item": "compaction_degree",
+              "required_value": 95,
+              "tolerance": 0,
+              "check_method": "sand replacement method",
+              "unit": "%",
+              "severity": "mandatory"
+            }
+          ],
+          "visual_inspection": [],
+          "documentation": []
+        }
+      ],
+      "evaluation_methods": [
+        {
+          "clause_id": "clause.t0921.eval",
+          "title": "Evaluation",
+          "text": "Use threshold comparison for entry-level validation."
+        }
+      ]
+    },
+    "tables": {
+      "inspection_record_tables": [
+        {
+          "table_id": "table.t0921",
+          "title": "Compaction inspection record (T0921)",
+          "external_form_type": "T0921-2019",
+          "meta": {
+            "form_type": "T0921-2019",
+            "aliases": [
+              "T0921",
+              "T0921_2019"
+            ]
+          },
+          "fields": [
+            {
+              "field_id": "table.t0921.field.section",
+              "name": "section",
+              "data_type": "string",
+              "required": false
+            },
+            {
+              "field_id": "table.t0921.field.compaction_degree",
+              "name": "compaction_degree",
+              "data_type": "number",
+              "required": true,
+              "unit": "%",
+              "precision": 1
+            },
+            {
+              "field_id": "table.t0921.field.layer_zone",
+              "name": "layer_zone",
+              "data_type": "string",
+              "required": true
+            },
+            {
+              "field_id": "table.t0921.field.filler_type",
+              "name": "filler_type",
+              "data_type": "string",
+              "required": false
+            }
+          ]
+        }
+      ],
+      "evaluation_tables": [],
+      "summary_tables": []
+    },
+    "formulas": {
+      "representative_value_formula": [],
+      "pass_rate_formula": [],
+      "score_formula": []
+    },
+    "ref_dictionary": {
+      "outbound_refs": [
+        {
+          "ref_id": "ref.jtg-f80-1-2017.4.2.1",
+          "target": "JTG F80/1-2017 4.2.1",
+          "kind": "normative_reference"
+        },
+        {
+          "ref_id": "ref.jtg-3450-2019.t0921",
+          "target": "JTG 3450-2019 T0921",
+          "kind": "test_method"
+        },
+        {
+          "ref_id": "ref.jtg-t-f20-2015.4.3",
+          "target": "JTG/T F20-2015 4.3",
+          "kind": "construction_control"
+        }
+      ],
+      "inbound_refs": [],
+      "patch_refs": []
+    },
+    "cross_spec_refs": [
+      {
+        "clause_id": "clause_4_2_1",
+        "id": "compaction_degree",
+        "type": "critical_measured_item",
+        "applies_to_form_types": [
+          "T0921-2019"
+        ],
+        "test_method": {
+          "ref": "JTG_3450_2019.T0921",
+          "alternatives": [
+            "JTG_3450_2019.T0923",
+            "JTG_3450_2019.T0924"
+          ],
+          "auto_select": "based on filler_type and layer_zone",
+          "selection_rules": [
+            {
+              "when": {
+                "layer_zone": [
+                  "96区",
+                  "94区"
+                ]
+              },
+              "use": "JTG_3450_2019.T0921"
+            },
+            {
+              "when": {
+                "layer_zone": [
+                  "92区"
+                ]
+              },
+              "use": "JTG_3450_2019.T0923"
+            }
+          ]
+        },
+        "calculation": {
+          "ref": "JTG_F80_1_2017.Appendix_B",
+          "representative_value": "t_distribution_95",
+          "pass_criteria": "representative >= standard AND single >= standard - 2"
+        },
+        "construction_control": {
+          "ref": "JTG_T_F20_2015.4.3",
+          "note": "construction params are for traceability only"
+        }
+      }
+    ]
+  },
+  "gate": {
+    "clause_xref_table": [
+      {
+        "clause_id": "table.t0921",
+        "offset_key": "0289",
+        "object_type": "Table",
+        "generation": 0,
+        "in_use": true
+      },
+      {
+        "clause_id": "rule.t0921.compaction.single_min",
+        "offset_key": "0523",
+        "object_type": "Rule",
+        "generation": 0,
+        "in_use": true
+      }
+    ],
+    "table_rule_tree": [
+      {
+        "table_id": "table.t0921",
+        "field_rules": [
+          {
+            "rule_id": "rule.t0921.compaction.single_min",
+            "field_id": "table.t0921.field.compaction_degree",
+            "operator": "gte",
+            "value_expr": "standard_minus_2",
+            "default_standard": 95,
+            "severity": "mandatory",
+            "action": "BLOCK_SUBMIT",
+            "error_message": "Compaction is below the single-point lower bound (standard - 2)."
+          },
+          {
+            "rule_id": "rule.t0921.layer_zone.in",
+            "field_id": "table.t0921.field.layer_zone",
+            "operator": "in",
+            "value": [
+              "96区",
+              "94区",
+              "92区"
+            ],
+            "severity": "warning",
+            "action": "FLAG_REVIEW",
+            "error_message": "Layer zone is not in the expected zone list."
+          }
+        ]
+      }
+    ],
+    "dependency_graph": {
+      "nodes": [
+        {
+          "id": "table.t0921.field.compaction_degree",
+          "node_type": "field"
+        },
+        {
+          "id": "rule.t0921.compaction.single_min",
+          "node_type": "rule"
+        },
+        {
+          "id": "clause_4_2_1",
+          "node_type": "clause"
+        }
+      ],
+      "edges": [
+        {
+          "from": "table.t0921.field.compaction_degree",
+          "to": "rule.t0921.compaction.single_min",
+          "relation": "evaluates"
+        },
+        {
+          "from": "clause_4_2_1",
+          "to": "rule.t0921.compaction.single_min",
+          "relation": "cross_spec_binding"
+        }
+      ]
+    },
+    "diff_xref": []
+  },
+  "trailer": {
+    "root": "normdoc.root.t0921",
+    "info": {
+      "chief_editor_org": "Highway Standards Committee",
+      "contributors": [
+        "NormDoc Team"
+      ],
+      "revision_history": [
+        {
+          "version": "2019",
+          "date": "2019-05-01",
+          "summary": "Initial release for T0921."
+        }
+      ]
+    },
+    "prev": null
+  },
+  "incremental_updates": {
+    "patches": [],
+    "errata_stream": [],
+    "project_overrides": []
+  },
+  "term_cmap": [
+    {
+      "source_term": "压实度",
+      "standard_term": "compaction degree",
+      "standard_code": "term.compaction_degree",
+      "confidence": 1.0
+    }
+  ]
+}

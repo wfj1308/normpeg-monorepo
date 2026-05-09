@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.5.12.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "500",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "5.12.2",
+  "source_line": "钢直尺：每 500m2 抽检 1 条槽，每条",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-fe5711ac16f8",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:189c0f48bbaf049fea7515d682ddce11f6eb2ee742e7456eebfc85dd35cd1821"
+}

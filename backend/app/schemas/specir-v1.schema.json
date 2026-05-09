@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://normpeg.local/schemas/specir-v1.schema.json",
+  "title": "SpecIR v1 Schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "specir_id",
+    "norm_id",
+    "norm_version",
+    "normRef",
+    "source",
+    "semantic",
+    "body",
+    "cal",
+    "gate",
+    "evidence",
+    "status",
+    "quality"
+  ],
+  "properties": {
+    "specir_id": { "type": "string", "minLength": 1 },
+    "norm_id": { "type": "string", "minLength": 1 },
+    "norm_version": { "type": "string", "minLength": 1 },
+    "normRef": { "type": "string", "minLength": 1 },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["document_ir_block_ids", "source_text", "page_no", "bbox"],
+      "properties": {
+        "document_ir_block_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "source_text": { "type": "string" },
+        "page_no": { "type": "integer", "minimum": 1 },
+        "bbox": { "$ref": "#/$defs/bbox" }
+      }
+    },
+    "semantic": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "subject", "action", "condition", "scope"],
+      "properties": {
+        "title": { "type": "string" },
+        "subject": { "type": "string" },
+        "action": { "type": "string" },
+        "condition": { "type": "string" },
+        "scope": { "type": "string" }
+      }
+    },
+    "body": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["slots"],
+      "properties": {
+        "slots": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/slot" }
+        }
+      }
+    },
+    "cal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "formula", "inputs", "output"],
+      "properties": {
+        "type": { "type": "string", "enum": ["direct", "formula", "lookup", "none"] },
+        "formula": { "type": "string" },
+        "inputs": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "output": { "type": "string" }
+      }
+    },
+    "gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "operator", "threshold", "unit", "decision_logic", "on_fail"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["min", "max", "range", "enum", "exists", "compound", "none"]
+        },
+        "operator": { "type": "string" },
+        "threshold": {
+          "oneOf": [
+            { "type": "number" },
+            { "type": "string" },
+            { "type": "array", "items": { "type": ["number", "string"] } },
+            { "type": "object", "additionalProperties": true },
+            { "type": "null" }
+          ]
+        },
+        "unit": { "type": "string" },
+        "decision_logic": { "type": "string" },
+        "on_fail": { "type": "string" }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_text", "normRef", "page_no", "block_ids"],
+      "properties": {
+        "source_text": { "type": "string" },
+        "normRef": { "type": "string", "minLength": 1 },
+        "page_no": { "type": "integer", "minimum": 1 },
+        "block_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "reviewing", "approved", "rejected", "published"]
+    },
+    "quality": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["confidence", "unresolved", "unresolved_reason"],
+      "properties": {
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "unresolved": { "type": "boolean" },
+        "unresolved_reason": { "type": "string" }
+      }
+    },
+    "derivation_policy": {
+      "const": "Rule/Gate must be derived from SpecIR only"
+    }
+  },
+  "$defs": {
+    "bbox": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["x0", "y0", "x1", "y1"],
+      "properties": {
+        "x0": { "type": "number" },
+        "y0": { "type": "number" },
+        "x1": { "type": "number" },
+        "y1": { "type": "number" }
+      }
+    },
+    "slot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["key", "label", "type", "unit", "required"],
+      "properties": {
+        "key": { "type": "string", "minLength": 1 },
+        "label": { "type": "string", "minLength": 1 },
+        "type": { "type": "string", "minLength": 1 },
+        "unit": { "type": "string" },
+        "required": { "type": "boolean" }
+      }
+    }
+  }
+}

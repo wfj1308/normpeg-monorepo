@@ -1,0 +1,119 @@
+{
+  "bundleId": "highway.bridge.pile@v1",
+  "bundleVersion": "v1",
+  "formCode": "bridge_shi_9",
+  "formName": "桩基成桩检查表",
+  "dtoType": "pile",
+  "stage": "pile_completion_acceptance",
+  "rules": [
+    {
+      "ruleId": "bridge_shi_9.pile_integrity_grade.required",
+      "fieldKeys": [
+        "pile_integrity_grade"
+      ],
+      "gateType": "presence",
+      "severity": "blocking",
+      "expression": "pile_integrity_grade is not null",
+      "unit": null,
+      "basis": {
+        "standardCode": "JTG/T3650-2020",
+        "standardName": "??????????",
+        "clause": "??9?",
+        "basisText": "??????????????"
+      },
+      "message": "???????????",
+      "unresolved": false
+    },
+    {
+      "ruleId": "bridge_shi_9.pile_top_elevation.required",
+      "fieldKeys": [
+        "pile_top_elevation_m"
+      ],
+      "gateType": "presence",
+      "severity": "blocking",
+      "expression": "pile_top_elevation_m is not null",
+      "unit": "m",
+      "basis": {
+        "standardCode": "JTG/T3650-2020",
+        "standardName": "??????????",
+        "clause": "??9?",
+        "basisText": "???????????"
+      },
+      "message": "????????",
+      "unresolved": false
+    },
+    {
+      "ruleId": "bridge_shi_9.pile_top_elevation.deviation_max",
+      "fieldKeys": [
+        "pile_top_elevation_m",
+        "design_pile_top_elevation_m"
+      ],
+      "gateType": "threshold",
+      "severity": "blocking",
+      "expression": "abs(pile_top_elevation_m - design_pile_top_elevation_m) <= max_pile_top_elevation_deviation_m",
+      "unit": "m",
+      "basis": {
+        "standardCode": "JTG/T3650-2020",
+        "standardName": "??????????",
+        "clause": "????",
+        "basisText": "????????????"
+      },
+      "message": "??????????????",
+      "unresolved": true
+    },
+    {
+      "ruleId": "bridge_shi_9.pile_integrity_grade.min_level",
+      "fieldKeys": [
+        "pile_integrity_grade"
+      ],
+      "gateType": "enum_compare",
+      "severity": "blocking",
+      "expression": "pile_integrity_grade in allowed_integrity_grades",
+      "unit": null,
+      "basis": {
+        "standardCode": "JTG/T3650-2020",
+        "standardName": "??????????",
+        "clause": "????",
+        "basisText": "????????????"
+      },
+      "message": "??????????????",
+      "unresolved": true
+    }
+  ],
+  "fieldRuleMap": [
+    {
+      "fieldKey": "pile_integrity_grade",
+      "fieldName": "???????",
+      "gateRequired": true,
+      "ruleIds": [
+        "bridge_shi_9.pile_integrity_grade.required",
+        "bridge_shi_9.pile_integrity_grade.min_level"
+      ],
+      "valueSource": "manual"
+    },
+    {
+      "fieldKey": "pile_top_elevation_m",
+      "fieldName": "????",
+      "gateRequired": true,
+      "ruleIds": [
+        "bridge_shi_9.pile_top_elevation.required",
+        "bridge_shi_9.pile_top_elevation.deviation_max"
+      ],
+      "valueSource": "manual"
+    },
+    {
+      "fieldKey": "design_pile_top_elevation_m",
+      "fieldName": "??????",
+      "gateRequired": true,
+      "valueSource": "source_form"
+    }
+  ],
+  "metadata": {
+    "sourceDocument": "1、桩基(1).docx",
+    "sourcePath": "c:\\Users\\xm_91\\Desktop\\1、桩基(1).docx",
+    "autogen": true,
+    "status": "draft_partially_executable",
+    "notes": "??9??????????????????????????? unresolved?",
+    "encoding": "utf-8"
+  }
+}

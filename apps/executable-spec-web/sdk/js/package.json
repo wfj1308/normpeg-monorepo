@@ -1,0 +1,7 @@
+{
+  "name": "normpeg-public-sdk",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./normpeg-sdk.js"
+}

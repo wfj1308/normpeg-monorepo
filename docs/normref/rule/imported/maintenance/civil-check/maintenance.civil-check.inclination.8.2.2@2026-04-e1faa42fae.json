@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.inclination.8.2.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/inclination@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "inclination",
+  "operator": "eq",
+  "threshold_value": "4",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "8.2.2",
+  "source_line": "注：项次4中，单悬臂式支撑结构不得向悬臂一侧倾斜。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-2f4858d6bc30",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:e1faa42faecee63d48b07e78f9466595168ef215de55977326ea61c9ac938748"
+}

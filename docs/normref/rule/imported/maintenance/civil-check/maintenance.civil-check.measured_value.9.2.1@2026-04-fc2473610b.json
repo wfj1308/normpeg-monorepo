@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.9.2.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "5000",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "9.2.1",
+  "source_line": "栽植土壤理化指标是影响植物生长的重要因素，绿化面积为 5000 m2以上或采用",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-f7ca21761f17",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:fc2473610bce78aa3d17d26c8617a35e6132e80397a3049a8076dc3fc8d2693b"
+}

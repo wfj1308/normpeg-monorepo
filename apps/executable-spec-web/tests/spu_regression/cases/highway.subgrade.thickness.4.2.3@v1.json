@@ -1,0 +1,113 @@
+{
+  "spuId": "highway.subgrade.thickness.4.2.3@v1",
+  "passCases": [
+    {
+      "caseId": "thickness_pass_typical",
+      "title": "measured thickness above design should pass",
+      "inputs": {
+        "measuredThickness": 210,
+        "designThickness": 200
+      },
+      "expected": {
+        "status": "PASS",
+        "result": {
+          "outcome": "PASS",
+          "gateStatus": "PASS",
+          "passed": true
+        },
+        "explanationIncludes": [
+          "Gate evaluation passed"
+        ],
+        "matchedRules": [
+          {
+            "ruleId": "RULE-THICKNESS-001",
+            "passed": true
+          }
+        ],
+        "outputChecks": [
+          {
+            "field": "thicknessValue",
+            "operator": "gte",
+            "value": 200
+          }
+        ]
+      }
+    }
+  ],
+  "failCases": [
+    {
+      "caseId": "thickness_fail_below_design",
+      "title": "measured thickness below design should fail",
+      "inputs": {
+        "measuredThickness": 198,
+        "designThickness": 200
+      },
+      "expected": {
+        "status": "FAIL",
+        "result": {
+          "outcome": "FAIL",
+          "gateStatus": "FAIL",
+          "passed": false
+        },
+        "explanationIncludes": [
+          "Gate evaluation failed",
+          "RULE-THICKNESS-001"
+        ],
+        "matchedRules": [
+          {
+            "ruleId": "RULE-THICKNESS-001",
+            "passed": false
+          }
+        ],
+        "outputChecks": [
+          {
+            "field": "thicknessValue",
+            "operator": "lte",
+            "value": 199.999999
+          }
+        ]
+      }
+    }
+  ],
+  "boundaryCases": [
+    {
+      "caseId": "thickness_boundary_equal_design",
+      "title": "measured thickness equal to design should pass",
+      "inputs": {
+        "measuredThickness": 200,
+        "designThickness": 200
+      },
+      "expected": {
+        "status": "PASS",
+        "result": {
+          "outcome": "PASS",
+          "gateStatus": "PASS",
+          "passed": true
+        },
+        "explanationIncludes": [
+          "Gate evaluation passed"
+        ],
+        "matchedRules": [
+          {
+            "ruleId": "RULE-THICKNESS-001",
+            "passed": true
+          }
+        ],
+        "outputChecks": [
+          {
+            "field": "thicknessValue",
+            "operator": "approx",
+            "value": 200,
+            "tolerance": 0.000001
+          },
+          {
+            "field": "thicknessRatio",
+            "operator": "approx",
+            "value": 100,
+            "tolerance": 0.000001
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "rule_id": "civil.general-check.measured_value.4.2.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/civil/general-check/measured_value@2026-04",
+  "category": "civil/general-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "2",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "4.2.3",
+  "source_line": "2路基边坡、护坡道、碎落台不得有滑坡、塌方或深度超过100mm的冲沟。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-06a75ca21ccc44ec",
+  "candidate_id": "cand-1f1269878dd1",
+  "source_std_code": "JTG-F80-1-2017",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:ab28f9ca042cd9ce59846352cbf8af7d4073f2cdad768afa630c1bda0e27291d"
+}

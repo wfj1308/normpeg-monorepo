@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.elevation.4.5.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/elevation@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "elevation",
+  "operator": "tolerance",
+  "threshold_value": "6",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "4.5.2",
+  "source_line": "6△ 进出水口管内底高程(mm) ±10 水准仪：每井测两侧进出水口",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-a9a243dd80f5",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:a5539b494945fe662c129ea3fa1364d83b35d1a216542b3cd9d58fbb90f85ef5"
+}

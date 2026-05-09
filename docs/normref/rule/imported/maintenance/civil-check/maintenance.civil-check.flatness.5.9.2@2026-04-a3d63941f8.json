@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.flatness.5.9.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/flatness@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "flatness",
+  "operator": "lte",
+  "threshold_value": "1.32",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "5.9.2",
+  "source_line": "σ (mm) ≤1.32 ≤2.0 平整度仪：全程每车道施工段连续，按每100m",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-74f62c418704",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:a3d63941f870044bc399b74eb07b079745a902755fc48b2edb65329ba4b74e70"
+}

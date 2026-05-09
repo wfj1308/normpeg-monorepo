@@ -1,0 +1,1336 @@
+
+===== docs/architecture/architecture-blueprint.md =====
+FIRST: ﻿# 架构蓝图（当前主线）
+## 1. 总体分层
+  - `apps/web`: 展示层 + 页面编排层（React）
+  - `services/api`: 接口层 + 业务应用层（FastAPI）
+  - `packages/*`: 共享类型与通用能力（types/sdk/proof/db）
+## 2. 前端结构约定（apps/web）
+## 3. 后端结构约定（services/api）
+## 4. 工程护栏
+## 5. 当前主要风险（需持续治理）
+  - `apps/web/src/hooks/useApi.ts` 仍偏大（建议按 domain 拆 API client）
+  - 若干后端 service 文件仍较长（建议继续拆 repository/adapter）
+  - 测试目前以 typecheck 为主，业务回归覆盖不足
+## 6. 变更准入清单
+  新增功能前必须确认：
+  1. 新逻辑放在正确层级（component vs flow/controller vs service）
+  2. 不新增跨层耦合（UI 直接调底层、router 写重业务）
+
+===== docs/architecture/docpeg-core-concepts-and-flow.md =====
+FIRST: # DocPeg 核心概念与流程总览（统一口径）
+## 1. 目的与范围
+  本文只使用以下术语体系，统一解释它们：
+  - v://（主权寻址）
+  - NormRef
+## 2. 概念定义（最短可用版）
+  | 概念 | 定义 | 主要作用 |
+  |---|---|---|
+  | v://（主权寻址） | 全链路统一寻址协议，为对象与关系提供唯一 URI | 保证跨模块可定位、可引用、可追溯 |
+## 3. 主链关系（统一视图）
+  ```text
+  [v://寻址层：贯穿全链路对象与关系]
+  NormRef -> SpecIR -> SPU -> BOQ/BOM -> SKU -> UTXO -> ComponentUTXO
+## 4. 端到端流程（按执行顺序）
+## 5. 关键关系说明（最容易混淆）
+## 6. 每个模块的输入与输出（落地视角）
+  | 模块 | 关键输入 | 关键输出 |
+  |---|---|---|
+  | NormRef | 规范条文 | 条文规则引用 |
+## 7. 业务闭环检查清单（最小闭环）
+  满足以下 8 条，可认为链路跑通：
+  1. NormRef 规则可被 SpecIR 编译并被 Gate 调用
+  2. SPU、BOQ、BOM 三者映射一致
+## 8. 一句话总括
+  ---
+## 9. DocPeg 七模块架构（补充）
+  DocPeg =
+  LayerPeg（五层主权文档执行协议）
+  + TripRole（执行角色系统）
+## 10. LayerPeg Protocol v1.0
+
+===== docs/architecture/normpeg-boq-docpeg-workflow.md =====
+FIRST: ﻿# NormPeg + BOQ + DocPeg Workflow
+## 1) BOQ Import and UTXO Initialization
+  Script: `tools/normpeg/boq_to_utxo_init.py`
+  ```bash
+  python tools/normpeg/boq_to_utxo_init.py \
+## 2) NormPeg Dynamic Routing
+  Core module: `services/api/normpeg_engine.py`
+  Core function:
+  - `NormPegEngine.get_threshold(spec_uri, context)`
+## 3) TripRole Lifecycle + Gate Locking
+  Core service: `services/api/triprole_engine.py`
+  - `execute_triprole_action(...)`
+  - `aggregate_provenance_chain(utxo_id, sb)`
+## 4) Proof Chain Aggregation + DocPeg Rendering
+  Core module: `services/api/docpeg_proof_chain_service.py`
+  - `get_proof_chain(boq_item_uri, sb)`
+  - `build_rebar_report_context(...)`
+## 5) Template Tags (rebar_inspection_table.docx)
+  Recommended tags:
+  - `{{ project_name }}`
+  - `{{ project_uri }}`
+## 6) Norm Dictionary SQL
+  Migration file:
+  - `infra/supabase/012_normpeg_dictionary.sql`
+  It creates `norm_entries` table and seeds `v://norm/GB50204@2015/5.3.2` with context-aware `diameter_tolerance`.
+## 7) Provenance Chain Requirements
+  Generated DSP zip includes:
+  - `provenance_chain.json` (full chain nodes + aggregated `v://` references)
+  - `proof_chain.json` (raw chain rows)
+## 8) BOQ Progress Payment + Sovereign Audit
+  Payment certificate API:
+  - `POST /v1/proof/payment/certificate/generate`
+  Request body:
+## 9) Master DSP Final Delivery
+  Final delivery endpoint:
+  - `POST /v1/proof/docfinal/finalize`
+  Adds batch anchor rounds after export and returns:
+## 10) Spatial Twin + AI Governance + Finance
+  Spatial binding APIs:
+  - `POST /v1/proof/spatial/bind`
+  - `GET /v1/proof/spatial/dashboard?project_uri=...`
+## 11) RWA Tokenization + Sovereign O&M + Norm Evolution
+  RWA tokenization API:
+  - `POST /v1/proof/rwa/convert`
+  Request body:
+## 12) Subitem-Gate Binding + Chain Write-back + Multi-dimensional Aggregation
+  Subitem-Gate binding:
+  - BOQ initialization now injects:
+  - `linked_gate_id`
+
+===== docs/architecture/proof-utxo-rollout.md =====
+FIRST: # Proof-UTXO Rollout
+## 1) Apply migration
+  Run:
+  ```sql
+  -- infra/supabase/009_proof_utxo_engine.sql
+## 2) Runtime switches
+  Environment variables:
+  - `PROOF_UTXO_AUTO_CONSUME=true`
+  - `PROOF_UTXO_GITPEG_ANCHOR_ENABLED=true|false`
+## 3) API endpoints
+  - `GET /v1/proof/utxo/unspent`
+  - `POST /v1/proof/utxo/create`
+  - `POST /v1/proof/utxo/consume`
+## 4) Manual API verification
+  Verify the end-to-end flow with APIs:
+  1. Create a LAB UTXO by calling `POST /v1/proof/utxo/create` with `proof_type=lab`.
+  2. Submit an inspection by calling `POST /v1/inspections/` (or create inspection UTXO directly with `proof_type=inspection`).
+
+===== docs/architecture/rebar-live-closure-e2e.md =====
+FIRST: # Rebar 活表闭环验收
+## 脚本路径
+  - `tools/acceptance/rebar_live_closure_e2e.py`
+## 作用范围
+  - 前端录入字段对应的后端入参：`design/limit/values`
+  - 后端自动判定：`result_source`
+  - Proof UTXO 主权字段：`ordosign_hash/executor_uri/proof_hash/gitpeg_anchor/v_uri/project_uri/segment_uri`
+## 运行命令
+  ```bash
+  python tools/acceptance/rebar_live_closure_e2e.py \
+  --api-base http://localhost:8000 \
+## 成功标志
+  - 输出包含 `[DONE] rebar live-table closure e2e passed`
+  - 输出包含 `[SUMMARY] ...`，可见 inspection/report 的 `proof_id`
+
+===== docs/architecture/release-acceptance-engineering-standard.md =====
+FIRST: # 上线验收工程标准
+## 1. 目标
+  本文档定义上线级交付的工程与验收标准。
+  适用于前端与后端开发，且对新功能、重构、缺陷修复均为强制要求。
+  目标：
+## 2. 适用范围
+  - 前端：`apps/web/**`
+  - 后端：`services/api/**`
+  - 共享包与契约：`packages/**`
+## 3. 不可妥协的完成定义（DoD）
+  仅当以下全部成立时，任务才可视为“完成”：
+  - 代码符合项目规范并通过静态检查。
+  - 架构保持模块化，不新增巨型“上帝文件/上帝组件”。
+## 4. 工程原则（前后端统一）
+  - 单一职责：一个模块只解决一个明确问题。
+  - 边界稳定：领域逻辑、编排逻辑、IO/UI 关注点要分离。
+  - 契约明确：跨模块交互必须有类型化接口。
+## 5. 前端实现标准
+## 6. 后端实现标准
+## 7. Code Review 门禁（强制）
+  评审未确认以下全部项前，PR 不得合并：
+  - 架构：模块边界清晰且未退化。
+  - 可读性：无需依赖“口口相传”即可理解。
+## 8. 上线验收清单
+  生产发布前必须按以下清单执行：
+## 9. 重构专项要求
+  - 重构默认必须保持行为一致，除非变更已明确审批。
+  - 必须补充重构前后说明：范围、风险点、验证证据。
+  - 大文件优先按职责拆分，再做内部优化。
+## 10. 文档要求
+  每个影响生产的变更都必须包含：
+  - 改了什么（高层结果）。
+  - 为什么改（解决的问题/风险）。
+## 11. PR 必需验收证据
+  PR 描述至少应包含：
+  - 变更摘要（前端/后端/共享层）。
+  - 验证命令与结果。
+## 12. 推荐命令基线
+  可随仓库演进调整，但基线应至少包含：
+  ```bash
+  npm --workspace @qcspec/web run lint
+## 13. 执行与豁免
+  - 本标准是默认上线验收基线。
+  - 任何例外必须在 PR 中明确说明，并由指定评审/负责人批准。
+  - 重复违反必须有整改动作：方案、责任人、截止日期。
+
+===== docs/architecture/v-executor-protocol-foundation.md =====
+FIRST: ﻿# v:// 执行体注册与调度底层逻辑（SAN / GitPeg / TripRole）
+## 1. 文档目的
+  本文件统一定义系统底层逻辑：
+  - `v://` 的本质不是普通地址系统，而是**执行体主权注册系统**。
+  - 系统的核心对象是“可承担责任并可被调度的执行体容器”。
+## 2. 一句话定义
+  `v:// 是物理世界执行体的注册与寻址系统。`
+  凡是能执行动作、能承担责任、能产生结果的主体（人、机构、AI、项目、规范协议），都可以注册为执行体，获得 `v://` 主权地址，进入 SAN 网络。
+  ---
+## 3. 关键术语与角色
+## 3.1 执行体（Executor）
+  表示“谁在执行、是否有资格执行、是否有能力承接执行”。
+  示例：
+  - `v://cn.中北/`（机构执行体）
+## 3.2 DTORole（文档授权角色）
+  表示“执行体在某份文档中的法定/流程职责”。
+  示例：
+  - `doc_id = NINST-90219204`
+## 3.3 TripRole（动作角色）
+  表示“执行体在某次动作中的操作身份与语义”。
+  示例：
+  - `trip_role = supervisor.approve`
+## 4. 三者关系：Executor / DTORole / TripRole
+  执行事实必须三者同时存在：
+  1. `Executor`：证明“是谁做的、有没有资格做”
+  2. `DTORole`：证明“在该文档里是否被授权做”
+## 5. 执行体不是静态身份，而是可调度容器
+  执行体是带状态的容器，不是“只登记一次的身份证”。
+  容器四要素（WHO / CAN / COST / DID）：
+  - `WHO`：我是谁（identity）
+## 6. 执行体容器模型（建议）
+  ```python
+  class Executor(BaseModel):
+  executor_uri: str              # v://cn.中北/executor/zhang-san
+## 7. 协议栈定义（v:// Protocol Stack）
+  | 层级 | 组件 | 作用 |
+  |---|---|---|
+  | 应用层 | `qcspec` / `docfinal` | 质检、归档等业务执行 |
+## 8. 调度模型（ExecutorScheduler）
+  调度目标：在“合法 + 可执行 + 成本可承受”约束下自动分配任务。
+  ```python
+  class ExecutorScheduler:
+## 9. 三层调度范围
+  1. 项目级调度：哪个执行体负责项目/标段
+  2. 文档级调度：哪位执行体负责某份文档审批
+  3. 动作级调度：某次 `approve/reject/sign/submit` 由谁执行
+## 10. 执行闭环（从注册到结算）
+  `注册 -> 验证 -> 授权 -> 执行 -> 存证 -> 结算`
+  1. 注册：执行体在 GitPeg/SAN 注册，获得 `v://executor_uri`
+  2. 验证：通过 Skills 证书与有效期校验
+## 11. Trip 记录作为可验证执行事实
+  ```python
+  class Trip(BaseModel):
+  executor_uri: str
+## 12. 强约束（必须在系统中强制）
+  1. `v://` 代表执行体主键，不等同于普通资源 URL。
+  2. 未注册执行体不得执行 Trip 动作。
+  3. 每次 Trip 必须绑定 `executor_uri + dto_role + trip_role + proof_hash`。
+## 13. 与当前代码主干的映射（现状）
+  以下是当前代码中已存在的关键承载点：
+  - TripRole 执行请求与离线回放：
+  - `services/api/domain/proof/schema_models/execution_models.py`
+## 14. 当前能力边界（架构层面）
+## 15. 落地原则
+  1. 先注册再执行：`register-before-execute`
+  2. 先授权再签名：`authorize-before-sign`
+  3. 先校验后分配：`verify-before-assign`
+## 16. 结语
+  本体系的底层逻辑不是“文档系统”，而是“执行体网络系统”：
+  - `v://` 定义主权执行体
+  - `SAN` 负责注册与调度
+## 17. 成品验收闭环（桥施64表）实现映射
+  成品验收是工序链终点，也是付款与归档触发点：
+  `桥施2 -> 桥施7 -> 桥施11 -> 桥施9 -> 桥施13 -> 桥施64(成品验收) -> FinalProof -> RailPact -> docfinal`
+## 18. 七层落地状态看板（Roadmap）
+  | Layer | 名称 | 载体 | 状态 | 备注 |
+  |---|---|---|---|---|
+  | 1 | normref.com 规范协议注册 | `normref.com` | `LIVE` | 规范协议注册能力在线 |
+## 19. SignPeg 与 CA 的边界（大锦项目）
+  核心原则：`SignPeg 不能替代 CA`。
+  - 现场过程记录：`SignPeg`（速度优先）
+  - 正式归档表格：`法大大 CA`（合规强制）
+
+===== docs/integration/api-integration-checklist.md =====
+FIRST: # QCSpec DocPeg 联调验收清单（以同事 API 文档为准）
+## 1. 单一事实来源
+  - API 文档唯一来源：`docs/qcspec-full-api-pack.md`
+  - Base URL：`https://api.docpeg.cn`
+  - 前端目标：保留现有页面结构，只替换为同事新 API；未提供后端接口的页面允许显示空数据。
+## 2. P0 接口覆盖（代码层）
+  结论：`20 / 20` 已在前端 Hook 层接入（`useQCSpecDocPegApi` 与 `workbenchApi`）。
+  已覆盖 P0：
+  - `POST /projects`
+## 3. 页面级联调状态（按实际触发）
+## 4. 旧后端清理状态（services/api）
+  已收敛为最小后端壳：
+  - 保留：
+  - 认证：`/v1/auth/*`
+## 5. 本轮核查结论
+  - 旧业务后端大模块已清理，剩余后端为必要代理壳。
+  - 新 API 在前端 Hook 层覆盖完整（P0 已全覆盖）。
+  - 页面层仍有少量“占位调用未切换”点（主要在 Proof/Reports），不影响页面保留，但会影响“全部功能都走新 API”的最终目标。
+## 6. 下一步建议（按优先级）
+  1. 将 Reports 页的 Proof 验证按钮改为直接调用 `useQCSpecDocPegApi().verify`。
+  2. 打开 Proof 主面板真实请求（取消 `DOCPEG_ONLY_MODE` 下的 `verify/stats/nodeTree` 空实现分支）。
+  3. 保持 Team/Permissions/Settings 页面结构不变，等待同事 API 到位后逐项替换占位实现。
+
+===== docs/integration/docpeg-api-joint-debug-playbook.md =====
+FIRST: ﻿# DocPeg API 联调执行手册（QCSpec）
+## 1. 目标与范围
+  本联调只聚焦你同事侧已开放的 DocPeg API，目标是打通以下闭环：
+  1. 分项绑定 -> 工序链状态读取
+  2. NormRef 表单：模板读取 -> 草稿保存 -> 草稿提交 -> 已提交回查
+## 2. 联调基础配置
+  - Base URL：`https://api.docpeg.cn`
+  - 鉴权：沿用现网请求头（`Authorization` 或 `x-api-key`）
+  - 核心参数：
+## 3. 联调前置清单（必须先确认）
+  1. 双方统一接口环境：都连 `https://api.docpeg.cn`
+  2. 双方统一鉴权头：确认仅用 `Authorization` 还是同时带 `x-api-key`
+  3. 对方提供至少 3 组联调数据：
+## 4. 分阶段落地方案
+## 5. 风险与防呆策略
+  1. 写接口默认不开启，先跑只读 smoke
+  2. 写接口统一带 `x-trace-id` 和幂等键 `request_id`
+  3. 每次提交后都回查 `status/summary`，防止“写入成功但状态未推进”
+## 6. 交付物（本仓库）
+  1. 联调执行手册（本文）：
+  - `docs/integration/docpeg-api-joint-debug-playbook.md`
+  2. 联调测试用例清单：
+## 7. 每日联调节奏建议
+  1. 09:30 前：双方同步当天样本数据是否有效
+  2. 10:00：跑只读 smoke，确保基础通路正常
+  3. 14:00：跑写入链路（草稿/提交/trips/sign）
+
+===== docs/integration/docpeg-api-joint-debug-testcases.md =====
+FIRST: ﻿# DocPeg API 联调用例清单（QCSpec）
+## 使用说明
+  1. 按顺序执行：先只读，再写入。
+  2. 每条用例记录 `x-trace-id`。
+  3. 失败时记录 HTTP 状态码、响应体关键字段与请求参数。
+## P0：只读链路（必须通过）
+  1. `TC-RO-001` 分项绑定查询
+  - 接口：`GET /projects/{projectId}/process-chains/bindings/by-entity?entity_uri=...`
+  - 预期：返回当前实体绑定的 `chain_id` 或明确“未绑定”。
+## P0：写入链路（必须通过）
+  1. `TC-RW-001` 表单解释预览
+  - 接口：`POST /projects/{projectId}/normref/forms/{formCode}/interpret-preview`
+  - 预期：返回渲染前校验结果；字段错误可准确提示。
+## P1：异常与幂等（建议通过）
+  1. `TC-ERR-001` 鉴权缺失
+  - 条件：不带 `Authorization/x-api-key`
+  - 预期：返回 `401/403`。
+## 证据留存模板（每条用例）
+  1. 用例 ID
+  2. 请求时间（UTC）
+  3. `x-trace-id`
+
+===== docs/integration/erpnext-integration-methods.md =====
+FIRST: # ERPNext Methods Required By QCSpec
+## Suggested rollout
+  1. Put `erpnext_qcspec_methods.py` into your custom Frappe app module (for example `zbgc_integration/qcspec.py`).
+  2. Ensure methods are reachable under `zbgc_integration.qcspec.*`.
+  3. Create required doctypes/tables if names differ:
+## Contract notes
+  - `get_project_basics` should return project base fields usable by QCSpec registration.
+  - `get_metering_requests` should support `project_code` and return pending metering rows with `project/stake/subitem/amount/status`.
+  - `notify` should persist raw payload and update metering request status:
+
+===== docs/integration/layerpeg-fl-integration.md =====
+FIRST: ﻿# LayerPeg / DocPeg 集成总方案（v1.0，2026-04）
+## 1. 文档目标
+  本文将你前面给出的所有关键内容合并为一版可落地的总规范，覆盖：
+  - LayerPeg Protocol v1.0 最终规范
+  - DocPeg 最终组成与模块关系
+## 2. 三个产品的最终定位与关系
+## 3. DocPeg 最终完整组成公式
+  DocPeg =
+  LayerPeg（五层主权文档执行协议）
+  + TripRole（执行角色系统）
+## 4. LayerPeg Protocol v1.0 最终规范（优化版）
+  - 全称：LayerPeg 主权文档执行协议
+  - 简称：LayerPeg
+  - 版本：v1.0（2026.04）
+## 5. TripRole + DTORole 植入方案（DocPeg 升级核心）
+## 6. LayerPeg-FL（Federated Learning）完整集成
+## 7. DWG 逆向场景的五层落地
+  - Header：自动生成 `v://` 主权地址
+  - 示例：`v://cn.zhabei/project/bridge001/dwg/pile-foundation/K12-340`
+  - Gate：按 NormRef 自动校验逆向结果
+## 8. Rust 模块场景示例（LayerPeg 对外 JSON）
+  ```json
+  {
+  "magic": "LAYERPEG",
+## 9. 对接 DocPeg API 的联调清单（QCSpec）
+  基地址：`https://api.docpeg.cn`
+  鉴权：沿用现有 `authorization / x-api-key`（按现网配置）。
+  常用参数：`projectId`、`chainId`、`component_uri`、`pile_id`、`inspection_location`。
+## 10. 当前状态建议
+  - 协议层：按本文件作为 v1.0 基线，不再分散多个“最终版”文档。
+  - 工程层：继续沿“嵌入现有 QCSpec 业务流”推进，不做独立测试菜单。
+  - 交付层：优先确保 `preview/submit` 闭环与失败可观测性，再补签章与侧链锚定自动化。
+## 11. NormRef + LayerPeg 打通逻辑（核心模型）
+## 12. NormRef 与 LayerPeg 的正确集成方式（规则注入模型）
+## 13. NormRef API 版本控制（生产级）
+## 14. NormRef API 版本控制（原始方案补录）
+  以下内容按你的原始方案保留，作为生产设计参考。
+## 15. NormRef 存储与调用结构（推荐）
+  NormRef = Markdown（人类可读） + JSON（机器可执行）
+## Gate 规则
+## 使用说明
+  - 本规则适用于桥施2表的所有桩基检查。
+  - 所有检查项必须全部通过 Gate 才能生成 Proof。
+  ```
+## 16. NormRef Parser（Markdown -> JSON）
+## Gate 规则
+## 17. 扫描规范文档自动生成 NormRef（可行性与落地方案）
+## 18. NormRef Agent 框架（可立即使用）
+  该框架面向 NormRef 的生产落地，核心目标：
+  - 把规范文档（PDF / Markdown / 表格）快速转化为可执行规则
+  - 支持规则校验与版本控制
+## 19. NormRef 作为执行体（Executor）的 Trip-SPU 定义
+  NormRef 不仅是规则库，也可作为执行体（Executor）运行。其核心能力是提供可执行规范规则并完成规则校验闭环。
+## 20. NormRef Agent 框架最终版（完整架构）
+  ```text
+  NormRef Agent Framework v1.0（最终完善版）
+  ├── Parser Agent          → 规范文档（PDF/MD/图片） → 结构化 Markdown + JSON
+## 21. TripRole 集成到 LayerPeg 的完整流程
+## 22. NormRef API / LayerPeg API / TripRole API 的关系与协同
+## 23. 四层 API 的最终关系与 DocPeg 统一入口
+## 24. QCSpec 逻辑架构（落地版）
+  QCSpec 不是孤立模块，而是 LayerPeg 在质检场景的执行形态。
+  核心表达：
+  - 每一次质检 = 一次 TripRole 执行
+## 25. 当前项目完成度盘点（截至 2026-04-10）
+## 26. SettlePeg 专项扩展（DocPeg + BOQItem）
+  SettlePeg 场景下的“过程可信 + 价值守恒”完整方案已独立成文，避免本文件继续膨胀：
+  - `docs/integration/settlepeg-docpeg-boq-integration.md`
+
+===== docs/integration/qcspec-docpeg-integration-status.md =====
+FIRST: ﻿# QCSpec × DocPeg 联调全通验收清单（当前状态）
+## 1. 总体结论
+  - 当前状态：核心业务链路已落到 QCSpec 页面内，但未达到“联调全通”。
+  - 关键原因：真实环境仍缺“有效业务参数 + 完整鉴权”的全量接口绿灯记录。
+## 2. 已完成（代码级）
+  - Web 已接同事侧 API Hook（`process-chains / bindings / normref/forms / trips / signpeg`）。
+  - Web Hook 已升级为“新接口优先 + 旧路径兼容”：
+  - NormRef：优先 `/api/v1/normref/projects/{projectId}/...`，兼容 `/projects/{projectId}/normref/...`
+## 3. 自测结果（2026-04-10）
+## 4. 部分完成（还差最后一段）
+  - “下一 Trip”目前仅推荐提示，尚未自动创建下一执行实例。
+  - QCSpec 主链仍以 `inspections` 为中心，未完全切为 TripRole-first。
+  - DTORole 能力存在，但还未收口成统一 `DocPeg API` 入口。
+## 5. 未完成（阻断“全通”）
+  - 统一入口 API 未落地：
+  - `POST /api/docpeg/documents`
+  - `POST /api/docpeg/trips`
+## 6. 页面验证示例（给前台同事）
+  1. 打开“质检录入”页，勾选“启用提交后自动联动”。
+  2. 录入真实 `projectId/component_uri`，`chainId` 可先留空（验证自动绑定）。
+  3. 点击“查询链状态”确认 `status` 可读。
+## 7. 接口级验收清单（全绿标准）
+## 8. 建议推进顺序（3天）
+  1. D1：用同事提供的真实 `projectId/chainId/component_uri/formCode/docId` 跑通 A+B。
+  2. D2：跑通 C 全链路（预览->草稿->提交->回查），补幂等与错误码映射。
+  3. D3：跑通 D，并完成双方联合验收记录（含 trace 和样例响应）。
+## 9. “全通”判定标准
+  - 接口清单全绿。
+  - 至少 3 组真实业务样例（正常/依赖不满足/签章未完成）可稳定复现。
+  - 页面可见状态与后端状态一致（`next_action`、`proof_id`、`all_signed`）。
+
+===== docs/integration/settlepeg-docpeg-boq-integration.md =====
+FIRST: ﻿# SettlePeg：DocPeg API + BOQItem API 打通方案（v1.0）
+## 1. 目标与定位
+  DocPeg API + BOQItem API 是 SettlePeg（施工结算系统）的两大主引擎。打通后，合同、付款、质检、计量形成可执行闭环。
+  - DocPeg API：负责“过程可信”
+  - LayerPeg 五层（Header/Gate/Body/Proof/State）
+## 2. 两大 API 的关系
+  - DocPeg API 管：谁做了什么、是否符合规范、留下了什么证据。
+  - BOQItem API 管：这个构件对应多少工程量、用了多少材料、应付多少钱。
+  推荐调用顺序：
+## 3. 核心调用示例（付款申请）
+  ```http
+  POST /api/docpeg/documents
+  Content-Type: application/json
+## 4. BOQItem API 核心接口（建议）
+  ```http
+  POST /api/boq/items
+  GET /api/boq/items/{boq_item_ref}
+## 5. 打通收益
+  1. 合同金额可自动拆分到 BOQItem。
+  2. 质检通过后自动更新 BOQItem 可计量量。
+  3. 付款申请自动校验 BOQItem 剩余金额（守恒）。
+## 6. SPU / SKU / MU / SMU 统一映射（施工场景）
+  | 概念 | 含义 | 在 BOQ 中的作用 | 与质检关系 |
+  | --- | --- | --- | --- |
+  | SPU | 设计能力单元（如“Φ20 HRB400 钢筋加工及安装”） | 定义标准、规范、设计量 | 质检需符合 SPU Gate 规则 |
+## 7. BOQ 打通结构（推荐）
+  ```json
+  {
+  "boq_item_id": "BOQ-403-1-2",
+## 8. 完整流程（钢筋示例）
+  1. 创建 BOQItem（绑定 SPU 设计基线）。
+  2. 施工产生 SKU（具体钢筋加工实例）。
+  3. 执行 TripRole 质检（验证 SKU 是否符合 SPU）。
+## 9. 桥墩（Pier）打通示例
+## 10. 关键结论
+  一句话：
+  `质检通过（Gate）是 SKU -> MU -> SMU 的唯一放行条件。`
+  落地后，SettlePeg 可形成：
+## 11. 当前已语义化基线（后续实施必须对齐）
+  以下能力已形成统一语义定义，后续开发以此为基线，不再改名或改口径：
+  1. TripRole 结构（统一模板）
+  2. LayerPeg 五层文档结构
+## 12. Trip-SPU 与 TripRole 的精确关系（核心）
+## 13. 当前闭合与待闭合清单（项目执行基线）
+  以下清单用于统一当前项目阶段判断，后续迭代按“先闭合关键链路，再做优化扩展”推进。
+## 14. NormRef 逻辑补全（生产级落地）
+  本节用于补强当前 NormRef 的 4 个关键缺口，目标是让 NormRef 从“可用规则库”升级为“可执行规则引擎”。
+## 15. NormRef 当前解析成果评估与升级样例
+## 16. Tab-to-Peg 正确落地顺序（修正版）
+  施工项目应按“BOQ 先行、图纸次之、执行闭环最后”推进，而不是从表格直接起流程。
+## 17. Zero BOQ（零号清单）语义化设计
+  Zero BOQ 是项目初始锚点，承载后续质检、计量、支付全部语义关联。
+## 18. IQC-PQC-QQC-FQC 四级质检链（语义模板）
+  四级链定义：
+  1. IQC：Incoming Quality Control（进场材料质检）
+  2. PQC：Process Quality Control（过程质检）
+## 19. NormRef Ingest 页面定位与 API 关系
+  NormRef Ingest 页面本质是“规范导入与规则治理工具”，不是最终执行引擎。
+## 20. 最终闭环目标（BOQ + 图纸 -> IQC-PQC-QQC-FQC）
+  导入清单（BOQ）+ 图纸（DWG/图片）后的最终结果，是形成 IQC-PQC-QQC-FQC 的完整质检闭环。
+## 21. 安全合规质检标准框架（增强版）
+  安全合规质检 = IQC + PQC + QQC + FQC 的安全维度增强版。
+  核心原则：
+  1. 每一次安全质检都是一个 TripRole。
+## 22. 框架通用性定义与扩展规范
+  本体系是通用框架，不是面向某一单工序（如桥墩）的专用方案。
+## 23. 通用 TripRole 模板与扩展指南
+## 24. LayerPeg v1.1 生产模板（严谨增强版）
+  本节作为 LayerPeg 基线模板的升级提案，用于替换早期 `spec_version=1.0` 的示例化结构，强化审计一致性、事务性校验、状态机约束和 Guard 审核闭环。
+## 25. 三产品最终定位与依赖（并入主文档）
+  1. DocPeg：主权文档操作系统（协议、规则、存证、状态机中枢）。
+  2. PegView：图纸语义化与执行平台（DWG/PDF 解析与 LayerPeg 注入）。
+  3. PegHMI：人机交互与监控执行层（大屏、巡检、操作面板）。
+## 26. DocPeg 完整公式（7 模块）
+  `DocPeg = LayerPeg + TripRole + DTORole + Guard Agent + Proof Chain + NormRef 引擎 + State Machine`
+  1. LayerPeg：五层协议骨架（Header/Gate/Body/Proof/State）。
+  2. TripRole：执行角色与动作流转。
+## 27. LayerPeg Protocol v1.0 规范要点（并入）
+## 28. NormRef Agent Framework v1.0（并入）
+  框架组成：
+  1. Parser Agent：规范文档 -> 结构化规则。
+  2. Validator Agent：业务数据 + 规则 -> Gate 结果。
+## 29. NormRef 作为执行体（Executor）与 Trip-SPU
+  1. SPU：能力模板（定义可执行能力、输入输出、规则来源）。
+  2. TripRole：角色动作模板（谁执行）。
+  3. Trip：一次具体执行实例（何时对哪个构件执行）。
+## 30. 四层 API 最终关系（并入）
+  1. NormRef API：规则源头（规则检索、版本、校验）。
+  2. LayerPeg API：五层容器（结构封装、Proof、State）。
+  3. TripRole API：动作执行（创建 Trip、校验、提交、推进）。
+## 31. NormRef 版本治理（并入）
+  1. 每条规则独立版本，文档记录 `rule_snapshots` 与哈希。
+  2. 新增规则：新增 `rule_id`，不影响历史。
+  3. 修改规则：发布新版本，历史文档保留旧版本依据。
+## 32. 规范扫描与半自动入库流程（并入）
+  1. 输入：PDF/图片扫描件。
+  2. OCR：PaddleOCR / Vision / 本地模型提取文本。
+  3. Parser：转规范化 Markdown/JSON 规则。
+## 33. LayerPeg-FL（联邦学习）并入摘要
+## 34. 页面与菜单架构（业务闭环驱动，V1）
+  目标：将系统从“接口驱动页面”改成“业务闭环驱动页面”，统一为：
+  `项目 -> 构件 -> 工序 -> 质检 -> 计量 -> 结算 -> 审计`
+## 35. InspectionPage 联调验收映射（当前实现）
+  本节用于把“页面动作、接口调用、验收口径”一一对齐，直接服务联调与汇报。
+
+===== docs/MIGRATION_MAP.md =====
+FIRST: ﻿# Docs 路径迁移映射（旧 -> 新）
+  ﻿# Docs 路径迁移映射（旧 -> 新）
+  本文件记录本次目录归类产生的路径变化，便于更新外部链接与团队习惯。
+  | 旧路径 | 新路径 |
+  | --- | --- |
+  | `docs/architecture-blueprint.md` | `docs/architecture/architecture-blueprint.md` |
+  | `docs/docpeg-core-concepts-and-flow.md` | `docs/architecture/docpeg-core-concepts-and-flow.md` |
+
+===== docs/normref/construction/highway@v1.md =====
+FIRST: ﻿# v://normref.com/construction/highway@v1
+  ﻿# v://normref.com/construction/highway@v1
+  **描述**：公路工程质量检验评定标准逻辑域
+  **子域**：
+  - qc/rebar-processing
+  - qc/raft-foundation
+  - spu/raft-foundation
+
+===== docs/normref/core@v1.md =====
+FIRST: ﻿# v://normref.com/core@v1
+  ﻿# v://normref.com/core@v1
+  **协议类型**：NormRefCore
+  **版本**：v1
+  **描述**：所有工程逻辑的统一入口和版本控制机制
+  **规则**：
+  - 所有协议必须有 `v://normref.com/...@版本` 格式
+
+===== docs/normref/OVERVIEW.md =====
+FIRST: ﻿# NormRef 总览（官方定义）
+## 1. NormRef 是什么
+  NormRef = 规范参考协议网关（Norm Reference Protocol Gateway）。
+  它是 DocPeg / CoordOS 体系中专门负责把“规范、标准、规则”结构化、可执行、可验证的核心引擎与协议层。
+  一句话：把人类文字规则，翻译成机器可读、可自动校验、可 Proof 的主权协议。
+## 2. 核心作用
+  - 统一入口：所有规则通过 `v://normref.com/...` 引用。
+  - 自动校验：Gate 层自动判断数据是否符合规范。
+  - 协议化：普通质检表/处方/检查单转为五层结构协议块。
+## 3. 五层结构（必须）
+  1. Header（身份层）
+  - 作用：定义“这是什么协议、属于谁、依据什么规范”。
+  - 典型字段：`doc_type`、`v_uri`、`version`、`jurisdiction`、`created_at`。
+## 4. 在体系中的位置
+  - SpecIR：NormRef 是规范定义层的重要实现形式。
+  - Tab-to-Peg：把原始表格/处方/Excel 自动转换为 NormRef 协议。
+  - Gate：执行校验的核心。
+## 5. 应用示例
+  - 工程：桥施 7 表 -> 自动校验孔径、倾斜度是否符合 JTG F80。
+  - 中医：处方 -> 自动校验配伍禁忌、剂量范围、妊娠禁忌。
+  - 通用：任何“按标准执行”的业务表单都可协议化。
+## 6. 一句话总结
+  NormRef 是把“人类规范”翻译成“机器可执行、可验证主权协议”的标准层与引擎。
+  有了 NormRef：
+  - 表格不再是死数据，而是可自动判定的活协议。
+## 7. 公路工程质量检验评定标准（JTG F80/1-2017）NormRef 入口（新增）
+  - 标准目录：
+  - `v://normref.com/std/jtg-f80-1-2017@2017`
+  - 规则示例（独立版本）：
+## 8. 规范解析器（Parser Engine）落地方式
+  - 批量解析脚本：
+  - `tools/normpeg/normref_ingest_batch.py`
+  - 默认支持你当前的 3 本公路规范 PDF（可通过 `--spec` 自定义追加）。
+## 9. 冲突裁决（国家/行业/地方）
+  - 同一 `rule_id` + `version` 出现多条规则时，系统按 `scope` 自动裁决：
+  - `national > industry > local > enterprise > project`
+  - 可通过 `scope` 强制指定取值来源：
+## 10. 手工覆盖（Override）机制
+  - 适用场景：
+  - 国家/行业/地方规则并存且项目需临时指定某一来源；
+  - 甲方审计要求固定某条规则版本与来源。
+## 11. LayerPeg 与 NormRef 的关系（规则注入，不是被动依赖）
+  - 正确关系：
+  - LayerPeg 在创建/编辑/签名关键节点主动拉取 NormRef 规则；
+  - Gate 校验使用当前规则；
+## 12. 生产级版本控制建议
+  - 版本粒度：
+  - 每条规则独立版本（不是整库统一版本）。
+  - 版本格式：
+
+===== docs/normref/prompts/tab-to-peg-engine@v1.md =====
+FIRST: ﻿# v://normref.com/prompt/tab-to-peg-engine@v1
+## 调用方式（最小闭环）
+  - API: `POST /v1/boqpeg/product/normref/tab-to-peg`
+  - 兼容前缀: `POST /v1/listpeg/product/normref/tab-to-peg`
+  - 关键参数:
+
+===== docs/normref/qc/concrete-compressive-test@v1.md =====
+FIRST: # v://normref.com/qc/concrete-compressive-test@v1
+  # v://normref.com/qc/concrete-compressive-test@v1
+  **Layer 1: Header?????**
+  - normref_uri: v://normref.com/qc/concrete-compressive-test@v1
+  - jurisdiction: GB/T 50081 + JTG F80/1-2017
+  **Layer 2: Gate?????**
+  - entry_rules:
+
+===== docs/normref/qc/pile-foundation@v1.md =====
+FIRST: # v://normref.com/qc/pile-foundation@v1
+  # v://normref.com/qc/pile-foundation@v1
+  **Layer 2: Gate?????**
+  - verticality <= 1%
+  - concrete_strength >= 30 MPa
+  **Layer 3: Body?????**
+  - basic: { pile_id, length, diameter }
+
+===== docs/normref/qc/raft-foundation@v1.md =====
+FIRST: ﻿# v://normref.com/qc/raft-foundation@v1
+  ﻿# v://normref.com/qc/raft-foundation@v1
+  **元数据 (Anchor)**
+  - norm_code: GB50204-2015 + JTG F80/1-2017
+  - boq_item_id: 403-raft-foundation
+  - description: 筏基础施工质检协议块
+  - ref_spu_uri: v://normref.com/spu/raft-foundation@v1
+
+===== docs/normref/qc/rebar-processing@v1.md =====
+FIRST: ﻿# v://normref.com/qc/rebar-processing@v1
+  ﻿# v://normref.com/qc/rebar-processing@v1
+  **元数据 (Anchor)**
+  - norm_code: GB50204-2015 5.3.2 + JTG F80/1-2017
+  - boq_item_id: 403-1-2
+  - description: 钢筋加工及安装（制作、运输、安装、焊接）
+  - applicable_component: ["pile", "pier", "cap", "beam"]
+
+===== docs/normref/qc/template/general-quality-inspection@v1.md =====
+FIRST: # v://normref.com/qc/template/general-quality-inspection@v1
+  # v://normref.com/qc/template/general-quality-inspection@v1
+  **Layer 1: Header?????**
+  - normref_uri: v://normref.com/qc/[?????]@v1
+  - doc_type: quality-inspection
+  - jurisdiction: [GB50204 / JTG F80 / SL223 ?]
+  - industry: highway / bridge / water
+
+===== docs/normref/schema/docpeg-specir-v1.1.md =====
+FIRST: # DocPeg 五层通用文档结构 v1.1
+## Layer 1: Header
+  - `doc_type`: `v://normref.com/doc-type/...@v1`
+  - `doc_id`
+  - `v_uri`
+## Layer 2: Gate
+  - `pre_conditions`
+  - `entry_rules`
+  - `trigger_event`
+## Layer 3: Body
+  - `basic`
+  - `items`（可映射 `test_data` / `clauses` / `items`）
+  - `relations`（BOQItem、Trip、MaterialUTXO、Personnel 等）
+## Layer 4: Proof
+  - `signatures`
+  - `timestamps`
+  - `data_hash`
+## Layer 5: State
+  - `lifecycle_stage`（`draft -> pending_review -> approved -> archived`）
+  - `valid_until`
+  - `retention_period`
+## Canonical Schema URI
+  - `v://normref.com/schema/docpeg-specir-v1.1`
+
+===== docs/normref/schema/qc-v1.md =====
+FIRST: ﻿# v://normref.com/schema/qc-v1
+## 必备结构
+  1. `metadata`: 文档锚点与上下文
+  2. `gates`: 阈值阵列（operator + value + unit）
+  3. `verdict_logic`: 判定逻辑（输入 -> 结果）
+## State Matrix 双命名约定
+  规范命名（协议内核）：
+  - `expected_qc_table_count`
+  - `generated_qc_table_count`
+
+===== docs/normref/spu/raft-foundation@v1.md =====
+FIRST: ﻿# v://normref.com/spu/raft-foundation@v1
+  ﻿# v://normref.com/spu/raft-foundation@v1
+  **类型**：Standard SPU
+  **版本**：v1
+  **描述**：筏基础标准计量单元，定义厚度、混凝土强度、钢筋配置与阈值规则。
+  **关键字段**
+  - unit: m3
+
+===== docs/normref/std/jtg-f80-1-2017@2017.md =====
+FIRST: # v://normref.com/std/jtg-f80-1-2017@2017
+## 标准名称
+  - 公路工程质量检验评定标准 第一册 土建工程
+  - 标准编号：JTG F80/1-2017
+  - 施行日期：2018-05-01
+## 用途
+  本 NormRef 标准对象用于：
+  1. 作为 LayerPeg 执行时的规范来源（NormRef Source of Truth）。
+  2. 提供章节到规则 URI 的映射。
+## 关键 URI
+  - 标准 URI：`v://normref.com/std/jtg-f80-1-2017@2017`
+  - 规则示例：
+  - `v://normref.com/rule/bridge/pile-hole-check/hole-diameter-tolerance@2026-04`
+## LayerPeg 绑定建议
+  - Header：
+  - `normref_version = jtg-f80-1-2017@2017`
+  - `rule_snapshots.{rule_id}.{version,hash}`
+
+===== docs/plans/normref-parser-engine-p0-plan.md =====
+FIRST: # NormRef 规范解析编译引擎（P0 开发落地清单）
+## 1. 目标与范围
+## 2. 总体流程（上传到可执行）
+  1. 上传规范 PDF
+  2. 文档解析（文本/OCR/目录/条文/表格）
+  3. 语义归一（字段、单位、阈值、检验频率）
+## 3. API 设计（P0）
+  > 前缀建议：`/api/v1/normref/ingest`
+## 4. 数据表设计（PostgreSQL / Supabase）
+## 5. 代码目录建议（服务端）
+  建议新增：
+  ```text
+  services/api/domain/normref_ingest/
+## 6. 解析与归一规则（核心）
+## 7. 前端页面（P0 最小）
+  - `NormRef Ingest Console`
+  - 上传规范 PDF
+  - 查看解析任务状态与日志
+## 8. P0 任务拆解（10 个工作日）
+## 9. 验收标准（P0）
+  - 能上传 3 本规范 PDF 并生成解析任务。
+  - 每本至少抽取出章节、条文、表格三类中间产物。
+  - 能生成可审核的规则候选（含阈值、单位、条文出处）。
+## 10. 风险与控制
+  - 版权与合规：仅用于内部规则编译，不对外分发原文全文。
+  - OCR 误差：高风险规则必须人工复核后发布。
+  - 版本漂移：所有校验写入 `rule_id + version + hash` 快照。
+## 11. 与现有系统衔接点
+  - 复用现有 `NormRefResolverService` 的规则读取与校验能力。
+  - 增量接入，不破坏现有 `/v1/normref/resolve|verify|rules|validate`。
+  - 与 SignPeg/Proof 链路对齐：记录规则版本快照用于审计。
+
+===== docs/plans/utxo-component-smu-remediation-plan.md =====
+FIRST: # ComponentUTXO 修复与收敛方案
+## 目标范围（只做三件事）
+  1. 模型统一到 `ComponentUTXO = boq_items + bom + material_inputs`（`material_bindings` 仅兼容历史输入）。
+  2. 守恒校验按“每种物料独立守恒”执行，不再按单材料线拆散构件语义。
+  3. Final Proof 因子必须稳定输出：`material_chain_root_hash`、`bom_deviation_hash`、`norm_acceptance_hash`。
+## 已完成
+## 待完成（下一步）
+  1. 将 Beam-L3 Demo 的样例数据沉淀为固定验收数据集（便于回归比对）。
+  2. 若使用非 GitHub CI（Jenkins/GitLab/Buildkite），按 `component_utxo_gate.py` 复刻同等门禁任务。
+  3. 对 `triprole_component_docpeg.py` 增补单元测试（当前已能跑，测试覆盖仍偏薄）。
+## 验收标准（DoD）
+  满足以下条件视为本轮完成：
+  1. 一个构件可同时绑定多个 `boq_items` 与多个 `material_inputs`。
+  2. 同一物料类型可有多个输入 UTXO，且按类型聚合守恒判定。
+## 建议执行命令
+  ```bash
+  pytest services/api/tests/test_triprole_component_utxo.py -q
+  pytest services/api/tests/test_triprole_action_settlement.py -q
+
+===== docs/product/product-delivery-plan-web-mobile.md =====
+FIRST: # CoordOS / DocPeg 研发执行拆解（Web + Mobile）
+## 1. 目标
+  把《产品需求总纲》转成可执行研发计划，覆盖后端、Web、移动端、数据、测试与运维，支持 `P0 -> P1 -> P2` 连续交付。
+## 2. 团队分工
+  | 角色 | 责任域 | 交付物 |
+  |---|---|---|
+  | 后端组 | Gate、SignPeg、ExecutorPeg、Conservation、离线合拢 | API、规则引擎、任务调度、台账 |
+## 3. 里程碑计划
+## P0（2-3 周）主权执行链路跑通
+  1. 后端
+  - 统一角色鉴权中间件（接口强校验）
+  - SignPeg 签名/验签/状态接口闭环
+## P1（3-5 周）守恒对账与自动拦截
+  1. 后端
+  - IQC + 材料 UTXO 规则接入 Gate
+  - Conservation Gate（偏差阈值 + 熔断）
+## P2（4-8 周）商业闭环与监管穿透
+  1. 后端
+  - FormulaPeg 计价规则引擎
+  - RailPact 支付指令与争议剥离
+## 4. P0 任务清单（可直接开工）
+## 4.1 后端
+  1. 为关键路由补齐 `required_role` 与 `required_scope` 元数据。
+  2. 新增统一鉴权装饰器，拒绝前端绕过。
+  3. 固化 SignPeg 错误码：
+## 4.2 Web
+  1. 菜单分权和页面动作分权一一对齐（含 toast 与禁用态）。
+  2. SignPeg 面板显示：
+  - 当前角色可签位
+## 4.3 移动
+  1. 定义 SDUI 最小协议：
+  - `steps[]`
+  - `actions[]`
+## 4.4 QA
+  1. 核心链路自动化：
+  - 在线流程
+  - 断网录入 + 联网补传
+## 5. 关键技术契约
+  1. 协议契约
+  - 移动端只消费协议，不消费业务硬编码。
+  2. 事件契约
+## 6. Definition of Done（DoD）
+  1. 功能完成
+  - 通过单元测试 + 集成测试 + E2E 回归。
+  2. 规则完成
+## 7. 质量与SLO
+  1. P0 目标
+  - Trip 提交成功率 >= 99.5%
+  - 签名成功率 >= 99.0%
+## 8. 风险清单与应对
+  1. 风险：前后端权限不一致
+  - 应对：接口级强鉴权 + 前端只做展示分权。
+  2. 风险：离线冲突难复现
+## 9. 本周建议动作
+  1. 冻结 P0 范围（只保留“主链跑通”相关需求）。
+  2. 建立跨组日会（后端/Web/移动/QA 同步阻塞）。
+  3. 先跑通桥施7表单链路，再复制到其他工序。
+## 10. 治理专项补充（本轮新增）
+  1. P0 必做
+  - 组织主账号自治与多组织角色模板落地。
+  - 账号与执行体绑定、签署链串行与互斥规则落地。
+
+===== docs/product/product-jira-backlog-web-mobile.md =====
+FIRST: # CoordOS / DocPeg Jira Backlog（Web + Mobile）
+## 1. 使用说明
+  1. 本文档按 `Epic -> Story -> Task` 组织，可直接映射 Jira。
+  2. 估时单位默认“人日（PD）”。
+  3. `Owner` 字段写角色，不绑定具体人，便于排班。
+## 2. 里程碑与 Epic 映射
+  | 里程碑 | Epic 编号 | Epic 名称 |
+  |---|---|---|
+  | P0 | EPIC-P0-AUTH | 权限与签名主链跑通 |
+## 3. P0 Backlog（2-3周）
+## EPIC-P0-AUTH 权限与签名主链跑通
+## EPIC-P0-MOBILE 移动端 SDUI 最小闭环
+## EPIC-P0-CHAIN Trip 主链与可观测
+## 4. P1 Backlog（3-5周）
+## EPIC-P1-CONSERVATION 守恒拦截与仲裁
+  - TASK-P1-CON-01
+  Summary: Conservation Gate 规则服务（偏差阈值可配置）
+  Owner: Backend
+## EPIC-P1-SPECIR SpecIR Studio 与 Ref-Link
+  - TASK-P1-SPEC-01
+  Summary: SpecIR Studio 基础编辑器（Schema/QCGate/BOM）
+  Owner: Web + Backend
+## EPIC-P1-UTXO IQC + UTXO 材料链
+  - TASK-P1-UTXO-01
+  Summary: IQC 入场结果接入 Gate 前置校验
+  Owner: Backend
+## 5. P2 Backlog（4-8周）
+## EPIC-P2-SETTLEMENT FormulaPeg + RailPact
+  - TASK-P2-SET-01
+  Summary: FormulaPeg 计价规则引擎
+  Owner: Backend
+## EPIC-P2-DOCFINAL DocFinal + CA + Public Verify
+  - TASK-P2-DOC-01
+  Summary: DocFinal 编译正式档案包
+  Owner: Backend + Web
+## 6. 跨任务依赖总览
+  1. P0 是 P1/P2 前置，不跨阶段并行关键链路。
+  2. `SDUI schema` 是移动端渲染和后端协议下发共同前置。
+  3. `Trip 幂等与落表` 是离线补传与审计可观测的共同前置。
+## 7. Jira 字段建议
+  1. Issue Type: Epic / Story / Task / Bug
+  2. Priority: P0 = Highest, P1 = High, P2 = Medium
+  3. Labels:
+## 8. 建议本周直接创建的 Jira（10条）
+  1. TASK-P0-AUTH-01-02
+  2. TASK-P0-AUTH-02-01
+  3. TASK-P0-AUTH-02-03
+## 9. Sprint 看板模板（可直接照抄）
+  1. Backlog
+  - 所有未排期 Task
+  2. Ready
+## 10. 本轮新增治理与合规任务（10条）
+  - TASK-P1-GOV-01
+  Summary: SignPeg/CA 节点边界策略中心
+  Owner: Backend + Web
+
+===== docs/product/product-requirements-web-mobile.md =====
+FIRST: # CoordOS / DocPeg 产品需求总纲（Web + Mobile）
+## 1. 产品愿景与定位（Vision & Positioning）
+## 1.1 核心痛点与终极目标
+  传统工程管理软件停留在“表单信息化”和“OA 审批流”，导致业财物脱节、资料造假成本低、规范落地依赖人治。
+  CoordOS 的终极目标是构建一个**“基于物理物质守恒的数字主权账本”**：
+  把工程现场“谁、何时、对何对象、做了何动作、是否合规、花了多少钱”变成不可篡改、可穿透审计的数学事实，打造“造假成本无限大的死锁”。
+## 1.2 平台定位
+  1. 系统性质：工业级数字主权操作系统（非传统 SaaS/ERP）。
+  2. Web 端（管理与决策中枢）：
+  - 全局标准库（SpecIR）配置
+## 1.3 功能生成机制（新增）
+  1. 在 CoordOS 中，功能不再是死板菜单，而是根据执行体容器（Executor Container）上下文动态生成的指令集。
+  2. Web 端偏向：
+  - SpecIR（标准库）配置
+## 2. 核心底层逻辑与数据契约（Core Architecture）
+## 2.1 主权数字寻址协议（v:// URI）
+  1. 系统内业务对象以 `v://` 解引用为主，不依赖业务 JOIN 进行主关联。
+  2. 语法规范：`v://[主权域]/[名称空间]/[资源路径]@[版本号]`
+  3. 核心价值：人、规范、清单、动作等对象具备唯一跨网段路由能力。
+## 2.2 逻辑与实例解耦（SpecIR vs RepoIR）
+  1. SpecIR（公共标准库）：
+  - 系统基因库
+  - 存放国家/行业规范、SPU、QCGate、定额算子等“常量”
+## 2.3 NormRef 规则注入机制（新增）
+  1. 正确关系不是“简单 API 调用”，而是“规则注入”：
+  - NormRef 是规则库；
+  - LayerPeg 是执行容器；
+## 2.4 NormRef API 版本控制要求（新增）
+  1. 版本原则：
+  - 每条规则独立版本，不采用整库统一版本覆盖。
+  - 支持 `version=latest` 与 `version=具体版本` 两种调用。
+## 3. 确权与算力调度体系（Authorization & Routing）
+## 3.1 执行体容器化模型（Executor Container）
+  执行体（人/机构/设备/AI）统一为五维算力容器：
+  1. 身份（Identity）：全局唯一 `v://` 地址
+  2. 资质（Skills）：证书、有效期、执业范围
+## 3.2 确权三位一体（Authorization Trinity）
+  每一次合规操作必须绑定三元组并坍缩为 Trip：
+  `Executor + DTORole + TripRole`
+## 3.3 绝对互斥防伪原则（Mutex Principle）
+  同一物理节点禁止“既当运动员又当裁判员”。
+  若 Executor A 对节点执行了发起类动作（如 `constructor.submit`），Gate 必须在 UI 渲染层硬屏蔽其验收类动作（如 `inspector.verify`），即使其具备双资质。
+## 3.4 组织主账号自治（新增）
+  1. 平台默认为每个参建组织开通一个“组织主账号（Org Admin）”。
+  2. 适用组织包括但不限于：施工单位、监理单位、业主单位、检测单位、分包单位、设计单位。
+  3. 组织主账号可在本组织内自助创建子账号并分配角色，角色集合由组织类型模板约束：
+## 4. 业财物守恒引擎（The 4 Conservation Engines）
+  | 引擎模块 | 核心组件 | 输入法门 | 动作与输出 |
+  |---|---|---|---|
+  | 1. 正向创世 | GenesisPeg | 项目 BOQ（Excel） | 解析树结构，语义匹配，影子挂载 Ref-Link 到 SpecIR，铸造初始 UTXO |
+## 5. 端侧功能需求定义（Client-Side Requirements）
+## 5.1 移动端：状态机协议终端（Mobile）
+  1. 协议驱动 UI（SDUI）：
+  - 不写死表单页与流程按钮
+  - 后端按 `[登录者资质] + [DTORole] + [前置状态]` 下发 JSON 协议
+## 5.2 Web 端：主权管理中枢（Web）
+  1. 标准制图工坊（SpecIR Studio）：
+  - 可视化编排 SPU、Schema、QCGate、BOM/计价算子
+  2. 全息主权工作台：
+## 5.3 角色与功能详细映射表（新增）
+  | 角色（DTORole） | 移动端功能（执行与采集） | Web端功能（管理与审计） |
+  |---|---|---|
+  | 施工员（Constructor） | 任务认领、现场填报、SnapPeg拍照取证、材料领用核销、提交报验 | 查看所属项目进度、个人执行 Proof 统计 |
+## 5.3.1 施工资料与监理资料签署链模板（新增）
+  1. 施工资料签署链：
+  - 测量表：`测量 -> 记录 -> 复核`
+  - 质量检查表：`检查 -> 记录 -> 复核`
+## 5.3.2 签署链字段映射（新增）
+  | 资料域 | 表单 | 序号 | 业务职责 | 来源序号映射 | DTORole 建议 | TripRole 建议 |
+  |---|---|---|---|---|---|---|
+  | 施工资料 | 测量表 | 1 | 测量 | - | constructor.measure | constructor.measure.submit |
+## 5.4 核心业务规则补充（新增）
+  1. 动态菜单规则：
+  - 同一个 App 中，施工员看到“报验”，质检员看到“实测”。
+  - 由后端 Gate 引擎下发协议驱动，前端不写死页面。
+## 5.5 角色禁用动作清单与阻断码（新增）
+  1. 平台必须维护“角色可执行动作白名单 + 禁用动作清单”，由后端统一下发。
+  2. 前端禁止自行推断权限，所有按钮可见/可点状态以 Gate 返回为准。
+  3. 被阻断动作必须返回标准阻断码与可读原因，至少包含：
+## 5.6 SDUI 协议版本与兼容策略（新增）
+  1. SDUI 协议采用 `schema_version`（SemVer），并提供能力协商字段：
+  - `client_supported_versions[]`
+  - `server_selected_version`
+## 6. 版本演进路线（Roadmap）
+## Phase 1（P0）：物理主权跑通（断绝纸质依赖）
+  交付内容：
+  1. 执行体五维模型
+  2. v:// 寻址底座
+## Phase 2（P1）：物质守恒拦截（算清底账与拦截造假）
+  交付内容：
+  1. SpecIR 规则工坊
+  2. BOM 正向展开
+## Phase 3（P2）：商业闭环（业财结算与穿透审计）
+  交付内容：
+  1. FormulaPeg 计价合约
+  2. RailPact 结算底层
+## 7. 你这版基础上建议再补的关键点
+## 7.1 合规边界白名单
+  1. 明确“必须 CA”的节点白名单（验收、归档、结算关键签章）。
+  2. 明确“可 SignPeg”的过程节点白名单。
+## 7.2 权限收敛模型
+  1. 形成统一的 `RBAC + ABAC` 规则表（角色 + 上下文条件）。
+  2. 每个 API 标注 `required_role`、`required_scope`、`required_condition`。
+## 7.3 可观测与SLO
+  1. 核心指标：
+  - Trip 提交成功率
+  - 离线补传成功率与延迟
+## 7.4 数据生命周期与审计策略
+  1. 状态机：草稿 -> 已签 -> 归档 -> 冻结 -> 作废（仅追加，不删除）。
+  2. 仲裁池处理 SLA：冲突创建后多久必须裁决。
+## 7.5 主数据治理
+  1. 统一字典：角色、工序、材料、设备、证书类型。
+  2. 版本管理：谁能改、如何审批、如何回滚。
+## 7.6 穿透审计性能与可用性SLO（新增）
+  1. 结算数字穿透到 Trip 证据链路：
+  - 查询成功率 >= 99.9%
+  - P95 响应时间 <= 2s（同城）/ <= 4s（跨域）
+## 7.7 SignPeg 与 CA 强制边界清单（新增）
+  1. 必须 CA：
+  - 分部分项验收结论
+  - 成品验收报告
+## 7.8 组织类型角色-签位-动作真值矩阵（新增）
+  1. 对施工、监理、业主、检测、分包、设计六类组织分别定义：
+  - 可见签位
+  - 可执行动作
+## 7.9 账号与执行体生命周期（新增）
+  1. 生命周期状态：`pending -> active -> suspended -> revoked -> archived`。
+  2. 必须覆盖入职、转岗、离职、账号冻结、恢复、销户。
+  3. 任一状态变化必须记录操作者、时间、原因、影响范围（项目/角色/执行体）。
+## 7.10 委托与替岗规则（新增）
+  1. 委托必须包含：委托方、受托方、作用域、有效期、依据文件。
+  2. 默认禁止再委托（可配置）；超期自动失效。
+  3. 受托动作必须在 Trip 中附带 `delegation_uri`，支持全链路追溯。
+## 7.11 离线冲突仲裁 SOP（新增）
+  1. 冲突分级：`critical/high/medium/low`。
+  2. 每级定义责任人、处置时限、升级路径。
+  3. 裁决结果必须产生补偿 Trip，不允许直接改写历史事件。
+## 7.12 SnapPeg 证据质量门槛（新增）
+  1. 现场证据最低要求：
+  - 最少照片张数
+  - 时间戳完整性
+## 7.13 成本科目映射标准（新增）
+  1. 建立 `Trip/SKU/SMU -> 财务科目` 一一映射字典。
+  2. 计价结果需标注来源 Proof，支持财务系统对账与反查。
+## 7.14 审计与监管导出口径（新增）
+  1. 统一导出格式：PDF/JSON/签名摘要/证据索引。
+  2. 导出包需包含校验指引（如何验 Hash、验签名、验来源）。
+  3. 按监管角色控制导出字段最小可见范围。
+## 7.15 可观测与告警分级（新增）
+  1. 核心告警分级：L1/L2/L3。
+  2. 每级定义触发条件、通知对象、响应时限、恢复条件。
+  3. 关键链路（签名、守恒、结算、归档）必须有独立面板与日报。
+## 7.16 发布治理与灰度策略（新增）
+  1. 发布必须有灰度比例、回滚条件、影响评估。
+  2. 协议/规则变更必须先在试点项目验证，再全量启用。
+  3. 上线必须附培训包（角色手册 + 常见错误 + 排障流程）。
+## 7.17 NormRef 版本治理与SLO（新增）
+  1. 可用性：
+  - NormRef 校验接口可用性目标 >= 99.9%。
+  2. 性能：
+
+===== docs/qcspec-full-api-pack.md =====
+FIRST: ﻿# DocPeg 联调 API 清单（执行体逻辑版）
+## 0. 统一约定
+## 1) 项目创建与基础信息（DocPeg）
+## 2) 主权层 / 执行体（ExecPeg）
+## 3) DTORole（角色权限）
+## 16) 项目合同上传与绑定（追加，按文档逻辑）
+  说明：项目合同建议作为“项目主权链证据对象”进行绑定。
+  本节使用当前已落地接口组合实现，不破坏既有流程。
+  ---
+## 4) LayerPeg（链状态与锚点）
+## 5) TripRole（执行动作）
+## 6) NormRef（表单）
+## 7) BOQItem（台账）
+## 8) Proof（核验）
+## 9) Files（附件）
+## 10) 工程树（QCSPEC 必需）
+## 11) 工序链（前端主流程）
+## 12) 给前端同事的最小调用顺序（闭环）
+  1. `POST /projects`（建项目）
+  2. `POST /api/v1/execpeg/execute` + `highway_spu_creation@v1.0`
+  3. `POST /api/v1/execpeg/execute` + `register_project_participants@v1.0`
+## 13) projectId 如何确定
+  - 调 `GET /projects`
+  - 使用返回中的 `items[].id` 作为 `{projectId}`
+  - 示例：`PJT-D34A70B8`
+## 14) 说明
+  - 本文档是联调用 API 包，不等于前端页面清单。
+  - 页面是否已切到这些新接口，需要另做前端接线验收。
+  ---
+## 15) `projects/new-root` 页面专用接口（已落地）
+  > 对应页面：`/docpeg/app/projects/new-root`
+  > 目标：三步创建（SPU -> 参与方 -> 标段）+ 阶段验收查询。
+
+===== docs/README.md =====
+FIRST: ﻿# Docs 导航与归类清单
+## 1) 当前状态
+  - 当前 `docs/` 下共 `38` 个 Markdown 文件（含本索引）。
+  - 已完成目录归类迁移，目标是“先清晰，再演进”。
+  - 本次保留原文档内容，不做语义改写。
+## 2) 主入口
+  - 集成总方案：`docs/integration/layerpeg-fl-integration.md`
+  - 架构蓝图：`docs/architecture/architecture-blueprint.md`
+  - 联调清单：`docs/integration/api-integration-checklist.md`
+## 3) 目录结构（已落地）
+## 4) 维护规则（建议）
+  1. 新文档优先放入对应分类目录，避免回到顶层平铺。
+  2. 每个主题只保留一个“active”主文档，旧稿转 `archive`（后续可加目录）。
+  3. 文档间引用统一使用新路径（见 `docs/MIGRATION_MAP.md`）。
+
+===== docs/refactor/refactor-progress-dashboard.md =====
+FIRST: # 前后端重构进度看板（持续更新）
+## 当前阶段
+  - 整体阶段：中后期（约 80%~90%）
+  - 当前状态：可构建、可测试通过，正在做上线前收口与提交拆批
+## 已完成（核心）
+  - 前端 `apps/web`：
+  - `tsc --noEmit` 通过
+  - `vite build` 通过
+## 仍未完成（上线前必须）
+  - 提交收口：
+  - 当前工作区变更量仍大，尚未拆分为可审阅的 PR 批次
+  - 仍需最终确认“应提交文件清单”与“应忽略文件清单”
+## 下一步执行顺序（建议）
+  1. 先按后端重构批次拆分提交（边界层、领域服务层、路由接入层）
+  2. 清理不应提交的临时文件、日志文件、模拟文件
+  3. 生成标准 PR 说明（目标、范围、回归、风险、回滚）
+
+===== docs/refactor/refactor-step-1-structure-adapter-plan.md =====
+FIRST: ﻿# Step 1 - 结构重构（不改行为）与适配层方案
+## 1. 目标
+  在不改变现有 API 行为和前端可见功能的前提下，先把“内核能力”和“业务能力”做结构隔离，为后续 Step 2-4 提供稳定底座。
+  本步只做三件事：
+  1. 建立清晰目录骨架。
+## 2. 当前问题（基线）
+  1. `services/api/core/norm/service.py` 直接依赖 `services.api.domain.boq.runtime.specdict_gate`，出现反向依赖风险。
+  2. `services/api/routers/__init__.py` 中大量能力挤在 `/v1/proof` 前缀，不利于领域隔离。
+  3. 业务实现与协议内核混在同层目录，阅读和演进成本高。
+## 3. 目标结构（先搭骨架）
+  建议先新增以下目录，不立即搬空历史实现：
+  1. `services/api/core/docpeg/`
+  2. `services/api/core/docpeg/proof/`
+## 4. 实施清单（可执行）
+## 5. 验收标准
+  1. 对外 API 路径、请求参数、返回结构无破坏变化。
+  2. 现有前端主链（登录、项目管理、开始质检、报告、Proof）可继续跑通。
+  3. 边界测试通过，且新增反向依赖测试为绿。
+## 6. 风险与回滚
+  风险：
+  1. 兼容导出遗漏导致 import error。
+  2. 目录迁移时循环依赖暴露。
+## 7. 输出物
+  1. 新目录骨架与包初始化完成。
+  2. 旧路径兼容层到位。
+  3. 边界测试可执行并纳入 CI。
+
+===== docs/refactor/refactor-step-2-proof-schemas-router-prefix-plan.md =====
+FIRST: # Step 2 - Proof Schemas 拆分与路由前缀收口
+## 1. 目标
+  解决两个高耦合点：
+  1. `services/api/domain/proof/schemas.py` 过大、职责混杂。
+  2. `services/api/routers/__init__.py` 多模块共用 `/v1/proof`，边界不清晰。
+## 2. 当前基线
+  1. `services/api/domain/proof/schemas.py` 同时包含 UTXO、Trip、SMU、文档治理、GateRule、组件绑定等模型。
+  2. `/v1/proof` 当前承载 `documents/boq/proof/utxo/smu/execution/intelligence/finance/specification` 等路由。
+## 3. Schemas 拆分方案
+## 3.1 目录布局
+  新增目录：
+  1. `services/api/domain/proof/schemas/`
+  2. `services/api/domain/proof/schemas/utxo_models.py`
+## 3.2 迁移原则
+  1. 按“模型归属”切分，不改字段名和默认值。
+  2. 每个模型迁移后立即跑依赖测试，避免一次性大改。
+  3. 兼容期内保持 `from services.api.domain.proof.schemas import XxxBody` 可用。
+## 4. 路由前缀收口方案
+  目标：新前缀更语义化，旧前缀保留兼容窗口。
+  建议分组：
+  1. `DocPeg Kernel`: `/v1/docpeg/proof`, `/v1/docpeg/utxo`, `/v1/docpeg/smu`, `/v1/docpeg/verify`
+## 5. 文件级实施清单
+  1. 编辑 `services/api/domain/proof/schemas.py`，改为聚合导出。
+  2. 新增 `services/api/domain/proof/schemas/*.py` 分模块模型文件。
+  3. 编辑 `services/api/routers/__init__.py`，将 registry 按产品与内核分段。
+## 6. 验收标准
+  1. Schema 拆分后，所有现有请求体校验行为一致。
+  2. 新旧路由均可调用，返回一致。
+  3. OpenAPI 文档可清楚区分内核路径与产品路径。
+## 7. 风险与控制
+  风险：
+  1. 模型迁移时导入路径遗漏，导致运行期异常。
+  2. 路由重复注册导致冲突或覆盖。
+## 8. 输出物
+  1. 模型按领域拆分完成。
+  2. 路由前缀新旧并行完成。
+  3. 弃用计划（deprecation schedule）落文档。
+
+===== docs/refactor/refactor-step-3-core-domain-dependency-fix-plan.md =====
+FIRST: # Step 3 - 修复 Core 到 Domain 的反向依赖（先做 NormRefResolver）
+## 1. 目标
+  把内核层 `core` 对业务层 `domain` 的直接实现依赖改为“端口 + 适配器”模式，优先处理 `NormRefResolverService`。
+## 2. 当前问题
+  当前代码：
+  1. `services/api/core/norm/service.py` 直接 import `services.api.domain.boq.runtime.specdict_gate`。
+  2. 造成 `core -> domain` 反向耦合，后续拆产品层时难以迁移。
+## 3. 目标架构
+  采用 Hexagonal 风格：
+  1. `core` 定义 Port（协议接口）。
+  2. `domain/specir` 或 `domain/boq` 提供 Adapter（实现接口）。
+## 4. 详细实施方案
+## 5. 验收标准
+  1. `services/api/core/norm/service.py` 不再出现 `domain` import。
+  2. NormRefResolver 功能结果与改造前一致。
+  3. 新增依赖守卫测试长期为绿。
+## 6. 风险与回滚
+  风险：
+  1. 端口字段定义不全导致行为漂移。
+  2. 注入层改造遗漏导致运行期 `None` 或构造错误。
+## 7. 输出物
+  1. `core` 与 `domain` 间首个稳定端口实例（NormRefResolver）。
+  2. 可复用的“端口-适配器-注入”模板，可复制到 Proof/UTXO/Trip 其余模块。
+
+===== docs/refactor/refactor-step-4-boqpeg-minimal-chain-plan.md =====
+FIRST: # Step 4 - BOQ 主链最小闭环迁移到 BOQPeg
+## 1. 目标
+  把“上传 BOQ Excel -> 解析 -> 生成 BOQItem -> 生成/关联 UTXO -> 形成 Proof 链”这条最小业务主链收口到独立 `boqpeg` 领域，且保持当前可运行能力。
+## 2. 闭环定义（本步必须跑通）
+  最小闭环包含：
+  1. Excel/CSV 导入清单行。
+  2. 标准库引用化：每个 BOQItem 只保留 `ref_spu_uri` 等 ref 字段。
+## 3. 当前基线（关联文件）
+  1. `services/api/domain/boq/runtime/utxo.py`
+  2. `services/api/domain/boq/runtime/specdict_gate.py`
+  3. `services/api/domain/autoreg/runtime/autoreg.py`
+## 4. 目标结构与职责
+  建议新增：
+  1. `services/api/domain/boqpeg/`
+  2. `services/api/domain/boqpeg/runtime/parser.py`
+## 5. 数据契约（必须落实）
+  每个 BOQItem 的持久化字段至少包含：
+  1. `boq_item_uri`
+  2. `project_uri`
+## 6. API 与迁移策略
+## 7. 测试与验收
+  新增或强化测试：
+  1. `services/api/tests/test_boq_ref_only_spu_refs.py`
+  2. `services/api/tests/test_specir_*`
+## 8. 风险与控制
+  风险：
+  1. 历史 BOQ 数据质量不齐，导致 ref 解析失败。
+  2. 编码污染（乱码）影响 item_no/unit 归一化。
+## 9. 输出物
+  1. BOQPeg 独立运行骨架完成。
+  2. 最小闭环从导入到 Proof 全链跑通。
+  3. 旧 BOQ 路由转调新编排，兼容期可平滑切换。
+
+===== docs/templates/docpeg-template-tags.md =====
+FIRST: ﻿# DocPeg Template Tags
+## Common Sovereignty Fields
+  - `{{ v_uri }}`
+  - `{{ project_uri }}`
+  - `{{ segment_uri }}`
+## Common Business Fields
+  - `{{ construction_unit }}`
+  - `{{ project_name }}`
+  - `{{ contract_no }}`
+## Record List Loop
+  ```jinja2
+  {% for r in records %}
+  {% endfor %}
+## Hierarchy Summary Loop (11.docx)
+  ```jinja2
+  {% for h in hierarchy_summary_rows %}
+  {% endfor %}
+## Gate Binding Fields (12.docx)
+  - `{{ linked_gate_id }}`
+  - `{{ linked_spec_uri }}`
+  - `{{ gate_template_lock }}`
+## Inspection Template Fixed Items
+  - `{{ items.main_rebar.* }}`
+  - `{{ items.main_rebar_multi.* }}`
+  - `{{ items.frame_size.* }}`
+## Template Routing
+  - `inspection` -> `01_inspection_report.docx`
+  - `lab` -> `02_lab_report.docx`
+  - `monthly_summary` -> `03_monthly_summary.docx`
+## Export API
+  - `POST /v1/reports/export`
+  - request supports `type` and `format` (`docx`/`pdf`)
+  - when `format=pdf` and local `soffice` is unavailable, backend falls back to `docx` and returns `output_format=docx`
+
+===== docs/templates/rebar-live-report-template-tags.md =====
+FIRST: ﻿# Rebar Live Report Template Tags
+## Required Base Variables
+  - `{{ construction_unit }}`
+  - `{{ project_name }}`
+  - `{{ project_uri }}`
+## Sovereignty Variables
+  - `{{ proof_id }}`
+  - `{{ proof_hash }}`
+  - `{{ gitpeg_anchor }}`
+## Inspection Item Variables
+  - `{{ items.main_rebar.limit }}`
+  - `{{ items.main_rebar.design }}`
+  - `{{ items.main_rebar.val_str }}`
+## ProofUTXO Mock Case
+  Implemented in `services/api/docx_engine.py` as `build_rebar_live_mock_case()`.

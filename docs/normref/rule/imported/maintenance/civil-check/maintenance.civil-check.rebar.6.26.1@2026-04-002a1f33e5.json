@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.rebar.6.26.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/rebar@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "rebar",
+  "operator": "gte",
+  "threshold_value": "6",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "6.26.1",
+  "source_line": "6 嵌入承台、盖梁的锚固钢筋或钢管桩长度不得小于设计要求的最小长度。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-8f78cbb0f4ca",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:002a1f33e529cd1a62bf060197f3e2daacaf4b8b325f39f3c7468d3b7c6e0652"
+}

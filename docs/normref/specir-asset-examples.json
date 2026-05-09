@@ -1,0 +1,106 @@
+{
+  "schema": "https://normpeg.local/schemas/specir-asset-v1.schema.json",
+  "examples": [
+    {
+      "specir_id": "specir-bridge13-4.2.2-compaction",
+      "normRef": "v://jtg-f80-1-2017/4.2.2/compaction",
+      "semantic_type": "threshold_constraint",
+      "subject": "路基压实度",
+      "condition": "适用于上路床",
+      "slotKey": "bridge.compaction.degree.measured",
+      "constraint": {
+        "field": "compaction_degree",
+        "operator": ">=",
+        "value": 95,
+        "min": null,
+        "max": null,
+        "unit": "%",
+        "formula": ""
+      },
+      "evidence": {
+        "standard_code": "JTG_F80/1-2017",
+        "version": "2017",
+        "clause_no": "4.2.2",
+        "page": 126,
+        "source_text": "上路床压实度不应小于95%。"
+      },
+      "confidence": 0.97,
+      "review_status": "approved",
+      "execution_status": "executable",
+      "runtime_requirements": ["measured_value"],
+      "runtime_mode": "automatic",
+      "derivation": {
+        "rule_derivable": true,
+        "gate_derivable": true,
+        "rule_id": "rule-compaction-ge-95",
+        "gate_id": "gate-compaction-passfail"
+      }
+    },
+    {
+      "specir_id": "specir-bridge14-5.8.3-grouting",
+      "normRef": "v://jtg-t-3650-2020/5.8.3/grouting-pressure",
+      "semantic_type": "process_requirement",
+      "subject": "压浆压力控制",
+      "condition": "连续压浆过程中",
+      "slotKey": "bridge.grouting.pressure.measured",
+      "constraint": {
+        "field": "grouting_pressure",
+        "operator": "between",
+        "value": null,
+        "min": 0.5,
+        "max": 0.7,
+        "unit": "MPa",
+        "formula": "P = F / A"
+      },
+      "evidence": {
+        "standard_code": "JTG/T_3650-2020",
+        "version": "2020",
+        "clause_no": "5.8.3",
+        "page": 210,
+        "source_text": "压浆压力宜控制在0.5~0.7MPa。"
+      },
+      "confidence": 0.88,
+      "review_status": "pending_review",
+      "execution_status": "needs_runtime",
+      "runtime_requirements": ["sensor", "formula_engine", "manual_input"],
+      "runtime_mode": "semi_automatic",
+      "derivation": {
+        "rule_derivable": false,
+        "gate_derivable": false
+      }
+    },
+    {
+      "specir_id": "specir-bridge17-appendixA-reference",
+      "normRef": "v://jtg-2182-2020/appendix-a/testing-principle",
+      "semantic_type": "non_executable_clause",
+      "subject": "试验原则说明",
+      "condition": "说明性条款",
+      "slotKey": "bridge.testing.principle.reference",
+      "constraint": {
+        "field": "test_method_reference",
+        "operator": "exists",
+        "value": "JTGE42",
+        "min": null,
+        "max": null,
+        "unit": "",
+        "formula": ""
+      },
+      "evidence": {
+        "standard_code": "JTG_2182-2020",
+        "version": "2020",
+        "clause_no": "附录A",
+        "page": 318,
+        "source_text": "试验方法应符合 JTGE42 的规定。"
+      },
+      "confidence": 0.93,
+      "review_status": "approved",
+      "execution_status": "not_executable",
+      "runtime_requirements": ["human_judgement", "external_standard"],
+      "runtime_mode": "non_executable",
+      "derivation": {
+        "rule_derivable": false,
+        "gate_derivable": false
+      }
+    }
+  ]
+}

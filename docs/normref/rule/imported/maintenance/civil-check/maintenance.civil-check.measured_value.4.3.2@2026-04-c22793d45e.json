@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.4.3.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "gte",
+  "threshold_value": "1",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "4.3.2",
+  "source_line": "1△ 度 上路 轻、中及重交通荷载等级 0.8～1.5m ≥94 ≥94 ≥93 按附录B检查",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-1d92d5a25c82",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:c22793d45e28b8d754594dbcc39a27e452e6e271937749da24c1245629b258e0"
+}

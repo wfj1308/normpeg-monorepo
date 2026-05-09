@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.length.5.8.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/length@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "length",
+  "operator": "eq",
+  "threshold_value": "2",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "5.8.3",
+  "source_line": "2 灌缝材料溢出、污染路面、被车辆卷走、脱落等的累计长度不得超过灌缝总",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-538102c6084d",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:dc256771649cbfa1812dad4f84a625230740a8c786c6e8e280b4dd2cd848d838"
+}

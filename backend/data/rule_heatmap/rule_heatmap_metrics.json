@@ -1,0 +1,75 @@
+{
+  "meta": {
+    "generated_at": "2026-05-08T04:59:09.966871Z",
+    "filters": {
+      "standard": "JTG_F80_1_2017",
+      "form_code": "JTG_F80_1_2017.4.2.1.compaction",
+      "project": "P-HEAT-1"
+    },
+    "event_count": 5
+  },
+  "heatmap_metrics": {
+    "dimensions": [
+      "runtime_frequency",
+      "fail_frequency",
+      "manual_override_frequency",
+      "unresolved_frequency"
+    ],
+    "rows": [
+      {
+        "rule_id": "None",
+        "runtime_frequency": 20,
+        "fail_frequency": 20,
+        "manual_override_frequency": 20,
+        "unresolved_frequency": 0,
+        "risk_score": 120
+      }
+    ]
+  },
+  "aggregation_pipeline": {
+    "steps": [
+      "read runtime_events.jsonl",
+      "apply standard/form_code/project filters",
+      "aggregate per rule and per gate",
+      "compute risk score",
+      "rank top risky/failing/overridden"
+    ]
+  },
+  "top_risky_rules": [
+    {
+      "rule_id": "None",
+      "runtime_frequency": 20,
+      "fail_frequency": 20,
+      "manual_override_frequency": 20,
+      "unresolved_frequency": 0,
+      "risk_score": 120
+    }
+  ],
+  "most_failing_gates": [
+    {
+      "gate_id": "default",
+      "runtime_frequency": 5,
+      "fail_frequency": 5
+    }
+  ],
+  "most_overridden_rules": [
+    {
+      "rule_id": "None",
+      "runtime_frequency": 20,
+      "fail_frequency": 20,
+      "manual_override_frequency": 20,
+      "unresolved_frequency": 0,
+      "risk_score": 120
+    }
+  ],
+  "page_plan": {
+    "page_name": "Rule Heatmap Dashboard",
+    "blocks": [
+      "过滤器（standard/form_code/project）",
+      "Heatmap metrics 表",
+      "Top risky rules",
+      "Most failing gates",
+      "Most overridden rules"
+    ]
+  }
+}

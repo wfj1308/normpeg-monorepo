@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.thickness.9.3.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/thickness@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "thickness",
+  "operator": "gte",
+  "threshold_value": "2",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "9.3.2",
+  "source_line": "2 草卷土层厚度 (mm) ≥15 钢卷尺：每100m2抽检1处5m2",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-20fa8b73626e",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:f2ad5bea104d5b4414a7b90068e044a4f8b0aba15a1599ea9b525d407d892e87"
+}

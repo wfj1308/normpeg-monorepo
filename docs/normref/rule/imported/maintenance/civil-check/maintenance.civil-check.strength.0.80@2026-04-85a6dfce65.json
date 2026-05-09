@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.0.80",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "eq",
+  "threshold_value": "0.1",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "0.80",
+  "source_line": "E.0.1 喷射混凝土抗压强度系指在喷射混凝土板件上，切割制取 100mm×",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-e668fa7b9028",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:85a6dfce65561b5cf77644cd618a085988ebd6b3c1c51a17b32af710b582b4e4"
+}

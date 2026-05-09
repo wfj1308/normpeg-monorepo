@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.7.1.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "6.9",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "7.1.2",
+  "source_line": "标准第6.9节、第6.14节、第6.15节进行检验。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-aa56740dc78f",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:39be556080aa44434ca9f0cfa4e3c717dd9ac40d9c1c526ca1bacc1c596f7113"
+}

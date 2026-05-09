@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.6.13.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "tolerance",
+  "threshold_value": "30",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "6.13.2",
+  "source_line": "筋（束） 构件长方向 ±30",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-2bcdc4e6ae95",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:70f6de6e282fc0c21ef382e2161d201937f348e0cd1107bb8922256ab2e13026"
+}

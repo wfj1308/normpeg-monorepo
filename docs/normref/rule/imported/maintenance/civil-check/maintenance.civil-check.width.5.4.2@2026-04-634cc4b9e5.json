@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.width.5.4.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/width@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "width",
+  "operator": "tolerance",
+  "threshold_value": "30",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "5.4.2",
+  "source_line": "宽度 有侧石 ±30",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-61092bd87592",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:634cc4b9e50fabfac8fd1861412080d80aa42588f3352c55857ac35c21ee4e7c"
+}

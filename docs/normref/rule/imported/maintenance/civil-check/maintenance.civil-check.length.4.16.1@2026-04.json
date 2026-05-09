@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.length.4.16.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/length@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "length",
+  "operator": "eq",
+  "threshold_value": "20",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "4.16.1",
+  "source_line": "孔深应至少大于锚固长度20mm。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-0f0b84accc64",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:7f0dae2daba848487093ba2e4f471bd11c5448109043b231861fcb4f6bf004ed"
+}

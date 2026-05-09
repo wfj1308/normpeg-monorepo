@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.flatness.8.14.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/flatness@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "flatness",
+  "operator": "lte",
+  "threshold_value": "9",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "8.14.2",
+  "source_line": "9 屏体整体平整度 (mm) ≤ 10 2m直尺、塞尺：每50m测1处×5尺",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-eb4b46faad4a",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:0840e62a14bdc948cef412fa9652b407c4972286cdfdf602dfc0ed6f762c5c72"
+}

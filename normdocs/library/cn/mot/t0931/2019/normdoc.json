@@ -1,0 +1,250 @@
+{
+  "schema_uri": "v://normref.com/schema/normdoc-v1",
+  "version": "v1",
+  "header": {
+    "standard_id": "JTG 3450-2019",
+    "version": "2019",
+    "replaces": "JTG 3450-2008",
+    "issuer": "Ministry of Transport",
+    "effective_date": "2019-05-01",
+    "scope": "Highway pavement roughness inspection record",
+    "language": "zh-CN",
+    "jurisdiction": "CN-MOT",
+    "source_uri": "local://JTG-3450-2019-T0931.pdf",
+    "source_hash": "sha256:t0931-sample"
+  },
+  "body": {
+    "chapters": {
+      "terms_stream": [
+        {
+          "term": "IRI",
+          "definition": "International Roughness Index"
+        }
+      ],
+      "general_rules": [
+        {
+          "clause_id": "clause.t0931.1",
+          "title": "Sampling rule",
+          "text": "IRI sampling should follow profile measurement rules."
+        }
+      ],
+      "work_items": [
+        {
+          "work_item_id": "work-item.t0931.iri",
+          "name": "Pavement roughness",
+          "basic_requirements": [],
+          "measured_items": [
+            {
+              "item_id": "item.t0931.iri",
+              "check_item": "iri",
+              "required_value": 2.0,
+              "tolerance": 0.0,
+              "check_method": "continuous profiler",
+              "unit": "m/km",
+              "severity": "mandatory"
+            }
+          ],
+          "visual_inspection": [],
+          "documentation": []
+        }
+      ],
+      "evaluation_methods": []
+    },
+    "tables": {
+      "inspection_record_tables": [
+        {
+          "table_id": "table.t0931",
+          "title": "Roughness inspection record (T0931)",
+          "external_form_type": "T0931-2019",
+          "meta": {
+            "form_type": "T0931-2019",
+            "aliases": [
+              "T0931",
+              "T0931_2019"
+            ]
+          },
+          "fields": [
+            {
+              "field_id": "table.t0931.field.section",
+              "name": "section",
+              "data_type": "string",
+              "required": false
+            },
+            {
+              "field_id": "table.t0931.field.iri",
+              "name": "iri",
+              "data_type": "number",
+              "required": true,
+              "unit": "m/km"
+            },
+            {
+              "field_id": "table.t0931.field.layer_zone",
+              "name": "layer_zone",
+              "data_type": "string",
+              "required": true
+            }
+          ]
+        }
+      ],
+      "evaluation_tables": [],
+      "summary_tables": []
+    },
+    "formulas": {
+      "representative_value_formula": [],
+      "pass_rate_formula": [],
+      "score_formula": []
+    },
+    "ref_dictionary": {
+      "outbound_refs": [
+        {
+          "ref_id": "ref.jtg-f80-1-2017.roughness",
+          "target": "JTG F80/1-2017 pavement roughness requirements",
+          "kind": "normative_reference"
+        },
+        {
+          "ref_id": "ref.jtg-3450-2019.t0931",
+          "target": "JTG 3450-2019 T0931",
+          "kind": "test_method"
+        },
+        {
+          "ref_id": "ref.jtg-t-f20-2015.pavement",
+          "target": "JTG/T F20-2015 pavement construction control",
+          "kind": "construction_control"
+        }
+      ],
+      "inbound_refs": [],
+      "patch_refs": []
+    },
+    "cross_spec_refs": [
+      {
+        "clause_id": "clause_roughness_eval",
+        "id": "roughness_iri",
+        "type": "critical_measured_item",
+        "applies_to_form_types": [
+          "T0931-2019"
+        ],
+        "test_method": {
+          "ref": "JTG_3450_2019.T0931",
+          "alternatives": [
+            "JTG_3450_2019.T0932"
+          ],
+          "auto_select": "based on layer_zone",
+          "selection_rules": [
+            {
+              "when": {
+                "layer_zone": [
+                  "基层",
+                  "底基层"
+                ]
+              },
+              "use": "JTG_3450_2019.T0932"
+            }
+          ]
+        },
+        "calculation": {
+          "ref": "JTG_F80_1_2017.pavement_roughness",
+          "pass_criteria": "iri <= standard"
+        },
+        "construction_control": {
+          "ref": "JTG_T_F20_2015.6.2",
+          "note": "construction params are for traceability only"
+        }
+      }
+    ]
+  },
+  "gate": {
+    "clause_xref_table": [
+      {
+        "clause_id": "table.t0931",
+        "offset_key": "0289",
+        "object_type": "Table",
+        "generation": 0,
+        "in_use": true
+      },
+      {
+        "clause_id": "rule.t0931.iri.max",
+        "offset_key": "0523",
+        "object_type": "Rule",
+        "generation": 0,
+        "in_use": true
+      }
+    ],
+    "table_rule_tree": [
+      {
+        "table_id": "table.t0931",
+        "field_rules": [
+          {
+            "rule_id": "rule.t0931.iri.max",
+            "field_id": "table.t0931.field.iri",
+            "operator": "lte",
+            "value_expr": "iri_limit",
+            "default_standard": 2.0,
+            "severity": "mandatory",
+            "action": "BLOCK_SUBMIT",
+            "error_message": "IRI exceeds the project standard limit."
+          }
+        ]
+      }
+    ],
+    "dependency_graph": {
+      "nodes": [
+        {
+          "id": "table.t0931.field.iri",
+          "node_type": "field"
+        },
+        {
+          "id": "rule.t0931.iri.max",
+          "node_type": "rule"
+        },
+        {
+          "id": "clause_roughness_eval",
+          "node_type": "clause"
+        }
+      ],
+      "edges": [
+        {
+          "from": "table.t0931.field.iri",
+          "to": "rule.t0931.iri.max",
+          "relation": "evaluates"
+        },
+        {
+          "from": "clause_roughness_eval",
+          "to": "rule.t0931.iri.max",
+          "relation": "cross_spec_binding"
+        }
+      ]
+    },
+    "diff_xref": []
+  },
+  "trailer": {
+    "root": "normdoc.root.t0931",
+    "info": {
+      "chief_editor_org": "Highway Standards Committee",
+      "contributors": [
+        "NormDoc Team"
+      ],
+      "revision_history": [
+        {
+          "version": "2019",
+          "date": "2019-05-01",
+          "summary": "Initial release for T0931."
+        }
+      ]
+    },
+    "prev": null
+  },
+  "incremental_updates": {
+    "patches": [],
+    "errata_stream": [],
+    "project_overrides": []
+  },
+  "term_cmap": [
+    {
+      "source_term": "平整度",
+      "standard_term": "roughness",
+      "standard_code": "term.roughness",
+      "confidence": 1.0
+    }
+  ]
+}
+

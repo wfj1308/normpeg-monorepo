@@ -1,0 +1,256 @@
+spec_id: JTG_3450_2019.T0921
+type: executable_spec
+version: v1.0.0
+namespace: norms.cn.mot.jtg_3450_2019.t0921
+
+semantics:
+  standard_id: JTG_3450_2019
+  standard_name: Highway Subgrade Test Regulations
+  standard_version: "2019"
+  clause_id: T0921
+  clause_refs:
+    - JTG_3450_2019.T0921
+  catalog_id: JTG_3450_2019
+  component_id: JTG_3450_2019.T0921
+  component_name: sand_cone_method
+  name: Sand Cone Method
+  component_type: TestMethod
+  work_item: earthwork_subgrade
+  measured_item: compaction
+  test_method: T0921
+  status: active
+  owner: quality-center
+  critical: true
+  description: Sand cone method specification for deriving dry density and compaction degree from field measurements
+  generated_at: "2026-04-17T00:00:00Z"
+
+logic:
+  language: specir/v1
+  execution_mode: deterministic
+  stages:
+    - inputs
+    - path
+    - gate
+    - state
+    - proof
+
+inputs:
+  input_dto:
+    stake:
+      type: string
+      required: true
+    project_id:
+      type: string
+      required: true
+    actor_did:
+      type: string
+      required: true
+    inspected_at:
+      type: string
+      required: true
+    test_method:
+      type: enum
+      required: false
+      enum_values: ["T0921"]
+      default: T0921
+    sand_density:
+      type: number
+      unit: g/cm3
+      precision: 3
+      required: true
+    mass_hole_sand:
+      type: number
+      unit: g
+      precision: 1
+      required: true
+    volume_ring:
+      type: number
+      unit: cm3
+      precision: 1
+      required: true
+    moisture_content:
+      type: number
+      unit: "%"
+      precision: 1
+      required: true
+    max_dry_density:
+      type: number
+      unit: g/cm3
+      precision: 3
+      required: true
+
+  output_dto:
+    hole_volume:
+      type: number
+      unit: cm3
+    wet_density:
+      type: number
+      unit: g/cm3
+    dry_density:
+      type: number
+      unit: g/cm3
+    compaction_degree:
+      type: number
+      unit: "%"
+    test_method:
+      type: enum
+      enum_values: [T0921]
+    final_status:
+      type: enum
+      enum_values: [PASS, FAIL, BLOCKED, CRITICAL, OVERRIDDEN, WARNING]
+    clause_refs:
+      type: array
+    proof_hash:
+      type: string
+
+path:
+  steps:
+    - step_id: calc_hole_volume
+      action: formula
+      formula_ref: hole_volume_formula
+      output_field: hole_volume
+    - step_id: calc_wet_density
+      action: formula
+      formula_ref: wet_density_formula
+      output_field: wet_density
+    - step_id: calc_dry_density
+      action: formula
+      formula_ref: dry_density_formula
+      output_field: dry_density
+    - step_id: calc_compaction_degree
+      action: formula
+      formula_ref: compaction_degree_formula
+      output_field: compaction_degree
+
+  formulas:
+    hole_volume_formula: mass_hole_sand / sand_density
+    wet_density_formula: hole_volume / volume_ring
+    dry_density_formula: wet_density / (1 + moisture_content / 100)
+    compaction_degree_formula: dry_density / max_dry_density * 100
+
+  lookup_tables: {}
+
+  derived_fields:
+    - hole_volume
+    - wet_density
+    - dry_density
+    - compaction_degree
+
+gate:
+  rules:
+    - rule_id: rule.t0921.input_positive
+      condition: sand_density > 0 and mass_hole_sand > 0 and volume_ring > 0 and max_dry_density > 0
+      severity: blocking
+      on_fail: block
+      clause_refs: [JTG_3450_2019.T0921.inputs]
+    - rule_id: rule.t0921.moisture_range
+      condition: moisture_content >= 0 and moisture_content <= 100
+      severity: blocking
+      on_fail: block
+      clause_refs: [JTG_3450_2019.T0921.moisture]
+    - rule_id: rule.t0921.compaction_degree_range
+      condition: compaction_degree >= 0 and compaction_degree <= 200
+      severity: warning
+      on_fail: warn
+      clause_refs: [JTG_3450_2019.T0921.compaction_degree]
+  references:
+    - JTG_3450_2019.T0921
+    - JTG_F80_1_2017.4.2.1.compaction
+  clause_refs:
+    - JTG_3450_2019.T0921
+
+state:
+  initial_state: DRAFT
+  states: [DRAFT, COMPUTED, VALIDATED, QUALIFIED, REJECTED, OVERRIDDEN, ARCHIVED]
+  allowed_transitions:
+    - from_state: DRAFT
+      to_state: COMPUTED
+      trigger: path_executed
+    - from_state: COMPUTED
+      to_state: VALIDATED
+      trigger: gate_executed
+    - from_state: VALIDATED
+      to_state: QUALIFIED
+      trigger: all_rules_pass
+    - from_state: VALIDATED
+      to_state: REJECTED
+      trigger: rule_failed
+    - from_state: VALIDATED
+      to_state: OVERRIDDEN
+      trigger: manual_override_approved
+    - from_state: QUALIFIED
+      to_state: ARCHIVED
+      trigger: archive_requested
+    - from_state: REJECTED
+      to_state: ARCHIVED
+      trigger: archive_requested
+    - from_state: OVERRIDDEN
+      to_state: ARCHIVED
+      trigger: archive_requested
+  terminal_states: [QUALIFIED, REJECTED, OVERRIDDEN, ARCHIVED]
+
+proof:
+  proof_fields:
+    - execution_id
+    - component_id
+    - version
+    - project_id
+    - v_address
+    - test_method
+    - input
+    - normalized_input
+    - path_outputs
+    - gate
+    - state_trace
+    - final_status
+    - clause_refs
+  canonicalization:
+    field_order:
+      - execution_id
+      - component_id
+      - version
+      - project_id
+      - v_address
+      - test_method
+      - input
+      - normalized_input
+      - path_outputs
+      - gate
+      - state_trace
+      - final_status
+      - clause_refs
+    sort_keys: true
+    null_policy: keep
+  hash_algorithm: sha256
+  canonical_order:
+    - execution_id
+    - component_id
+    - version
+    - project_id
+    - v_address
+    - test_method
+    - input
+    - normalized_input
+    - path_outputs
+    - gate
+    - state_trace
+    - final_status
+    - clause_refs
+  hash_method: sha256
+  signature:
+    algorithm: hmac_sha256
+    key_env: LAYERPEG_PROOF_HMAC_KEY
+  chain:
+    enabled: true
+
+metadata:
+  specir_version: v0.1.0
+  source_normdoc_file: opt/layerpeg/gate/norms/JTG_3450_2019.T0921.json
+  source_normdoc_version: v1
+  source_gate_rule: T0921_Gate
+  migration_note: normalized from Gate norm into SpecIR asset
+  patchable: true
+  related_specs:
+    - JTG_F80_1_2017.4.2.1.compaction
+    - JTG_3450_2019.T0923
+    - JTG_3450_2019.T0924

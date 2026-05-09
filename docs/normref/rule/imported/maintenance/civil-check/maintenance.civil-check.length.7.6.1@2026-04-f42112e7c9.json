@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.length.7.6.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/length@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "length",
+  "operator": "lte",
+  "threshold_value": "2",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "7.6.1",
+  "source_line": "初喷面楔紧，顶楔后的连续间隙长度不得大于2m，间隙应用喷射混凝土喷填密实。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-3e29a27279e1",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:f42112e7c9f59042ac42588e97bc687293cdebf330040016760c615dc5a27239"
+}

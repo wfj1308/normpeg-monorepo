@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.5.3.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "eq",
+  "threshold_value": "5",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "5.3.1",
+  "source_line": "5开放交通或进行下一步工序施工前，混合料初期强度应满足要求。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-1626838d666f",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:88f82df40fbdc356903da61e2bb6bb5abc0107a37be456ca8fbc5a0a67df0f88"
+}

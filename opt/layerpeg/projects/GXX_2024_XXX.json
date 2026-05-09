@@ -1,0 +1,37 @@
+{
+  "project_code": "GXX-2024-XXX",
+  "section": "K10+000~K25+000",
+  "contractor": "XX建设集团",
+  "supervisor": "XX监理公司",
+  "design_params": {
+    "road_class": "expressway",
+    "design_speed": 100,
+    "subgrade": {
+      "96_zone": {
+        "standard": 94,
+        "project_override": {
+          "enabled": true,
+          "value": 95,
+          "effective_date": "2024-01-01",
+          "approved_by": "did:peg:ce_001",
+          "target": "compaction_degree_threshold",
+          "reason": "项目特殊要求"
+        },
+        "test_method": "T0921-2019",
+        "frequency": "200m/2点"
+      }
+    }
+  },
+  "personnel": {
+    "inspector": [
+      "did:peg:ins_001",
+      "did:peg:ins_002"
+    ],
+    "supervisor": [
+      "did:peg:sup_001"
+    ],
+    "chief_engineer": [
+      "did:peg:ce_001"
+    ]
+  }
+}

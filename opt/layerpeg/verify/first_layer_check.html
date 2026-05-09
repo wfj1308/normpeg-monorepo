@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LayerPeg 第一层验收页面</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --panel: #ffffff;
+      --text: #1f2a37;
+      --ok: #0f8a5f;
+      --fail: #c62828;
+      --wait: #ef6c00;
+      --border: #d6dde8;
+      --btn: #1d4ed8;
+      --btn2: #0f766e;
+    }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: linear-gradient(160deg, #eef4ff 0%, var(--bg) 100%);
+      color: var(--text);
+    }
+    .wrap {
+      max-width: 1100px;
+      margin: 20px auto;
+      padding: 0 16px 24px;
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: 24px;
+    }
+    h2 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+    .row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    button {
+      border: 0;
+      border-radius: 8px;
+      padding: 10px 14px;
+      color: #fff;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .primary { background: var(--btn); }
+    .secondary { background: var(--btn2); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: #f8fafc; }
+    .ok { color: var(--ok); font-weight: 700; }
+    .fail { color: var(--fail); font-weight: 700; }
+    .wait { color: var(--wait); font-weight: 700; }
+    pre {
+      background: #0b1220;
+      color: #d8e1f5;
+      padding: 10px;
+      border-radius: 8px;
+      overflow: auto;
+      max-height: 320px;
+      margin: 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>LayerPeg 第一层验收页面</h1>
+      <div>验证范围：NormDoc(T0921) / Gate Engine API / NL2Gate API / ProjectProfile / 本地联通性</div>
+      <div style="margin-top:8px;">目标服务：Gate <code>http://localhost:8080</code>，NL2Gate <code>http://localhost:8081</code></div>
+    </div>
+
+    <div class="card">
+      <div class="row">
+        <button class="primary" onclick="runAll()">一键验收第一层</button>
+        <button class="secondary" onclick="runGateOnly()">仅验证 Gate API</button>
+        <button class="secondary" onclick="runChatOnly()">仅验证 /chat</button>
+      </div>
+      <table id="result-table">
+        <thead>
+          <tr>
+            <th style="width: 24%;">验收项</th>
+            <th style="width: 10%;">状态</th>
+            <th>说明</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>Gate 返回</h2>
+        <pre id="gate-out">{}</pre>
+      </div>
+      <div class="card">
+        <h2>NL2Gate 返回</h2>
+        <pre id="chat-out">{}</pre>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const gateBase = "http://localhost:8080";
+    const nl2gateBase = "http://localhost:8081";
+
+    function setRows(rows) {
+      const tbody = document.querySelector("#result-table tbody");
+      tbody.innerHTML = "";
+      for (const row of rows) {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${row.item}</td>
+          <td class="${row.statusClass}">${row.status}</td>
+          <td>${row.detail}</td>
+        `;
+        tbody.appendChild(tr);
+      }
+    }
+
+    function safeJson(obj) {
+      return JSON.stringify(obj, null, 2);
+    }
+
+    async function checkNormDoc(rows) {
+      const name = "T0921-2019 结构化 NormDoc";
+      try {
+        const r = await fetch("../gate/norms/JTG_3450_2019.T0921.json");
+        if (!r.ok) {
+          rows.push({ item: name, status: "FAIL", statusClass: "fail", detail: "文件不可读" });
+          return;
+        }
+        const json = await r.json();
+        const requiredTop = ["Header", "Body", "Gate", "Trailer", "IncrementalUpdates"];
+        const missing = requiredTop.filter((k) => !(k in json));
+        if (missing.length > 0) {
+          rows.push({
+            item: name,
+            status: "FAIL",
+            statusClass: "fail",
+            detail: "缺少层级: " + missing.join(", ")
+          });
+          return;
+        }
+        rows.push({
+          item: name,
+          status: "PASS",
+          statusClass: "ok",
+          detail: "已包含 Header/Body/Gate/Trailer/IncrementalUpdates"
+        });
+      } catch (e) {
+        rows.push({ item: name, status: "FAIL", statusClass: "fail", detail: String(e) });
+      }
+    }
+
+    async function checkProject(rows) {
+      const name = "projects/GXX_2024_XXX.json";
+      try {
+        const r = await fetch("../projects/GXX_2024_XXX.json");
+        if (!r.ok) {
+          rows.push({ item: name, status: "FAIL", statusClass: "fail", detail: "文件不可读" });
+          return;
+        }
+        const json = await r.json();
+        const required = ["project_code", "section", "contractor", "supervisor", "design_params", "personnel"];
+        const missing = required.filter((k) => !(k in json));
+        if (missing.length > 0) {
+          rows.push({ item: name, status: "FAIL", statusClass: "fail", detail: "缺少字段: " + missing.join(", ") });
+          return;
+        }
+        rows.push({ item: name, status: "PASS", statusClass: "ok", detail: "项目配置层级完整" });
+      } catch (e) {
+        rows.push({ item: name, status: "FAIL", statusClass: "fail", detail: String(e) });
+      }
+    }
+
+    async function checkGate(rows) {
+      const healthName = "Gate 进程可用性 /health";
+      try {
+        const health = await fetch(`${gateBase}/health`);
+        if (!health.ok) {
+          rows.push({ item: healthName, status: "FAIL", statusClass: "fail", detail: `HTTP ${health.status}` });
+        } else {
+          rows.push({ item: healthName, status: "PASS", statusClass: "ok", detail: "Gate 8080 可访问" });
+        }
+      } catch (e) {
+        rows.push({ item: healthName, status: "FAIL", statusClass: "fail", detail: String(e) });
+      }
+
+      const apiName = "POST /v1/gate/validate";
+      const payload = {
+        form_type: "T0921-2019",
+        project_id: "GXX_2024_XXX",
+        section: "K15+200",
+        inputs: {
+          stake: "K15+200",
+          position: "左幅行车道",
+          sand_density: 1.456,
+          mass_hole_sand: 2850.5,
+          volume_ring: 2000,
+          moisture_content: 8.5,
+          max_dry_density: 2.35
+        },
+        photos: [
+          { hash: "sha256:abc123...", meta: { timestamp: "2026-04-16T10:00:00Z", gps: "30.000,120.000" } }
+        ]
+      };
+
+      try {
+        const resp = await fetch(`${gateBase}/v1/gate/validate`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        const data = await resp.json();
+        document.getElementById("gate-out").textContent = safeJson(data);
+        const required = ["validation_id", "status", "results", "form_pdf", "proof_hash"];
+        const missing = required.filter((k) => !(k in data));
+        if (!resp.ok || missing.length > 0) {
+          rows.push({
+            item: apiName,
+            status: "FAIL",
+            statusClass: "fail",
+            detail: !resp.ok ? `HTTP ${resp.status}` : `缺少字段: ${missing.join(", ")}`
+          });
+          return;
+        }
+        rows.push({
+          item: apiName,
+          status: "PASS",
+          statusClass: "ok",
+          detail: `返回结构完整，status=${data.status}`
+        });
+      } catch (e) {
+        rows.push({ item: apiName, status: "FAIL", statusClass: "fail", detail: String(e) });
+      }
+    }
+
+    async function checkChat(rows) {
+      const name = "POST /chat";
+      const payload = {
+        message: "K15+200压实度94.5%合格吗",
+        user_id: "inspector_001",
+        project_id: "GXX_2024_XXX"
+      };
+      try {
+        const resp = await fetch(`${nl2gateBase}/chat`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        const data = await resp.json();
+        document.getElementById("chat-out").textContent = safeJson(data);
+        const required = ["intent", "form_type", "api_params", "gate_result", "natural_reply"];
+        const missing = required.filter((k) => !(k in data));
+        if (!resp.ok || missing.length > 0) {
+          rows.push({
+            item: name,
+            status: "FAIL",
+            statusClass: "fail",
+            detail: !resp.ok ? `HTTP ${resp.status}` : `缺少字段: ${missing.join(", ")}`
+          });
+          return;
+        }
+        rows.push({ item: name, status: "PASS", statusClass: "ok", detail: `NL2Gate 路线可执行，intent=${data.intent}` });
+      } catch (e) {
+        rows.push({ item: name, status: "FAIL", statusClass: "fail", detail: String(e) });
+      }
+    }
+
+    async function runAll() {
+      const rows = [{ item: "总流程", status: "RUNNING", statusClass: "wait", detail: "执行中..." }];
+      setRows(rows);
+      rows.length = 0;
+      await checkNormDoc(rows);
+      await checkProject(rows);
+      await checkGate(rows);
+      await checkChat(rows);
+      setRows(rows);
+    }
+
+    async function runGateOnly() {
+      const rows = [];
+      await checkNormDoc(rows);
+      await checkProject(rows);
+      await checkGate(rows);
+      setRows(rows);
+    }
+
+    async function runChatOnly() {
+      const rows = [];
+      await checkProject(rows);
+      await checkChat(rows);
+      setRows(rows);
+    }
+  </script>
+</body>
+</html>

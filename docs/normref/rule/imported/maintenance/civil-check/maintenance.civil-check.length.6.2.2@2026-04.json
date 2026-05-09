@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.length.6.2.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/length@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "length",
+  "operator": "lte",
+  "threshold_value": "200",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "6.2.2",
+  "source_line": "铺砂法：长度不大于200m时测5处，",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-4dc88aea18e3",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:272a81ac05107e7c11b7aecafa8d0000e0e4fc13ccee27ac7657cf657e9cbc86"
+}

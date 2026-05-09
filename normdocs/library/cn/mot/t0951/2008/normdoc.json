@@ -1,0 +1,219 @@
+{
+  "schema_uri": "v://normref.com/schema/normdoc-v1",
+  "version": "v1",
+  "header": {
+    "standard_id": "JTG 3450-2019",
+    "version": "2019",
+    "replaces": "JTG 3450-2008",
+    "issuer": "Ministry of Transport",
+    "effective_date": "2019-05-01",
+    "scope": "Highway deflection inspection record",
+    "language": "zh-CN",
+    "jurisdiction": "CN-MOT",
+    "source_uri": "local://JTG-3450-2019-T0951.pdf",
+    "source_hash": "sha256:t0951-sample"
+  },
+  "body": {
+    "chapters": {
+      "terms_stream": [
+        {
+          "term": "deflection",
+          "definition": "measured pavement deflection under standard loading"
+        }
+      ],
+      "general_rules": [],
+      "work_items": [
+        {
+          "work_item_id": "work-item.t0951.deflection",
+          "name": "Pavement deflection",
+          "basic_requirements": [],
+          "measured_items": [
+            {
+              "item_id": "item.t0951.deflection",
+              "check_item": "deflection",
+              "required_value": 180,
+              "tolerance": 0,
+              "check_method": "beckmann beam",
+              "unit": "0.01mm",
+              "severity": "mandatory"
+            }
+          ],
+          "visual_inspection": [],
+          "documentation": []
+        }
+      ],
+      "evaluation_methods": []
+    },
+    "tables": {
+      "inspection_record_tables": [
+        {
+          "table_id": "table.t0951",
+          "title": "Deflection inspection record (T0951)",
+          "external_form_type": "T0951-2008",
+          "meta": {
+            "form_type": "T0951-2008",
+            "aliases": [
+              "T0951",
+              "T0951_2008"
+            ]
+          },
+          "fields": [
+            {
+              "field_id": "table.t0951.field.section",
+              "name": "section",
+              "data_type": "string",
+              "required": false
+            },
+            {
+              "field_id": "table.t0951.field.deflection",
+              "name": "deflection",
+              "data_type": "number",
+              "required": true,
+              "unit": "0.01mm"
+            },
+            {
+              "field_id": "table.t0951.field.road_class",
+              "name": "road_class",
+              "data_type": "string",
+              "required": false
+            }
+          ]
+        }
+      ],
+      "evaluation_tables": [],
+      "summary_tables": []
+    },
+    "formulas": {
+      "representative_value_formula": [],
+      "pass_rate_formula": [],
+      "score_formula": []
+    },
+    "ref_dictionary": {
+      "outbound_refs": [
+        {
+          "ref_id": "ref.jtg-f80-1-2017.deflection",
+          "target": "JTG F80/1-2017 deflection requirements",
+          "kind": "normative_reference"
+        },
+        {
+          "ref_id": "ref.jtg-3450-2019.t0951",
+          "target": "JTG 3450-2019 T0951",
+          "kind": "test_method"
+        }
+      ],
+      "inbound_refs": [],
+      "patch_refs": []
+    },
+    "cross_spec_refs": [
+      {
+        "clause_id": "clause_deflection_eval",
+        "id": "deflection_limit",
+        "type": "measured_item",
+        "applies_to_form_types": [
+          "T0951-2008"
+        ],
+        "test_method": {
+          "ref": "JTG_3450_2019.T0951",
+          "alternatives": [],
+          "auto_select": "by road_class",
+          "selection_rules": []
+        },
+        "calculation": {
+          "ref": "JTG_F80_1_2017.deflection_eval",
+          "pass_criteria": "deflection <= limit",
+          "limit": 180
+        },
+        "construction_control": {
+          "ref": "JTG_T_F20_2015.7.1",
+          "note": "construction params are for traceability only"
+        }
+      }
+    ]
+  },
+  "gate": {
+    "clause_xref_table": [
+      {
+        "clause_id": "table.t0951",
+        "offset_key": "0289",
+        "object_type": "Table",
+        "generation": 0,
+        "in_use": true
+      },
+      {
+        "clause_id": "rule.t0951.deflection.max",
+        "offset_key": "0523",
+        "object_type": "Rule",
+        "generation": 0,
+        "in_use": true
+      }
+    ],
+    "table_rule_tree": [
+      {
+        "table_id": "table.t0951",
+        "field_rules": [
+          {
+            "rule_id": "rule.t0951.deflection.max",
+            "field_id": "table.t0951.field.deflection",
+            "operator": "lte",
+            "value_expr": "deflection_limit",
+            "default_standard": 180,
+            "severity": "mandatory",
+            "action": "BLOCK_SUBMIT",
+            "error_message": "Deflection exceeds the limit."
+          }
+        ]
+      }
+    ],
+    "dependency_graph": {
+      "nodes": [
+        {
+          "id": "table.t0951.field.deflection",
+          "node_type": "field"
+        },
+        {
+          "id": "rule.t0951.deflection.max",
+          "node_type": "rule"
+        }
+      ],
+      "edges": [
+        {
+          "from": "table.t0951.field.deflection",
+          "to": "rule.t0951.deflection.max",
+          "relation": "evaluates"
+        }
+      ]
+    },
+    "diff_xref": []
+  },
+  "trailer": {
+    "root": "normdoc.root.t0951",
+    "info": {
+      "chief_editor_org": "Highway Standards Committee",
+      "contributors": [
+        "NormDoc Team"
+      ],
+      "revision_history": [
+        {
+          "version": "2019",
+          "date": "2019-05-01",
+          "summary": "Initial release for T0951."
+        }
+      ]
+    },
+    "prev": null
+  },
+  "incremental_updates": {
+    "patches": [],
+    "errata_stream": [],
+    "project_overrides": []
+  },
+  "term_cmap": [
+    {
+      "source_term": "弯沉",
+      "standard_term": "deflection",
+      "standard_code": "term.deflection",
+      "confidence": 1.0
+    }
+  ]
+}
+

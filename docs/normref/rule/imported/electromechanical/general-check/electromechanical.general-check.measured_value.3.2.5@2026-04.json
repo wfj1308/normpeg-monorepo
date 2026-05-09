@@ -1,0 +1,20 @@
+{
+  "rule_id": "electromechanical.general-check.measured_value.3.2.5",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/electromechanical/general-check/measured_value@2026-04",
+  "category": "electromechanical/general-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "100",
+  "unit": "%",
+  "severity": "mandatory",
+  "norm_ref": "3.2.5",
+  "source_line": "100%，否则应进行整修或返工处理直至符合要求后再进行交工质量检测。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-936f61b7bf274584",
+  "candidate_id": "cand-da32797bdb36",
+  "source_std_code": "JTG-2182-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:03ab668427fc8d8cec2e02793ed97f1e85621f3bda775f42d6ded1b8fc54dec4"
+}

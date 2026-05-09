@@ -1,0 +1,20 @@
+{
+  "job_id": "ingest-29ec6647ec924c68",
+  "candidate_count": 71,
+  "approved_count": 71,
+  "published_count": 70,
+  "snapshot_hash": "sha256:7baa1b3f32b747f9ca325a20427538c20e49d1e9d3b7e70c212d13bad40bb091",
+  "top_categories": [
+    [
+      "civil/general-check",
+      70
+    ]
+  ],
+  "top_fields": [
+    [
+      "measured_value",
+      70
+    ]
+  ],
+  "rules_tsv": "d:\\wfj\\project\\labpeg-monorepo\\docs\\normref\\std\\g69-rules-2026-04.tsv"
+}

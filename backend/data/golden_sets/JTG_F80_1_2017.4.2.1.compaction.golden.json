@@ -1,0 +1,41 @@
+{
+  "schema": {
+    "schema_id": "rulepack.golden.baseline.v1",
+    "required": [
+      "form_code",
+      "baseline_rulepack",
+      "baseline_runtime_result",
+      "baseline_publish_result",
+      "updated_at"
+    ]
+  },
+  "form_code": "JTG_F80_1_2017.4.2.1.compaction",
+  "baseline_rulepack": {
+    "component_id": "JTG_F80_1_2017.4.2.1.compaction",
+    "component_name": "compaction",
+    "catalog_id": "JTG_F80_1_2017",
+    "standard_id": "JTG_F80_1_2017",
+    "version": "v1",
+    "gate": {
+      "rules": [
+        {
+          "rule_id": "single_point_rule",
+          "condition": "compaction_degree >= 95",
+          "severity": "blocking",
+          "on_fail": "block"
+        }
+      ]
+    }
+  },
+  "baseline_runtime_result": {
+    "final_status": "PASS"
+  },
+  "baseline_publish_result": {
+    "version": "v1",
+    "published": true
+  },
+  "sample_input": {
+    "compaction_degree": 96.0
+  },
+  "updated_at": "2026-05-08T04:59:14.200266Z"
+}

@@ -1,0 +1,216 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "v://normref.com/schema/specir-v1"
+title: "SpecIR v1"
+description: "Schema for SpecIR YAML generated from PDF parsing and used for compiling to spec.json"
+type: object
+additionalProperties: false
+required:
+  - spec_id
+  - standard_code
+  - standard_name
+  - version
+  - source_pdf
+  - catalog
+  - clauses
+  - components
+  - rules
+  - metadata
+properties:
+  spec_id:
+    type: string
+    minLength: 1
+  standard_code:
+    type: string
+    minLength: 1
+  standard_name:
+    type: string
+    minLength: 1
+  version:
+    type: string
+    minLength: 1
+  source_pdf:
+    type: object
+    additionalProperties: false
+    required:
+      - file_name
+      - file_hash
+      - pages
+    properties:
+      file_name:
+        type: string
+        minLength: 1
+      file_hash:
+        type: string
+        minLength: 1
+      pages:
+        type: integer
+        minimum: 1
+      storage_uri:
+        type: string
+      extracted_at:
+        type: string
+        format: date-time
+  catalog:
+    type: object
+    additionalProperties: false
+    required:
+      - category
+      - work_item
+      - measured_item
+    properties:
+      category:
+        type: string
+        minLength: 1
+      work_item:
+        type: string
+        minLength: 1
+      measured_item:
+        type: string
+        minLength: 1
+      path:
+        type: array
+        minItems: 3
+        items:
+          type: string
+          minLength: 1
+  clauses:
+    type: array
+    minItems: 1
+    items:
+      $ref: "#/$defs/clause"
+  components:
+    type: array
+    minItems: 1
+    items:
+      $ref: "#/$defs/component"
+  rules:
+    type: array
+    minItems: 1
+    items:
+      $ref: "#/$defs/rule"
+  metadata:
+    type: object
+    additionalProperties: true
+    required:
+      - created_at
+      - created_by
+      - language
+      - compile_target
+    properties:
+      created_at:
+        type: string
+        format: date-time
+      created_by:
+        type: string
+        minLength: 1
+      language:
+        type: string
+        minLength: 1
+      compile_target:
+        type: string
+        enum:
+          - spec.json
+      notes:
+        type: string
+$defs:
+  clause:
+    type: object
+    additionalProperties: false
+    required:
+      - clause_id
+      - clause_no
+      - title
+      - original_text
+      - page
+      - parent_clause_id
+      - level
+    properties:
+      clause_id:
+        type: string
+        minLength: 1
+      clause_no:
+        type: string
+        minLength: 1
+      title:
+        type: string
+        minLength: 1
+      original_text:
+        type: string
+        minLength: 1
+        description: "Raw clause text from source PDF; must keep original wording without AI rewriting"
+      page:
+        type: integer
+        minimum: 1
+      parent_clause_id:
+        type:
+          - string
+          - "null"
+      level:
+        type: integer
+        minimum: 1
+  component:
+    type: object
+    additionalProperties: false
+    required:
+      - component_id
+      - category
+      - work_item
+      - measured_item
+      - test_method
+      - bound_clause_ids
+    properties:
+      component_id:
+        type: string
+        minLength: 1
+      category:
+        type: string
+        minLength: 1
+      work_item:
+        type: string
+        minLength: 1
+      measured_item:
+        type: string
+        minLength: 1
+      test_method:
+        type: string
+        minLength: 1
+      bound_clause_ids:
+        type: array
+        minItems: 1
+        items:
+          type: string
+          minLength: 1
+        uniqueItems: true
+  rule:
+    type: object
+    additionalProperties: false
+    required:
+      - rule_id
+      - component_id
+      - clause_id
+      - input_schema
+      - path_logic
+      - gate_condition
+      - state_machine
+      - proof_template
+    properties:
+      rule_id:
+        type: string
+        minLength: 1
+      component_id:
+        type: string
+        minLength: 1
+      clause_id:
+        type: string
+        minLength: 1
+        description: "Required binding target of this rule"
+      input_schema:
+        type: object
+      path_logic:
+        type: object
+      gate_condition:
+        type: object
+      state_machine:
+        type: object
+      proof_template:
+        type: object

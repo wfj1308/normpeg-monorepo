@@ -1,0 +1,20 @@
+{
+  "rule_id": "civil.general-check.width.4.4.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/civil/general-check/width@2026-04",
+  "category": "civil/general-check",
+  "field_key": "width",
+  "operator": "range",
+  "threshold_value": "0.5",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "4.4.1",
+  "source_line": "砂垫层：应分层碾压施工；砂垫层宽度应宽出路基边脚0.5～1.0m，两侧端以",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-06a75ca21ccc44ec",
+  "candidate_id": "cand-7873f1cbc16c",
+  "source_std_code": "JTG-F80-1-2017",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:31821b3ca832096a2f49961008c473250c478fd382c45d5ccd88caa72249a23b"
+}

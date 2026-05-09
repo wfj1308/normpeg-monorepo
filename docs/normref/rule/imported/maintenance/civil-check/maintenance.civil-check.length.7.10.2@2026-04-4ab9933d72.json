@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.length.7.10.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/length@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "length",
+  "operator": "gte",
+  "threshold_value": "100",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "7.10.2",
+  "source_line": "搭接长度（mm） ≥100 尺量：每5环搭接抽查3处",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-bacc9ba3c2ba",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:4ab9933d726f00758f405c7c6baf9697e1a09fb7a7359f70fe7772d04a5db361"
+}

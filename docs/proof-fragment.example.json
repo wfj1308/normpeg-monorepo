@@ -1,0 +1,50 @@
+{
+  "kind": "proofFragment",
+  "executionId": "exec_node_01",
+  "spuId": "highway.subgrade.compaction.4.2.1.soil@v1",
+  "nodeId": "node_01",
+  "containerId": "container_A",
+  "inputSnapshot": {
+    "compactionDegree": 94.2
+  },
+  "resultSnapshot": {
+    "outcome": "BLOCK",
+    "gateStatus": "BLOCKED"
+  },
+  "matchedSpecVersion": "v1",
+  "matchedRules": [
+    {
+      "ruleId": "R1",
+      "condition": "compactionDegree >= 95",
+      "passed": false,
+      "severity": "blocking",
+      "message": "压实度低于阈值",
+      "actual": 94.2,
+      "expected": 95
+    }
+  ],
+  "status": "BLOCK",
+  "signatures": [
+    {
+      "role": "lab",
+      "signer": null,
+      "signature": null,
+      "status": "PENDING",
+      "signedAt": null
+    },
+    {
+      "role": "supervision",
+      "signer": null,
+      "signature": null,
+      "status": "PENDING",
+      "signedAt": null
+    }
+  ],
+  "timestamps": {
+    "createdAt": "2026-04-23T10:00:00Z",
+    "evaluatedAt": "2026-04-23T10:00:01Z",
+    "finalizedAt": null,
+    "archivedAt": null
+  },
+  "archiveStatus": "NOT_ARCHIVED"
+}

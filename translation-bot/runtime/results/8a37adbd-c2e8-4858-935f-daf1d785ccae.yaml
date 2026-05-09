@@ -1,0 +1,2885 @@
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.1161.measured_value
+type: measured_item
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: '1161'
+  definition: 公路路基施工技术规范
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.58
+  patchable: true
+  human_review_required: true
+  source_clause_title: 3610- 2019
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.2019.compaction_degree
+type: compaction
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Compaction Degree
+  clause: '2019'
+  definition: 2019-12 -01 实施
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: compaction_degree
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: compaction_degree in [2019..12]
+    action: BLOCK
+    message: compaction_degree does not satisfy compaction_degree in [2019..12]
+    severity: critical
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.82
+  patchable: true
+  human_review_required: true
+  source_clause_title: '- 09-02 发布'
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.1.measured_value
+type: measured_item
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: '1'
+  definition: 2术语和符号
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.58
+  patchable: true
+  human_review_required: true
+  source_clause_title: 总则
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.3.measured_value
+type: measured_item
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: '3'
+  definition: 3. 2 施1 测量
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.58
+  patchable: true
+  human_review_required: true
+  source_clause_title: 1—般规定
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.3.measured_value
+type: measured_item
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: '3'
+  definition: 3.4地表处理
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.58
+  patchable: true
+  human_review_required: true
+  source_clause_title: 3  试验
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.4.measured_value
+type: measured_item
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: '4'
+  definition: '4.2'
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.58
+  patchable: true
+  human_review_required: true
+  source_clause_title: 1—般规定
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.4.measured_value
+type: measured_item
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: '4'
+  definition: 4. 14填砂路堤
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.58
+  patchable: true
+  human_review_required: true
+  source_clause_title: 13   工 业废渣路堤
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.4.measured_value
+type: measured_item
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: '4'
+  definition: 路基排水工程
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: measured_value in [3610..2019]
+    action: BLOCK
+    message: measured_value does not satisfy measured_value in [3610..2019]
+    severity: critical
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.76
+  patchable: true
+  human_review_required: true
+  source_clause_title: 16 路基拓宽改建
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.6.measured_value
+type: measured_item
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: '6'
+  definition: Measured item
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.58
+  patchable: true
+  human_review_required: true
+  source_clause_title: 路基防护与支挡工程
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.2.measured_value
+type: measured_item
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: '2'
+  definition: 6. 1一般规定
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.58
+  patchable: true
+  human_review_required: true
+  source_clause_title: 2 4 448 36 9 60 6 6 4
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.6.measured_value
+type: measured_item
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: '6'
+  definition: 7特殊路基
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.64
+  patchable: true
+  human_review_required: true
+  source_clause_title: 14 柔性防护网系统
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.7.measured_value
+type: measured_item
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: '7'
+  definition: 采空区路基：
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.58
+  patchable: true
+  human_review_required: true
+  source_clause_title: '15'
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.9.measured_value
+type: measured_item
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: '9'
+  definition: '114'
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.64
+  patchable: true
+  human_review_required: true
+  source_clause_title: 1一般规定
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.10.measured_value
+type: measured_item
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: '10'
+  definition: '128'
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.58
+  patchable: true
+  human_review_required: true
+  source_clause_title: 1—般规定
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.10.measured_value
+type: measured_item
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: '10'
+  definition: 土地资源利用与水土保持
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.64
+  patchable: true
+  human_review_required: true
+  source_clause_title: '2'
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.1.measured_value
+type: measured_item
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: '1'
+  definition: 1（1为提高公路路基工程施工技术水平，保证「程质量与安全，制定本规范
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.58
+  patchable: true
+  human_review_required: true
+  source_clause_title: 总则
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.1.measured_value
+type: measured_item
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: '1'
+  definition: Measured item
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.58
+  patchable: true
+  human_review_required: true
+  source_clause_title: 0公路路基应满足设计要求的强度，稳定性和耐人性。
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.1.measured_value
+type: measured_item
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: '1'
+  definition: 系。明确质量责任 加强质量管理。
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.64
+  patchable: true
+  human_review_required: true
+  source_clause_title: 04公路路基施工应遵于国家建设工程的有关法律法规，建立健全质量保证体
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.10.measured_value
+type: measured_item
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: '10'
+  definition: 公路路基施工除应符合本规范的规定外，尚应符合国家和行业现行有关标准
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.58
+  patchable: true
+  human_review_required: true
+  source_clause_title: 8公路路基施上应推行标准化，提高规范化和精细化水平
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.2.measured_value
+type: measured_item
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: '2'
+  definition: Measured item
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.58
+  patchable: true
+  human_review_required: true
+  source_clause_title: 术语
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.2.thickness
+type: thickness
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Layer Thickness
+  clause: '2'
+  definition: 按路线位置和一定技术要求修筑的带状构适物，是路面的基础，承受由路面传来的
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: thickness
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.64
+  patchable: true
+  human_review_required: true
+  source_clause_title: 1. 1  路基  subgrade
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.0.measured_value
+type: measured_item
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: '0'
+  definition: 2. 1. 4  路   cutting
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.58
+  patchable: true
+  human_review_required: true
+  source_clause_title: 7m厚度范围的填方部分，下路堤是指上路堤以下的填方部分。
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.2.measured_value
+type: measured_item
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: '2'
+  definition: 路基填土最大边坡高度大于 20m 的路堤
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: m
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: measured_value gt 20m
+    action: BLOCK
+    message: measured_value does not satisfy measured_value gt 20m
+    severity: critical
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.9
+  patchable: true
+  human_review_required: false
+  source_clause_title: 15 高路堤 high embankinent
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.2.measured_value
+type: measured_item
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: '2'
+  definition: 边坡高度超过 20m 的土质路堑或边坡高度超过 30m 的岩石路堑。
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.58
+  patchable: true
+  human_review_required: true
+  source_clause_title: 19 深挖路堑 deep culting
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.2.measured_value
+type: measured_item
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: '2'
+  definition: 在目重或一定压力下受水浸湿后，土体结构迅速破坏，并产生显著下沉现象的
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.58
+  patchable: true
+  human_review_required: true
+  source_clause_title: 1 11   湿陷性黄土  collapsibility  loess
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.2.measured_value
+type: measured_item
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: '2'
+  definition: 液限大于 50% 的细粒士。
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: '%'
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: measured_value gt 50%
+    action: BLOCK
+    message: measured_value does not satisfy measured_value gt 50%
+    severity: critical
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.84
+  patchable: true
+  human_review_required: true
+  source_clause_title: 1 13  高液限土   high ligid lhimit  il
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.2.strength
+type: measured_item
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Strength
+  clause: '2'
+  definition: 易溶盐含量大于规定值的土。
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: strength
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: strength in [3610..2019]
+    action: BLOCK
+    message: strength does not satisfy strength in [3610..2019]
+    severity: critical
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.82
+  patchable: true
+  human_review_required: true
+  source_clause_title: 1 15   盐渍土 [ saline soil
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.2.measured_value
+type: measured_item
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: '2'
+  definition: 最大CBR 值时相对应的士的含水率
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.58
+  patchable: true
+  human_review_required: true
+  source_clause_title: 1  21   最大加州承载比含水率  maximum water conten CBR
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.2.measured_value
+type: measured_item
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: '2'
+  definition: 抵抗滑坡下滑力或士压力的横向受力桩
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.58
+  patchable: true
+  human_review_required: true
+  source_clause_title: 1  2  抗滑机   slide -resistant pile
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.2.measured_value
+type: measured_item
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: '2'
+  definition: 在士质或破碎软弱岩质边坡中设置钢筋钉，维持迈坡稳定的支护结构。
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.58
+  patchable: true
+  human_review_required: true
+  source_clause_title: 1 24  土钉   soil nailing
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.2.measured_value
+type: measured_item
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: '2'
+  definition: 对路基边坡进行支护，限制路基边坡发生过大变形，允许结构出现-定的变形的
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.58
+  patchable: true
+  human_review_required: true
+  source_clause_title: 1  26  采性支护结构  fexible supporling structure
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.2.compaction_degree
+type: compaction
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Compaction Degree
+  clause: '2'
+  definition: 采用冲击压路机对碾压面的压实。主要作用是提高被压对象的密实度与强度
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: compaction_degree
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.64
+  patchable: true
+  human_review_required: true
+  source_clause_title: 1 27  中击碾压  impact roller compaction
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.10.compaction_degree
+type: compaction
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Compaction Degree
+  clause: '10'
+  definition: 土的最大CBR 含水率;
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: compaction_degree
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.58
+  patchable: true
+  human_review_required: true
+  source_clause_title: CBR
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.10.measured_value
+type: measured_item
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: '10'
+  definition: 士的塑限。
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: measured_value in [3610..2019]
+    action: BLOCK
+    message: measured_value does not satisfy measured_value in [3610..2019]
+    severity: critical
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.82
+  patchable: true
+  human_review_required: true
+  source_clause_title: '8'
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.1.measured_value
+type: measured_item
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: '1'
+  definition: 2平面控制测量等级与技术要求应符合表3.2. 2-1 的规定。
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: measured_value in [2..1]
+    action: BLOCK
+    message: measured_value does not satisfy measured_value in [2..1]
+    severity: critical
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.82
+  patchable: true
+  human_review_required: true
+  source_clause_title: 平面控制测量应采用卫星定位测量、导线测量、三角测量或三边测量方法进行。
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.34.measured_value
+type: measured_item
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: '34'
+  definition: 3.4.7，特殊地段路基应先核对地勘资料，确定设计资料与实际的符合性、处理方法
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.64
+  patchable: true
+  human_review_required: true
+  source_clause_title: 6地下水位较高时， 应按设计要求进行处理。
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.1.measured_value
+type: measured_item
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: '1'
+  definition: Measured item
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.58
+  patchable: true
+  human_review_required: true
+  source_clause_title: 200m.
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.3.compaction_degree
+type: compaction
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Compaction Degree
+  clause: '3'
+  definition: 1填料试验、检测报告等：
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: compaction_degree
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.58
+  patchable: true
+  human_review_required: true
+  source_clause_title: 'α 试验路段施工总结宜包括下列内容:'
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.3.compaction_degree
+type: compaction
+version: '2026-04-18T12:47:38Z'
+namespace: cn.mot.highway
+semantics:
+  name: Compaction Degree
+  clause: '3'
+  definition: ，质量控制标准：
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: compaction_degree
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: compaction_degree in [3610..2019]
+    action: BLOCK
+    message: compaction_degree does not satisfy compaction_degree in [3610..2019]
+    severity: critical
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: LayerPeg Translation Bot MVP
+  last_updated: '2026-04-18T12:47:38Z'
+  confidence: 0.82
+  patchable: true
+  human_review_required: true
+  source_clause_title: 过程工 艺控制方法;

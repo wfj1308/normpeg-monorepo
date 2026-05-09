@@ -1,0 +1,37 @@
+{
+  "cases": [
+    {
+      "form_code": "bridge_shi_13",
+      "field_name": "hole.inclination",
+      "expected_rule": "JTG/T 3650-2020.9_7_1.rule",
+      "expected_gate": "gate.JTG/T 3650-2020.9_7_1.component",
+      "source_clause": "9.7.1",
+      "source_text": "",
+      "expected_unit": "%",
+      "expected_operator": "<=",
+      "expected_threshold": 1.0
+    },
+    {
+      "form_code": "bridge_shi_13",
+      "field_name": "hole.sedimentThickness",
+      "expected_rule": "JTG/T 3650-2020.9_7_2.rule",
+      "expected_gate": "gate.JTG/T 3650-2020.9_7_2.component",
+      "source_clause": "9.7.2",
+      "source_text": "",
+      "expected_unit": "mm",
+      "expected_operator": "exists",
+      "expected_threshold": null
+    },
+    {
+      "form_code": "bridge_shi_13",
+      "field_name": "pile.centerXYDiff",
+      "expected_rule": "JTG/T 3650-2020.9_7_3.rule",
+      "expected_gate": "gate.JTG/T 3650-2020.9_7_3.component",
+      "source_clause": "9.7.3",
+      "source_text": "",
+      "expected_unit": "mm",
+      "expected_operator": "<=",
+      "expected_threshold": 50
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "uri": "v://normref.com/std/jtg-f80-1-2017@2017",
+  "schema_uri": "v://normref.com/schema/qc-v1",
+  "kind": "standard_catalog",
+  "version": "2017",
+  "metadata": {
+    "title": "公路工程质量检验评定标准 第一册 土建工程",
+    "norm_code": "JTG F80/1-2017",
+    "effective_date": "2018-05-01",
+    "domain": "construction/highway",
+    "jurisdiction": "CN-MOT"
+  },
+  "chapters": [
+    {
+      "chapter_id": "7.1",
+      "title": "钻孔桩",
+      "mapped_process": "drilled-pile",
+      "mapped_forms": [
+        "桥施2表",
+        "桥施7表",
+        "桥施11表",
+        "桥施9表",
+        "桥施13表",
+        "桥施64表"
+      ],
+      "rule_uris": [
+        "v://normref.com/rule/bridge/pile-hole-check/hole-diameter-tolerance@2026-04",
+        "v://normref.com/rule/bridge/pile-hole-check/hole-verticality-tolerance@2026-04",
+        "v://normref.com/rule/bridge/pile-hole-check/slurry-index-range@2026-04"
+      ]
+    }
+  ],
+  "api_contract": {
+    "get_rule": "/api/normref/rules/{rule_id}?version={version}",
+    "get_rules": "/api/normref/rules?category={category}&version={version}",
+    "validate": "/api/normref/validate"
+  },
+  "versioning_policy": {
+    "rule_level_versioning": true,
+    "supports_latest": true,
+    "supports_pinned_version": true,
+    "requires_snapshot_in_header": true,
+    "requires_normref_snapshot_hash_in_proof": true
+  },
+  "layerpeg_binding": {
+    "header_fields": [
+      "normref_version",
+      "rule_snapshots"
+    ],
+    "gate_fields": [
+      "validation_results.rule_id",
+      "validation_results.version_used",
+      "validation_results.passed"
+    ],
+    "proof_fields": [
+      "normref_snapshot_hash"
+    ]
+  }
+}
+

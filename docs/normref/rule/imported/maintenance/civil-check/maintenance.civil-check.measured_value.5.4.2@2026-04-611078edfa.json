@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.5.4.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "tolerance",
+  "threshold_value": "2",
+  "unit": "℃",
+  "severity": "mandatory",
+  "norm_ref": "5.4.2",
+  "source_line": "2 结合料洒布温度（℃） 设计洒布温度±10 温度计：每车结合料检查1次",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-b68fc2d6629c",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:611078edfa59366944d00fc7c592f6b3f8dcf10ea1be76729c81c38f690474c3"
+}

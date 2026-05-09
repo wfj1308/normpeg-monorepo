@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.thickness.7.5.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/thickness@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "thickness",
+  "operator": "eq",
+  "threshold_value": "10",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "7.5.2",
+  "source_line": "别，因而，可以利用地质雷达采集信息，判断喷层厚度。结果检验时，每 10m 检查",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-dd7cc6737fff",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:ee54956257a4ec472f5f739f489766df48df152e696578246b01e9cd179675a1"
+}

@@ -1,0 +1,20 @@
+{
+  "rule_id": "bridge.pile-hole-check.strength.4.4.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/bridge/pile-hole-check/strength@2026-04",
+  "category": "bridge/pile-hole-check",
+  "field_key": "strength",
+  "operator": "eq",
+  "threshold_value": "6",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "4.4.1",
+  "source_line": "6加固土桩：施工前应进行成桩工艺和成桩强度试验；施工设备必须安装喷粉",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-06a75ca21ccc44ec",
+  "candidate_id": "cand-780f2411e19b",
+  "source_std_code": "JTG-F80-1-2017",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:fb2b7e782b4f47dfe23934c808c6b5554822f2548ed2023b4db56ac32e9c6b77"
+}

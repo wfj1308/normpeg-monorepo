@@ -1,0 +1,20 @@
+{
+  "rule_id": "civil.general-check.measured_value.3.2.4",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/civil/general-check/measured_value@2026-04",
+  "category": "civil/general-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "1",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "3.2.4",
+  "source_line": "1对检查项目按规定的检查方法和频率进行随机抽样检验并计算合格率。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-06a75ca21ccc44ec",
+  "candidate_id": "cand-a7fa08dd477e",
+  "source_std_code": "JTG-F80-1-2017",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:f8c6aedd0c653fd85a52244c7bf0560bebd18571cc7a6d941bc2ac605f712f13"
+}

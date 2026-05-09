@@ -1,0 +1,9 @@
+{
+  "md_hash": "f20dc30b5ec45b0738fdfc7deb7de0026eb024a8eadfa7879d27bdfe2e494da4",
+  "json_hash": "0f6f19c0062b6f98ae0ae9cfff990d34be392c6988dddcd5ac7d3a409a351494",
+  "bundle_hash": "6e989191ff60bbdebe262ad5033e00f121027f002caaed593df812324f47bdb0",
+  "binding": {
+    "markdown": "spec.md",
+    "json": "spec.json"
+  }
+}

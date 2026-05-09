@@ -1,0 +1,37 @@
+{
+  "default_form_code": "bridge_shi_13",
+  "bundle_id_by_form": {
+    "*": "highway.bridge.pile@v1"
+  },
+  "bundle_version_by_form": {
+    "*": "v1"
+  },
+  "norm_version_mapping": {
+    "JTG/T-3650-2020": "2020"
+  },
+  "gate_synthesis_policy": {
+    "enabled_when_no_gates": true,
+    "source_tag_on_filtered_rules": "autogen.rulepack_fallback",
+    "source_tag_on_payload": "autogen.rulepack_payload_fallback"
+  },
+  "form_api_mapping": {
+    "save_and_validate_form_code": "bridge_shi_1"
+  },
+  "specir_checklist_policy": {
+    "enforce_before_approve": true,
+    "items": [
+      "semantic_correct",
+      "slots_complete",
+      "unit_correct",
+      "threshold_correct",
+      "gate_complete",
+      "evidence_traceable"
+    ],
+    "required_fields": [
+      "reviewer",
+      "reviewed_at",
+      "result",
+      "comment"
+    ]
+  }
+}

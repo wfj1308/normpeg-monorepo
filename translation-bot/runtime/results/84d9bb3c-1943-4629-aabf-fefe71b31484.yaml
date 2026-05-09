@@ -1,0 +1,1346 @@
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.3.1.measured_value
+type: measured_item
+version: '2026-04-18T13:39:48Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: '3.1'
+  definition: Measured item
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: NormRef Translation Bot MVP
+  last_updated: '2026-04-18T13:39:48Z'
+  confidence: 0.72
+  patchable: true
+  human_review_required: true
+  source_clause_title: —般规定
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.3.11.measured_value
+type: measured_item
+version: '2026-04-18T13:39:48Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: '3.11'
+  definition: 3.12 应进行施工调查及现场核对根据设计要求,合同条件及现场情况等编制施 工组织设计. 3．丨,路基开工前应建立健全质量,环培,职业健康安一管理体系,对各类施工人
+    员进行岗位培训和技本,安全交底.
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: NormRef Translation Bot MVP
+  last_updated: '2026-04-18T13:39:48Z'
+  confidence: 0.72
+  patchable: true
+  human_review_required: true
+  source_clause_title: 路基工程施工前应熟悉设计文件、领会设计意图。
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.3.14.measured_value
+type: measured_item
+version: '2026-04-18T13:39:48Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: '3.14'
+  definition: 的使用功能,保护农田水利设施等.拍时工程宜与水人工程相结合 31对拟采用新技十,新工艺,新材料,新设备的上程项目,应提前做好试验研 究和论证工作.
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: NormRef Translation Bot MVP
+  last_updated: '2026-04-18T13:39:48Z'
+  confidence: 0.72
+  patchable: true
+  human_review_required: true
+  source_clause_title: 临时工程应满足正常施上需要，保证路基施工影响范围内原有道路、结构物
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.3.2.2.measured_value
+type: measured_item
+version: '2026-04-18T13:39:48Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: 3.2.2
+  definition: 1 平面控制测量应采用卫星定位测量、导线测量、三角测量或三边测量方法进行. 2平面控制测量等级与技术要求应符合表3.2. 2-1 的规定.
+    表:22平面控制测量等级与技术要求 测量 最募点点位中误差 最竭相邻点相对点位最翡相邻点边长相对相邻点间平均边长 公路级 等级 (mm) 中误差氧（mm)
+    中误差 参照值 (m) 高速级公路 一级 ±50 ± 30 <=
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: measured_value in [2..1]
+    action: BLOCK
+    message: measured_value does not satisfy measured_value in [2..1]
+    severity: critical
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: NormRef Translation Bot MVP
+  last_updated: '2026-04-18T13:39:48Z'
+  confidence: 0.86
+  patchable: true
+  human_review_required: true
+  source_clause_title: 平面控制测量应符合下列规定
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.3.2.5.measured_value
+type: measured_item
+version: '2026-04-18T13:39:48Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: 3.2.5
+  definition: 制桩点进行复测.
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: NormRef Translation Bot MVP
+  last_updated: '2026-04-18T13:39:48Z'
+  confidence: 0.72
+  patchable: true
+  human_review_required: true
+  source_clause_title: 施工期间，应保护好所有控制桩点，及时恢复被破坏的桩点，根据情况对控
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.3.2.6.measured_value
+type: measured_item
+version: '2026-04-18T13:39:48Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: 3.2.6
+  definition: 1 导线测量精度应符合表3.2.2-3的规定. 2 原有导线点不能满足施工需要时,应增设满足相应精度要求的附合导线点. 3 同一建设项目内相邻施工段的导线应闭合,并满足同等级精度要求.
+    4 可能受施工影响的导线点,施工前应加固或改移,并应保持其精度. 5 导线桩点应进行不定期检查和定期复测,复测周期应不超过6个月.
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: measured_value in [2.2..3]
+    action: BLOCK
+    message: measured_value does not satisfy measured_value in [2.2..3]
+    severity: critical
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: NormRef Translation Bot MVP
+  last_updated: '2026-04-18T13:39:48Z'
+  confidence: 0.86
+  patchable: true
+  human_review_required: true
+  source_clause_title: 导线复测应符合下列规定：
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.3.2.7.measured_value
+type: measured_item
+version: '2026-04-18T13:39:48Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: 3.2.7
+  definition: 1水准点精度应符合表3.2.3-2的规定. 2 同一建设项目应采用同一高程系统,并应与相邻项目高程系统相衔接. 3 沿路线每500m宜有一个水准点,高速公路、一级公路宜加密,每200m有一个
+    水准点.在结构物附近、高填深挖路段、工程量集中及地形复杂路段,宜增设水准点. 临时水准点应符合相应等级的精度要求,并与相邻水准点闭合. 4对可能受施工影响的水准点,施工
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: measured_value in [2.3..2]
+    action: BLOCK
+    message: measured_value does not satisfy measured_value in [2.3..2]
+    severity: critical
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: NormRef Translation Bot MVP
+  last_updated: '2026-04-18T13:39:48Z'
+  confidence: 0.86
+  patchable: true
+  human_review_required: true
+  source_clause_title: 水准点复测与加密应符合下列规定：
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.3.2.8.measured_value
+type: measured_item
+version: '2026-04-18T13:39:48Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: 3.2.8
+  definition: 1路基开工前,应进行全段中线放样并应固定路线主要控制桩,宜采用坐标法进 行测量放样. 2中线放样时,应注意路线中线与结构物中心、相邻施工段的中线闭合,发现问
+    题应及时查明原因,进行处理. 3实际放样与设计图纸不符时,应查明原因后进行处理.
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: NormRef Translation Bot MVP
+  last_updated: '2026-04-18T13:39:48Z'
+  confidence: 0.72
+  patchable: true
+  human_review_required: true
+  source_clause_title: 中线放样应符合下列规定：
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.3.2.9.measured_value
+type: measured_item
+version: '2026-04-18T13:39:48Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: 3.2.9
+  definition: 1 施工前应对原地面进行复测,核对或补充横断面. 2施工前应设置标识桩,将路基用地界、路堤坡脚、路堑坡顶、取土坑、护坡道、 弃土堆等的具体位置标识清楚.
+    3深挖高填路段,每挖填一个边坡平台或者3~5m,应复测中线和横断面. 3.2.10 每项测量成果应进行复核,原始记录应存档.
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: m
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: measured_value in [3..5]
+    action: BLOCK
+    message: measured_value does not satisfy measured_value in [3..5]
+    severity: critical
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: NormRef Translation Bot MVP
+  last_updated: '2026-04-18T13:39:48Z'
+  confidence: 0.88
+  patchable: true
+  human_review_required: true
+  source_clause_title: 路基放样应符合下列规定：
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.3.2.11.measured_value
+type: measured_item
+version: '2026-04-18T13:39:48Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: 3.2.11
+  definition: （JTGC10）的有关规定.
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: NormRef Translation Bot MVP
+  last_updated: '2026-04-18T13:39:48Z'
+  confidence: 0.72
+  patchable: true
+  human_review_required: true
+  source_clause_title: 路基施工测量除应符合本规范的规定外，尚应符合现行《公路勘测规范》
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.3.3.1.measured_value
+type: measured_item
+version: '2026-04-18T13:39:48Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: 3.3.1
+  definition: Measured item
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: NormRef Translation Bot MVP
+  last_updated: '2026-04-18T13:39:48Z'
+  confidence: 0.72
+  patchable: true
+  human_review_required: true
+  source_clause_title: 路基施工前，应建立具备相应试验检测能力的工地试验室。
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.3.3.2.measured_value
+type: measured_item
+version: '2026-04-18T13:39:48Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: 3.3.2
+  definition: 点,并应根据土质变化增加取样点数.
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: NormRef Translation Bot MVP
+  last_updated: '2026-04-18T13:39:48Z'
+  confidence: 0.72
+  patchable: true
+  human_review_required: true
+  source_clause_title: 路基填前碾压前，应对路基基底原状土进行取样试验。每公里应至少取2个
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.3.3.3.measured_value
+type: measured_item
+version: '2026-04-18T13:39:48Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: 3.3.3
+  definition: 水率、液限、塑限、颗粒分析、击实、CBR等,必要时还应做相对密度、有机质含量、 易溶盐含量、冻胀和膨胀量等试验. 条文说明 条文中仅规定了一般填料的试验项目,对特殊土（如黄土、软土、盐渍土、红黏
+    土、高液限黏土和膨胀土等）,还要进行相关试验以确定其性质及处置方案. 3.3.4 使用特殊材料作为填料时,应按相关标准进行相应试验检验,经批准后方可 使用.
+    www
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: NormRef Translation Bot MVP
+  last_updated: '2026-04-18T13:39:48Z'
+  confidence: 0.72
+  patchable: true
+  human_review_required: true
+  source_clause_title: 应及时对拟作为路堤填料的材料进行取样试验。土的试验项目应包括天然含
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.3.44.measured_value
+type: measured_item
+version: '2026-04-18T13:39:48Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: '3.44'
+  definition: 进行处理,局部软弹的部分应采取有效的处理措施. 3.4.5 陡坡地段,填挖结合部,十石混合地段、高填方地段地基等应按设计要求进 行处理.
+    34 6地下水位较高时, 应按设计要求进行处理.
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: NormRef Translation Bot MVP
+  last_updated: '2026-04-18T13:39:48Z'
+  confidence: 0.72
+  patchable: true
+  human_review_required: true
+  source_clause_title: 地基为耕地松散上质，广精田湖塘，软土、过湿土等时，应按设计要求
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.3.4.7.measured_value
+type: measured_item
+version: '2026-04-18T13:39:48Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: 3.4.7
+  definition: 的适用性,必要时重新补勘地质,水文资料,根据结果重新确定处理方案. 3试验路段
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: NormRef Translation Bot MVP
+  last_updated: '2026-04-18T13:39:48Z'
+  confidence: 0.72
+  patchable: true
+  human_review_required: true
+  source_clause_title: ，特殊地段路基应先核对地勘资料，确定设计资料与实际的符合性、处理方法
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.3.5.thickness
+type: thickness
+version: '2026-04-18T13:39:48Z'
+namespace: cn.mot.highway
+semantics:
+  name: Layer Thickness
+  clause: '3.5'
+  definition: '1_级及二级以上公路路堤; 2 填石路堤土石路堤: 特殊填料路堤: 特殊路基: 5拟采用新技木新工艺新材料,新设备的路基. 条文说明
+    3:特殊填料是指具有与一般土质不同工程特性的填料,如煤阡石,泡沫轻质上等 10 www. biao-zhun. cn 施工准益 3.5~ 试验路段应选择地质条件,路基断面形式等具有代表性的地段,长度宜不小
+    1 200m. 3 '
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: thickness
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: manual_review_required
+    action: WARNING
+    message: No explicit threshold was extracted; review required.
+    severity: warning
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: NormRef Translation Bot MVP
+  last_updated: '2026-04-18T13:39:48Z'
+  confidence: 0.72
+  patchable: true
+  human_review_required: true
+  source_clause_title: '1下列情况应进行试验路段施工:'
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.9.measured_value
+type: measured_item
+version: '2026-04-18T13:39:48Z'
+namespace: cn.mot.highway
+semantics:
+  name: Measured Value
+  clause: '9'
+  definition: 条文说明 试验路段施工总结招告内容根据实际等要适当增减,但要全面,真实地反映试验情 况,为后续施工提供依格. www. biao-zhun.
+    cn 公路路基施工技术规范（JTG/T3610-2019）
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: measured_value
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: measured_value in [3610..2019]
+    action: BLOCK
+    message: measured_value does not satisfy measured_value in [3610..2019]
+    severity: critical
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: NormRef Translation Bot MVP
+  last_updated: '2026-04-18T13:39:48Z'
+  confidence: 0.8
+  patchable: true
+  human_review_required: true
+  source_clause_title: ， 环保措施。
+---
+schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+spec_id: JTG_F80_1_2017.4.1.2.compaction_degree
+type: compaction
+version: '2026-04-18T13:39:48Z'
+namespace: cn.mot.highway
+semantics:
+  name: Compaction Degree
+  clause: 4.1.2
+  definition: 表4.1.2路基填料最小承载比和最大粒径要求 填料最小承载比CBR（%） 填料应用部位（路面底面以下深度） 填料最大粒径 高速、一级 三、四级
+    (m) 二级公路 (mm) 公路 公路 上路床 0~0.30 8 6 5 100 轻、中及重交通 0.30~0.80 下路床 5 4 3 100 特重、极重交通
+    0.30~1.20 填方 轻、中及重交通 0.8~1.
+  standard_reference: JTG F80/1-2017
+  test_method: ''
+  frequency: ''
+logic:
+  inputs:
+  - name: compaction_degree
+    type: number
+    unit: ''
+    required: true
+  path:
+  - op: passthrough
+    id: step_1
+    input: measured_value
+    output: measured_value
+  gate:
+  - condition: compaction_degree in [0..0.30]
+    action: BLOCK
+    message: compaction_degree does not satisfy compaction_degree in [0..0.30]
+    severity: critical
+  state:
+    initial: CHECK_PENDING
+    transitions:
+    - from: CHECK_PENDING
+      true: PASS
+      to: QUALIFIED
+    - from: CHECK_PENDING
+      true: BLOCK
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: CRITICAL
+      to: REJECTED
+    - from: CHECK_PENDING
+      true: WARNING
+      to: MANUAL_REVIEW
+    - from: MANUAL_REVIEW
+      true: PASS
+      to: QUALIFIED
+    - from: MANUAL_REVIEW
+      true: BLOCK
+      to: REJECTED
+    terminal:
+    - QUALIFIED
+    - REJECTED
+proof:
+  anchors:
+  - name: raw_input
+    required: true
+  - name: normalized_input
+    required: true
+  - name: path_outputs
+    required: true
+  - name: gate_result
+    required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true
+metadata:
+  author: NormRef Translation Bot MVP
+  last_updated: '2026-04-18T13:39:48Z'
+  confidence: 0.86
+  patchable: true
+  human_review_required: true
+  source_clause_title: 路基填料最小承载比和最大粒径应符合表4.1.2的规定。

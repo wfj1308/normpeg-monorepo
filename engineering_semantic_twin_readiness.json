@@ -1,0 +1,235 @@
+{
+  "schema_id": "engineering_semantic_twin_readiness.v1",
+  "stage": "P3",
+  "title": "Engineering Semantic Twin P3 Acceptance Criteria",
+  "generated_at": "2026-05-08T00:00:00Z",
+  "status_enum": [
+    "not_ready",
+    "pilot_ready",
+    "production_ready"
+  ],
+  "scoring_model": {
+    "total_items": 10,
+    "weights": {
+      "must_pass_items": [
+        "P3-01",
+        "P3-02",
+        "P3-03",
+        "P3-04",
+        "P3-08",
+        "P3-10"
+      ],
+      "other_items": [
+        "P3-05",
+        "P3-06",
+        "P3-07",
+        "P3-09"
+      ]
+    },
+    "status_rules": {
+      "not_ready": "Any must_pass_items fail OR passed_count < 7",
+      "pilot_ready": "All must_pass_items pass AND passed_count in [7,9]",
+      "production_ready": "All 10 items pass"
+    }
+  },
+  "acceptance_items": [
+    {
+      "id": "P3-01",
+      "name": "Runtime Semantic Graph 可构建",
+      "required": true,
+      "pass_criteria": [
+        "Runtime graph endpoint returns graph nodes/edges for project runtime data",
+        "Graph response includes version_info and traceability"
+      ],
+      "evidence_template": {
+        "api": "/api/v1/knowledge-graph/runtime-trace or equivalent",
+        "request": {
+          "slotKey": "compaction_degree"
+        },
+        "expected_fields": [
+          "version_info",
+          "traceability",
+          "data.nodes",
+          "data.edges"
+        ]
+      }
+    },
+    {
+      "id": "P3-02",
+      "name": "每次 Gate 执行有 Runtime Event",
+      "required": true,
+      "pass_criteria": [
+        "Each gate evaluate/run writes a runtime event record",
+        "Event can be queried by project/form/time window"
+      ],
+      "evidence_template": {
+        "api": "/api/v1/runtime-events/list or /api/v1/runtime/metrics",
+        "expected_fields": [
+          "items[].event_type",
+          "items[].project_id",
+          "items[].timestamp"
+        ]
+      }
+    },
+    {
+      "id": "P3-03",
+      "name": "每个 Proof 可追溯到 SpecIR 和规范原文",
+      "required": true,
+      "pass_criteria": [
+        "Proof contains spec/rule/normdoc linkage",
+        "Proof lineage can be reconstructed by proof id/hash"
+      ],
+      "evidence_template": {
+        "api": "/api/v1/proof/full/{execution_id} or /api/proof/export",
+        "expected_fields": [
+          "proof.version_binding",
+          "proof.canonical_payload",
+          "traceability.source_refs"
+        ]
+      }
+    },
+    {
+      "id": "P3-04",
+      "name": "项目级 Compliance Dashboard 可运行",
+      "required": true,
+      "pass_criteria": [
+        "Dashboard build API returns project-level compliance summary",
+        "Response includes risk/trust/review queue views"
+      ],
+      "evidence_template": {
+        "api": "/api/v1/project-compliance-dashboard/build",
+        "expected_fields": [
+          "summary",
+          "risk_items",
+          "trust_items",
+          "review_queue"
+        ]
+      }
+    },
+    {
+      "id": "P3-05",
+      "name": "BIM 构件可关联 Rule/Gate",
+      "required": false,
+      "pass_criteria": [
+        "BIM linkage API can map object to rule/gate impacts",
+        "Affected BIM objects are queryable in runtime linkage view"
+      ],
+      "evidence_template": {
+        "api": "/api/v1/bim-runtime-linkage/build",
+        "expected_fields": [
+          "binding_rules",
+          "affected_objects",
+          "gate_related_records"
+        ]
+      }
+    },
+    {
+      "id": "P3-06",
+      "name": "Sensor 数据可绑定 slotKey",
+      "required": false,
+      "pass_criteria": [
+        "Sensor ingest can normalize and bind to slotKey",
+        "Gate trigger payload references bound slot"
+      ],
+      "evidence_template": {
+        "api": "/api/v1/sensor-binding/ingest or equivalent",
+        "expected_fields": [
+          "bound_slot_key",
+          "cleaned_payload",
+          "gate_trigger_logic"
+        ]
+      }
+    },
+    {
+      "id": "P3-07",
+      "name": "Trust Score 可计算",
+      "required": false,
+      "pass_criteria": [
+        "Trust evaluate API returns score and penalty breakdown",
+        "Score is reproducible for same inputs"
+      ],
+      "evidence_template": {
+        "api": "/api/v1/runtime-trust/evaluate",
+        "expected_fields": [
+          "trust_report.score",
+          "trust_report.penalties_applied"
+        ]
+      }
+    },
+    {
+      "id": "P3-08",
+      "name": "Runtime Replay 可执行",
+      "required": true,
+      "pass_criteria": [
+        "Replay can run old/new rulepack version with historical_input_snapshot",
+        "Replay output contains old_result/new_result/diff/affected_gates/risk_change"
+      ],
+      "evidence_template": {
+        "api": "/api/v1/runtime/replay/execute",
+        "expected_fields": [
+          "old_result",
+          "new_result",
+          "diff",
+          "affected_gates",
+          "risk_change"
+        ]
+      }
+    },
+    {
+      "id": "P3-09",
+      "name": "Mobile Runtime 可展示 Gate 结果",
+      "required": false,
+      "pass_criteria": [
+        "Mobile runtime evaluate API returns gate outcome",
+        "Mobile page schema includes gate display fields"
+      ],
+      "evidence_template": {
+        "api": "/api/v1/mobile-body-runtime/schema + /api/v1/mobile-body-runtime/evaluate",
+        "expected_fields": [
+          "mobile_page_structure",
+          "evaluation.result",
+          "evaluation.gate_status"
+        ]
+      }
+    },
+    {
+      "id": "P3-10",
+      "name": "Runtime Feedback 可回流到 SpecIR Review",
+      "required": true,
+      "pass_criteria": [
+        "Runtime feedback detect can generate candidates",
+        "Candidates can be enqueued and actioned in SpecIR review queue"
+      ],
+      "evidence_template": {
+        "api": "/api/v1/runtime-feedback/detect + /api/v1/specir/review-queue + /api/v1/specir/review-queue/action",
+        "expected_fields": [
+          "detected_candidates",
+          "queued_items",
+          "item.status"
+        ]
+      }
+    }
+  ],
+  "evaluation_sheet_template": {
+    "project_id": "P-XXX",
+    "evaluated_at": "2026-05-08T00:00:00Z",
+    "item_results": [
+      {
+        "id": "P3-01",
+        "status": "pass",
+        "evidence_ref": "link-or-attachment-id",
+        "note": ""
+      }
+    ],
+    "summary": {
+      "passed_count": 0,
+      "failed_count": 0,
+      "unknown_count": 10,
+      "final_status": "not_ready"
+    }
+  },
+  "current_assessment": {
+    "status": "not_ready",
+    "reason": "Baseline acceptance definition created; project-specific evidence evaluation not filled."
+  }
+}

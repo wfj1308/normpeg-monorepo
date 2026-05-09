@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.thickness.5.4.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/thickness@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "thickness",
+  "operator": "eq",
+  "threshold_value": "3",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "5.4.1",
+  "source_line": "3 集料规格应与碎石封层设计厚度和工艺相匹配，碎石封层厚度应满足设计要",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-e754f339d86f",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:d016635414225b8e722cfe59833f71f38200b44d2c8130bc7608ede6033f11d1"
+}

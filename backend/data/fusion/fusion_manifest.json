@@ -1,0 +1,98 @@
+{
+  "meta": {
+    "generated_at": "2026-05-08T04:59:08.412162Z",
+    "standard_count": 4
+  },
+  "priority_strategy": {
+    "order": [
+      "enterprise",
+      "local",
+      "industry",
+      "national"
+    ],
+    "expression": "enterprise > local > industry > national"
+  },
+  "fusion_engine": {
+    "name": "multi_standard_fusion_v1",
+    "steps": [
+      "normalize standards",
+      "sort by priority",
+      "merge rules by rule_id",
+      "detect semantic/threshold/duplicate conflicts",
+      "resolve by priority strategy"
+    ]
+  },
+  "conflict_resolver": {
+    "semantic_conflict": [],
+    "threshold_conflict": [
+      {
+        "rule_id": "r1",
+        "left": {
+          "standard": "ENT",
+          "threshold": 98
+        },
+        "right": {
+          "standard": "GB",
+          "threshold": 95
+        },
+        "resolved_by": {
+          "winner_standard": "ENT",
+          "winner_type": "enterprise"
+        },
+        "explanation": "阈值冲突：98 vs 95"
+      }
+    ],
+    "duplicated_rule": [
+      {
+        "rule_id": "r_dup2",
+        "signature": "{\"field\":\"thickness\",\"gate_logic\":\"AND\",\"operator\":\">=\",\"threshold\":200,\"unit\":\"mm\"}",
+        "first_seen_in": "LOCAL_DUP",
+        "duplicated_in": "IND_DUP",
+        "explanation": "规则签名重复，可能是重复录入：{\"field\":\"thickness\",\"gate_logic\":\"AND\",\"operator\":\">=\",\"threshold\":200,\"unit\":\"mm\"}"
+      }
+    ],
+    "explanation_enabled": true
+  },
+  "fused_rules": [
+    {
+      "rule_id": "r1",
+      "field": "compaction_degree",
+      "operator": ">=",
+      "threshold": 98,
+      "unit": "%",
+      "gate_logic": "AND",
+      "source_standard": "ENT",
+      "source_type": "enterprise"
+    },
+    {
+      "rule_id": "r_dup",
+      "field": "thickness",
+      "operator": ">=",
+      "threshold": 200,
+      "unit": "mm",
+      "gate_logic": "AND",
+      "source_standard": "LOCAL_DUP",
+      "source_type": "local"
+    },
+    {
+      "rule_id": "r_dup2",
+      "field": "thickness",
+      "operator": ">=",
+      "threshold": 200,
+      "unit": "mm",
+      "gate_logic": "AND",
+      "source_standard": "IND_DUP",
+      "source_type": "industry"
+    }
+  ],
+  "page_plan": {
+    "page_name": "Conflict Resolution Center",
+    "blocks": [
+      "标准输入区（国标/行标/地标/企业标准）",
+      "优先级策略展示",
+      "冲突清单（semantic/threshold/duplicate）",
+      "冲突解释",
+      "融合后 manifest 预览"
+    ]
+  }
+}

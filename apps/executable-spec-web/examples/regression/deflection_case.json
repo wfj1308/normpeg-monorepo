@@ -1,0 +1,57 @@
+{
+  "caseId": "deflection_case",
+  "fileName": "deflection.pdf",
+  "warnings": [
+    {
+      "code": "OCR_USED",
+      "message": "OCR was used for extraction"
+    }
+  ],
+  "originalDraftMarkdown": "# 路基弯沉\n规范来源：JTG F80/1-2017\n条款号：4.4.1\n版本：v1\n分类：subgrade\n检测项：deflection\n\n## 输入参数\n- measuredDeflection | number | 0.01mm | 实测弯沉\n- maxAllowedDeflection | number | 0.01mm | 允许最大弯沉\n\n## 输出参数\n- deflectionMargin\n\n## 计算步骤\n1. deflectionMargin = maxAllowedDeflection - measuredDeflection\n\n## 判定规则\n- measuredDeflection <= maxAllowedDeflection | 实测弯沉不得超过允许值\n\n## 签字要求\n- lab\n- supervision\n\n## 依赖\n- none\n",
+  "editedMarkdown": "# 路基弯沉\n规范来源：JTG F80/1-2017\n条款号：4.4.1\n版本：v1\n分类：subgrade\n检测项：deflection\n\n## 输入参数\n- measuredDeflection | number | 0.01mm | 实测弯沉\n- maxAllowedDeflection | number | 0.01mm | 允许最大弯沉\n\n## 输出参数\n- deflectionMargin\n\n## 计算步骤\n1. deflectionMargin = maxAllowedDeflection - measuredDeflection\n\n## 判定规则\n- measuredDeflection <= maxAllowedDeflection | 实测弯沉不得超过允许值\n\n## 签字要求\n- lab\n- supervision\n\n## 依赖\n- none\n",
+  "clauseReviewItems": [
+    {
+      "id": "clause_source",
+      "title": "规范来源",
+      "message": "已确认",
+      "riskLevel": "high",
+      "required": true,
+      "confirmed": true
+    },
+    {
+      "id": "clause_number",
+      "title": "条款号",
+      "message": "已确认",
+      "riskLevel": "high",
+      "required": true,
+      "confirmed": true
+    },
+    {
+      "id": "calc_path",
+      "title": "计算步骤",
+      "message": "已确认",
+      "riskLevel": "high",
+      "required": true,
+      "confirmed": true
+    },
+    {
+      "id": "decision_rules",
+      "title": "判定规则",
+      "message": "已确认",
+      "riskLevel": "high",
+      "required": true,
+      "confirmed": true
+    },
+    {
+      "id": "depends_on",
+      "title": "依赖",
+      "message": "已确认",
+      "riskLevel": "medium",
+      "required": false,
+      "confirmed": true
+    }
+  ],
+  "expectedDecision": {
+    "status": "ready"
+  }
+}

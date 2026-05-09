@@ -1,0 +1,134 @@
+{
+  "generatedAt": "2026-04-22T13:26:36.139Z",
+  "calibratedConfig": {
+    "risk": {
+      "highRiskWarnings": [
+        "CLAUSE_AMBIGUOUS",
+        "FORMULA_PARTIAL",
+        "MANUAL_REVIEW_REQUIRED",
+        "OCR_CLAUSE_LOW_CONFIDENCE",
+        "OCR_FORMULA_LOW_CONFIDENCE"
+      ],
+      "mediumRiskWarnings": [
+        "INPUTS_INFERRED",
+        "RULES_INFERRED",
+        "OCR_TEXT_NOISY",
+        "OCR_TABLE_LOW_CONFIDENCE"
+      ],
+      "lowRiskWarnings": [
+        "OCR_USED"
+      ]
+    },
+    "diff": {
+      "highRiskSections": [
+        "clause",
+        "calc_path",
+        "rules",
+        "depends_on"
+      ],
+      "mediumRiskSections": [
+        "inputs",
+        "outputs",
+        "signatures",
+        "source"
+      ],
+      "lowRiskSections": [
+        "title",
+        "version",
+        "category",
+        "subject"
+      ]
+    },
+    "clause": {
+      "requiredHighRiskSections": [
+        "source",
+        "clause",
+        "calc_path",
+        "rules"
+      ],
+      "optionalMediumRiskSections": [
+        "inputs",
+        "outputs",
+        "signatures",
+        "depends_on"
+      ]
+    },
+    "gate": {
+      "blockOnHighWarning": true,
+      "blockOnUnconfirmedHighClause": true,
+      "warnOnHighRiskDiff": true,
+      "warnOnMediumClausePending": true
+    }
+  },
+  "ruleAdjustmentNotes": [
+    {
+      "area": "clause",
+      "before": "requiredHighRiskSections = [source, clause, calc_path, rules, depends_on]",
+      "after": "requiredHighRiskSections = [source, clause, calc_path, rules]",
+      "reason": "Real PDF 校准：按校准结果收紧或放松 required 高风险条款"
+    },
+    {
+      "area": "clause",
+      "before": "optionalMediumRiskSections = [inputs, outputs, signatures]",
+      "after": "optionalMediumRiskSections = [inputs, outputs, signatures, depends_on]",
+      "reason": "Real PDF 校准：按校准结果调整 optional 中风险条款"
+    },
+    {
+      "area": "risk",
+      "before": "OCR_TEXT_NOISY = medium",
+      "after": "OCR_TEXT_NOISY = medium",
+      "reason": "真实样本中 OCR_TEXT_NOISY 高频但非直接错误注册来源，保持/下调为 medium。"
+    },
+    {
+      "area": "risk",
+      "before": "FORMULA_PARTIAL = high",
+      "after": "FORMULA_PARTIAL = high",
+      "reason": "FORMULA_PARTIAL 会直接影响可编译性，保持 high + block。"
+    },
+    {
+      "area": "clause",
+      "before": "depends_on in requiredHighRiskSections = true",
+      "after": "depends_on in requiredHighRiskSections = false",
+      "reason": "在样本中依赖字段常缺失且并非核心计算误差来源，降级为 optional medium 以减少误阻断。"
+    },
+    {
+      "area": "diff",
+      "before": "highRiskSections = [source, clause, calc_path, rules, depends_on]",
+      "after": "highRiskSections = [clause, calc_path, rules, depends_on]",
+      "reason": "Real PDF 校准：按真实样本调整高风险 diff 章节"
+    },
+    {
+      "area": "diff",
+      "before": "mediumRiskSections = [inputs, outputs, signatures]",
+      "after": "mediumRiskSections = [inputs, outputs, signatures, source]",
+      "reason": "Real PDF 校准：按真实样本调整中风险 diff 章节"
+    }
+  ],
+  "comparisons": [
+    {
+      "fileName": "compaction.pdf",
+      "beforeStatus": "warning",
+      "afterStatus": "warning",
+      "changed": false,
+      "reason": "规则微调后状态未变化，当前判定稳定"
+    },
+    {
+      "fileName": "thickness.pdf",
+      "beforeStatus": "warning",
+      "afterStatus": "warning",
+      "changed": false,
+      "reason": "规则微调后状态未变化，当前判定稳定"
+    },
+    {
+      "fileName": "deflection.pdf",
+      "beforeStatus": "ready",
+      "afterStatus": "ready",
+      "changed": false,
+      "reason": "规则微调后状态未变化，当前判定稳定"
+    }
+  ],
+  "summary": {
+    "changed": 0,
+    "unchanged": 3
+  }
+}

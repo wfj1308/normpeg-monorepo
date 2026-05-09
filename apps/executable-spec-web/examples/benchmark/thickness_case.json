@@ -1,0 +1,40 @@
+{
+  "caseId": "thickness_case",
+  "fileName": "thickness.pdf",
+  "category": "thickness",
+  "rawText": "4.3.2 路基厚度\n参数名  单位  说明\n实测厚度  mm  现场测得厚度\n设计厚度  mm  设计厚度\n厚度偏差 = 实测厚度 - 设计厚度\n厚度比 = (实测厚度 / 设计厚度) × 100%\n项目  允许值  方法\n实测厚度 >= 200  钢尺量测",
+  "expected": {
+    "primaryClause": "4.3.2",
+    "formulas": [
+      {
+        "leftVar": "thicknessDeviation",
+        "expression": "measuredThickness - designThickness",
+        "completeness": "full"
+      },
+      {
+        "leftVar": "thicknessRatio",
+        "expression": "(measuredThickness / designThickness) * 100",
+        "completeness": "full"
+      }
+    ],
+    "inputs": [
+      {
+        "name": "measuredThickness",
+        "unit": "mm",
+        "label": "measuredThickness"
+      },
+      {
+        "name": "designThickness",
+        "unit": "mm",
+        "label": "designThickness"
+      }
+    ],
+    "rules": [
+      {
+        "field": "measuredThickness",
+        "operator": ">=",
+        "value": 200
+      }
+    ]
+  }
+}

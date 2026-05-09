@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.inclination.6.26.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/inclination@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "inclination",
+  "operator": "lte",
+  "threshold_value": "6",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "6.26.2",
+  "source_line": "6 桩顶面与桩纵轴线倾斜偏差（mm） ≤1%B，且不大于3",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-655293e47b0d",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:4bfb85212795154cf9642da13f39c4e537a4ff232c67dd183c7c994ae2913265"
+}

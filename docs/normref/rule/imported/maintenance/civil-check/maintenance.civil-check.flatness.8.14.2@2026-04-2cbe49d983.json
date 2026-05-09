@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.flatness.8.14.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/flatness@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "flatness",
+  "operator": "tolerance",
+  "threshold_value": "6",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "8.14.2",
+  "source_line": "6 金属立柱竖直度、项次 9 屏体整体平整度的允许偏差根据整修和局部增设工程的",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-61c3c3eeedf7",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:2cbe49d9836f9c8335d4d5ac3dc2c2ace0e54e2a637ba8bac8c8ce0ddd23b122"
+}

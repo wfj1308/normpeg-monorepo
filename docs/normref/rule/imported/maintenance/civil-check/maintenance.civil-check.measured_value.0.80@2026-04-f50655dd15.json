@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.0.80",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "100",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "0.80",
+  "source_line": "100mm×100mm 的立方体试件，在标准条件下养护至 28d，采用现行水泥混凝土立",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-c4205c0473f8",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:f50655dd1521e1669b4ffc00473da3a25e6902cf9f71331d3a9b1fccb224d57a"
+}

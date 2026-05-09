@@ -1,0 +1,161 @@
+{
+  "uri": "v://normref.com/qc/rebar-processing@v1",
+  "schema_uri": "v://normref.com/schema/qc-v1",
+  "version": "v1",
+  "metadata": {
+    "norm_code": "GB50204-2015 5.3.2 + JTG F80/1-2017",
+    "boq_item_id": "403-1-2",
+    "description": "????????????????????????????",
+    "applicable_component": [
+      "pile",
+      "pier",
+      "cap",
+      "beam"
+    ],
+    "domain": "construction/highway"
+  },
+  "gates": [
+    {
+      "check_id": "diameter",
+      "label": "????",
+      "norm_ref": "GB50204-2015 5.3.2",
+      "threshold": {
+        "value": 0.02,
+        "operator": "lte",
+        "unit": "%"
+      },
+      "severity": "mandatory",
+      "explain": "?????????2%"
+    },
+    {
+      "check_id": "spacing",
+      "label": "??????",
+      "norm_ref": "GB50204-2015 5.3.2",
+      "threshold": {
+        "value": 10,
+        "operator": "lte",
+        "unit": "mm"
+      },
+      "severity": "mandatory"
+    },
+    {
+      "check_id": "protection_layer",
+      "label": "?????",
+      "norm_ref": "JTG F80/1-2017",
+      "threshold": {
+        "value": 5,
+        "operator": "lte",
+        "unit": "mm"
+      },
+      "severity": "mandatory"
+    }
+  ],
+  "verdict_logic": {
+    "rule": "For each gate evaluate actual vs threshold. All mandatory pass => PASS.",
+    "input": {
+      "actual_values": {
+        "diameter": 19.8,
+        "spacing": 152
+      },
+      "design_values": {
+        "diameter": 20,
+        "spacing": 150
+      }
+    },
+    "output": {
+      "result": "PASS|FAIL|WARNING",
+      "failed_gates": [],
+      "explain": "?????????????",
+      "proof_hash": "PF-XXXX..."
+    }
+  },
+  "output_schema": {
+    "result": "PASS|FAIL|WARNING",
+    "failed_gates": [],
+    "explain": "",
+    "proof_hash": "",
+    "sealed_at": "ISO-8601"
+  },
+  "layers": {
+    "header": {
+      "normref_uri": "v://normref.com/qc/rebar-processing@v1",
+      "doc_type": "quality-inspection",
+      "jurisdiction": "GB50204-2015 5.3.2 + JTG F80/1-2017",
+      "industry": "highway",
+      "version": "v1"
+    },
+    "gate": {
+      "required_trip_roles": [
+        "inspector.quality.check",
+        "supervisor.approve"
+      ],
+      "pre_conditions": [
+        "?????",
+        "??????"
+      ],
+      "entry_rules": [
+        {
+          "name": "diameter_deviation",
+          "operator": "lte",
+          "value": 0.02,
+          "unit": "%"
+        },
+        {
+          "name": "spacing_deviation",
+          "operator": "lte",
+          "value": 10,
+          "unit": "mm"
+        },
+        {
+          "name": "protection_layer",
+          "operator": "lte",
+          "value": 5,
+          "unit": "mm"
+        }
+      ]
+    },
+    "body": {
+      "basic": {
+        "rebar_spec": "HRB400-20",
+        "total_weight": 0
+      },
+      "test_data": [
+        {
+          "check_item": "diameter",
+          "measured": 0,
+          "result": "??|???"
+        },
+        {
+          "check_item": "spacing",
+          "measured": 0,
+          "result": "??|???"
+        },
+        {
+          "check_item": "protection",
+          "measured": 0,
+          "result": "??|???"
+        }
+      ],
+      "relations": [
+        "v://.../boq/{boq_item_id}",
+        "v://.../component/{component_id}"
+      ]
+    },
+    "proof": {
+      "signatures": [],
+      "data_hash": "sha256:...",
+      "witness_logs": [],
+      "proof_hash": ""
+    },
+    "state": {
+      "lifecycle_stage": "draft",
+      "state_matrix": {
+        "total_tables": 0,
+        "generated": 0,
+        "signed": 0,
+        "pending": 0
+      },
+      "next_action": "????????????"
+    }
+  }
+}

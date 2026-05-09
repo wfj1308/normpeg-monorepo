@@ -1,0 +1,43 @@
+base:
+  schema_uri: v://normref.com/schema/docpeg-specir-v1.1
+
+state_machine:
+  measured_item:
+    initial: CHECK_PENDING
+    transitions:
+      - from: CHECK_PENDING
+        on: PASS
+        to: QUALIFIED
+      - from: CHECK_PENDING
+        on: BLOCK
+        to: REJECTED
+      - from: CHECK_PENDING
+        on: CRITICAL
+        to: REJECTED
+      - from: CHECK_PENDING
+        on: WARNING
+        to: MANUAL_REVIEW
+      - from: MANUAL_REVIEW
+        on: PASS
+        to: QUALIFIED
+      - from: MANUAL_REVIEW
+        on: BLOCK
+        to: REJECTED
+    terminal:
+      - QUALIFIED
+      - REJECTED
+
+proof_template:
+  anchors:
+    - name: raw_input
+      required: true
+    - name: normalized_input
+      required: true
+    - name: path_outputs
+      required: true
+    - name: gate_result
+      required: true
+  hash:
+    algorithm: sha256
+  lineage:
+    patchable: true

@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.8.12.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "81",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "8.12.1",
+  "source_line": "（JTG D81）的规定；遮光角和防眩板的几何尺寸均应符合设计要求。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-11d76007bd47",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:1b276f014a142e19f73e476e4d54e40ad31dc9e021a654c1de9315e56ef4b7e7"
+}

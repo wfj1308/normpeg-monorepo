@@ -1,0 +1,20 @@
+{
+  "rule_id": "civil.general-check.measured_value.4.5.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/civil/general-check/measured_value@2026-04",
+  "category": "civil/general-check",
+  "field_key": "measured_value",
+  "operator": "range",
+  "threshold_value": "4.5",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "4.5.2",
+  "source_line": "土工合成材料处置层实测项目应符合表4.5.2-1～表4.5.2-4的规定。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-06a75ca21ccc44ec",
+  "candidate_id": "cand-aaeed4c6d7ab",
+  "source_std_code": "JTG-F80-1-2017",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:703d2ac25369ded1382b70ab07e57e37d96ee4a3acbde2432a70c63c07919e50"
+}

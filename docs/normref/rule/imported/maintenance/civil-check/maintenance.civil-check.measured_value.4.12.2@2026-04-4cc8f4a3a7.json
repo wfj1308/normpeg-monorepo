@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.4.12.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "lte",
+  "threshold_value": "20",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "4.12.2",
+  "source_line": "块石 ≤20",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-aae97dec3962",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:4cc8f4a3a7b81e4a9971ac301a8e123ed6ccf1f8562e87de169c0ba56b3c4869"
+}

@@ -1,0 +1,47 @@
+{
+  "project_id": "GXX-2024-XXX",
+  "generated_at": "2026-04-15",
+  "indicators": [
+    {
+      "indicator": "compaction_degree",
+      "form_type": "T0921-2019",
+      "evaluation_standard": "JTG F80/1-2017",
+      "test_method_standard": [
+        "JTG 3450-2019 T0921",
+        "JTG 3450-2019 T0923",
+        "JTG 3450-2019 T0924"
+      ],
+      "construction_control": "JTG/T F20-2015 4.3"
+    },
+    {
+      "indicator": "roughness_iri",
+      "form_type": "T0931-2019",
+      "evaluation_standard": "JTG F80/1-2017",
+      "test_method_standard": [
+        "JTG 3450-2019 T0931",
+        "JTG 3450-2019 T0932"
+      ],
+      "construction_control": "JTG/T F20-2015 6.2"
+    },
+    {
+      "indicator": "thickness",
+      "form_type": "T0912-2019",
+      "evaluation_standard": "JTG F80/1-2017",
+      "test_method_standard": [
+        "JTG 3450-2019 T0912",
+        "JTG 3450-2019 T0913"
+      ],
+      "construction_control": "JTG/T F20-2015 5.4"
+    },
+    {
+      "indicator": "deflection",
+      "form_type": "T0951-2008",
+      "evaluation_standard": "JTG F80/1-2017",
+      "test_method_standard": [
+        "JTG 3450-2019 T0951"
+      ],
+      "construction_control": "JTG/T F20-2015 7.1"
+    }
+  ]
+}
+

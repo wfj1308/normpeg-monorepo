@@ -1,0 +1,24 @@
+{
+  "bridge_shi_13": {
+    "allowed_components": [
+      "JTG/T 3650-2020.9_7_1.component",
+      "JTG/T 3650-2020.9_7_2.component",
+      "JTG/T 3650-2020.9_7_3.component"
+    ],
+    "allowed_rules": [
+      "JTG/T 3650-2020.9_7_1.rule",
+      "JTG/T 3650-2020.9_7_2.rule",
+      "JTG/T 3650-2020.9_7_3.rule"
+    ],
+    "allowed_gates": [
+      "gate.JTG/T 3650-2020.9_7_1.component",
+      "gate.JTG/T 3650-2020.9_7_2.component",
+      "gate.JTG/T 3650-2020.9_7_3.component"
+    ],
+    "allowed_normRefs": [
+      "v://norm/JTG-T-3650-2020/clause/9.7.1",
+      "v://norm/JTG-T-3650-2020/clause/9.7.2",
+      "v://norm/JTG-T-3650-2020/clause/9.7.3"
+    ]
+  }
+}

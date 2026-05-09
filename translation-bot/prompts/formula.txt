@@ -1,0 +1,14 @@
+Extract formulas from a standards clause.
+
+Return JSON:
+{
+  "formulas": [
+    {
+      "expression": "R = A / B",
+      "formula_latex": "R = \\frac{A}{B}",
+      "formula_code": "R = A / B",
+      "output_variable": "R",
+      "unit": "%"
+    }
+  ]
+}

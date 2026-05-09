@@ -1,0 +1,20 @@
+{
+  "rule_id": "civil.general-check.measured_value.5.3.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/civil/general-check/measured_value@2026-04",
+  "category": "civil/general-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "5",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "5.3.1",
+  "source_line": "大于5mm。管内不得有泥土、砖石、砂浆等杂物。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-06a75ca21ccc44ec",
+  "candidate_id": "cand-f65e92c10f04",
+  "source_std_code": "JTG-F80-1-2017",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:44cec48922b53025e7712416a812c56bb55f3746b20f8f34ba81166ef9db5145"
+}

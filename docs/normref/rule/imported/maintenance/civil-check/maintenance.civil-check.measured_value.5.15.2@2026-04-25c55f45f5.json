@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.5.15.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "5.15",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "5.15.2",
+  "source_line": "再生实测项目应符合表5.15.2-2的规定。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-03a2396e4c53",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:25c55f45f576cd9140f33da9ea17d073c437bb2e3667a049692eb5ebc6cfd5c2"
+}

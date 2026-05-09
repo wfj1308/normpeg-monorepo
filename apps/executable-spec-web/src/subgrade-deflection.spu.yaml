@@ -1,0 +1,45 @@
+spuId: "highway.subgrade.deflection.4.2.2@v1"
+
+meta:
+  name: "路基弯沉"
+  norm: "JTG F80/1-2017"
+  clause: "4.2.2"
+  version: "v1"
+
+forms:
+  - formCode: "SUBGRADE_DEFLECTION_FORM"
+    role: "lab"
+    required: true
+
+data:
+  inputs:
+    - name: measuredDeflection
+      type: number
+      label: "实测弯沉(0.01mm)"
+    - name: allowableDeflection
+      type: number
+      label: "允许弯沉(0.01mm)"
+  outputs:
+    - name: deflectionValue
+    - name: deflectionMargin
+
+path:
+  - step: calc_deflection_value
+    formula: "deflectionValue = measuredDeflection"
+  - step: calc_deflection_margin
+    formula: "deflectionMargin = allowableDeflection - deflectionValue"
+
+rules:
+  - ruleId: "RULE-DEFLECTION-001"
+    field: "deflectionValue"
+    operator: "<="
+    value: 210
+    message: "弯沉不得大于允许值"
+
+proof:
+  resultField: "deflectionValue"
+  passMessage: "弯沉达标"
+  failMessage: "弯沉不达标"
+  requiredSignatures:
+    - lab
+    - supervision

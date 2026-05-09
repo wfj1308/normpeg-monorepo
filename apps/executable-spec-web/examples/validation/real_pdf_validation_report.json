@@ -1,0 +1,1697 @@
+{
+  "generatedAt": "2026-04-22T13:49:55.162Z",
+  "totalCases": 3,
+  "cases": [
+    {
+      "case": "compaction",
+      "machine": {
+        "fileName": "20260415122744-c0a274e3-1_JTG_T_3610-2019____________.pdf",
+        "extraction": {
+          "rawTextLength": 0,
+          "ocrUsed": true,
+          "warnings": [
+            {
+              "code": "CLAUSE_AMBIGUOUS",
+              "message": "条款号识别置信度低，请人工校对。"
+            },
+            {
+              "code": "FORMULA_PARTIAL",
+              "message": "公式抽取存在缺失或片段，请人工校对计算步骤。"
+            },
+            {
+              "code": "INPUTS_INFERRED",
+              "message": "输入参数由文本推断或默认补齐，建议人工确认。"
+            },
+            {
+              "code": "RULES_INFERRED",
+              "message": "判定规则由文本推断或默认补齐，建议人工确认。"
+            },
+            {
+              "code": "MANUAL_REVIEW_REQUIRED",
+              "message": "抽取结果存在不确定项，请在注册前进行人工复核。"
+            },
+            {
+              "code": "OCR_USED",
+              "message": "检测到扫描版或低质量文本页，已自动启用 OCR。"
+            },
+            {
+              "code": "OCR_TEXT_NOISY",
+              "message": "OCR 结果存在噪声或失败页面，请重点校对条款号、公式和表格字段。"
+            },
+            {
+              "code": "OCR_CLAUSE_LOW_CONFIDENCE",
+              "message": "OCR 条款号识别置信度较低，请人工核对条款号。"
+            },
+            {
+              "code": "OCR_FORMULA_LOW_CONFIDENCE",
+              "message": "OCR 公式识别不完整，请人工核对计算步骤。"
+            },
+            {
+              "code": "OCR_TABLE_LOW_CONFIDENCE",
+              "message": "OCR 表格识别置信度较低，请人工核对输入参数与判定规则。"
+            }
+          ]
+        },
+        "draft": {
+          "originalDraftMarkdown": "# 规范草稿（需人工校对）\n\n规范来源：UNKNOWN_STANDARD\n条款号：4.2.1\n版本：v1\n分类：subgrade\n检测项：generic\n\n## 输入参数\n- inputValue | number | - | 待补充输入\n\n## 输出参数\n- resultValue\n\n## 计算步骤\n1. resultValue = inputValue\n\n## 判定规则\n- resultValue >= 0 | 规则待人工补充\n\n## 签字要求\n- lab\n- supervision\n\n## 依赖\n- none\n",
+          "editedMarkdown": "# 规范草稿（需人工校对）\n\n规范来源：UNKNOWN_STANDARD\n条款号：4.2.1\n版本：v1\n分类：subgrade\n检测项：generic\n\n## 输入参数\n- inputValue | number | - | 待补充输入\n\n## 输出参数\n- resultValue\n\n## 计算步骤\n1. resultValue = inputValue\n\n## 判定规则\n- resultValue >= 0 | 规则待人工补充\n\n## 签字要求\n- lab\n- supervision\n\n## 依赖\n- none\n"
+        },
+        "riskReview": {
+          "items": [
+            {
+              "id": "risk_1_CLAUSE_AMBIGUOUS",
+              "source": "warning",
+              "code": "CLAUSE_AMBIGUOUS",
+              "title": "条款号识别不稳定",
+              "message": "条款号识别置信度低，请人工校对。",
+              "riskLevel": "high",
+              "category": "clause",
+              "requiresConfirmation": true,
+              "blocksRegister": true
+            },
+            {
+              "id": "risk_2_FORMULA_PARTIAL",
+              "source": "warning",
+              "code": "FORMULA_PARTIAL",
+              "title": "公式抽取不完整",
+              "message": "公式抽取存在缺失或片段，请人工校对计算步骤。",
+              "riskLevel": "high",
+              "category": "formula",
+              "requiresConfirmation": true,
+              "blocksRegister": true
+            },
+            {
+              "id": "risk_3_INPUTS_INFERRED",
+              "source": "warning",
+              "code": "INPUTS_INFERRED",
+              "title": "输入参数来自推断",
+              "message": "输入参数由文本推断或默认补齐，建议人工确认。",
+              "riskLevel": "medium",
+              "category": "input",
+              "requiresConfirmation": true,
+              "blocksRegister": false
+            },
+            {
+              "id": "risk_4_RULES_INFERRED",
+              "source": "warning",
+              "code": "RULES_INFERRED",
+              "title": "判定规则来自推断",
+              "message": "判定规则由文本推断或默认补齐，建议人工确认。",
+              "riskLevel": "medium",
+              "category": "rule",
+              "requiresConfirmation": true,
+              "blocksRegister": false
+            },
+            {
+              "id": "risk_5_MANUAL_REVIEW_REQUIRED",
+              "source": "warning",
+              "code": "MANUAL_REVIEW_REQUIRED",
+              "title": "需人工复核",
+              "message": "抽取结果存在不确定项，请在注册前进行人工复核。",
+              "riskLevel": "high",
+              "category": "manual_review",
+              "requiresConfirmation": true,
+              "blocksRegister": true
+            },
+            {
+              "id": "risk_6_OCR_USED",
+              "source": "warning",
+              "code": "OCR_USED",
+              "title": "已启用 OCR",
+              "message": "检测到扫描版或低质量文本页，已自动启用 OCR。",
+              "riskLevel": "low",
+              "category": "ocr",
+              "requiresConfirmation": false,
+              "blocksRegister": false
+            },
+            {
+              "id": "risk_7_OCR_TEXT_NOISY",
+              "source": "warning",
+              "code": "OCR_TEXT_NOISY",
+              "title": "OCR 文本噪声较高",
+              "message": "OCR 结果存在噪声或失败页面，请重点校对条款号、公式和表格字段。",
+              "riskLevel": "medium",
+              "category": "ocr",
+              "requiresConfirmation": true,
+              "blocksRegister": false
+            },
+            {
+              "id": "risk_8_OCR_CLAUSE_LOW_CONFIDENCE",
+              "source": "warning",
+              "code": "OCR_CLAUSE_LOW_CONFIDENCE",
+              "title": "OCR 条款号识别置信度低",
+              "message": "OCR 条款号识别置信度较低，请人工核对条款号。",
+              "riskLevel": "high",
+              "category": "clause",
+              "requiresConfirmation": true,
+              "blocksRegister": true
+            },
+            {
+              "id": "risk_9_OCR_FORMULA_LOW_CONFIDENCE",
+              "source": "warning",
+              "code": "OCR_FORMULA_LOW_CONFIDENCE",
+              "title": "OCR 公式识别置信度低",
+              "message": "OCR 公式识别不完整，请人工核对计算步骤。",
+              "riskLevel": "high",
+              "category": "formula",
+              "requiresConfirmation": true,
+              "blocksRegister": true
+            },
+            {
+              "id": "risk_10_OCR_TABLE_LOW_CONFIDENCE",
+              "source": "warning",
+              "code": "OCR_TABLE_LOW_CONFIDENCE",
+              "title": "OCR 表格识别置信度低",
+              "message": "OCR 表格识别置信度较低，请人工核对输入参数与判定规则。",
+              "riskLevel": "medium",
+              "category": "table",
+              "requiresConfirmation": true,
+              "blocksRegister": false
+            }
+          ],
+          "summary": {
+            "high": 5,
+            "medium": 4,
+            "low": 1,
+            "blocking": 5,
+            "confirmRequired": 9
+          },
+          "canRegister": false,
+          "reviewMessage": "检测到高风险抽取问题，暂不允许注册"
+        },
+        "diffReview": {
+          "hasChanges": false,
+          "summary": {
+            "added": 0,
+            "removed": 0,
+            "modified": 0
+          },
+          "sectionChanges": [],
+          "lineDiffs": []
+        },
+        "clauseReview": {
+          "items": [
+            {
+              "id": "clause_source",
+              "title": "规范来源",
+              "message": "请确认规范来源与原文一致。",
+              "riskLevel": "high",
+              "required": true,
+              "confirmed": false
+            },
+            {
+              "id": "clause_number",
+              "title": "条款号",
+              "message": "请确认条款号与原文一致。",
+              "riskLevel": "high",
+              "required": true,
+              "confirmed": false
+            },
+            {
+              "id": "calc_path",
+              "title": "计算步骤",
+              "message": "请确认计算步骤、公式与单位正确。",
+              "riskLevel": "high",
+              "required": true,
+              "confirmed": false
+            },
+            {
+              "id": "decision_rules",
+              "title": "判定规则",
+              "message": "请确认阈值与操作符和规范一致。",
+              "riskLevel": "high",
+              "required": true,
+              "confirmed": false
+            },
+            {
+              "id": "depends_on",
+              "title": "依赖",
+              "message": "请确认依赖关系准确。",
+              "riskLevel": "high",
+              "required": true,
+              "confirmed": false
+            },
+            {
+              "id": "input_params",
+              "title": "输入参数",
+              "message": "建议确认输入参数名称、类型与单位。",
+              "riskLevel": "medium",
+              "required": false,
+              "confirmed": false
+            },
+            {
+              "id": "output_params",
+              "title": "输出参数",
+              "message": "建议确认输出参数定义。",
+              "riskLevel": "medium",
+              "required": false,
+              "confirmed": false
+            },
+            {
+              "id": "signature_requirements",
+              "title": "签字要求",
+              "message": "建议确认签字角色与职责边界。",
+              "riskLevel": "medium",
+              "required": false,
+              "confirmed": false
+            }
+          ],
+          "summary": {
+            "requiredTotal": 5,
+            "requiredConfirmed": 0,
+            "highRequiredUnconfirmed": 5,
+            "mediumUnconfirmed": 3,
+            "lowUnconfirmed": 0
+          },
+          "allRequiredConfirmed": false
+        },
+        "preRegisterDecision": {
+          "status": "blocked",
+          "canRegister": false,
+          "blockingReasons": [
+            "条款号识别置信度低，请人工校对。",
+            "公式抽取存在缺失或片段，请人工校对计算步骤。",
+            "抽取结果存在不确定项，请在注册前进行人工复核。",
+            "OCR 条款号识别置信度较低，请人工核对条款号。",
+            "OCR 公式识别不完整，请人工核对计算步骤。",
+            "规范来源（高风险条款未确认）",
+            "条款号（高风险条款未确认）",
+            "计算步骤（高风险条款未确认）",
+            "判定规则（高风险条款未确认）",
+            "依赖（高风险条款未确认）"
+          ],
+          "warningReasons": [
+            "输入参数由文本推断或默认补齐，建议人工确认。",
+            "判定规则由文本推断或默认补齐，建议人工确认。",
+            "OCR 结果存在噪声或失败页面，请重点校对条款号、公式和表格字段。",
+            "OCR 表格识别置信度较低，请人工核对输入参数与判定规则。",
+            "输入参数（中风险条款未确认）",
+            "输出参数（中风险条款未确认）",
+            "签字要求（中风险条款未确认）"
+          ],
+          "summary": {
+            "riskHigh": 5,
+            "riskMedium": 4,
+            "diffHigh": 0,
+            "clausePending": 5
+          }
+        },
+        "lint": {
+          "valid": true,
+          "errors": [],
+          "warnings": []
+        },
+        "register": {
+          "success": false,
+          "blocked": true,
+          "error": "PRE_REGISTER_BLOCKED"
+        }
+      },
+      "manual": {
+        "fileName": "20260415122744-c0a274e3-1_JTG_T_3610-2019____________.pdf",
+        "extraction": {
+          "rawTextLength": 0,
+          "ocrUsed": true,
+          "warnings": [
+            {
+              "code": "OCR_USED",
+              "message": "OCR was used for extraction"
+            }
+          ]
+        },
+        "draft": {
+          "originalDraftMarkdown": "# 规范草稿（需人工校对）\n\n规范来源：UNKNOWN_STANDARD\n条款号：4.2.1\n版本：v1\n分类：subgrade\n检测项：generic\n\n## 输入参数\n- inputValue | number | - | 待补充输入\n\n## 输出参数\n- resultValue\n\n## 计算步骤\n1. resultValue = inputValue\n\n## 判定规则\n- resultValue >= 0 | 规则待人工补充\n\n## 签字要求\n- lab\n- supervision\n\n## 依赖\n- none\n",
+          "editedMarkdown": "# 路基压实度（土质法）\n规范来源：JTG F80/1-2017\n条款号：4.2.1\n版本：v1\n分类：subgrade\n检测项：compaction\n\n## 输入参数\n- massHoleSand | number | g | 灌入砂质量\n- volumeSand | number | cm3 | 标定体积\n- moistureContent | number | % | 含水率\n- maxDryDensity | number | g/cm3 | 最大干密度\n\n## 输出参数\n- wetDensity\n- dryDensity\n- compactionDegree\n\n## 计算步骤\n1. wetDensity = massHoleSand / volumeSand\n2. dryDensity = wetDensity / (1 + moistureContent / 100)\n3. compactionDegree = (dryDensity / maxDryDensity) * 100\n\n## 判定规则\n- compactionDegree >= 93 | 压实度必须 >= 93%\n\n## 签字要求\n- lab\n- supervision\n\n## 依赖\n- none\n"
+        },
+        "riskReview": {
+          "items": [
+            {
+              "id": "risk_1_OCR_USED",
+              "source": "warning",
+              "code": "OCR_USED",
+              "title": "已启用 OCR",
+              "message": "OCR was used for extraction",
+              "riskLevel": "low",
+              "category": "ocr",
+              "requiresConfirmation": false,
+              "blocksRegister": false
+            }
+          ],
+          "summary": {
+            "high": 0,
+            "medium": 0,
+            "low": 1,
+            "blocking": 0,
+            "confirmRequired": 0
+          },
+          "canRegister": true,
+          "reviewMessage": "仅低风险提示，可直接继续"
+        },
+        "diffReview": {
+          "hasChanges": true,
+          "summary": {
+            "added": 8,
+            "removed": 2,
+            "modified": 6
+          },
+          "sectionChanges": [
+            {
+              "section": "标题",
+              "changeType": "modified",
+              "riskLevel": "low",
+              "message": "标题发生修改，影响较低"
+            },
+            {
+              "section": "规范来源",
+              "changeType": "modified",
+              "riskLevel": "high",
+              "message": "规范来源被修改，请核对规范依据是否正确"
+            },
+            {
+              "section": "检测项",
+              "changeType": "modified",
+              "riskLevel": "low",
+              "message": "检测项发生修改，影响较低"
+            },
+            {
+              "section": "输入参数",
+              "changeType": "modified",
+              "riskLevel": "medium",
+              "message": "输入参数发生修改，建议复核"
+            },
+            {
+              "section": "输出参数",
+              "changeType": "modified",
+              "riskLevel": "medium",
+              "message": "输出参数发生修改，建议复核"
+            },
+            {
+              "section": "计算步骤",
+              "changeType": "modified",
+              "riskLevel": "high",
+              "message": "计算步骤被修改，可能影响 ExecPeg 计算结果"
+            },
+            {
+              "section": "判定规则",
+              "changeType": "modified",
+              "riskLevel": "high",
+              "message": "判定阈值发生变化，请重点确认"
+            }
+          ],
+          "lineDiffs": [
+            {
+              "type": "removed",
+              "oldLine": "# 规范草稿（需人工校对）"
+            },
+            {
+              "type": "removed",
+              "oldLine": ""
+            },
+            {
+              "type": "modified",
+              "oldLine": "规范来源：UNKNOWN_STANDARD",
+              "newLine": "# 路基压实度（土质法）"
+            },
+            {
+              "type": "added",
+              "newLine": "规范来源：JTG F80/1-2017"
+            },
+            {
+              "type": "modified",
+              "oldLine": "检测项：generic",
+              "newLine": "检测项：compaction"
+            },
+            {
+              "type": "modified",
+              "oldLine": "- inputValue | number | - | 待补充输入",
+              "newLine": "- massHoleSand | number | g | 灌入砂质量"
+            },
+            {
+              "type": "added",
+              "newLine": "- volumeSand | number | cm3 | 标定体积"
+            },
+            {
+              "type": "added",
+              "newLine": "- moistureContent | number | % | 含水率"
+            },
+            {
+              "type": "added",
+              "newLine": "- maxDryDensity | number | g/cm3 | 最大干密度"
+            },
+            {
+              "type": "modified",
+              "oldLine": "- resultValue",
+              "newLine": "- wetDensity"
+            },
+            {
+              "type": "added",
+              "newLine": "- dryDensity"
+            },
+            {
+              "type": "added",
+              "newLine": "- compactionDegree"
+            },
+            {
+              "type": "modified",
+              "oldLine": "1. resultValue = inputValue",
+              "newLine": "1. wetDensity = massHoleSand / volumeSand"
+            },
+            {
+              "type": "added",
+              "newLine": "2. dryDensity = wetDensity / (1 + moistureContent / 100)"
+            },
+            {
+              "type": "added",
+              "newLine": "3. compactionDegree = (dryDensity / maxDryDensity) * 100"
+            },
+            {
+              "type": "modified",
+              "oldLine": "- resultValue >= 0 | 规则待人工补充",
+              "newLine": "- compactionDegree >= 93 | 压实度必须 >= 93%"
+            }
+          ]
+        },
+        "clauseReview": {
+          "items": [
+            {
+              "id": "clause_source",
+              "title": "规范来源",
+              "message": "请确认规范来源与原文一致。",
+              "riskLevel": "high",
+              "required": true,
+              "confirmed": true
+            },
+            {
+              "id": "clause_number",
+              "title": "条款号",
+              "message": "请确认条款号与原文一致。",
+              "riskLevel": "high",
+              "required": true,
+              "confirmed": true
+            },
+            {
+              "id": "calc_path",
+              "title": "计算步骤",
+              "message": "请确认计算步骤、公式与单位正确。",
+              "riskLevel": "high",
+              "required": true,
+              "confirmed": true
+            },
+            {
+              "id": "decision_rules",
+              "title": "判定规则",
+              "message": "请确认阈值与操作符和规范一致。",
+              "riskLevel": "high",
+              "required": true,
+              "confirmed": true
+            },
+            {
+              "id": "depends_on",
+              "title": "依赖",
+              "message": "请确认依赖关系准确。",
+              "riskLevel": "high",
+              "required": true,
+              "confirmed": true
+            },
+            {
+              "id": "input_params",
+              "title": "输入参数",
+              "message": "建议确认输入参数名称、类型与单位。",
+              "riskLevel": "medium",
+              "required": false,
+              "confirmed": true
+            },
+            {
+              "id": "output_params",
+              "title": "输出参数",
+              "message": "建议确认输出参数定义。",
+              "riskLevel": "medium",
+              "required": false,
+              "confirmed": true
+            },
+            {
+              "id": "signature_requirements",
+              "title": "签字要求",
+              "message": "建议确认签字角色与职责边界。",
+              "riskLevel": "medium",
+              "required": false,
+              "confirmed": true
+            }
+          ],
+          "summary": {
+            "requiredTotal": 5,
+            "requiredConfirmed": 5,
+            "highRequiredUnconfirmed": 0,
+            "mediumUnconfirmed": 0,
+            "lowUnconfirmed": 0
+          },
+          "allRequiredConfirmed": true
+        },
+        "preRegisterDecision": {
+          "status": "warning",
+          "canRegister": true,
+          "blockingReasons": [],
+          "warningReasons": [
+            "规范来源被修改，请核对规范依据是否正确",
+            "计算步骤被修改，可能影响 ExecPeg 计算结果",
+            "判定阈值发生变化，请重点确认"
+          ],
+          "summary": {
+            "riskHigh": 0,
+            "riskMedium": 0,
+            "diffHigh": 3,
+            "clausePending": 0
+          }
+        },
+        "lint": {
+          "valid": true,
+          "errors": [],
+          "warnings": []
+        },
+        "compile": {
+          "success": true,
+          "spuId": "highway.subgrade.compaction.4.2.1.soil@v1"
+        },
+        "register": {
+          "success": true
+        }
+      }
+    },
+    {
+      "case": "thickness",
+      "machine": {
+        "fileName": "5a53c366-68fc-49bf-bfe0-e083fa2ff6dc-JTG_5220_2020_.pdf",
+        "extraction": {
+          "rawTextLength": 29,
+          "ocrUsed": true,
+          "warnings": [
+            {
+              "code": "CLAUSE_AMBIGUOUS",
+              "message": "条款号识别置信度低，请人工校对。"
+            },
+            {
+              "code": "FORMULA_PARTIAL",
+              "message": "公式抽取存在缺失或片段，请人工校对计算步骤。"
+            },
+            {
+              "code": "INPUTS_INFERRED",
+              "message": "输入参数由文本推断或默认补齐，建议人工确认。"
+            },
+            {
+              "code": "RULES_INFERRED",
+              "message": "判定规则由文本推断或默认补齐，建议人工确认。"
+            },
+            {
+              "code": "MANUAL_REVIEW_REQUIRED",
+              "message": "抽取结果存在不确定项，请在注册前进行人工复核。"
+            },
+            {
+              "code": "OCR_USED",
+              "message": "检测到扫描版或低质量文本页，已自动启用 OCR。"
+            },
+            {
+              "code": "OCR_TEXT_NOISY",
+              "message": "OCR 结果存在噪声或失败页面，请重点校对条款号、公式和表格字段。"
+            },
+            {
+              "code": "OCR_CLAUSE_LOW_CONFIDENCE",
+              "message": "OCR 条款号识别置信度较低，请人工核对条款号。"
+            },
+            {
+              "code": "OCR_FORMULA_LOW_CONFIDENCE",
+              "message": "OCR 公式识别不完整，请人工核对计算步骤。"
+            },
+            {
+              "code": "OCR_TABLE_LOW_CONFIDENCE",
+              "message": "OCR 表格识别置信度较低，请人工核对输入参数与判定规则。"
+            }
+          ]
+        },
+        "draft": {
+          "originalDraftMarkdown": "# 规范草稿（需人工校对）\n\n规范来源：UNKNOWN_STANDARD\n条款号：4.2.1\n版本：v1\n分类：subgrade\n检测项：generic\n\n## 输入参数\n- inputValue | number | - | 待补充输入\n\n## 输出参数\n- resultValue\n\n## 计算步骤\n1. resultValue = inputValue\n\n## 判定规则\n- resultValue >= 0 | 规则待人工补充\n\n## 签字要求\n- lab\n- supervision\n\n## 依赖\n- none\n",
+          "editedMarkdown": "# 规范草稿（需人工校对）\n\n规范来源：UNKNOWN_STANDARD\n条款号：4.2.1\n版本：v1\n分类：subgrade\n检测项：generic\n\n## 输入参数\n- inputValue | number | - | 待补充输入\n\n## 输出参数\n- resultValue\n\n## 计算步骤\n1. resultValue = inputValue\n\n## 判定规则\n- resultValue >= 0 | 规则待人工补充\n\n## 签字要求\n- lab\n- supervision\n\n## 依赖\n- none\n"
+        },
+        "riskReview": {
+          "items": [
+            {
+              "id": "risk_1_CLAUSE_AMBIGUOUS",
+              "source": "warning",
+              "code": "CLAUSE_AMBIGUOUS",
+              "title": "条款号识别不稳定",
+              "message": "条款号识别置信度低，请人工校对。",
+              "riskLevel": "high",
+              "category": "clause",
+              "requiresConfirmation": true,
+              "blocksRegister": true
+            },
+            {
+              "id": "risk_2_FORMULA_PARTIAL",
+              "source": "warning",
+              "code": "FORMULA_PARTIAL",
+              "title": "公式抽取不完整",
+              "message": "公式抽取存在缺失或片段，请人工校对计算步骤。",
+              "riskLevel": "high",
+              "category": "formula",
+              "requiresConfirmation": true,
+              "blocksRegister": true
+            },
+            {
+              "id": "risk_3_INPUTS_INFERRED",
+              "source": "warning",
+              "code": "INPUTS_INFERRED",
+              "title": "输入参数来自推断",
+              "message": "输入参数由文本推断或默认补齐，建议人工确认。",
+              "riskLevel": "medium",
+              "category": "input",
+              "requiresConfirmation": true,
+              "blocksRegister": false
+            },
+            {
+              "id": "risk_4_RULES_INFERRED",
+              "source": "warning",
+              "code": "RULES_INFERRED",
+              "title": "判定规则来自推断",
+              "message": "判定规则由文本推断或默认补齐，建议人工确认。",
+              "riskLevel": "medium",
+              "category": "rule",
+              "requiresConfirmation": true,
+              "blocksRegister": false
+            },
+            {
+              "id": "risk_5_MANUAL_REVIEW_REQUIRED",
+              "source": "warning",
+              "code": "MANUAL_REVIEW_REQUIRED",
+              "title": "需人工复核",
+              "message": "抽取结果存在不确定项，请在注册前进行人工复核。",
+              "riskLevel": "high",
+              "category": "manual_review",
+              "requiresConfirmation": true,
+              "blocksRegister": true
+            },
+            {
+              "id": "risk_6_OCR_USED",
+              "source": "warning",
+              "code": "OCR_USED",
+              "title": "已启用 OCR",
+              "message": "检测到扫描版或低质量文本页，已自动启用 OCR。",
+              "riskLevel": "low",
+              "category": "ocr",
+              "requiresConfirmation": false,
+              "blocksRegister": false
+            },
+            {
+              "id": "risk_7_OCR_TEXT_NOISY",
+              "source": "warning",
+              "code": "OCR_TEXT_NOISY",
+              "title": "OCR 文本噪声较高",
+              "message": "OCR 结果存在噪声或失败页面，请重点校对条款号、公式和表格字段。",
+              "riskLevel": "medium",
+              "category": "ocr",
+              "requiresConfirmation": true,
+              "blocksRegister": false
+            },
+            {
+              "id": "risk_8_OCR_CLAUSE_LOW_CONFIDENCE",
+              "source": "warning",
+              "code": "OCR_CLAUSE_LOW_CONFIDENCE",
+              "title": "OCR 条款号识别置信度低",
+              "message": "OCR 条款号识别置信度较低，请人工核对条款号。",
+              "riskLevel": "high",
+              "category": "clause",
+              "requiresConfirmation": true,
+              "blocksRegister": true
+            },
+            {
+              "id": "risk_9_OCR_FORMULA_LOW_CONFIDENCE",
+              "source": "warning",
+              "code": "OCR_FORMULA_LOW_CONFIDENCE",
+              "title": "OCR 公式识别置信度低",
+              "message": "OCR 公式识别不完整，请人工核对计算步骤。",
+              "riskLevel": "high",
+              "category": "formula",
+              "requiresConfirmation": true,
+              "blocksRegister": true
+            },
+            {
+              "id": "risk_10_OCR_TABLE_LOW_CONFIDENCE",
+              "source": "warning",
+              "code": "OCR_TABLE_LOW_CONFIDENCE",
+              "title": "OCR 表格识别置信度低",
+              "message": "OCR 表格识别置信度较低，请人工核对输入参数与判定规则。",
+              "riskLevel": "medium",
+              "category": "table",
+              "requiresConfirmation": true,
+              "blocksRegister": false
+            }
+          ],
+          "summary": {
+            "high": 5,
+            "medium": 4,
+            "low": 1,
+            "blocking": 5,
+            "confirmRequired": 9
+          },
+          "canRegister": false,
+          "reviewMessage": "检测到高风险抽取问题，暂不允许注册"
+        },
+        "diffReview": {
+          "hasChanges": false,
+          "summary": {
+            "added": 0,
+            "removed": 0,
+            "modified": 0
+          },
+          "sectionChanges": [],
+          "lineDiffs": []
+        },
+        "clauseReview": {
+          "items": [
+            {
+              "id": "clause_source",
+              "title": "规范来源",
+              "message": "请确认规范来源与原文一致。",
+              "riskLevel": "high",
+              "required": true,
+              "confirmed": false
+            },
+            {
+              "id": "clause_number",
+              "title": "条款号",
+              "message": "请确认条款号与原文一致。",
+              "riskLevel": "high",
+              "required": true,
+              "confirmed": false
+            },
+            {
+              "id": "calc_path",
+              "title": "计算步骤",
+              "message": "请确认计算步骤、公式与单位正确。",
+              "riskLevel": "high",
+              "required": true,
+              "confirmed": false
+            },
+            {
+              "id": "decision_rules",
+              "title": "判定规则",
+              "message": "请确认阈值与操作符和规范一致。",
+              "riskLevel": "high",
+              "required": true,
+              "confirmed": false
+            },
+            {
+              "id": "depends_on",
+              "title": "依赖",
+              "message": "请确认依赖关系准确。",
+              "riskLevel": "high",
+              "required": true,
+              "confirmed": false
+            },
+            {
+              "id": "input_params",
+              "title": "输入参数",
+              "message": "建议确认输入参数名称、类型与单位。",
+              "riskLevel": "medium",
+              "required": false,
+              "confirmed": false
+            },
+            {
+              "id": "output_params",
+              "title": "输出参数",
+              "message": "建议确认输出参数定义。",
+              "riskLevel": "medium",
+              "required": false,
+              "confirmed": false
+            },
+            {
+              "id": "signature_requirements",
+              "title": "签字要求",
+              "message": "建议确认签字角色与职责边界。",
+              "riskLevel": "medium",
+              "required": false,
+              "confirmed": false
+            }
+          ],
+          "summary": {
+            "requiredTotal": 5,
+            "requiredConfirmed": 0,
+            "highRequiredUnconfirmed": 5,
+            "mediumUnconfirmed": 3,
+            "lowUnconfirmed": 0
+          },
+          "allRequiredConfirmed": false
+        },
+        "preRegisterDecision": {
+          "status": "blocked",
+          "canRegister": false,
+          "blockingReasons": [
+            "条款号识别置信度低，请人工校对。",
+            "公式抽取存在缺失或片段，请人工校对计算步骤。",
+            "抽取结果存在不确定项，请在注册前进行人工复核。",
+            "OCR 条款号识别置信度较低，请人工核对条款号。",
+            "OCR 公式识别不完整，请人工核对计算步骤。",
+            "规范来源（高风险条款未确认）",
+            "条款号（高风险条款未确认）",
+            "计算步骤（高风险条款未确认）",
+            "判定规则（高风险条款未确认）",
+            "依赖（高风险条款未确认）"
+          ],
+          "warningReasons": [
+            "输入参数由文本推断或默认补齐，建议人工确认。",
+            "判定规则由文本推断或默认补齐，建议人工确认。",
+            "OCR 结果存在噪声或失败页面，请重点校对条款号、公式和表格字段。",
+            "OCR 表格识别置信度较低，请人工核对输入参数与判定规则。",
+            "输入参数（中风险条款未确认）",
+            "输出参数（中风险条款未确认）",
+            "签字要求（中风险条款未确认）"
+          ],
+          "summary": {
+            "riskHigh": 5,
+            "riskMedium": 4,
+            "diffHigh": 0,
+            "clausePending": 5
+          }
+        },
+        "lint": {
+          "valid": true,
+          "errors": [],
+          "warnings": []
+        },
+        "register": {
+          "success": false,
+          "blocked": true,
+          "error": "PRE_REGISTER_BLOCKED"
+        }
+      },
+      "manual": {
+        "fileName": "5a53c366-68fc-49bf-bfe0-e083fa2ff6dc-JTG_5220_2020_.pdf",
+        "extraction": {
+          "rawTextLength": 29,
+          "ocrUsed": true,
+          "warnings": [
+            {
+              "code": "INPUTS_INFERRED",
+              "message": "Input params inferred from text"
+            },
+            {
+              "code": "RULES_INFERRED",
+              "message": "Rules inferred from text"
+            },
+            {
+              "code": "OCR_TEXT_NOISY",
+              "message": "OCR text quality is noisy"
+            }
+          ]
+        },
+        "draft": {
+          "originalDraftMarkdown": "# 规范草稿（需人工校对）\n\n规范来源：UNKNOWN_STANDARD\n条款号：4.2.1\n版本：v1\n分类：subgrade\n检测项：generic\n\n## 输入参数\n- inputValue | number | - | 待补充输入\n\n## 输出参数\n- resultValue\n\n## 计算步骤\n1. resultValue = inputValue\n\n## 判定规则\n- resultValue >= 0 | 规则待人工补充\n\n## 签字要求\n- lab\n- supervision\n\n## 依赖\n- none\n",
+          "editedMarkdown": "# 路基厚度\n规范来源：JTG F80/1-2017\n条款号：4.3.2\n版本：v1\n分类：subgrade\n检测项：thickness\n\n## 输入参数\n- measuredThickness | number | mm | 实测厚度\n- designThickness | number | mm | 设计厚度\n\n## 输出参数\n- thicknessDeviation\n- thicknessRatio\n\n## 计算步骤\n1. thicknessDeviation = measuredThickness - designThickness\n2. thicknessRatio = (measuredThickness / designThickness) * 100\n\n## 判定规则\n- measuredThickness >= designThickness | 实测厚度不得小于设计厚度\n\n## 签字要求\n- lab\n- supervision\n\n## 依赖\n- none\n"
+        },
+        "riskReview": {
+          "items": [
+            {
+              "id": "risk_1_INPUTS_INFERRED",
+              "source": "warning",
+              "code": "INPUTS_INFERRED",
+              "title": "输入参数来自推断",
+              "message": "Input params inferred from text",
+              "riskLevel": "medium",
+              "category": "input",
+              "requiresConfirmation": true,
+              "blocksRegister": false
+            },
+            {
+              "id": "risk_2_RULES_INFERRED",
+              "source": "warning",
+              "code": "RULES_INFERRED",
+              "title": "判定规则来自推断",
+              "message": "Rules inferred from text",
+              "riskLevel": "medium",
+              "category": "rule",
+              "requiresConfirmation": true,
+              "blocksRegister": false
+            },
+            {
+              "id": "risk_3_OCR_TEXT_NOISY",
+              "source": "warning",
+              "code": "OCR_TEXT_NOISY",
+              "title": "OCR 文本噪声较高",
+              "message": "OCR text quality is noisy",
+              "riskLevel": "medium",
+              "category": "ocr",
+              "requiresConfirmation": true,
+              "blocksRegister": false
+            }
+          ],
+          "summary": {
+            "high": 0,
+            "medium": 3,
+            "low": 0,
+            "blocking": 0,
+            "confirmRequired": 3
+          },
+          "canRegister": true,
+          "reviewMessage": "存在中风险项，请人工确认后再继续"
+        },
+        "diffReview": {
+          "hasChanges": true,
+          "summary": {
+            "added": 5,
+            "removed": 3,
+            "modified": 6
+          },
+          "sectionChanges": [
+            {
+              "section": "标题",
+              "changeType": "modified",
+              "riskLevel": "low",
+              "message": "标题发生修改，影响较低"
+            },
+            {
+              "section": "规范来源",
+              "changeType": "modified",
+              "riskLevel": "high",
+              "message": "规范来源被修改，请核对规范依据是否正确"
+            },
+            {
+              "section": "条款号",
+              "changeType": "modified",
+              "riskLevel": "high",
+              "message": "条款号被修改，请核对规范依据是否正确"
+            },
+            {
+              "section": "检测项",
+              "changeType": "modified",
+              "riskLevel": "low",
+              "message": "检测项发生修改，影响较低"
+            },
+            {
+              "section": "输入参数",
+              "changeType": "modified",
+              "riskLevel": "medium",
+              "message": "输入参数发生修改，建议复核"
+            },
+            {
+              "section": "输出参数",
+              "changeType": "modified",
+              "riskLevel": "medium",
+              "message": "输出参数发生修改，建议复核"
+            },
+            {
+              "section": "计算步骤",
+              "changeType": "modified",
+              "riskLevel": "high",
+              "message": "计算步骤被修改，可能影响 ExecPeg 计算结果"
+            },
+            {
+              "section": "判定规则",
+              "changeType": "modified",
+              "riskLevel": "high",
+              "message": "判定阈值发生变化，请重点确认"
+            }
+          ],
+          "lineDiffs": [
+            {
+              "type": "removed",
+              "oldLine": "# 规范草稿（需人工校对）"
+            },
+            {
+              "type": "removed",
+              "oldLine": ""
+            },
+            {
+              "type": "removed",
+              "oldLine": "规范来源：UNKNOWN_STANDARD"
+            },
+            {
+              "type": "modified",
+              "oldLine": "条款号：4.2.1",
+              "newLine": "# 路基厚度"
+            },
+            {
+              "type": "added",
+              "newLine": "规范来源：JTG F80/1-2017"
+            },
+            {
+              "type": "added",
+              "newLine": "条款号：4.3.2"
+            },
+            {
+              "type": "modified",
+              "oldLine": "检测项：generic",
+              "newLine": "检测项：thickness"
+            },
+            {
+              "type": "modified",
+              "oldLine": "- inputValue | number | - | 待补充输入",
+              "newLine": "- measuredThickness | number | mm | 实测厚度"
+            },
+            {
+              "type": "added",
+              "newLine": "- designThickness | number | mm | 设计厚度"
+            },
+            {
+              "type": "modified",
+              "oldLine": "- resultValue",
+              "newLine": "- thicknessDeviation"
+            },
+            {
+              "type": "added",
+              "newLine": "- thicknessRatio"
+            },
+            {
+              "type": "modified",
+              "oldLine": "1. resultValue = inputValue",
+              "newLine": "1. thicknessDeviation = measuredThickness - designThickness"
+            },
+            {
+              "type": "added",
+              "newLine": "2. thicknessRatio = (measuredThickness / designThickness) * 100"
+            },
+            {
+              "type": "modified",
+              "oldLine": "- resultValue >= 0 | 规则待人工补充",
+              "newLine": "- measuredThickness >= designThickness | 实测厚度不得小于设计厚度"
+            }
+          ]
+        },
+        "clauseReview": {
+          "items": [
+            {
+              "id": "clause_source",
+              "title": "规范来源",
+              "message": "请确认规范来源与原文一致。",
+              "riskLevel": "high",
+              "required": true,
+              "confirmed": true
+            },
+            {
+              "id": "clause_number",
+              "title": "条款号",
+              "message": "请确认条款号与原文一致。",
+              "riskLevel": "high",
+              "required": true,
+              "confirmed": true
+            },
+            {
+              "id": "calc_path",
+              "title": "计算步骤",
+              "message": "请确认计算步骤、公式与单位正确。",
+              "riskLevel": "high",
+              "required": true,
+              "confirmed": true
+            },
+            {
+              "id": "decision_rules",
+              "title": "判定规则",
+              "message": "请确认阈值与操作符和规范一致。",
+              "riskLevel": "high",
+              "required": true,
+              "confirmed": true
+            },
+            {
+              "id": "depends_on",
+              "title": "依赖",
+              "message": "请确认依赖关系准确。",
+              "riskLevel": "high",
+              "required": true,
+              "confirmed": true
+            },
+            {
+              "id": "input_params",
+              "title": "输入参数",
+              "message": "建议确认输入参数名称、类型与单位。",
+              "riskLevel": "medium",
+              "required": false,
+              "confirmed": true
+            },
+            {
+              "id": "output_params",
+              "title": "输出参数",
+              "message": "建议确认输出参数定义。",
+              "riskLevel": "medium",
+              "required": false,
+              "confirmed": true
+            },
+            {
+              "id": "signature_requirements",
+              "title": "签字要求",
+              "message": "建议确认签字角色与职责边界。",
+              "riskLevel": "medium",
+              "required": false,
+              "confirmed": true
+            }
+          ],
+          "summary": {
+            "requiredTotal": 5,
+            "requiredConfirmed": 5,
+            "highRequiredUnconfirmed": 0,
+            "mediumUnconfirmed": 0,
+            "lowUnconfirmed": 0
+          },
+          "allRequiredConfirmed": true
+        },
+        "preRegisterDecision": {
+          "status": "warning",
+          "canRegister": true,
+          "blockingReasons": [],
+          "warningReasons": [
+            "Input params inferred from text",
+            "Rules inferred from text",
+            "OCR text quality is noisy",
+            "规范来源被修改，请核对规范依据是否正确",
+            "条款号被修改，请核对规范依据是否正确",
+            "计算步骤被修改，可能影响 ExecPeg 计算结果",
+            "判定阈值发生变化，请重点确认"
+          ],
+          "summary": {
+            "riskHigh": 0,
+            "riskMedium": 3,
+            "diffHigh": 4,
+            "clausePending": 0
+          }
+        },
+        "lint": {
+          "valid": true,
+          "errors": [],
+          "warnings": []
+        },
+        "compile": {
+          "success": true,
+          "spuId": "highway.subgrade.thickness.4.3.2@v1"
+        },
+        "register": {
+          "success": true
+        }
+      }
+    },
+    {
+      "case": "deflection",
+      "machine": {
+        "fileName": "e84a2a51-2f9f-46bb-be6a-154751bb548b-JTG_5220_2020_.pdf",
+        "extraction": {
+          "rawTextLength": 29,
+          "ocrUsed": true,
+          "warnings": [
+            {
+              "code": "CLAUSE_AMBIGUOUS",
+              "message": "条款号识别置信度低，请人工校对。"
+            },
+            {
+              "code": "FORMULA_PARTIAL",
+              "message": "公式抽取存在缺失或片段，请人工校对计算步骤。"
+            },
+            {
+              "code": "INPUTS_INFERRED",
+              "message": "输入参数由文本推断或默认补齐，建议人工确认。"
+            },
+            {
+              "code": "RULES_INFERRED",
+              "message": "判定规则由文本推断或默认补齐，建议人工确认。"
+            },
+            {
+              "code": "MANUAL_REVIEW_REQUIRED",
+              "message": "抽取结果存在不确定项，请在注册前进行人工复核。"
+            },
+            {
+              "code": "OCR_USED",
+              "message": "检测到扫描版或低质量文本页，已自动启用 OCR。"
+            },
+            {
+              "code": "OCR_TEXT_NOISY",
+              "message": "OCR 结果存在噪声或失败页面，请重点校对条款号、公式和表格字段。"
+            },
+            {
+              "code": "OCR_CLAUSE_LOW_CONFIDENCE",
+              "message": "OCR 条款号识别置信度较低，请人工核对条款号。"
+            },
+            {
+              "code": "OCR_FORMULA_LOW_CONFIDENCE",
+              "message": "OCR 公式识别不完整，请人工核对计算步骤。"
+            },
+            {
+              "code": "OCR_TABLE_LOW_CONFIDENCE",
+              "message": "OCR 表格识别置信度较低，请人工核对输入参数与判定规则。"
+            }
+          ]
+        },
+        "draft": {
+          "originalDraftMarkdown": "# 规范草稿（需人工校对）\n\n规范来源：UNKNOWN_STANDARD\n条款号：4.2.1\n版本：v1\n分类：subgrade\n检测项：generic\n\n## 输入参数\n- inputValue | number | - | 待补充输入\n\n## 输出参数\n- resultValue\n\n## 计算步骤\n1. resultValue = inputValue\n\n## 判定规则\n- resultValue >= 0 | 规则待人工补充\n\n## 签字要求\n- lab\n- supervision\n\n## 依赖\n- none\n",
+          "editedMarkdown": "# 规范草稿（需人工校对）\n\n规范来源：UNKNOWN_STANDARD\n条款号：4.2.1\n版本：v1\n分类：subgrade\n检测项：generic\n\n## 输入参数\n- inputValue | number | - | 待补充输入\n\n## 输出参数\n- resultValue\n\n## 计算步骤\n1. resultValue = inputValue\n\n## 判定规则\n- resultValue >= 0 | 规则待人工补充\n\n## 签字要求\n- lab\n- supervision\n\n## 依赖\n- none\n"
+        },
+        "riskReview": {
+          "items": [
+            {
+              "id": "risk_1_CLAUSE_AMBIGUOUS",
+              "source": "warning",
+              "code": "CLAUSE_AMBIGUOUS",
+              "title": "条款号识别不稳定",
+              "message": "条款号识别置信度低，请人工校对。",
+              "riskLevel": "high",
+              "category": "clause",
+              "requiresConfirmation": true,
+              "blocksRegister": true
+            },
+            {
+              "id": "risk_2_FORMULA_PARTIAL",
+              "source": "warning",
+              "code": "FORMULA_PARTIAL",
+              "title": "公式抽取不完整",
+              "message": "公式抽取存在缺失或片段，请人工校对计算步骤。",
+              "riskLevel": "high",
+              "category": "formula",
+              "requiresConfirmation": true,
+              "blocksRegister": true
+            },
+            {
+              "id": "risk_3_INPUTS_INFERRED",
+              "source": "warning",
+              "code": "INPUTS_INFERRED",
+              "title": "输入参数来自推断",
+              "message": "输入参数由文本推断或默认补齐，建议人工确认。",
+              "riskLevel": "medium",
+              "category": "input",
+              "requiresConfirmation": true,
+              "blocksRegister": false
+            },
+            {
+              "id": "risk_4_RULES_INFERRED",
+              "source": "warning",
+              "code": "RULES_INFERRED",
+              "title": "判定规则来自推断",
+              "message": "判定规则由文本推断或默认补齐，建议人工确认。",
+              "riskLevel": "medium",
+              "category": "rule",
+              "requiresConfirmation": true,
+              "blocksRegister": false
+            },
+            {
+              "id": "risk_5_MANUAL_REVIEW_REQUIRED",
+              "source": "warning",
+              "code": "MANUAL_REVIEW_REQUIRED",
+              "title": "需人工复核",
+              "message": "抽取结果存在不确定项，请在注册前进行人工复核。",
+              "riskLevel": "high",
+              "category": "manual_review",
+              "requiresConfirmation": true,
+              "blocksRegister": true
+            },
+            {
+              "id": "risk_6_OCR_USED",
+              "source": "warning",
+              "code": "OCR_USED",
+              "title": "已启用 OCR",
+              "message": "检测到扫描版或低质量文本页，已自动启用 OCR。",
+              "riskLevel": "low",
+              "category": "ocr",
+              "requiresConfirmation": false,
+              "blocksRegister": false
+            },
+            {
+              "id": "risk_7_OCR_TEXT_NOISY",
+              "source": "warning",
+              "code": "OCR_TEXT_NOISY",
+              "title": "OCR 文本噪声较高",
+              "message": "OCR 结果存在噪声或失败页面，请重点校对条款号、公式和表格字段。",
+              "riskLevel": "medium",
+              "category": "ocr",
+              "requiresConfirmation": true,
+              "blocksRegister": false
+            },
+            {
+              "id": "risk_8_OCR_CLAUSE_LOW_CONFIDENCE",
+              "source": "warning",
+              "code": "OCR_CLAUSE_LOW_CONFIDENCE",
+              "title": "OCR 条款号识别置信度低",
+              "message": "OCR 条款号识别置信度较低，请人工核对条款号。",
+              "riskLevel": "high",
+              "category": "clause",
+              "requiresConfirmation": true,
+              "blocksRegister": true
+            },
+            {
+              "id": "risk_9_OCR_FORMULA_LOW_CONFIDENCE",
+              "source": "warning",
+              "code": "OCR_FORMULA_LOW_CONFIDENCE",
+              "title": "OCR 公式识别置信度低",
+              "message": "OCR 公式识别不完整，请人工核对计算步骤。",
+              "riskLevel": "high",
+              "category": "formula",
+              "requiresConfirmation": true,
+              "blocksRegister": true
+            },
+            {
+              "id": "risk_10_OCR_TABLE_LOW_CONFIDENCE",
+              "source": "warning",
+              "code": "OCR_TABLE_LOW_CONFIDENCE",
+              "title": "OCR 表格识别置信度低",
+              "message": "OCR 表格识别置信度较低，请人工核对输入参数与判定规则。",
+              "riskLevel": "medium",
+              "category": "table",
+              "requiresConfirmation": true,
+              "blocksRegister": false
+            }
+          ],
+          "summary": {
+            "high": 5,
+            "medium": 4,
+            "low": 1,
+            "blocking": 5,
+            "confirmRequired": 9
+          },
+          "canRegister": false,
+          "reviewMessage": "检测到高风险抽取问题，暂不允许注册"
+        },
+        "diffReview": {
+          "hasChanges": false,
+          "summary": {
+            "added": 0,
+            "removed": 0,
+            "modified": 0
+          },
+          "sectionChanges": [],
+          "lineDiffs": []
+        },
+        "clauseReview": {
+          "items": [
+            {
+              "id": "clause_source",
+              "title": "规范来源",
+              "message": "请确认规范来源与原文一致。",
+              "riskLevel": "high",
+              "required": true,
+              "confirmed": false
+            },
+            {
+              "id": "clause_number",
+              "title": "条款号",
+              "message": "请确认条款号与原文一致。",
+              "riskLevel": "high",
+              "required": true,
+              "confirmed": false
+            },
+            {
+              "id": "calc_path",
+              "title": "计算步骤",
+              "message": "请确认计算步骤、公式与单位正确。",
+              "riskLevel": "high",
+              "required": true,
+              "confirmed": false
+            },
+            {
+              "id": "decision_rules",
+              "title": "判定规则",
+              "message": "请确认阈值与操作符和规范一致。",
+              "riskLevel": "high",
+              "required": true,
+              "confirmed": false
+            },
+            {
+              "id": "depends_on",
+              "title": "依赖",
+              "message": "请确认依赖关系准确。",
+              "riskLevel": "high",
+              "required": true,
+              "confirmed": false
+            },
+            {
+              "id": "input_params",
+              "title": "输入参数",
+              "message": "建议确认输入参数名称、类型与单位。",
+              "riskLevel": "medium",
+              "required": false,
+              "confirmed": false
+            },
+            {
+              "id": "output_params",
+              "title": "输出参数",
+              "message": "建议确认输出参数定义。",
+              "riskLevel": "medium",
+              "required": false,
+              "confirmed": false
+            },
+            {
+              "id": "signature_requirements",
+              "title": "签字要求",
+              "message": "建议确认签字角色与职责边界。",
+              "riskLevel": "medium",
+              "required": false,
+              "confirmed": false
+            }
+          ],
+          "summary": {
+            "requiredTotal": 5,
+            "requiredConfirmed": 0,
+            "highRequiredUnconfirmed": 5,
+            "mediumUnconfirmed": 3,
+            "lowUnconfirmed": 0
+          },
+          "allRequiredConfirmed": false
+        },
+        "preRegisterDecision": {
+          "status": "blocked",
+          "canRegister": false,
+          "blockingReasons": [
+            "条款号识别置信度低，请人工校对。",
+            "公式抽取存在缺失或片段，请人工校对计算步骤。",
+            "抽取结果存在不确定项，请在注册前进行人工复核。",
+            "OCR 条款号识别置信度较低，请人工核对条款号。",
+            "OCR 公式识别不完整，请人工核对计算步骤。",
+            "规范来源（高风险条款未确认）",
+            "条款号（高风险条款未确认）",
+            "计算步骤（高风险条款未确认）",
+            "判定规则（高风险条款未确认）",
+            "依赖（高风险条款未确认）"
+          ],
+          "warningReasons": [
+            "输入参数由文本推断或默认补齐，建议人工确认。",
+            "判定规则由文本推断或默认补齐，建议人工确认。",
+            "OCR 结果存在噪声或失败页面，请重点校对条款号、公式和表格字段。",
+            "OCR 表格识别置信度较低，请人工核对输入参数与判定规则。",
+            "输入参数（中风险条款未确认）",
+            "输出参数（中风险条款未确认）",
+            "签字要求（中风险条款未确认）"
+          ],
+          "summary": {
+            "riskHigh": 5,
+            "riskMedium": 4,
+            "diffHigh": 0,
+            "clausePending": 5
+          }
+        },
+        "lint": {
+          "valid": true,
+          "errors": [],
+          "warnings": []
+        },
+        "register": {
+          "success": false,
+          "blocked": true,
+          "error": "PRE_REGISTER_BLOCKED"
+        }
+      },
+      "manual": {
+        "fileName": "e84a2a51-2f9f-46bb-be6a-154751bb548b-JTG_5220_2020_.pdf",
+        "extraction": {
+          "rawTextLength": 29,
+          "ocrUsed": true,
+          "warnings": [
+            {
+              "code": "OCR_USED",
+              "message": "OCR was used for extraction"
+            }
+          ]
+        },
+        "draft": {
+          "originalDraftMarkdown": "# 规范草稿（需人工校对）\n\n规范来源：UNKNOWN_STANDARD\n条款号：4.2.1\n版本：v1\n分类：subgrade\n检测项：generic\n\n## 输入参数\n- inputValue | number | - | 待补充输入\n\n## 输出参数\n- resultValue\n\n## 计算步骤\n1. resultValue = inputValue\n\n## 判定规则\n- resultValue >= 0 | 规则待人工补充\n\n## 签字要求\n- lab\n- supervision\n\n## 依赖\n- none\n",
+          "editedMarkdown": "# 规范草稿（需人工校对）\n\n规范来源：UNKNOWN_STANDARD\n条款号：4.2.1\n版本：v1\n分类：subgrade\n检测项：generic\n\n## 输入参数\n- inputValue | number | - | 待补充输入\n\n## 输出参数\n- resultValue\n\n## 计算步骤\n1. resultValue = inputValue\n\n## 判定规则\n- resultValue >= 0 | 规则待人工补充\n\n## 签字要求\n- lab\n- supervision\n\n## 依赖\n- none\n"
+        },
+        "riskReview": {
+          "items": [
+            {
+              "id": "risk_1_OCR_USED",
+              "source": "warning",
+              "code": "OCR_USED",
+              "title": "已启用 OCR",
+              "message": "OCR was used for extraction",
+              "riskLevel": "low",
+              "category": "ocr",
+              "requiresConfirmation": false,
+              "blocksRegister": false
+            }
+          ],
+          "summary": {
+            "high": 0,
+            "medium": 0,
+            "low": 1,
+            "blocking": 0,
+            "confirmRequired": 0
+          },
+          "canRegister": true,
+          "reviewMessage": "仅低风险提示，可直接继续"
+        },
+        "diffReview": {
+          "hasChanges": false,
+          "summary": {
+            "added": 0,
+            "removed": 0,
+            "modified": 0
+          },
+          "sectionChanges": [],
+          "lineDiffs": []
+        },
+        "clauseReview": {
+          "items": [
+            {
+              "id": "clause_source",
+              "title": "规范来源",
+              "message": "请确认规范来源与原文一致。",
+              "riskLevel": "high",
+              "required": true,
+              "confirmed": true
+            },
+            {
+              "id": "clause_number",
+              "title": "条款号",
+              "message": "请确认条款号与原文一致。",
+              "riskLevel": "high",
+              "required": true,
+              "confirmed": true
+            },
+            {
+              "id": "calc_path",
+              "title": "计算步骤",
+              "message": "请确认计算步骤、公式与单位正确。",
+              "riskLevel": "high",
+              "required": true,
+              "confirmed": true
+            },
+            {
+              "id": "decision_rules",
+              "title": "判定规则",
+              "message": "请确认阈值与操作符和规范一致。",
+              "riskLevel": "high",
+              "required": true,
+              "confirmed": true
+            },
+            {
+              "id": "depends_on",
+              "title": "依赖",
+              "message": "请确认依赖关系准确。",
+              "riskLevel": "high",
+              "required": true,
+              "confirmed": true
+            },
+            {
+              "id": "input_params",
+              "title": "输入参数",
+              "message": "建议确认输入参数名称、类型与单位。",
+              "riskLevel": "medium",
+              "required": false,
+              "confirmed": true
+            },
+            {
+              "id": "output_params",
+              "title": "输出参数",
+              "message": "建议确认输出参数定义。",
+              "riskLevel": "medium",
+              "required": false,
+              "confirmed": true
+            },
+            {
+              "id": "signature_requirements",
+              "title": "签字要求",
+              "message": "建议确认签字角色与职责边界。",
+              "riskLevel": "medium",
+              "required": false,
+              "confirmed": true
+            }
+          ],
+          "summary": {
+            "requiredTotal": 5,
+            "requiredConfirmed": 5,
+            "highRequiredUnconfirmed": 0,
+            "mediumUnconfirmed": 0,
+            "lowUnconfirmed": 0
+          },
+          "allRequiredConfirmed": true
+        },
+        "preRegisterDecision": {
+          "status": "ready",
+          "canRegister": true,
+          "blockingReasons": [],
+          "warningReasons": [],
+          "summary": {
+            "riskHigh": 0,
+            "riskMedium": 0,
+            "diffHigh": 0,
+            "clausePending": 0
+          }
+        },
+        "lint": {
+          "valid": true,
+          "errors": [],
+          "warnings": []
+        },
+        "compile": {
+          "success": true,
+          "spuId": "highway.subgrade.generic.4.2.1@v1"
+        },
+        "register": {
+          "success": true
+        }
+      }
+    }
+  ],
+  "calibration": {
+    "machineDraft": {
+      "total": 3,
+      "blocked": 3,
+      "warning": 0,
+      "ready": 0,
+      "commonBlockingReasons": [
+        "条款号识别置信度低，请人工校对。 (3/3)",
+        "公式抽取存在缺失或片段，请人工校对计算步骤。 (3/3)",
+        "抽取结果存在不确定项，请在注册前进行人工复核。 (3/3)",
+        "OCR 条款号识别置信度较低，请人工核对条款号。 (3/3)",
+        "OCR 公式识别不完整，请人工核对计算步骤。 (3/3)",
+        "规范来源（高风险条款未确认） (3/3)",
+        "条款号（高风险条款未确认） (3/3)",
+        "计算步骤（高风险条款未确认） (3/3)"
+      ],
+      "commonWarningReasons": [
+        "输入参数由文本推断或默认补齐，建议人工确认。 (3/3)",
+        "判定规则由文本推断或默认补齐，建议人工确认。 (3/3)",
+        "OCR 结果存在噪声或失败页面，请重点校对条款号、公式和表格字段。 (3/3)",
+        "OCR 表格识别置信度较低，请人工核对输入参数与判定规则。 (3/3)",
+        "输入参数（中风险条款未确认） (3/3)",
+        "输出参数（中风险条款未确认） (3/3)",
+        "签字要求（中风险条款未确认） (3/3)"
+      ],
+      "ruleAdjustmentSuggestions": [
+        "OCR_TEXT_NOISY 出现频率高，建议保持为 medium，不直接 block。",
+        "FORMULA_PARTIAL 高频出现且会影响可编译性，建议保持 high。",
+        "INPUTS_INFERRED / RULES_INFERRED 在样本中常见，建议保持 medium + 人工确认。",
+        "全部样本均 blocked，建议复核 Clause required 是否过严或 OCR 前处理是否不足。"
+      ]
+    },
+    "manualReviewed": {
+      "total": 3,
+      "blocked": 0,
+      "warning": 2,
+      "ready": 1,
+      "commonBlockingReasons": [],
+      "commonWarningReasons": [
+        "规范来源被修改，请核对规范依据是否正确 (2/3)",
+        "计算步骤被修改，可能影响 ExecPeg 计算结果 (2/3)",
+        "判定阈值发生变化，请重点确认 (2/3)",
+        "Input params inferred from text (1/3)",
+        "Rules inferred from text (1/3)",
+        "OCR text quality is noisy (1/3)",
+        "条款号被修改，请核对规范依据是否正确 (1/3)"
+      ],
+      "ruleAdjustmentSuggestions": [
+        "当前规则在样本集上分层稳定，可继续扩大真实样本规模做二次校准。"
+      ]
+    }
+  }
+}

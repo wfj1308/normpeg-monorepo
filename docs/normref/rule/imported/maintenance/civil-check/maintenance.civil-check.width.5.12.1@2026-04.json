@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.width.5.12.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/width@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "width",
+  "operator": "eq",
+  "threshold_value": "1",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "5.12.1",
+  "source_line": "1 刻槽机具应满足设计刻槽宽度和槽间距的施工要求。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-baf470c53b1f",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:58bb6e2516af117c08fc7b10b5c1e039ca2a94694ab105693f9b7d6ae3092845"
+}

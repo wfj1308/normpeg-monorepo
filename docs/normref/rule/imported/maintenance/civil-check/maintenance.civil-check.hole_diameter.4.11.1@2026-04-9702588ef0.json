@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.hole_diameter.4.11.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/hole_diameter@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "hole_diameter",
+  "operator": "eq",
+  "threshold_value": "2",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "4.11.1",
+  "source_line": "2 孔位的布置位置、设置间距、钻孔深度、孔径和仰斜坡度等应符合设计要求。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-286b99255921",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:9702588ef0854b0d46b2f6e9df4f5af93db14c9bf129f02141f3d8411559a567"
+}

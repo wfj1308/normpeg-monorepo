@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.26941.6",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "eq",
+  "threshold_value": "3",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "26941.6",
+  "source_line": "3 立柱的强度应符合设计要求；折断或有明显缺陷的立柱不得使用。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-23625ec6c848",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:608c3859248f7d5d4c4bcf9b5e3b6b6a01a70f7a07ed3e9408987cc3dd377218"
+}

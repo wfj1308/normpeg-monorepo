@@ -1,0 +1,215 @@
+﻿{
+  "schema_version": "engineering-intelligence-readiness@v1",
+  "updated_at": "2026-05-08T00:00:00Z",
+  "subject": "Engineering Intelligence Runtime Final Acceptance Standard",
+  "statuses": [
+    "runtime_only",
+    "reasoning_ready",
+    "engineering_intelligence_ready"
+  ],
+  "readiness_model": {
+    "score_range": [0, 100],
+    "gating_rules": {
+      "runtime_only": {
+        "min_score": 0,
+        "max_score": 59,
+        "required_must_pass": []
+      },
+      "reasoning_ready": {
+        "min_score": 60,
+        "max_score": 84,
+        "required_must_pass": [
+          "runtime_realtime_reasoning",
+          "root_cause_reasoning",
+          "causal_graph_tracing",
+          "anomaly_auto_detection",
+          "risk_prediction"
+        ]
+      },
+      "engineering_intelligence_ready": {
+        "min_score": 85,
+        "max_score": 100,
+        "required_must_pass": [
+          "runtime_realtime_reasoning",
+          "root_cause_reasoning",
+          "causal_graph_tracing",
+          "anomaly_auto_detection",
+          "risk_prediction",
+          "remediation_auto_suggestion",
+          "copilot_engineering_qa",
+          "project_level_compliance_intelligence",
+          "runtime_memory_learning",
+          "traceable_explainable_auditable"
+        ]
+      }
+    }
+  },
+  "acceptance_criteria": [
+    {
+      "id": "runtime_realtime_reasoning",
+      "title": "Runtime supports real-time reasoning",
+      "weight": 10,
+      "must_pass_for": ["reasoning_ready", "engineering_intelligence_ready"],
+      "checks": [
+        "Runtime events trigger near real-time reasoning refresh",
+        "Reasoning output is generated without offline-only batch dependency",
+        "Reasoning stream is queryable by project/form/gate scope"
+      ],
+      "evidence": [
+        "API: live runtime ingest/snapshot + reasoning endpoints",
+        "Live Runtime or reasoning panel shows fresh reasoning after new events"
+      ]
+    },
+    {
+      "id": "root_cause_reasoning",
+      "title": "Reasoning supports root cause",
+      "weight": 10,
+      "must_pass_for": ["reasoning_ready", "engineering_intelligence_ready"],
+      "checks": [
+        "Root causes include material/process/equipment/sequencing/missing_proof/abnormal_sensor",
+        "Reasoning chain includes actual value / expected value / violated constraint / dependency chain",
+        "Root cause confidence is provided"
+      ],
+      "evidence": [
+        "API: engineering reasoning schema/run",
+        "Engineering Reasoning Panel output contains root_causes and reasoning_chain"
+      ]
+    },
+    {
+      "id": "causal_graph_tracing",
+      "title": "Causal graph supports causal tracing",
+      "weight": 10,
+      "must_pass_for": ["reasoning_ready", "engineering_intelligence_ready"],
+      "checks": [
+        "Supports upstream/downstream traversal",
+        "Supports root cause analysis from target node",
+        "Supports downstream impact prediction"
+      ],
+      "evidence": [
+        "API: engineering causal graph build/traverse/root-cause/predict-impact",
+        "Causal Explorer can reconstruct causal path"
+      ]
+    },
+    {
+      "id": "anomaly_auto_detection",
+      "title": "Anomaly supports automatic detection",
+      "weight": 10,
+      "must_pass_for": ["reasoning_ready", "engineering_intelligence_ready"],
+      "checks": [
+        "Detects sensor spikes/impossible values/repeated overrides/suspicious proof/gate fail bursts",
+        "Detected anomalies enter Runtime Risk Queue",
+        "High severity anomalies block auto compliance"
+      ],
+      "evidence": [
+        "API: runtime anomaly schema/detect/risk-queue/auto-compliance-gate"
+      ]
+    },
+    {
+      "id": "risk_prediction",
+      "title": "Prediction supports risk forecasting",
+      "weight": 10,
+      "must_pass_for": ["reasoning_ready", "engineering_intelligence_ready"],
+      "checks": [
+        "Predicts likely gate failures from history/body/sensor/weather/schedule",
+        "Includes confidence for each prediction",
+        "Prediction engine is read-only and does not mutate gate state"
+      ],
+      "evidence": [
+        "API: predictive runtime schema/predict",
+        "Predictive Risk Dashboard shows predicted_failures + confidence"
+      ]
+    },
+    {
+      "id": "remediation_auto_suggestion",
+      "title": "Remediation supports automatic suggestion",
+      "weight": 10,
+      "must_pass_for": ["engineering_intelligence_ready"],
+      "checks": [
+        "Generates remediation_steps/responsible_roles/required_materials/expected_result/estimated_risk_reduction",
+        "Plan is traceable to SpecIR and Gate",
+        "Remediation remains suggestion-only (no auto execution)"
+      ],
+      "evidence": [
+        "API: autonomous remediation schema/plan",
+        "Remediation Planner output includes execution_guard.auto_execute=false"
+      ]
+    },
+    {
+      "id": "copilot_engineering_qa",
+      "title": "Copilot supports engineering Q&A",
+      "weight": 10,
+      "must_pass_for": ["engineering_intelligence_ready"],
+      "checks": [
+        "Supports why fail / how remediate / impact of change / highest risk / proof trust questions",
+        "Every answer cites RuntimeEvent, Gate, Proof, SpecIR",
+        "Every answer includes reasoning_chain"
+      ],
+      "evidence": [
+        "API: engineering-copilot-2 schema/ask",
+        "Copilot Workspace output includes citations + reasoning_chain"
+      ]
+    },
+    {
+      "id": "project_level_compliance_intelligence",
+      "title": "Compliance supports project-level intelligence analysis",
+      "weight": 10,
+      "must_pass_for": ["engineering_intelligence_ready"],
+      "checks": [
+        "Outputs compliance_score/risk_clusters/suspicious_patterns/unverifiable_areas/predicted_failures",
+        "Compliance score supports form level + bridge level + project level",
+        "High-risk clusters include investigation recommendations"
+      ],
+      "evidence": [
+        "API: compliance-intelligence schema/analyze",
+        "Compliance Intelligence Center shows multi-level scoring and risk clusters"
+      ]
+    },
+    {
+      "id": "runtime_memory_learning",
+      "title": "Runtime memory supports historical experience learning",
+      "weight": 10,
+      "must_pass_for": ["engineering_intelligence_ready"],
+      "checks": [
+        "Stores historical failures/successful remediations/override patterns/recurring issues/accepted AI patches",
+        "Reasoning can reference historical memory context",
+        "AI suggestions prioritize historical successful cases"
+      ],
+      "evidence": [
+        "API: runtime-memory schema/upsert/retrieve/reasoning-context/ai-reuse",
+        "Runtime Memory Explorer shows context and reuse suggestions"
+      ]
+    },
+    {
+      "id": "traceable_explainable_auditable",
+      "title": "All results are traceable, explainable, auditable",
+      "weight": 10,
+      "must_pass_for": ["engineering_intelligence_ready"],
+      "checks": [
+        "All critical outputs include traceability links to runtime/proof/spec contexts",
+        "All critical outputs include explicit reasoning or decision basis",
+        "Audit endpoints/logs can reconstruct decision timeline"
+      ],
+      "evidence": [
+        "Traceability and audit APIs across runtime/proof/live-runtime modules",
+        "Dashboards expose evidence-linked decisions"
+      ]
+    }
+  ],
+  "acceptance_execution_protocol": {
+    "run_order": [
+      "runtime_realtime_reasoning",
+      "root_cause_reasoning",
+      "causal_graph_tracing",
+      "anomaly_auto_detection",
+      "risk_prediction",
+      "remediation_auto_suggestion",
+      "copilot_engineering_qa",
+      "project_level_compliance_intelligence",
+      "runtime_memory_learning",
+      "traceable_explainable_auditable"
+    ],
+    "pass_rule": "criterion passes only if all checks in criterion are true",
+    "score_rule": "sum(weight of passed criteria)",
+    "final_status_rule": "highest status whose min_score and required_must_pass conditions are both satisfied"
+  }
+}

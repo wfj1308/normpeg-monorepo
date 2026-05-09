@@ -1,0 +1,37 @@
+{
+  "bridge_shi_13": {
+    "JTG/T 3650-2020.9_7_1.rule": {
+      "field": "hole.inclination",
+      "operator": "<=",
+      "max": 1.0,
+      "unit": "%",
+      "rule_type": "threshold",
+      "severity": "major",
+      "pass_message": "成孔倾斜度满足要求（<=1%）。",
+      "fail_message": "成孔倾斜度超限（>1%）。",
+      "unresolved": false
+    },
+    "JTG/T 3650-2020.9_7_2.rule": {
+      "field": "hole.sedimentThickness",
+      "operator": "exists",
+      "unit": "mm",
+      "rule_type": "process_check",
+      "severity": "major",
+      "pass_message": "孔底沉淀层厚度已记录。",
+      "fail_message": "缺少孔底沉淀层厚度记录。",
+      "unresolved": true,
+      "unresolved_reason": "pending_threshold_from_standard"
+    },
+    "JTG/T 3650-2020.9_7_3.rule": {
+      "field": "pile.centerXYDiff",
+      "operator": "<=",
+      "max": 50,
+      "unit": "mm",
+      "rule_type": "threshold",
+      "severity": "major",
+      "pass_message": "桩位偏差满足要求（<=50mm）。",
+      "fail_message": "桩位偏差超限（>50mm）。",
+      "unresolved": false
+    }
+  }
+}

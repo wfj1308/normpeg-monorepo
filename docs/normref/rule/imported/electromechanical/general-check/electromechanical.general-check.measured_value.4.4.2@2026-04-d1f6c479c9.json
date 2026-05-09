@@ -1,0 +1,20 @@
+{
+  "rule_id": "electromechanical.general-check.measured_value.4.4.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/electromechanical/general-check/measured_value@2026-04",
+  "category": "electromechanical/general-check",
+  "field_key": "measured_value",
+  "operator": "gte",
+  "threshold_value": "5000",
+  "unit": "m",
+  "severity": "mandatory",
+  "norm_ref": "4.4.2",
+  "source_line": "志最大亮度≥5000cd/m²,LED",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-11c05a464c894fef",
+  "candidate_id": "cand-2bb8d8ea0b4b",
+  "source_std_code": "JTG-2182-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:d1f6c479c9d9235249bd3cf00dc5f1388d36864048710202246bce4247f4903a"
+}

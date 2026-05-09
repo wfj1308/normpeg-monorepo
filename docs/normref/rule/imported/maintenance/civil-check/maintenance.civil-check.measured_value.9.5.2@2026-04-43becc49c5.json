@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.9.5.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "1",
+  "unit": "t",
+  "severity": "mandatory",
+  "norm_ref": "9.5.2",
+  "source_line": "（1）水泥物理、化学性能复试：每一生产厂家、每一品种、每 200t 一次；",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-b24caa2b48cb",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:43becc49c598fe5000a169467d0f2018c1925e366a75cb2ebcec5177dc35599c"
+}

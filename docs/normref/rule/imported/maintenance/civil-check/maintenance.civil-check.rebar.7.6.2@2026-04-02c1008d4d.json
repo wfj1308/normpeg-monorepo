@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.rebar.7.6.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/rebar@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "rebar",
+  "operator": "gte",
+  "threshold_value": "3",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "7.6.2",
+  "source_line": "3 保护层厚度（mm） 不小于设计值 钢筋位置测定仪检查：每10m检查3处",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-e2ec54c86dad4fc5",
+  "candidate_id": "cand-3b4805ca6eb4",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:02c1008d4d8aa07121f173375a4a4ac4f755502a8b653ca446a7e6a66f70a49c"
+}

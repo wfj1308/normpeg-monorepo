@@ -1,0 +1,50 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "runtime-node.schema.json",
+  "title": "RuntimeNodeModel",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "nodeId",
+    "containerId",
+    "spuId",
+    "attemptIndex",
+    "status",
+    "gatePassed",
+    "requiredSignatures",
+    "signedBy",
+    "dependencySpuIds",
+    "dependencyNodeIds",
+    "createdAt",
+    "updatedAt"
+  ],
+  "properties": {
+    "nodeId": { "type": "string", "minLength": 1 },
+    "containerId": { "type": ["string", "null"] },
+    "spuId": { "type": "string", "minLength": 1 },
+    "attemptIndex": { "type": "integer", "minimum": 1 },
+    "status": {
+      "type": "string",
+      "enum": ["DRAFT", "RUNNING", "PASS", "FAIL", "SIGNING", "FINAL_PASS", "FINAL_FAIL"]
+    },
+    "gatePassed": { "type": "boolean" },
+    "requiredSignatures": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "signedBy": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "dependencySpuIds": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "dependencyNodeIds": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" }
+  }
+}

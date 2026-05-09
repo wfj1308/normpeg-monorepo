@@ -1,0 +1,20 @@
+{
+  "rule_id": "electromechanical.general-check.measured_value.3.2.5",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/electromechanical/general-check/measured_value@2026-04",
+  "category": "electromechanical/general-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "1",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "3.2.5",
+  "source_line": "1施工单位和监理单位在工程完工后进行质量检验时，所有项目合格率应为",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-0eab528225384cdf",
+  "candidate_id": "cand-782a6f0fe02f",
+  "source_std_code": "JTG-2182-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:e38348dfeb1da493c57a3bc1e7bfd667913add67fff7632de479d8d1425c60b6"
+}

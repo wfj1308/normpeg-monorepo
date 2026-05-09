@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.thickness.6.15.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/thickness@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "thickness",
+  "operator": "eq",
+  "threshold_value": "7",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "6.15.1",
+  "source_line": "7 胶黏剂厚度、最外层纤维表面浸渍胶黏剂涂刷应满足设计要求。",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-d31eb7e3ee69",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:7753c3c92ad646ee16278080f839837da7a4584b818ce0e01329cca54e44df87"
+}

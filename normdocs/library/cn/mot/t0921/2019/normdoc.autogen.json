@@ -1,0 +1,652 @@
+{
+  "schema_uri": "v://normref.com/schema/normdoc-v1",
+  "version": "v1",
+  "header": {
+    "standard_id": "JTG-F80-1-2017",
+    "version": "v1",
+    "issuer": "Ministry of Transport",
+    "effective_date": "2026-04-28",
+    "scope": "Auto-generated from ingest job ingest-746bcdd7829248e6",
+    "language": "zh-CN",
+    "jurisdiction": "CN-MOT",
+    "source_uri": "D:\\wfj\\project\\normpeg-monorepo\\uploads\\normref\\20260428082008-ce27dcd5-JTG_F801_2017_.pdf",
+    "source_hash": "sha256:889b77ba893ddf5066816e56b330fe1132e0186f1d241048921054a530bc9fec"
+  },
+  "body": {
+    "chapters": {
+      "terms_stream": [],
+      "general_rules": [
+        {
+          "clause_id": "clause.t0921.autogen.1",
+          "title": "Auto-generated review-approved rules",
+          "text": "Generated from ingest job ingest-746bcdd7829248e6."
+        }
+      ],
+      "work_items": [
+        {
+          "work_item_id": "work-item.t0921.autogen",
+          "name": "T0921-2019 auto-generated work item",
+          "basic_requirements": [],
+          "measured_items": [
+            {
+              "item_id": "item.t0921.measured_value",
+              "check_item": "measured_value",
+              "required_value": [
+                10,
+                62028502
+              ],
+              "tolerance": 0,
+              "check_method": "",
+              "unit": "",
+              "severity": "mandatory"
+            },
+            {
+              "item_id": "item.t0921.measured_value",
+              "check_item": "measured_value",
+              "required_value": 95,
+              "tolerance": 0,
+              "check_method": "",
+              "unit": "%",
+              "severity": "mandatory"
+            },
+            {
+              "item_id": "item.t0921.measured_value",
+              "check_item": "measured_value",
+              "required_value": 80,
+              "tolerance": 0,
+              "check_method": "",
+              "unit": "%",
+              "severity": "mandatory"
+            },
+            {
+              "item_id": "item.t0921.measured_value",
+              "check_item": "measured_value",
+              "required_value": [
+                0.5,
+                1.0
+              ],
+              "tolerance": 0,
+              "check_method": "",
+              "unit": "m",
+              "severity": "mandatory"
+            },
+            {
+              "item_id": "item.t0921.measured_value",
+              "check_item": "measured_value",
+              "required_value": 5,
+              "tolerance": 0,
+              "check_method": "",
+              "unit": "",
+              "severity": "mandatory"
+            },
+            {
+              "item_id": "item.t0921.measured_value",
+              "check_item": "measured_value",
+              "required_value": 5,
+              "tolerance": 0,
+              "check_method": "",
+              "unit": "",
+              "severity": "mandatory"
+            },
+            {
+              "item_id": "item.t0921.measured_value",
+              "check_item": "measured_value",
+              "required_value": 5,
+              "tolerance": 0,
+              "check_method": "",
+              "unit": "",
+              "severity": "mandatory"
+            },
+            {
+              "item_id": "item.t0921.measured_value",
+              "check_item": "measured_value",
+              "required_value": 5,
+              "tolerance": 0,
+              "check_method": "",
+              "unit": "",
+              "severity": "mandatory"
+            },
+            {
+              "item_id": "item.t0921.measured_value",
+              "check_item": "measured_value",
+              "required_value": 5,
+              "tolerance": 0,
+              "check_method": "",
+              "unit": "",
+              "severity": "mandatory"
+            },
+            {
+              "item_id": "item.t0921.measured_value",
+              "check_item": "measured_value",
+              "required_value": 3,
+              "tolerance": 0,
+              "check_method": "",
+              "unit": "",
+              "severity": "mandatory"
+            },
+            {
+              "item_id": "item.t0921.measured_value",
+              "check_item": "measured_value",
+              "required_value": 3,
+              "tolerance": 0,
+              "check_method": "",
+              "unit": "",
+              "severity": "mandatory"
+            },
+            {
+              "item_id": "item.t0921.measured_value",
+              "check_item": "measured_value",
+              "required_value": 3,
+              "tolerance": 0,
+              "check_method": "",
+              "unit": "",
+              "severity": "mandatory"
+            },
+            {
+              "item_id": "item.t0921.measured_value",
+              "check_item": "measured_value",
+              "required_value": 3,
+              "tolerance": 0,
+              "check_method": "",
+              "unit": "",
+              "severity": "mandatory"
+            },
+            {
+              "item_id": "item.t0921.measured_value",
+              "check_item": "measured_value",
+              "required_value": 0.2,
+              "tolerance": 0,
+              "check_method": "",
+              "unit": "%",
+              "severity": "mandatory"
+            },
+            {
+              "item_id": "item.t0921.measured_value",
+              "check_item": "measured_value",
+              "required_value": 5,
+              "tolerance": 0,
+              "check_method": "",
+              "unit": "",
+              "severity": "mandatory"
+            },
+            {
+              "item_id": "item.t0921.measured_value",
+              "check_item": "measured_value",
+              "required_value": 750,
+              "tolerance": 0,
+              "check_method": "",
+              "unit": "mm",
+              "severity": "mandatory"
+            }
+          ],
+          "visual_inspection": [],
+          "documentation": []
+        }
+      ],
+      "evaluation_methods": []
+    },
+    "tables": {
+      "inspection_record_tables": [
+        {
+          "table_id": "table.t0921",
+          "title": "Auto-generated table for T0921-2019",
+          "external_form_type": "T0921-2019",
+          "meta": {
+            "form_type": "T0921-2019",
+            "aliases": [
+              "T0921_2019",
+              "T0921"
+            ],
+            "generated_from_job": "ingest-746bcdd7829248e6"
+          },
+          "fields": [
+            {
+              "field_id": "table.t0921.field.measured_value",
+              "name": "measured_value",
+              "data_type": "number",
+              "required": true
+            }
+          ]
+        }
+      ],
+      "evaluation_tables": [],
+      "summary_tables": []
+    },
+    "formulas": {
+      "representative_value_formula": [],
+      "pass_rate_formula": [],
+      "score_formula": []
+    },
+    "ref_dictionary": {
+      "outbound_refs": [
+        {
+          "ref_id": "ref.t0921.4",
+          "target": "0.5",
+          "kind": "normative_reference"
+        },
+        {
+          "ref_id": "ref.t0921.10",
+          "target": "0.1",
+          "kind": "normative_reference"
+        },
+        {
+          "ref_id": "ref.t0921.11",
+          "target": "0.2",
+          "kind": "normative_reference"
+        },
+        {
+          "ref_id": "ref.t0921.12",
+          "target": "0.5",
+          "kind": "normative_reference"
+        },
+        {
+          "ref_id": "ref.t0921.13",
+          "target": "0.1",
+          "kind": "normative_reference"
+        },
+        {
+          "ref_id": "ref.t0921.14",
+          "target": "0.2",
+          "kind": "normative_reference"
+        }
+      ],
+      "inbound_refs": [],
+      "patch_refs": []
+    },
+    "cross_spec_refs": []
+  },
+  "gate": {
+    "clause_xref_table": [
+      {
+        "clause_id": "table.t0921",
+        "offset_key": "autogen.table",
+        "object_type": "Table",
+        "generation": 0,
+        "in_use": true
+      }
+    ],
+    "table_rule_tree": [
+      {
+        "table_id": "table.t0921",
+        "field_rules": [
+          {
+            "rule_id": "civil.general-check.measured_value.rule",
+            "field_id": "table.t0921.field.measured_value",
+            "operator": "range",
+            "severity": "mandatory",
+            "action": "BLOCK_SUBMIT",
+            "error_message": "measured_value 未满足 range 10..62028502",
+            "value": [
+              10,
+              62028502
+            ]
+          },
+          {
+            "rule_id": "electromechanical.general-check.measured_value.rule",
+            "field_id": "table.t0921.field.measured_value",
+            "operator": "lt",
+            "severity": "mandatory",
+            "action": "BLOCK_SUBMIT",
+            "error_message": "measured_value 未满足 lt 95%",
+            "value": 95
+          },
+          {
+            "rule_id": "civil.general-check.measured_value.rule",
+            "field_id": "table.t0921.field.measured_value",
+            "operator": "lt",
+            "severity": "mandatory",
+            "action": "BLOCK_SUBMIT",
+            "error_message": "measured_value 未满足 lt 80%",
+            "value": 80
+          },
+          {
+            "rule_id": "civil.general-check.measured_value.0.5",
+            "field_id": "table.t0921.field.measured_value",
+            "operator": "range",
+            "severity": "mandatory",
+            "action": "BLOCK_SUBMIT",
+            "error_message": "measured_value 未满足 range 0.5..1.0m",
+            "value": [
+              0.5,
+              1.0
+            ]
+          },
+          {
+            "rule_id": "civil.general-check.measured_value.rule",
+            "field_id": "table.t0921.field.measured_value",
+            "operator": "gte",
+            "severity": "mandatory",
+            "action": "BLOCK_SUBMIT",
+            "error_message": "measured_value 未满足 gte 5",
+            "value": 5
+          },
+          {
+            "rule_id": "civil.general-check.measured_value.rule",
+            "field_id": "table.t0921.field.measured_value",
+            "operator": "gte",
+            "severity": "mandatory",
+            "action": "BLOCK_SUBMIT",
+            "error_message": "measured_value 未满足 gte 5",
+            "value": 5
+          },
+          {
+            "rule_id": "civil.general-check.measured_value.rule",
+            "field_id": "table.t0921.field.measured_value",
+            "operator": "gte",
+            "severity": "mandatory",
+            "action": "BLOCK_SUBMIT",
+            "error_message": "measured_value 未满足 gte 5",
+            "value": 5
+          },
+          {
+            "rule_id": "civil.general-check.measured_value.rule",
+            "field_id": "table.t0921.field.measured_value",
+            "operator": "gte",
+            "severity": "mandatory",
+            "action": "BLOCK_SUBMIT",
+            "error_message": "measured_value 未满足 gte 5",
+            "value": 5
+          },
+          {
+            "rule_id": "civil.general-check.measured_value.rule",
+            "field_id": "table.t0921.field.measured_value",
+            "operator": "gte",
+            "severity": "mandatory",
+            "action": "BLOCK_SUBMIT",
+            "error_message": "measured_value 未满足 gte 5",
+            "value": 5
+          },
+          {
+            "rule_id": "bridge.pile-hole-check.measured_value.0.1",
+            "field_id": "table.t0921.field.measured_value",
+            "operator": "gte",
+            "severity": "mandatory",
+            "action": "BLOCK_SUBMIT",
+            "error_message": "measured_value 未满足 gte 3",
+            "value": 3
+          },
+          {
+            "rule_id": "civil.general-check.measured_value.0.2",
+            "field_id": "table.t0921.field.measured_value",
+            "operator": "gte",
+            "severity": "mandatory",
+            "action": "BLOCK_SUBMIT",
+            "error_message": "measured_value 未满足 gte 3",
+            "value": 3
+          },
+          {
+            "rule_id": "bridge.pile-hole-check.measured_value.0.5",
+            "field_id": "table.t0921.field.measured_value",
+            "operator": "gte",
+            "severity": "mandatory",
+            "action": "BLOCK_SUBMIT",
+            "error_message": "measured_value 未满足 gte 3",
+            "value": 3
+          },
+          {
+            "rule_id": "bridge.pile-hole-check.measured_value.0.1",
+            "field_id": "table.t0921.field.measured_value",
+            "operator": "gte",
+            "severity": "mandatory",
+            "action": "BLOCK_SUBMIT",
+            "error_message": "measured_value 未满足 gte 3",
+            "value": 3
+          },
+          {
+            "rule_id": "civil.general-check.measured_value.0.2",
+            "field_id": "table.t0921.field.measured_value",
+            "operator": "lte",
+            "severity": "mandatory",
+            "action": "BLOCK_SUBMIT",
+            "error_message": "measured_value 未满足 lte 0.2%",
+            "value": 0.2
+          },
+          {
+            "rule_id": "civil.general-check.measured_value.rule",
+            "field_id": "table.t0921.field.measured_value",
+            "operator": "gte",
+            "severity": "mandatory",
+            "action": "BLOCK_SUBMIT",
+            "error_message": "measured_value 未满足 gte 5",
+            "value": 5
+          },
+          {
+            "rule_id": "civil.general-check.measured_value.rule",
+            "field_id": "table.t0921.field.measured_value",
+            "operator": "gt",
+            "severity": "mandatory",
+            "action": "BLOCK_SUBMIT",
+            "error_message": "measured_value 未满足 gt 750mm",
+            "value": 750
+          }
+        ]
+      }
+    ],
+    "dependency_graph": {
+      "nodes": [
+        {
+          "id": "table.t0921.field.measured_value",
+          "node_type": "field"
+        },
+        {
+          "id": "civil.general-check.measured_value.rule",
+          "node_type": "rule"
+        },
+        {
+          "id": "electromechanical.general-check.measured_value.rule",
+          "node_type": "rule"
+        },
+        {
+          "id": "civil.general-check.measured_value.rule",
+          "node_type": "rule"
+        },
+        {
+          "id": "civil.general-check.measured_value.0.5",
+          "node_type": "rule"
+        },
+        {
+          "id": "civil.general-check.measured_value.rule",
+          "node_type": "rule"
+        },
+        {
+          "id": "civil.general-check.measured_value.rule",
+          "node_type": "rule"
+        },
+        {
+          "id": "civil.general-check.measured_value.rule",
+          "node_type": "rule"
+        },
+        {
+          "id": "civil.general-check.measured_value.rule",
+          "node_type": "rule"
+        },
+        {
+          "id": "civil.general-check.measured_value.rule",
+          "node_type": "rule"
+        },
+        {
+          "id": "bridge.pile-hole-check.measured_value.0.1",
+          "node_type": "rule"
+        },
+        {
+          "id": "civil.general-check.measured_value.0.2",
+          "node_type": "rule"
+        },
+        {
+          "id": "bridge.pile-hole-check.measured_value.0.5",
+          "node_type": "rule"
+        },
+        {
+          "id": "bridge.pile-hole-check.measured_value.0.1",
+          "node_type": "rule"
+        },
+        {
+          "id": "civil.general-check.measured_value.0.2",
+          "node_type": "rule"
+        },
+        {
+          "id": "civil.general-check.measured_value.rule",
+          "node_type": "rule"
+        },
+        {
+          "id": "civil.general-check.measured_value.rule",
+          "node_type": "rule"
+        }
+      ],
+      "edges": [
+        {
+          "from": "table.t0921.field.measured_value",
+          "to": "civil.general-check.measured_value.rule",
+          "relation": "evaluates"
+        },
+        {
+          "from": "table.t0921.field.measured_value",
+          "to": "electromechanical.general-check.measured_value.rule",
+          "relation": "evaluates"
+        },
+        {
+          "from": "table.t0921.field.measured_value",
+          "to": "civil.general-check.measured_value.rule",
+          "relation": "evaluates"
+        },
+        {
+          "from": "table.t0921.field.measured_value",
+          "to": "civil.general-check.measured_value.0.5",
+          "relation": "evaluates"
+        },
+        {
+          "from": "table.t0921.field.measured_value",
+          "to": "civil.general-check.measured_value.rule",
+          "relation": "evaluates"
+        },
+        {
+          "from": "table.t0921.field.measured_value",
+          "to": "civil.general-check.measured_value.rule",
+          "relation": "evaluates"
+        },
+        {
+          "from": "table.t0921.field.measured_value",
+          "to": "civil.general-check.measured_value.rule",
+          "relation": "evaluates"
+        },
+        {
+          "from": "table.t0921.field.measured_value",
+          "to": "civil.general-check.measured_value.rule",
+          "relation": "evaluates"
+        },
+        {
+          "from": "table.t0921.field.measured_value",
+          "to": "civil.general-check.measured_value.rule",
+          "relation": "evaluates"
+        },
+        {
+          "from": "table.t0921.field.measured_value",
+          "to": "bridge.pile-hole-check.measured_value.0.1",
+          "relation": "evaluates"
+        },
+        {
+          "from": "table.t0921.field.measured_value",
+          "to": "civil.general-check.measured_value.0.2",
+          "relation": "evaluates"
+        },
+        {
+          "from": "table.t0921.field.measured_value",
+          "to": "bridge.pile-hole-check.measured_value.0.5",
+          "relation": "evaluates"
+        },
+        {
+          "from": "table.t0921.field.measured_value",
+          "to": "bridge.pile-hole-check.measured_value.0.1",
+          "relation": "evaluates"
+        },
+        {
+          "from": "table.t0921.field.measured_value",
+          "to": "civil.general-check.measured_value.0.2",
+          "relation": "evaluates"
+        },
+        {
+          "from": "table.t0921.field.measured_value",
+          "to": "civil.general-check.measured_value.rule",
+          "relation": "evaluates"
+        },
+        {
+          "from": "table.t0921.field.measured_value",
+          "to": "civil.general-check.measured_value.rule",
+          "relation": "evaluates"
+        }
+      ]
+    },
+    "rule_index": {
+      "measured_value": [
+        "civil.general-check.measured_value.rule",
+        "electromechanical.general-check.measured_value.rule",
+        "civil.general-check.measured_value.rule",
+        "civil.general-check.measured_value.0.5",
+        "civil.general-check.measured_value.rule",
+        "civil.general-check.measured_value.rule",
+        "civil.general-check.measured_value.rule",
+        "civil.general-check.measured_value.rule",
+        "civil.general-check.measured_value.rule",
+        "bridge.pile-hole-check.measured_value.0.1",
+        "civil.general-check.measured_value.0.2",
+        "bridge.pile-hole-check.measured_value.0.5",
+        "bridge.pile-hole-check.measured_value.0.1",
+        "civil.general-check.measured_value.0.2",
+        "civil.general-check.measured_value.rule",
+        "civil.general-check.measured_value.rule"
+      ]
+    },
+    "diff_xref": []
+  },
+  "trailer": {
+    "root": "normdoc.root.t0921.autogen",
+    "info": {
+      "chief_editor_org": "NormPeg Auto Builder",
+      "contributors": [
+        "nl2gate-api"
+      ],
+      "revision_history": [
+        {
+          "version": "v1",
+          "date": "2026-04-28",
+          "summary": "Generated from review-approved ingest job ingest-746bcdd7829248e6."
+        }
+      ],
+      "expert_signatures": [
+        {
+          "expert_id": "expert.001",
+          "expert_name": "领域专家",
+          "signed_at": "2026-04-28T08:25:52.586042Z",
+          "signature_hash": "sha256:ef3b7d04a0488466474f3cd350c6f52baf2cc61ee2f70306a11f4d2759838421",
+          "comment": "",
+          "approved_digest": "sha256:889b77ba893ddf5066816e56b330fe1132e0186f1d241048921054a530bc9fec"
+        },
+        {
+          "expert_id": "expert.001",
+          "expert_name": "领域专家",
+          "signed_at": "2026-04-28T08:49:37.472337Z",
+          "signature_hash": "sha256:760bed4a856487848c225aff399b0191875c28ed8215cb77107a3fc91cb47015",
+          "comment": "",
+          "approved_digest": "sha256:889b77ba893ddf5066816e56b330fe1132e0186f1d241048921054a530bc9fec"
+        }
+      ]
+    },
+    "prev": "D:\\wfj\\project\\normpeg-monorepo\\normdocs\\library\\cn\\mot\\t0921\\2019\\normdoc.autogen.json"
+  },
+  "incremental_updates": {
+    "patches": [
+      {
+        "patch_id": "ingest.ingest-746bcdd7829248e6",
+        "source_job_id": "ingest-746bcdd7829248e6",
+        "source_report": "D:\\wfj\\project\\normpeg-monorepo\\uploads\\normref\\reports\\ingest-report-20260428082008-dce7e6e7.json",
+        "approved_count": 16,
+        "signature_count": 2,
+        "candidate_digest": "sha256:889b77ba893ddf5066816e56b330fe1132e0186f1d241048921054a530bc9fec",
+        "generated_at": "2026-04-28T08:49:37.492076Z"
+      }
+    ],
+    "errata_stream": [],
+    "project_overrides": []
+  },
+  "term_cmap": []
+}

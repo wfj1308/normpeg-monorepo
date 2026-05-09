@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.measured_value.9.5.3",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/measured_value@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "measured_value",
+  "operator": "eq",
+  "threshold_value": "0.5",
+  "unit": "t",
+  "severity": "mandatory",
+  "norm_ref": "9.5.3",
+  "source_line": "t —— t 分布表中随测点数和保证率（或置信度α）而变的系数，t 见表B.0.5；",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-91f5c80cedef",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:27017f90d67af0d8fec8db5ee3c1dafbc9f5944c43e6316a918527c1c66b69bc"
+}

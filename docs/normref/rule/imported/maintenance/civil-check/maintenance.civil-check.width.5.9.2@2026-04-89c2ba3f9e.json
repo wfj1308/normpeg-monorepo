@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.width.5.9.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/width@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "width",
+  "operator": "tolerance",
+  "threshold_value": "8",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "5.9.2",
+  "source_line": "8 宽度 (mm) ±20 钢卷尺：每100m测2处",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-1d0a822923fe",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:89c2ba3f9e1bc4c3234a1ce3a1b179fa4d6cbb4086ecb9d74f6812a48ce39457"
+}

@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.strength.5.13.1",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/strength@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "strength",
+  "operator": "eq",
+  "threshold_value": "1",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "5.13.1",
+  "source_line": "1 碎石化前的路基强度和含水率应满足设计要求，不满足要求时应按设计进行",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-dd08f0fa0922",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:2578d30d9aac29dad2e711e95fb0f0deca0a8f3a0c107431d5a9ea47ee0641cb"
+}

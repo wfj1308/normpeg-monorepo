@@ -1,0 +1,120 @@
+{
+  "bundleId": "highway.bridge.pile@v1",
+  "bundleVersion": "v1",
+  "formCode": "bridge_shi_3",
+  "formName": "钻孔桩钻孔记录表",
+  "dtoType": "pile",
+  "stage": "drilling_record_check",
+  "rules": [
+    {
+      "ruleId": "bridge_shi_3.hole_depth.required",
+      "fieldKeys": [
+        "hole_depth_m"
+      ],
+      "gateType": "presence",
+      "severity": "blocking",
+      "expression": "hole_depth_m is not null",
+      "unit": "m",
+      "basis": {
+        "standardCode": "JTG/T3650-2020",
+        "standardName": "??????????",
+        "clause": "??3?",
+        "basisText": "???????????"
+      },
+      "message": "??????",
+      "unresolved": false
+    },
+    {
+      "ruleId": "bridge_shi_3.hole_bottom_elevation.required",
+      "fieldKeys": [
+        "hole_bottom_elevation_m"
+      ],
+      "gateType": "presence",
+      "severity": "blocking",
+      "expression": "hole_bottom_elevation_m is not null",
+      "unit": "m",
+      "basis": {
+        "standardCode": "JTG/T3650-2020",
+        "standardName": "??????????",
+        "clause": "??3?",
+        "basisText": "?????????????"
+      },
+      "message": "????????",
+      "unresolved": false
+    },
+    {
+      "ruleId": "bridge_shi_3.slurry_level.required",
+      "fieldKeys": [
+        "slurry_level_m"
+      ],
+      "gateType": "presence",
+      "severity": "warning",
+      "expression": "slurry_level_m is not null",
+      "unit": "m",
+      "basis": {
+        "standardCode": "JTG/T3650-2020",
+        "standardName": "??????????",
+        "clause": "????",
+        "basisText": "??????????"
+      },
+      "message": "???????????",
+      "unresolved": true
+    },
+    {
+      "ruleId": "bridge_shi_3.drilling_verticality.max_deviation",
+      "fieldKeys": [
+        "verticality_deviation_percent"
+      ],
+      "gateType": "threshold",
+      "severity": "blocking",
+      "expression": "verticality_deviation_percent <= max_verticality_deviation_percent",
+      "unit": "%",
+      "basis": {
+        "standardCode": "JTG/T3650-2020",
+        "standardName": "??????????",
+        "clause": "????",
+        "basisText": "?????????????"
+      },
+      "message": "????????????",
+      "unresolved": true
+    }
+  ],
+  "fieldRuleMap": [
+    {
+      "fieldKey": "hole_depth_m",
+      "fieldName": "??",
+      "gateRequired": true,
+      "ruleId": "bridge_shi_3.hole_depth.required",
+      "valueSource": "manual"
+    },
+    {
+      "fieldKey": "hole_bottom_elevation_m",
+      "fieldName": "????",
+      "gateRequired": true,
+      "ruleId": "bridge_shi_3.hole_bottom_elevation.required",
+      "valueSource": "manual"
+    },
+    {
+      "fieldKey": "slurry_level_m",
+      "fieldName": "?????",
+      "gateRequired": false,
+      "ruleId": "bridge_shi_3.slurry_level.required",
+      "valueSource": "manual"
+    },
+    {
+      "fieldKey": "verticality_deviation_percent",
+      "fieldName": "?????",
+      "gateRequired": true,
+      "ruleId": "bridge_shi_3.drilling_verticality.max_deviation",
+      "valueSource": "manual"
+    }
+  ],
+  "metadata": {
+    "sourceDocument": "1、桩基(1).docx",
+    "sourcePath": "c:\\Users\\xm_91\\Desktop\\1、桩基(1).docx",
+    "autogen": true,
+    "status": "draft_partially_executable",
+    "notes": "??3??????????????????????????? unresolved?",
+    "encoding": "utf-8"
+  }
+}

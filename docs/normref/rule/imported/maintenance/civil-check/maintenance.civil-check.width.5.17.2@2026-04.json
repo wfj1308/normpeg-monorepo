@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.width.5.17.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/width@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "width",
+  "operator": "eq",
+  "threshold_value": "3",
+  "unit": "mm",
+  "severity": "mandatory",
+  "norm_ref": "5.17.2",
+  "source_line": "3 宽度 (mm) 符合设计要求 符合设计要求 尺量：每100m测2处",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-b085fcdfa72c4e3a",
+  "candidate_id": "cand-1ae7ed42e428",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:fe5845110d1fd27dd56aae99eb0be17aa3e2a9d3f459add54a321f1770a83d19"
+}

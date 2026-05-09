@@ -1,0 +1,15 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://normpeg.dev/schemas/project-profile.schema.json",
+  "title": "ProjectProfile",
+  "type": "object",
+  "required": ["project_id", "project_name", "normative_subset", "normdoc_bindings", "digital_standards"],
+  "properties": {
+    "project_id": {"type": "string"},
+    "project_name": {"type": "string"},
+    "normative_subset": {"type": "object"},
+    "normdoc_bindings": {"type": "object"},
+    "digital_standards": {"type": "object"}
+  },
+  "additionalProperties": true
+}

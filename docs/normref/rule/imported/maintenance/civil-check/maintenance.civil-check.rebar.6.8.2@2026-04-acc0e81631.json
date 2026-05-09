@@ -1,0 +1,20 @@
+{
+  "rule_id": "maintenance.civil-check.rebar.6.8.2",
+  "version": "2026-04",
+  "uri": "v://normref.com/rule/maintenance/civil-check/rebar@2026-04",
+  "category": "maintenance/civil-check",
+  "field_key": "rebar",
+  "operator": "range",
+  "threshold_value": "30",
+  "unit": "",
+  "severity": "mandatory",
+  "norm_ref": "6.8.2",
+  "source_line": "钢筋检测仪：抽查30％，每处测3～5",
+  "confidence": 0.82,
+  "ingest_job_id": "ingest-03b88bfc79ba4c68",
+  "candidate_id": "cand-fab8cd59d930",
+  "source_std_code": "JTG-5220-2020",
+  "source_level": "industry",
+  "scope": "industry",
+  "hash": "sha256:acc0e81631ec2a92d24fcfc0e7fc88e3ed46a8e8eb805d6004b4a9d1cc23b82c"
+}
