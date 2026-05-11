@@ -1,0 +1,80 @@
+{
+  "schema_version": "pile_foundation.acceptance_thresholds.v1",
+  "records": [
+    {
+      "threshold_id": "th.pile.concrete_strength.ge.design",
+      "inspection_item_ref": "item.pile.concrete_strength",
+      "field_ref": "field.pile.concrete_strength",
+      "threshold_type": "relative_requirement",
+      "value": "design_strength",
+      "unit": "MPa",
+      "comparator": ">=",
+      "condition": "strength >= design_strength",
+      "norm_ref": "nr.jtgf80.8.1.1",
+      "evidence_ref": "ev.pile.catalog.8.1.1",
+      "source_excerpt": "混凝土强度应满足设计及相关规范要求。",
+      "provenance_ref": "prov.pile.catalog.bored_pile",
+      "verification_status": "verified"
+    },
+    {
+      "threshold_id": "th.pile.concrete_grade.C25",
+      "inspection_item_ref": "item.pile.concrete_strength",
+      "field_ref": "field.pile.concrete_grade",
+      "threshold_type": "lookup_mapping",
+      "value": 25,
+      "unit": "MPa",
+      "comparator": "==mapped_standard_strength",
+      "condition": "concrete_grade=C25 => standard_strength=25",
+      "norm_ref": "nr.jtgf80.8.1.1.strength_rule",
+      "evidence_ref": "ev.pile.spec.8.1.1.gate_rule",
+      "source_excerpt": "lookup_tables.standard_by_grade: C25: 25",
+      "provenance_ref": "prov.pile.spec.8.1.1",
+      "verification_status": "verified"
+    },
+    {
+      "threshold_id": "th.pile.concrete_grade.C30",
+      "inspection_item_ref": "item.pile.concrete_strength",
+      "field_ref": "field.pile.concrete_grade",
+      "threshold_type": "lookup_mapping",
+      "value": 30,
+      "unit": "MPa",
+      "comparator": "==mapped_standard_strength",
+      "condition": "concrete_grade=C30 => standard_strength=30",
+      "norm_ref": "nr.jtgf80.8.1.1.strength_rule",
+      "evidence_ref": "ev.pile.spec.8.1.1.gate_rule",
+      "source_excerpt": "lookup_tables.standard_by_grade: C30: 30",
+      "provenance_ref": "prov.pile.spec.8.1.1",
+      "verification_status": "verified"
+    },
+    {
+      "threshold_id": "th.pile.concrete_grade.C35",
+      "inspection_item_ref": "item.pile.concrete_strength",
+      "field_ref": "field.pile.concrete_grade",
+      "threshold_type": "lookup_mapping",
+      "value": 35,
+      "unit": "MPa",
+      "comparator": "==mapped_standard_strength",
+      "condition": "concrete_grade=C35 => standard_strength=35",
+      "norm_ref": "nr.jtgf80.8.1.1.strength_rule",
+      "evidence_ref": "ev.pile.spec.8.1.1.gate_rule",
+      "source_excerpt": "lookup_tables.standard_by_grade: C35: 35",
+      "provenance_ref": "prov.pile.spec.8.1.1",
+      "verification_status": "verified"
+    },
+    {
+      "threshold_id": "th.pile.concrete_grade.C40",
+      "inspection_item_ref": "item.pile.concrete_strength",
+      "field_ref": "field.pile.concrete_grade",
+      "threshold_type": "lookup_mapping",
+      "value": 40,
+      "unit": "MPa",
+      "comparator": "==mapped_standard_strength",
+      "condition": "concrete_grade=C40 => standard_strength=40",
+      "norm_ref": "nr.jtgf80.8.1.1.strength_rule",
+      "evidence_ref": "ev.pile.spec.8.1.1.gate_rule",
+      "source_excerpt": "lookup_tables.standard_by_grade: C40: 40",
+      "provenance_ref": "prov.pile.spec.8.1.1",
+      "verification_status": "verified"
+    }
+  ]
+}

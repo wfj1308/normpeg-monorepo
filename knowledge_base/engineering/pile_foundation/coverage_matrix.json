@@ -1,0 +1,181 @@
+{
+  "schema_version": "pile_foundation.coverage_matrix.v1",
+  "rows": [
+    {
+      "inspection_item_ref": "item.pile.concrete_strength",
+      "verification_status": "verified",
+      "field_refs": [
+        "field.pile.concrete_strength",
+        "field.pile.design_strength",
+        "field.pile.concrete_grade"
+      ],
+      "evidence_refs": [
+        "ev.pile.catalog.8.1.1",
+        "ev.pile.spec.8.1.1.gate_rule"
+      ],
+      "threshold_refs": [
+        "th.pile.concrete_strength.ge.design",
+        "th.pile.concrete_grade.C25",
+        "th.pile.concrete_grade.C30",
+        "th.pile.concrete_grade.C35",
+        "th.pile.concrete_grade.C40"
+      ],
+      "gap_refs": []
+    },
+    {
+      "inspection_item_ref": "item.pile.hole_bottom_sediment",
+      "verification_status": "verified",
+      "field_refs": [
+        "field.pile.sediment_thickness"
+      ],
+      "evidence_refs": [
+        "ev.pile.bridge13.b0.1"
+      ],
+      "threshold_refs": [],
+      "gap_refs": [
+        "gap.pile.threshold.sediment"
+      ]
+    },
+    {
+      "inspection_item_ref": "item.pile.hole_diameter",
+      "verification_status": "unverified",
+      "field_refs": [
+        "field.pile.hole_diameter"
+      ],
+      "evidence_refs": [],
+      "threshold_refs": [],
+      "gap_refs": [
+        "gap.pile.hole_diameter.clause"
+      ]
+    },
+    {
+      "inspection_item_ref": "item.pile.hole_depth",
+      "verification_status": "unverified",
+      "field_refs": [
+        "field.pile.hole_depth"
+      ],
+      "evidence_refs": [],
+      "threshold_refs": [],
+      "gap_refs": [
+        "gap.pile.hole_depth.clause"
+      ]
+    },
+    {
+      "inspection_item_ref": "item.pile.hole_position",
+      "verification_status": "unverified",
+      "field_refs": [
+        "field.pile.hole_position_offset"
+      ],
+      "evidence_refs": [],
+      "threshold_refs": [],
+      "gap_refs": [
+        "gap.pile.hole_position.clause"
+      ]
+    },
+    {
+      "inspection_item_ref": "item.pile.slurry_index",
+      "verification_status": "unverified",
+      "field_refs": [
+        "field.pile.slurry_density",
+        "field.pile.slurry_sand_ratio"
+      ],
+      "evidence_refs": [],
+      "threshold_refs": [],
+      "gap_refs": [
+        "gap.pile.slurry_index.clause"
+      ]
+    },
+    {
+      "inspection_item_ref": "item.pile.tremie_embed_depth",
+      "verification_status": "unverified",
+      "field_refs": [
+        "field.pile.tremie_embed_depth"
+      ],
+      "evidence_refs": [],
+      "threshold_refs": [],
+      "gap_refs": [
+        "gap.pile.tremie_embed_depth.clause"
+      ]
+    },
+    {
+      "inspection_item_ref": "item.pile.verticality",
+      "verification_status": "unverified",
+      "field_refs": [
+        "field.pile.verticality"
+      ],
+      "evidence_refs": [],
+      "threshold_refs": [],
+      "gap_refs": []
+    },
+    {
+      "inspection_item_ref": "item.pile.rebar_cage_installation",
+      "verification_status": "unverified",
+      "field_refs": [
+        "field.pile.rebar_cage_length"
+      ],
+      "evidence_refs": [],
+      "threshold_refs": [],
+      "gap_refs": [
+        "gap.pile.rebar_cage.clause"
+      ]
+    },
+    {
+      "inspection_item_ref": "item.pile.underwater_concrete",
+      "verification_status": "unverified",
+      "field_refs": [],
+      "evidence_refs": [],
+      "threshold_refs": [],
+      "gap_refs": [
+        "gap.pile.underwater_concrete.clause"
+      ]
+    },
+    {
+      "inspection_item_ref": "item.pile.integrity",
+      "verification_status": "unverified",
+      "field_refs": [
+        "field.pile.integrity_grade"
+      ],
+      "evidence_refs": [],
+      "threshold_refs": [],
+      "gap_refs": [
+        "gap.pile.integrity.clause"
+      ]
+    },
+    {
+      "inspection_item_ref": "item.pile.bearing_capacity",
+      "verification_status": "unverified",
+      "field_refs": [
+        "field.pile.bearing_capacity"
+      ],
+      "evidence_refs": [],
+      "threshold_refs": [],
+      "gap_refs": [
+        "gap.pile.bearing_capacity.clause"
+      ]
+    },
+    {
+      "inspection_item_ref": "item.pile.top_elevation",
+      "verification_status": "unverified",
+      "field_refs": [
+        "field.pile.top_elevation"
+      ],
+      "evidence_refs": [],
+      "threshold_refs": [],
+      "gap_refs": [
+        "gap.pile.top_elevation.clause"
+      ]
+    },
+    {
+      "inspection_item_ref": "item.pile.rebar_cover",
+      "verification_status": "unverified",
+      "field_refs": [
+        "field.pile.rebar_cover"
+      ],
+      "evidence_refs": [],
+      "threshold_refs": [],
+      "gap_refs": [
+        "gap.pile.rebar_cover.clause"
+      ]
+    }
+  ]
+}

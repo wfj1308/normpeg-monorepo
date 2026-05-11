@@ -1,0 +1,86 @@
+{
+  "schema_version": "pile_foundation.provenance.v1",
+  "records": [
+    {
+      "provenance_id": "prov.pile.meta.f80.2017",
+      "source_file": "norms/JTG_F80_1_2017/meta.yaml",
+      "source_hash": "sha256:meta.jtg_f80_1_2017",
+      "source_page": "",
+      "source_location": "root",
+      "extraction_method": "metadata_read",
+      "extracted_at_policy": "fixed_epoch",
+      "upstream_refs": [],
+      "canonical_hash": "prov.pile.meta.f80.2017"
+    },
+    {
+      "provenance_id": "prov.pile.catalog.bored_pile",
+      "source_file": "norms/catalog.json",
+      "source_hash": "sha256:catalog.jtg_f80_1_2017.bridge.bored_pile",
+      "source_page": "",
+      "source_location": "categories[2].work_items[0].measured_items[0]",
+      "extraction_method": "structured_catalog_extraction",
+      "extracted_at_policy": "fixed_epoch",
+      "upstream_refs": [
+        "prov.pile.meta.f80.2017"
+      ],
+      "canonical_hash": "prov.pile.catalog.bored_pile"
+    },
+    {
+      "provenance_id": "prov.pile.bridge13.ev1",
+      "source_file": "knowledge_base/engineering/bridge13/evidence.json",
+      "source_hash": "sha256:kb.bridge13.ev1",
+      "source_page": 1,
+      "source_location": "records[0]",
+      "extraction_method": "kb_record_reuse",
+      "extracted_at_policy": "fixed_epoch",
+      "upstream_refs": [],
+      "canonical_hash": "prov.pile.bridge13.ev1"
+    },
+    {
+      "provenance_id": "prov.pile.bridge14.ev1",
+      "source_file": "knowledge_base/engineering/bridge14/evidence.json",
+      "source_hash": "sha256:kb.bridge14.ev1",
+      "source_page": 1,
+      "source_location": "records[0]",
+      "extraction_method": "kb_record_reuse",
+      "extracted_at_policy": "fixed_epoch",
+      "upstream_refs": [],
+      "canonical_hash": "prov.pile.bridge14.ev1"
+    },
+    {
+      "provenance_id": "prov.pile.bridge15.ev1",
+      "source_file": "knowledge_base/engineering/bridge15/evidence.json",
+      "source_hash": "sha256:kb.bridge15.ev1",
+      "source_page": 1,
+      "source_location": "records[0]",
+      "extraction_method": "kb_record_reuse",
+      "extracted_at_policy": "fixed_epoch",
+      "upstream_refs": [],
+      "canonical_hash": "prov.pile.bridge15.ev1"
+    },
+    {
+      "provenance_id": "prov.pile.spec.8.1.1",
+      "source_file": "norms/JTG_F80_1_2017/8.1.1.pile_concrete_strength.spec.yaml",
+      "source_hash": "sha256:spec.jtg_f80_1_2017.8.1.1.pile_concrete_strength",
+      "source_page": "",
+      "source_location": "gate.rules[0], path.lookup_tables.standard_by_grade",
+      "extraction_method": "spec_yaml_extraction",
+      "extracted_at_policy": "fixed_epoch",
+      "upstream_refs": [
+        "prov.pile.meta.f80.2017"
+      ],
+      "canonical_hash": "prov.pile.spec.8.1.1"
+    },
+    {
+      "provenance_id": "prov.pile.inventory.gap_backlog",
+      "source_file": "knowledge_base/engineering/pile_foundation/gaps.json",
+      "source_hash": "sha256:gap.backlog.pile_foundation",
+      "source_page": "",
+      "source_location": "records[*]",
+      "extraction_method": "inventory_gap_backlog",
+      "extracted_at_policy": "fixed_epoch",
+      "upstream_refs": [],
+      "canonical_hash": "prov.pile.inventory.gap_backlog"
+    }
+  ]
+}

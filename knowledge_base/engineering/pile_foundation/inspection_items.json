@@ -1,0 +1,241 @@
+{
+  "schema_version": "pile_foundation.inspection_items.v1",
+  "records": [
+    {
+      "item_id": "item.pile.concrete_strength",
+      "item_name": "混凝土强度",
+      "pile_type": "钻孔灌注桩",
+      "inspection_stage": "成桩后",
+      "inspection_method": "强度检测（按工程试验方法执行）",
+      "required_fields": [
+        "field.pile.concrete_strength",
+        "field.pile.design_strength",
+        "field.pile.concrete_grade"
+      ],
+      "acceptance_criteria_refs": [
+        "th.pile.concrete_strength.ge.design",
+        "th.pile.concrete_grade.C25",
+        "th.pile.concrete_grade.C30",
+        "th.pile.concrete_grade.C35",
+        "th.pile.concrete_grade.C40"
+      ],
+      "frequency_refs": [],
+      "responsible_role_refs": [],
+      "norm_refs": [
+        "nr.jtgf80.8.1.1"
+      ],
+      "evidence_refs": [
+        "ev.pile.catalog.8.1.1",
+        "ev.pile.spec.8.1.1.gate_rule"
+      ],
+      "provenance_refs": [
+        "prov.pile.catalog.bored_pile",
+        "prov.pile.spec.8.1.1"
+      ],
+      "verification_status": "verified"
+    },
+    {
+      "item_id": "item.pile.hole_bottom_sediment",
+      "item_name": "孔底沉渣厚度",
+      "pile_type": "灌注桩",
+      "inspection_stage": "清孔后/灌注前",
+      "inspection_method": "现场测量",
+      "required_fields": [
+        "field.pile.sediment_thickness"
+      ],
+      "acceptance_criteria_refs": [],
+      "frequency_refs": [],
+      "responsible_role_refs": [],
+      "norm_refs": [
+        "nr.jtgf80.b0.1"
+      ],
+      "evidence_refs": [
+        "ev.pile.bridge13.b0.1"
+      ],
+      "provenance_refs": [
+        "prov.pile.bridge13.ev1"
+      ],
+      "verification_status": "verified"
+    },
+    {
+      "item_id": "item.pile.hole_diameter",
+      "item_name": "孔径",
+      "pile_type": "钻孔灌注桩",
+      "inspection_stage": "成孔",
+      "inspection_method": "",
+      "required_fields": [],
+      "acceptance_criteria_refs": [],
+      "frequency_refs": [],
+      "responsible_role_refs": [],
+      "norm_refs": [],
+      "evidence_refs": [],
+      "provenance_refs": [],
+      "verification_status": "unverified"
+    },
+    {
+      "item_id": "item.pile.hole_depth",
+      "item_name": "孔深",
+      "pile_type": "钻孔灌注桩",
+      "inspection_stage": "成孔",
+      "inspection_method": "",
+      "required_fields": [],
+      "acceptance_criteria_refs": [],
+      "frequency_refs": [],
+      "responsible_role_refs": [],
+      "norm_refs": [],
+      "evidence_refs": [],
+      "provenance_refs": [],
+      "verification_status": "unverified"
+    },
+    {
+      "item_id": "item.pile.hole_position",
+      "item_name": "孔位/桩位",
+      "pile_type": "钻孔灌注桩",
+      "inspection_stage": "成孔/定位",
+      "inspection_method": "",
+      "required_fields": [],
+      "acceptance_criteria_refs": [],
+      "frequency_refs": [],
+      "responsible_role_refs": [],
+      "norm_refs": [],
+      "evidence_refs": [],
+      "provenance_refs": [],
+      "verification_status": "unverified"
+    },
+    {
+      "item_id": "item.pile.slurry_index",
+      "item_name": "泥浆指标",
+      "pile_type": "钻孔灌注桩",
+      "inspection_stage": "成孔/清孔",
+      "inspection_method": "",
+      "required_fields": [],
+      "acceptance_criteria_refs": [],
+      "frequency_refs": [],
+      "responsible_role_refs": [],
+      "norm_refs": [],
+      "evidence_refs": [],
+      "provenance_refs": [],
+      "verification_status": "unverified"
+    },
+    {
+      "item_id": "item.pile.tremie_embed_depth",
+      "item_name": "导管埋深",
+      "pile_type": "灌注桩",
+      "inspection_stage": "水下混凝土灌注",
+      "inspection_method": "",
+      "required_fields": [],
+      "acceptance_criteria_refs": [],
+      "frequency_refs": [],
+      "responsible_role_refs": [],
+      "norm_refs": [],
+      "evidence_refs": [],
+      "provenance_refs": [],
+      "verification_status": "unverified"
+    },
+    {
+      "item_id": "item.pile.verticality",
+      "item_name": "竖直度/垂直度",
+      "pile_type": "钻孔灌注桩",
+      "inspection_stage": "成孔",
+      "inspection_method": "",
+      "required_fields": [],
+      "acceptance_criteria_refs": [],
+      "frequency_refs": [],
+      "responsible_role_refs": [],
+      "norm_refs": [],
+      "evidence_refs": [],
+      "provenance_refs": [],
+      "verification_status": "unverified"
+    },
+    {
+      "item_id": "item.pile.rebar_cage_installation",
+      "item_name": "钢筋笼制作与安装",
+      "pile_type": "灌注桩",
+      "inspection_stage": "钢筋笼下放",
+      "inspection_method": "",
+      "required_fields": [],
+      "acceptance_criteria_refs": [],
+      "frequency_refs": [],
+      "responsible_role_refs": [],
+      "norm_refs": [],
+      "evidence_refs": [],
+      "provenance_refs": [],
+      "verification_status": "unverified"
+    },
+    {
+      "item_id": "item.pile.underwater_concrete",
+      "item_name": "水下混凝土灌注",
+      "pile_type": "灌注桩",
+      "inspection_stage": "灌注",
+      "inspection_method": "",
+      "required_fields": [],
+      "acceptance_criteria_refs": [],
+      "frequency_refs": [],
+      "responsible_role_refs": [],
+      "norm_refs": [],
+      "evidence_refs": [],
+      "provenance_refs": [],
+      "verification_status": "unverified"
+    },
+    {
+      "item_id": "item.pile.integrity",
+      "item_name": "桩身完整性",
+      "pile_type": "灌注桩",
+      "inspection_stage": "成桩后检测",
+      "inspection_method": "",
+      "required_fields": [],
+      "acceptance_criteria_refs": [],
+      "frequency_refs": [],
+      "responsible_role_refs": [],
+      "norm_refs": [],
+      "evidence_refs": [],
+      "provenance_refs": [],
+      "verification_status": "unverified"
+    },
+    {
+      "item_id": "item.pile.bearing_capacity",
+      "item_name": "承载力",
+      "pile_type": "灌注桩",
+      "inspection_stage": "成桩后检测",
+      "inspection_method": "",
+      "required_fields": [],
+      "acceptance_criteria_refs": [],
+      "frequency_refs": [],
+      "responsible_role_refs": [],
+      "norm_refs": [],
+      "evidence_refs": [],
+      "provenance_refs": [],
+      "verification_status": "unverified"
+    },
+    {
+      "item_id": "item.pile.top_elevation",
+      "item_name": "桩顶标高",
+      "pile_type": "灌注桩",
+      "inspection_stage": "成桩后",
+      "inspection_method": "",
+      "required_fields": [],
+      "acceptance_criteria_refs": [],
+      "frequency_refs": [],
+      "responsible_role_refs": [],
+      "norm_refs": [],
+      "evidence_refs": [],
+      "provenance_refs": [],
+      "verification_status": "unverified"
+    },
+    {
+      "item_id": "item.pile.rebar_cover",
+      "item_name": "钢筋保护层",
+      "pile_type": "灌注桩",
+      "inspection_stage": "钢筋笼制作与下放",
+      "inspection_method": "",
+      "required_fields": [],
+      "acceptance_criteria_refs": [],
+      "frequency_refs": [],
+      "responsible_role_refs": [],
+      "norm_refs": [],
+      "evidence_refs": [],
+      "provenance_refs": [],
+      "verification_status": "unverified"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "status": "deprecated",
+  "reason": "non-canonical project directory name",
+  "deprecated_project_path": "knowledge_base/engineering/projects/大锦高速",
+  "canonical_project_id": "dajin-expressway",
+  "canonical_project_path": "knowledge_base/engineering/projects/dajin-expressway"
+}

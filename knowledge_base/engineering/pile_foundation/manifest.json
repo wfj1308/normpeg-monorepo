@@ -1,0 +1,41 @@
+{
+  "knowledge_id": "kb.engineering.pile_foundation.v1",
+  "domain": "engineering",
+  "topic": "pile_foundation",
+  "source_norms": [
+    "JTG F80/1-2017",
+    "JTG/T 3650"
+  ],
+  "source_files": [
+    "norms/JTG_F80_1_2017/meta.yaml",
+    "norms/catalog.json",
+    "norms/JTG_F80_1_2017/8.1.1.pile_concrete_strength.spec.yaml",
+    "standards/library/cn/mot/jtg-f80-1/2017/standarddoc.json",
+    "knowledge_base/engineering/bridge13/evidence.json",
+    "knowledge_base/engineering/bridge14/evidence.json",
+    "knowledge_base/engineering/bridge15/evidence.json"
+  ],
+  "artifact_refs": [
+    "knowledge_base/engineering/pile_foundation/norm_sources.json",
+    "knowledge_base/engineering/pile_foundation/norm_refs.json",
+    "knowledge_base/engineering/pile_foundation/clauses.json",
+    "knowledge_base/engineering/pile_foundation/evidence.json",
+    "knowledge_base/engineering/pile_foundation/inspection_items.json",
+    "knowledge_base/engineering/pile_foundation/field_requirements.json",
+    "knowledge_base/engineering/pile_foundation/acceptance_thresholds.json",
+    "knowledge_base/engineering/pile_foundation/coverage_matrix.json",
+    "knowledge_base/engineering/pile_foundation/verified_profile.json",
+    "knowledge_base/engineering/pile_foundation/provenance.json",
+    "knowledge_base/engineering/pile_foundation/gaps.json"
+  ],
+  "provenance_refs": [
+    "prov.pile.meta.f80.2017",
+    "prov.pile.catalog.bored_pile",
+    "prov.pile.bridge13.ev1",
+    "prov.pile.bridge14.ev1",
+    "prov.pile.bridge15.ev1"
+  ],
+  "verification_status": "partial_verified",
+  "canonical_hash": "kb.engineering.pile_foundation.v1",
+  "replay_hash": "kb.engineering.pile_foundation.v1"
+}

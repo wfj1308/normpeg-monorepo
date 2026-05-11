@@ -1,0 +1,19 @@
+{
+  "project_id": "大锦高速",
+  "display_name": "大锦高速",
+  "canonical_project_path": "knowledge_base/engineering/projects/大锦高速",
+  "legacy_project_path": "knowledge_base/engineering/大锦高速",
+  "kb_snapshot_refs": {
+    "json_files": [
+      "clauses.json",
+      "evidence.json",
+      "index.json",
+      "manifest.json",
+      "norm_refs.json",
+      "provenance.json",
+      "topology_refs.json"
+    ],
+    "generated_files": []
+  },
+  "migration_mode": "compat_index_only"
+}

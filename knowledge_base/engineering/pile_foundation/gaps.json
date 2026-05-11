@@ -1,0 +1,225 @@
+{
+  "schema_version": "pile_foundation.gaps.v1",
+  "records": [
+    {
+      "gap_id": "gap.pile.jtgt3650.source",
+      "gap_type": "missing_norm_source",
+      "missing_item": "JTG/T 3650 原文来源文件",
+      "expected_source": "norms/ 或 standards/ 中可解析条文文件",
+      "searched_paths": [
+        "norms/",
+        "normdocs/",
+        "standards/",
+        "knowledge_base/",
+        "datasets/"
+      ],
+      "reason": "仓库未检索到 JTG/T 3650 的可核对条文与页码来源。",
+      "next_action": "补充 JTG/T 3650 可追溯原文后再入库。"
+    },
+    {
+      "gap_id": "gap.pile.threshold.sediment",
+      "gap_type": "missing_threshold",
+      "missing_item": "孔底沉渣厚度数值阈值",
+      "expected_source": "JTG F80/1-2017 对应表格或条文数值",
+      "searched_paths": [
+        "knowledge_base/engineering/bridge13/evidence.json",
+        "knowledge_base/engineering/bridge14/evidence.json",
+        "knowledge_base/engineering/bridge15/evidence.json",
+        "norms/catalog.json"
+      ],
+      "reason": "现有摘录仅有“应满足规范控制值”，未出现可确认数值和单位。",
+      "next_action": "补录含具体阈值的原文摘录后再写入 acceptance_thresholds.json。"
+    },
+    {
+      "gap_id": "gap.pile.page.ref",
+      "gap_type": "missing_page_ref",
+      "missing_item": "JTG F80/1-2017 8.1.1 页码",
+      "expected_source": "规范 PDF/OCR 页码定位",
+      "searched_paths": [
+        "norms/JTG_F80_1_2017/",
+        "standards/library/cn/mot/jtg-f80-1/2017/"
+      ],
+      "reason": "仓库内结构化文件未提供稳定页码字段。",
+      "next_action": "增加带页码锚点的规范原文索引。"
+    },
+    {
+      "gap_id": "gap.pile.hole_diameter.clause",
+      "gap_type": "missing_clause_text",
+      "missing_item": "孔径检查条款与阈值原文",
+      "expected_source": "JTG F80/1-2017 或 JTG/T 3650 对应条款/表格",
+      "searched_paths": [
+        "norms/",
+        "normdocs/",
+        "standards/",
+        "knowledge_base/engineering/*"
+      ],
+      "reason": "未检索到可直接引用的仓库内摘录。",
+      "next_action": "补充可追溯原文后再加入 verified evidence/threshold。"
+    },
+    {
+      "gap_id": "gap.pile.hole_depth.clause",
+      "gap_type": "missing_clause_text",
+      "missing_item": "孔深检查条款与阈值原文",
+      "expected_source": "JTG F80/1-2017 或 JTG/T 3650 对应条款/表格",
+      "searched_paths": [
+        "norms/",
+        "normdocs/",
+        "standards/",
+        "knowledge_base/engineering/*"
+      ],
+      "reason": "未检索到可直接引用的仓库内摘录。",
+      "next_action": "补充可追溯原文后再加入 verified evidence/threshold。"
+    },
+    {
+      "gap_id": "gap.pile.hole_position.clause",
+      "gap_type": "missing_clause_text",
+      "missing_item": "孔位/桩位检查条款与允许偏差原文",
+      "expected_source": "JTG F80/1-2017 或 JTG/T 3650 对应条款/表格",
+      "searched_paths": [
+        "norms/",
+        "normdocs/",
+        "standards/",
+        "knowledge_base/engineering/*"
+      ],
+      "reason": "未检索到可直接引用的仓库内摘录。",
+      "next_action": "补充可追溯原文后再加入 verified evidence/threshold。"
+    },
+    {
+      "gap_id": "gap.pile.slurry_index.clause",
+      "gap_type": "missing_clause_text",
+      "missing_item": "泥浆指标（比重/黏度/含砂率等）条款与阈值原文",
+      "expected_source": "JTG/T 3650 或相关桥涵施工规范条款/表格",
+      "searched_paths": [
+        "norms/",
+        "normdocs/",
+        "standards/",
+        "knowledge_base/engineering/*"
+      ],
+      "reason": "仓库仅见关键词映射，未见可核对原文摘录。",
+      "next_action": "补录条款原文及页码后再入 evidence。"
+    },
+    {
+      "gap_id": "gap.pile.tremie_embed_depth.clause",
+      "gap_type": "missing_clause_text",
+      "missing_item": "导管埋深控制条款与阈值原文",
+      "expected_source": "JTG/T 3650 或相关桥涵施工规范条款/表格",
+      "searched_paths": [
+        "norms/",
+        "normdocs/",
+        "standards/",
+        "tools/",
+        "knowledge_base/engineering/*"
+      ],
+      "reason": "仓库仅有示例意图文本，缺少规范原文证据。",
+      "next_action": "补录可核对原文摘录后再加入 verified threshold。"
+    },
+    {
+      "gap_id": "gap.pile.rebar_cage.clause",
+      "gap_type": "missing_clause_text",
+      "missing_item": "钢筋笼制作与安装条款与阈值原文",
+      "expected_source": "JTG/T 3650 或相关桥涵施工规范条款/表格",
+      "searched_paths": [
+        "norms/",
+        "normdocs/",
+        "standards/",
+        "knowledge_base/engineering/*"
+      ],
+      "reason": "仓库未找到可直接引用摘录。",
+      "next_action": "补录条款与页码后再转为 verified。"
+    },
+    {
+      "gap_id": "gap.pile.underwater_concrete.clause",
+      "gap_type": "missing_clause_text",
+      "missing_item": "水下混凝土灌注条款与控制条件原文",
+      "expected_source": "JTG/T 3650 或相关桥涵施工规范条款/表格",
+      "searched_paths": [
+        "norms/",
+        "normdocs/",
+        "standards/"
+      ],
+      "reason": "仓库未找到可直接引用摘录。",
+      "next_action": "补录条款与页码后再转为 verified。"
+    },
+    {
+      "gap_id": "gap.pile.integrity.clause",
+      "gap_type": "missing_clause_text",
+      "missing_item": "桩身完整性检测条款与判定标准原文",
+      "expected_source": "质量评定标准及相关检测规范条款",
+      "searched_paths": [
+        "norms/",
+        "normdocs/",
+        "standards/"
+      ],
+      "reason": "仓库未找到可直接引用摘录。",
+      "next_action": "补录规范原文后再新增 evidence/threshold。"
+    },
+    {
+      "gap_id": "gap.pile.bearing_capacity.clause",
+      "gap_type": "missing_clause_text",
+      "missing_item": "承载力检测条款与合格阈值原文",
+      "expected_source": "质量评定标准及桥涵施工规范条款",
+      "searched_paths": [
+        "norms/",
+        "normdocs/",
+        "standards/"
+      ],
+      "reason": "仓库未找到可直接引用摘录。",
+      "next_action": "补录规范原文后再新增 evidence/threshold。"
+    },
+    {
+      "gap_id": "gap.pile.top_elevation.clause",
+      "gap_type": "missing_clause_text",
+      "missing_item": "桩顶标高条款与允许偏差原文",
+      "expected_source": "质量评定标准条款/表格",
+      "searched_paths": [
+        "norms/",
+        "normdocs/",
+        "standards/",
+        "knowledge_base/engineering/*"
+      ],
+      "reason": "仓库未找到可直接引用摘录。",
+      "next_action": "补录条款与页码后再转为 verified。"
+    },
+    {
+      "gap_id": "gap.pile.rebar_cover.clause",
+      "gap_type": "missing_clause_text",
+      "missing_item": "钢筋保护层条款与允许偏差原文",
+      "expected_source": "质量评定标准条款/表格",
+      "searched_paths": [
+        "norms/",
+        "normdocs/",
+        "standards/",
+        "knowledge_base/engineering/*"
+      ],
+      "reason": "仓库未找到可直接引用摘录。",
+      "next_action": "补录条款与页码后再转为 verified。"
+    },
+    {
+      "gap_id": "gap.pile.normative.authenticity.spec_projection",
+      "gap_type": "ambiguous_norm_ref",
+      "missing_item": "8.1.1 强度等级映射是否与标准原文逐字一致",
+      "expected_source": "JTG F80/1-2017 原文页码/表格截图或 OCR",
+      "searched_paths": [
+        "norms/JTG_F80_1_2017/8.1.1.pile_concrete_strength.spec.yaml",
+        "norms/JTG_F80_1_2017/meta.yaml",
+        "standards/library/cn/mot/jtg-f80-1/2017/standarddoc.json"
+      ],
+      "reason": "当前阈值来自仓库内执行化 spec 投影，缺少同位置原文页码对照。",
+      "next_action": "补充原文页码锚点后将该类阈值升级为强校验来源。"
+    },
+    {
+      "gap_id": "gap.pile.kb.encoding.bridge14_15",
+      "gap_type": "missing_clause_text",
+      "missing_item": "bridge14/bridge15 中部分中文摘录编码异常",
+      "expected_source": "UTF-8 可读原文摘录",
+      "searched_paths": [
+        "knowledge_base/engineering/bridge14/evidence.json",
+        "knowledge_base/engineering/bridge15/evidence.json",
+        "knowledge_base/engineering/bridge14/clauses.json",
+        "knowledge_base/engineering/bridge15/clauses.json"
+      ],
+      "reason": "现有文本存在乱码，不宜直接作为高置信原文摘录。",
+      "next_action": "修复编码并回写同一 provenance 记录。"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "schema_version": "pile_foundation.norm_refs.v1",
+  "records": [
+    {
+      "norm_ref_id": "nr.jtgf80.8.1.1",
+      "norm_code": "JTG F80/1-2017",
+      "norm_name": "公路工程质量检验评定标准 第一册 土建工程",
+      "chapter": "8",
+      "section": "8.1",
+      "clause_id": "8.1.1",
+      "table_id": "",
+      "item_id": "pile_concrete_strength",
+      "topic": "钻孔灌注桩-混凝土强度",
+      "source_location": "norms/catalog.json -> categories[2].work_items[0].measured_items[0]",
+      "source_page": "unknown_in_repository",
+      "verification_status": "verified"
+    },
+    {
+      "norm_ref_id": "nr.jtgf80.8.1.1.strength_rule",
+      "norm_code": "JTG F80/1-2017",
+      "norm_name": "公路工程质量检验评定标准 第一册 土建工程",
+      "chapter": "8",
+      "section": "8.1",
+      "clause_id": "8.1.1.strength",
+      "table_id": "",
+      "item_id": "strength_rule",
+      "topic": "混凝土强度判定规则",
+      "source_location": "norms/JTG_F80_1_2017/8.1.1.pile_concrete_strength.spec.yaml -> gate.rules[0]",
+      "source_page": "unknown_in_repository",
+      "verification_status": "verified"
+    },
+    {
+      "norm_ref_id": "nr.jtgf80.b0.1",
+      "norm_code": "JTG F80/1-2017",
+      "norm_name": "公路工程质量检验评定标准 第一册 土建工程",
+      "chapter": "",
+      "section": "",
+      "clause_id": "B.0.1",
+      "table_id": "B.0.1",
+      "item_id": "sediment_control",
+      "topic": "灌注桩孔底沉渣厚度控制",
+      "source_location": "knowledge_base/engineering/bridge13/evidence.json#records[0]",
+      "source_page": 1,
+      "verification_status": "verified"
+    },
+    {
+      "norm_ref_id": "nr.jtgt3650.unknown",
+      "norm_code": "JTG/T 3650",
+      "norm_name": "公路桥涵施工技术规范",
+      "chapter": "",
+      "section": "",
+      "clause_id": "",
+      "table_id": "",
+      "item_id": "",
+      "topic": "pile_foundation",
+      "source_location": "",
+      "source_page": "",
+      "verification_status": "unverified",
+      "notes": "clause/table/page not confirmed from repository source"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": "pile_foundation.verified_profile.v1",
+  "profile_id": "pile_foundation_verified_v1",
+  "scope": "verified_only",
+  "inspection_item_refs": [
+    "item.pile.concrete_strength",
+    "item.pile.hole_bottom_sediment"
+  ],
+  "field_refs": [
+    "field.pile.concrete_strength",
+    "field.pile.design_strength",
+    "field.pile.concrete_grade",
+    "field.pile.sediment_thickness"
+  ],
+  "evidence_refs": [
+    "ev.pile.catalog.8.1.1",
+    "ev.pile.spec.8.1.1.gate_rule",
+    "ev.pile.bridge13.b0.1"
+  ],
+  "threshold_refs": [
+    "th.pile.concrete_strength.ge.design",
+    "th.pile.concrete_grade.C25",
+    "th.pile.concrete_grade.C30",
+    "th.pile.concrete_grade.C35",
+    "th.pile.concrete_grade.C40"
+  ],
+  "gap_refs": [
+    "gap.pile.threshold.sediment"
+  ],
+  "canonical_hash": "pile_foundation_verified_v1",
+  "replay_hash": "pile_foundation_verified_v1"
+}

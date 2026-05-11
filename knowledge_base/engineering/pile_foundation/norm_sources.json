@@ -1,0 +1,60 @@
+{
+  "schema_version": "pile_foundation.norm_sources.v1",
+  "records": [
+    {
+      "norm_code": "JTG F80/1-2017",
+      "norm_name": "公路工程质量检验评定标准 第一册 土建工程",
+      "source_file": "meta.yaml",
+      "source_path": "norms/JTG_F80_1_2017/meta.yaml",
+      "source_type": "norm_metadata",
+      "version": "2017",
+      "effective_date": "unknown_in_repository",
+      "verification_status": "verified",
+      "notes": "标准元数据可在仓库直接读取。"
+    },
+    {
+      "norm_code": "JTG F80/1-2017",
+      "norm_name": "公路工程质量检验评定标准 第一册 土建工程",
+      "source_file": "catalog.json",
+      "source_path": "norms/catalog.json",
+      "source_type": "structured_catalog",
+      "version": "2017",
+      "effective_date": "unknown_in_repository",
+      "verification_status": "verified",
+      "notes": "包含桥梁工程-钻孔灌注桩-混凝土强度结构化条目。"
+    },
+    {
+      "norm_code": "JTG F80/1-2017",
+      "norm_name": "公路工程质量检验评定标准 第一册 土建工程",
+      "source_file": "8.1.1.pile_concrete_strength.spec.yaml",
+      "source_path": "norms/JTG_F80_1_2017/8.1.1.pile_concrete_strength.spec.yaml",
+      "source_type": "executable_spec_projection",
+      "version": "v0.1.0",
+      "effective_date": "unknown_in_repository",
+      "verification_status": "verified",
+      "notes": "仓库内可追溯执行化规范映射，含强度判定逻辑和等级阈值映射。"
+    },
+    {
+      "norm_code": "JTG F80/1-2017",
+      "norm_name": "公路工程质量检验评定标准 第一册 土建工程",
+      "source_file": "standarddoc.json",
+      "source_path": "standards/library/cn/mot/jtg-f80-1/2017/standarddoc.json",
+      "source_type": "standard_index",
+      "version": "2017",
+      "effective_date": "unknown_in_repository",
+      "verification_status": "verified",
+      "notes": "标准编码索引可验证。"
+    },
+    {
+      "norm_code": "JTG/T 3650",
+      "norm_name": "公路桥涵施工技术规范",
+      "source_file": "",
+      "source_path": "",
+      "source_type": "missing_source",
+      "version": "",
+      "effective_date": "",
+      "verification_status": "missing_source",
+      "notes": "仓库未检索到可核对原文或结构化条款来源。"
+    }
+  ]
+}

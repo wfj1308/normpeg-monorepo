@@ -1,0 +1,68 @@
+{
+  "schema_version": "pile_foundation.evidence.v1",
+  "records": [
+    {
+      "evidence_id": "ev.pile.catalog.8.1.1",
+      "norm_ref_id": "nr.jtgf80.8.1.1",
+      "source_excerpt": "混凝土强度应满足设计及相关规范要求。",
+      "source_norm_ref": "JTG F80/1-2017 8.1.1",
+      "source_file": "catalog.json",
+      "source_page": "unknown_in_repository",
+      "source_location": "norms/catalog.json -> categories[2].work_items[0].measured_items[0].components[0].clause_trace.original_text",
+      "inspection_item": "混凝土强度",
+      "field_refs": [
+        "field.pile.concrete_strength",
+        "field.pile.design_strength"
+      ],
+      "threshold_refs": [
+        "th.pile.concrete_strength.ge.design"
+      ],
+      "provenance_ref": "prov.pile.catalog.bored_pile",
+      "extraction_method": "structured_catalog_extraction",
+      "confidence": 1.0,
+      "verification_status": "verified"
+    },
+    {
+      "evidence_id": "ev.pile.bridge13.b0.1",
+      "norm_ref_id": "nr.jtgf80.b0.1",
+      "source_excerpt": "灌注桩孔底沉渣厚度应满足规范控制值。",
+      "source_norm_ref": "JTG F80/1-2017 B.0.1",
+      "source_file": "evidence.json",
+      "source_page": 1,
+      "source_location": "knowledge_base/engineering/bridge13/evidence.json#records[0]",
+      "inspection_item": "孔底沉渣厚度",
+      "field_refs": [
+        "field.pile.sediment_thickness"
+      ],
+      "threshold_refs": [],
+      "provenance_ref": "prov.pile.bridge13.ev1",
+      "extraction_method": "kb_record_reuse",
+      "confidence": 1.0,
+      "verification_status": "verified"
+    },
+    {
+      "evidence_id": "ev.pile.spec.8.1.1.gate_rule",
+      "norm_ref_id": "nr.jtgf80.8.1.1.strength_rule",
+      "source_excerpt": "condition: strength_resolved >= standard_strength",
+      "source_norm_ref": "JTG F80/1-2017 8.1.1.strength",
+      "source_file": "8.1.1.pile_concrete_strength.spec.yaml",
+      "source_page": "unknown_in_repository",
+      "source_location": "norms/JTG_F80_1_2017/8.1.1.pile_concrete_strength.spec.yaml -> gate.rules[0].condition",
+      "inspection_item": "混凝土强度",
+      "field_refs": [
+        "field.pile.concrete_strength",
+        "field.pile.concrete_grade"
+      ],
+      "threshold_refs": [
+        "th.pile.concrete_grade.C25",
+        "th.pile.concrete_grade.C30",
+        "th.pile.concrete_grade.C35",
+        "th.pile.concrete_grade.C40"
+      ],
+      "provenance_ref": "prov.pile.spec.8.1.1",
+      "extraction_method": "spec_yaml_extraction",
+      "confidence": 1.0,
+      "verification_status": "verified"
+    }
+  ]
+}

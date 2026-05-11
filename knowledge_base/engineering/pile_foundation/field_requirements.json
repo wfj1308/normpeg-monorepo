@@ -1,0 +1,281 @@
+{
+  "schema_version": "pile_foundation.field_requirements.v1",
+  "records": [
+    {
+      "field_id": "field.pile.concrete_strength",
+      "field_name": "混凝土强度",
+      "field_type": "number",
+      "unit": "MPa",
+      "required": true,
+      "candidate_constraints": [
+        ">= design_strength"
+      ],
+      "validation_hint": "strength >= design_strength",
+      "inspection_item_ref": "item.pile.concrete_strength",
+      "norm_refs": [
+        "nr.jtgf80.8.1.1"
+      ],
+      "evidence_refs": [
+        "ev.pile.catalog.8.1.1"
+      ],
+      "provenance_refs": [
+        "prov.pile.catalog.bored_pile"
+      ],
+      "verification_status": "verified"
+    },
+    {
+      "field_id": "field.pile.design_strength",
+      "field_name": "设计强度",
+      "field_type": "number",
+      "unit": "MPa",
+      "required": true,
+      "candidate_constraints": [],
+      "validation_hint": "design input baseline",
+      "inspection_item_ref": "item.pile.concrete_strength",
+      "norm_refs": [
+        "nr.jtgf80.8.1.1"
+      ],
+      "evidence_refs": [
+        "ev.pile.catalog.8.1.1"
+      ],
+      "provenance_refs": [
+        "prov.pile.catalog.bored_pile"
+      ],
+      "verification_status": "verified"
+    },
+    {
+      "field_id": "field.pile.concrete_grade",
+      "field_name": "混凝土强度等级",
+      "field_type": "enum",
+      "unit": "",
+      "required": false,
+      "candidate_constraints": [
+        "C25|C30|C35|C40"
+      ],
+      "validation_hint": "map grade to standard_strength via repository lookup table",
+      "inspection_item_ref": "item.pile.concrete_strength",
+      "norm_refs": [
+        "nr.jtgf80.8.1.1.strength_rule"
+      ],
+      "evidence_refs": [
+        "ev.pile.spec.8.1.1.gate_rule"
+      ],
+      "provenance_refs": [
+        "prov.pile.spec.8.1.1"
+      ],
+      "verification_status": "verified"
+    },
+    {
+      "field_id": "field.pile.sediment_thickness",
+      "field_name": "孔底沉渣厚度",
+      "field_type": "number",
+      "unit": "unknown_in_repository",
+      "required": true,
+      "candidate_constraints": [],
+      "validation_hint": "threshold pending confirmed source table",
+      "inspection_item_ref": "item.pile.hole_bottom_sediment",
+      "norm_refs": [
+        "nr.jtgf80.b0.1"
+      ],
+      "evidence_refs": [
+        "ev.pile.bridge13.b0.1"
+      ],
+      "provenance_refs": [
+        "prov.pile.bridge13.ev1"
+      ],
+      "verification_status": "verified"
+    },
+    {
+      "field_id": "field.pile.hole_diameter",
+      "field_name": "孔径",
+      "field_type": "number",
+      "unit": "unknown_in_repository",
+      "required": true,
+      "candidate_constraints": [],
+      "validation_hint": "pending source-backed tolerance",
+      "inspection_item_ref": "item.pile.hole_diameter",
+      "norm_refs": [],
+      "evidence_refs": [],
+      "provenance_refs": [
+        "prov.pile.inventory.gap_backlog"
+      ],
+      "verification_status": "unverified"
+    },
+    {
+      "field_id": "field.pile.hole_depth",
+      "field_name": "孔深",
+      "field_type": "number",
+      "unit": "unknown_in_repository",
+      "required": true,
+      "candidate_constraints": [],
+      "validation_hint": "pending source-backed tolerance",
+      "inspection_item_ref": "item.pile.hole_depth",
+      "norm_refs": [],
+      "evidence_refs": [],
+      "provenance_refs": [
+        "prov.pile.inventory.gap_backlog"
+      ],
+      "verification_status": "unverified"
+    },
+    {
+      "field_id": "field.pile.hole_position_offset",
+      "field_name": "孔位/桩位偏差",
+      "field_type": "number",
+      "unit": "unknown_in_repository",
+      "required": true,
+      "candidate_constraints": [],
+      "validation_hint": "pending source-backed tolerance",
+      "inspection_item_ref": "item.pile.hole_position",
+      "norm_refs": [],
+      "evidence_refs": [],
+      "provenance_refs": [
+        "prov.pile.inventory.gap_backlog"
+      ],
+      "verification_status": "unverified"
+    },
+    {
+      "field_id": "field.pile.slurry_density",
+      "field_name": "泥浆比重",
+      "field_type": "number",
+      "unit": "unknown_in_repository",
+      "required": false,
+      "candidate_constraints": [],
+      "validation_hint": "pending source-backed threshold",
+      "inspection_item_ref": "item.pile.slurry_index",
+      "norm_refs": [],
+      "evidence_refs": [],
+      "provenance_refs": [
+        "prov.pile.inventory.gap_backlog"
+      ],
+      "verification_status": "unverified"
+    },
+    {
+      "field_id": "field.pile.slurry_sand_ratio",
+      "field_name": "泥浆含砂率",
+      "field_type": "number",
+      "unit": "unknown_in_repository",
+      "required": false,
+      "candidate_constraints": [],
+      "validation_hint": "pending source-backed threshold",
+      "inspection_item_ref": "item.pile.slurry_index",
+      "norm_refs": [],
+      "evidence_refs": [],
+      "provenance_refs": [
+        "prov.pile.inventory.gap_backlog"
+      ],
+      "verification_status": "unverified"
+    },
+    {
+      "field_id": "field.pile.tremie_embed_depth",
+      "field_name": "导管埋深",
+      "field_type": "number",
+      "unit": "unknown_in_repository",
+      "required": true,
+      "candidate_constraints": [],
+      "validation_hint": "pending source-backed threshold",
+      "inspection_item_ref": "item.pile.tremie_embed_depth",
+      "norm_refs": [],
+      "evidence_refs": [],
+      "provenance_refs": [
+        "prov.pile.inventory.gap_backlog"
+      ],
+      "verification_status": "unverified"
+    },
+    {
+      "field_id": "field.pile.verticality",
+      "field_name": "竖直度/垂直度",
+      "field_type": "number",
+      "unit": "unknown_in_repository",
+      "required": true,
+      "candidate_constraints": [],
+      "validation_hint": "pending source-backed tolerance",
+      "inspection_item_ref": "item.pile.verticality",
+      "norm_refs": [],
+      "evidence_refs": [],
+      "provenance_refs": [
+        "prov.pile.inventory.gap_backlog"
+      ],
+      "verification_status": "unverified"
+    },
+    {
+      "field_id": "field.pile.rebar_cage_length",
+      "field_name": "钢筋笼长度",
+      "field_type": "number",
+      "unit": "unknown_in_repository",
+      "required": false,
+      "candidate_constraints": [],
+      "validation_hint": "pending source-backed tolerance",
+      "inspection_item_ref": "item.pile.rebar_cage_installation",
+      "norm_refs": [],
+      "evidence_refs": [],
+      "provenance_refs": [
+        "prov.pile.inventory.gap_backlog"
+      ],
+      "verification_status": "unverified"
+    },
+    {
+      "field_id": "field.pile.integrity_grade",
+      "field_name": "桩身完整性等级",
+      "field_type": "string",
+      "unit": "",
+      "required": false,
+      "candidate_constraints": [],
+      "validation_hint": "pending source-backed grading rule",
+      "inspection_item_ref": "item.pile.integrity",
+      "norm_refs": [],
+      "evidence_refs": [],
+      "provenance_refs": [
+        "prov.pile.inventory.gap_backlog"
+      ],
+      "verification_status": "unverified"
+    },
+    {
+      "field_id": "field.pile.bearing_capacity",
+      "field_name": "单桩承载力",
+      "field_type": "number",
+      "unit": "unknown_in_repository",
+      "required": false,
+      "candidate_constraints": [],
+      "validation_hint": "pending source-backed acceptance rule",
+      "inspection_item_ref": "item.pile.bearing_capacity",
+      "norm_refs": [],
+      "evidence_refs": [],
+      "provenance_refs": [
+        "prov.pile.inventory.gap_backlog"
+      ],
+      "verification_status": "unverified"
+    },
+    {
+      "field_id": "field.pile.top_elevation",
+      "field_name": "桩顶标高",
+      "field_type": "number",
+      "unit": "unknown_in_repository",
+      "required": false,
+      "candidate_constraints": [],
+      "validation_hint": "pending source-backed tolerance",
+      "inspection_item_ref": "item.pile.top_elevation",
+      "norm_refs": [],
+      "evidence_refs": [],
+      "provenance_refs": [
+        "prov.pile.inventory.gap_backlog"
+      ],
+      "verification_status": "unverified"
+    },
+    {
+      "field_id": "field.pile.rebar_cover",
+      "field_name": "钢筋保护层厚度",
+      "field_type": "number",
+      "unit": "unknown_in_repository",
+      "required": false,
+      "candidate_constraints": [],
+      "validation_hint": "pending source-backed tolerance",
+      "inspection_item_ref": "item.pile.rebar_cover",
+      "norm_refs": [],
+      "evidence_refs": [],
+      "provenance_refs": [
+        "prov.pile.inventory.gap_backlog"
+      ],
+      "verification_status": "unverified"
+    }
+  ]
+}
