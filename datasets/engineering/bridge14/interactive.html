@@ -1,0 +1,132 @@
+<!doctype html><html><head><meta charset='utf-8'><title>NormPeg Interactive</title><style>body{margin:0;display:grid;grid-template-columns:1fr 360px;height:100vh;font-family:Segoe UI,Arial,sans-serif}#canvas{overflow:auto;background:#f7f9fc;padding:10px}#side{border-left:1px solid #ccd;padding:10px;overflow:auto}.selected rect{stroke:#d24 !important;stroke-width:3px}</style></head><body><div id='canvas'><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 700' data-layer='interactive'><g class='node' data-gateid='gate.3ba5def0dae07aa4' data-bodyid='body.02ad324543979fd8' data-runtimeid='runtime.eed4530233bd6908' data-proofref='proof.normartifact.24586e9881ab0203' data-normref='JTG F80/1-2017' data-provenance='REQ1' transform='translate(20,40)' data-vaddr='v://projection/node/runtime.eed4530233bd6908/gate.3ba5def0dae07aa4/body.02ad324543979fd8/proof.normartifact.24586e9881ab0203/JTG F80/1-2017'><rect width='280' height='32' fill='#e8f1ff' stroke='#275c9a'/><text x='8' y='21' font-size='12'>F1</text></g><g class='node' data-gateid='gate.3ba5def0dae07aa4' data-bodyid='body.02ad324543979fd8' data-runtimeid='runtime.eed4530233bd6908' data-proofref='proof.normartifact.24586e9881ab0203' data-normref='JTG F80/1-2017' data-provenance='REQ1' transform='translate(20,82)' data-vaddr='v://projection/node/runtime.eed4530233bd6908/gate.3ba5def0dae07aa4/body.02ad324543979fd8/proof.normartifact.24586e9881ab0203/JTG F80/1-2017'><rect width='280' height='32' fill='#e8f1ff' stroke='#275c9a'/><text x='8' y='21' font-size='12'>F2</text></g><g class='node' data-gateid='gate.3ba5def0dae07aa4' data-bodyid='body.02ad324543979fd8' data-runtimeid='runtime.eed4530233bd6908' data-proofref='proof.normartifact.24586e9881ab0203' data-normref='JTG F80/1-2017' data-provenance='REQ1' transform='translate(20,124)' data-vaddr='v://projection/node/runtime.eed4530233bd6908/gate.3ba5def0dae07aa4/body.02ad324543979fd8/proof.normartifact.24586e9881ab0203/JTG F80/1-2017'><rect width='280' height='32' fill='#e8f1ff' stroke='#275c9a'/><text x='8' y='21' font-size='12'>F3</text></g><g class='node' data-gateid='gate.3ba5def0dae07aa4' data-bodyid='body.02ad324543979fd8' data-runtimeid='runtime.eed4530233bd6908' data-proofref='proof.normartifact.24586e9881ab0203' data-normref='JTG F80/1-2017' data-provenance='REQ1' transform='translate(20,166)' data-vaddr='v://projection/node/runtime.eed4530233bd6908/gate.3ba5def0dae07aa4/body.02ad324543979fd8/proof.normartifact.24586e9881ab0203/JTG F80/1-2017'><rect width='280' height='32' fill='#e8f1ff' stroke='#275c9a'/><text x='8' y='21' font-size='12'>F4</text></g><g class='node' data-gateid='gate.3ba5def0dae07aa4' data-bodyid='body.02ad324543979fd8' data-runtimeid='runtime.eed4530233bd6908' data-proofref='proof.normartifact.24586e9881ab0203' data-normref='JTG F80/1-2017' data-provenance='REQ1' transform='translate(20,208)' data-vaddr='v://projection/node/runtime.eed4530233bd6908/gate.3ba5def0dae07aa4/body.02ad324543979fd8/proof.normartifact.24586e9881ab0203/JTG F80/1-2017'><rect width='280' height='32' fill='#e8f1ff' stroke='#275c9a'/><text x='8' y='21' font-size='12'>C1</text></g><g class='node' data-gateid='gate.3ba5def0dae07aa4' data-bodyid='body.02ad324543979fd8' data-runtimeid='runtime.eed4530233bd6908' data-proofref='proof.normartifact.24586e9881ab0203' data-normref='JTG F80/1-2017' data-provenance='REQ1' transform='translate(20,250)' data-vaddr='v://projection/node/runtime.eed4530233bd6908/gate.3ba5def0dae07aa4/body.02ad324543979fd8/proof.normartifact.24586e9881ab0203/JTG F80/1-2017'><rect width='280' height='32' fill='#e8f1ff' stroke='#275c9a'/><text x='8' y='21' font-size='12'>T1</text></g></svg><script>const root=document.querySelector('svg');const panel=document.getElementById('trace');if(root){root.querySelectorAll('g.node').forEach(n=>n.addEventListener('click',()=>{root.querySelectorAll('g.node').forEach(x=>x.classList.remove('selected'));n.classList.add('selected');panel.textContent=JSON.stringify({gate:n.dataset.gateid,body:n.dataset.bodyid,runtime:n.dataset.runtimeid,proof:n.dataset.proofref,norm:n.dataset.normref,provenance:n.dataset.provenance},null,2);}));}</script></div><aside id='side'><h3>Overlays</h3><pre id='overlay'>{
+  "normref_overlay": {
+    "normrefs": [
+      {
+        "norm_ref": "JTG F80/1-2017",
+        "provenance_ref": "REQ1",
+        "source_clause": "REQ1",
+        "source_excerpt": "灌注桩孔底沉渣厚度应满足规范控制值。",
+        "verification_status": "verified"
+      }
+    ]
+  },
+  "proofchain_overlay": {
+    "proofchain": {
+      "candidate_refs": [
+        "normartifact.24586e9881ab0203"
+      ],
+      "compile_refs": [
+        "ok"
+      ],
+      "evidence_refs": [
+        "ev.bridge13.b01.1"
+      ],
+      "proofchain_id": "proof.normartifact.24586e9881ab0203",
+      "provenance_refs": [
+        "builder:topology_candidate",
+        "decode:5ce926570dc50d9d548d688aa5be4964dbb429053e7bab312511dcb3bda39b11",
+        "domain:engineering",
+        "inference_runtime",
+        "parser:clause_segmenter",
+        "parser:table_region_detector",
+        "project:bridge14",
+        "prov.71110714f0b71b7f",
+        "provider:qwen.local.mock",
+        "semantic:normref_binding",
+        "semantic:requirement_builder",
+        "semantic:role_extractor"
+      ],
+      "replay_refs": [
+        "43769160aafda4259a0722892b9fa272c449349b71f59de64d89209f974b3cb4",
+        "43769160aafda4259a0722892b9fa272c449349b71f59de64d89209f974b3cb4"
+      ],
+      "svg_refs": [
+        "svg.pending"
+      ],
+      "validation_refs": [
+        "ok"
+      ]
+    }
+  },
+  "runtime_overlay": {
+    "runtime_candidates": [
+      {
+        "canonical_hash": "441a22cc9732275f7df066fc19f2b589ead38f05ce57e769b7ad9decfd1c6b68",
+        "dependency_candidates": [
+          {
+            "canonical_hash": "3278d06216d38c62eeef4a1b99e5d44b8e722962b4397c4cf3ba686235e493d0",
+            "constraint_refs": [
+              "constraint:from_norm_excerpt"
+            ],
+            "dependency_id": "D1",
+            "dependency_type": "value_prerequisite",
+            "downstream_fields": [
+              "F2"
+            ],
+            "evidence_refs": [
+              "ev.bridge13.b01.1"
+            ],
+            "provenance_refs": [
+              "semantic:dependency_builder"
+            ],
+            "trigger_conditions": [
+              "upstream_present"
+            ],
+            "upstream_fields": [
+              "F1"
+            ]
+          }
+        ],
+        "execution_hints": [
+          "candidate_only",
+          "no_runtime_execution"
+        ],
+        "policy_refs": [
+          "POL1"
+        ],
+        "provenance_refs": [
+          "builder:topology_candidate",
+          "decode:5ce926570dc50d9d548d688aa5be4964dbb429053e7bab312511dcb3bda39b11",
+          "domain:engineering",
+          "inference_runtime",
+          "parser:clause_segmenter",
+          "parser:table_region_detector",
+          "project:bridge14",
+          "prov.71110714f0b71b7f",
+          "provider:qwen.local.mock",
+          "semantic:normref_binding",
+          "semantic:requirement_builder",
+          "semantic:role_extractor"
+        ],
+        "replay_hash": "13c36f82b0e9d2eccc17cbd8536454b5b7ee9267d5e6d269759da785b02ca9a9",
+        "runtime_candidate_id": "runtime.eed4530233bd6908",
+        "runtime_slot_candidates": [
+          {
+            "slot_id": "F1",
+            "slot_type": "table_field"
+          },
+          {
+            "slot_id": "F2",
+            "slot_type": "table_field"
+          },
+          {
+            "slot_id": "F3",
+            "slot_type": "table_field"
+          },
+          {
+            "slot_id": "F4",
+            "slot_type": "table_field"
+          }
+        ],
+        "validation_candidates": [
+          {
+            "check": "schema"
+          },
+          {
+            "check": "traceability"
+          }
+        ]
+      }
+    ]
+  }
+}</pre><h3>Trace</h3><pre id='trace'></pre></aside><script>const overlay=JSON.parse(document.getElementById('overlay').textContent);</script></body></html>

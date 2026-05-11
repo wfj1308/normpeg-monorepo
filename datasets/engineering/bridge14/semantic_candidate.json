@@ -1,0 +1,135 @@
+{
+  "candidate_id": "semantic.pipeline",
+  "domain": "engineering",
+  "semantic_roles": [
+    {
+      "role_id": "R1",
+      "role_type": "norm_requirement_role",
+      "subject": "contractor",
+      "action": "submit",
+      "evidence_ref": "ev.bridge13.b01.1",
+      "source_ref": "C1"
+    }
+  ],
+  "dependency_candidates": [
+    {
+      "dependency_id": "D1",
+      "upstream_fields": [
+        "F1"
+      ],
+      "downstream_fields": [
+        "F2"
+      ],
+      "dependency_type": "value_prerequisite",
+      "trigger_conditions": [
+        "upstream_present"
+      ],
+      "constraint_refs": [
+        "constraint:from_norm_excerpt"
+      ],
+      "evidence_refs": [
+        "ev.bridge13.b01.1"
+      ],
+      "provenance_refs": [
+        "semantic:dependency_builder"
+      ],
+      "canonical_hash": "3278d06216d38c62eeef4a1b99e5d44b8e722962b4397c4cf3ba686235e493d0"
+    }
+  ],
+  "requirement_candidates": [
+    {
+      "requirement_id": "REQ1",
+      "requirement_text": "JTG F80/1-2017 UNVERIFIED_CLAUSE | UNVERIFIED_FIELD_A | UNVERIFIED_FIELD_B | |---|---| | UNVERIFIED_FIELD | 30m |",
+      "requirement_type": "norm_clause_requirement",
+      "threshold_candidates": [
+        {
+          "value": "80",
+          "source_excerpt": "灌注桩孔底沉渣厚度应满足规范控制值。"
+        },
+        {
+          "value": "1",
+          "source_excerpt": "灌注桩孔底沉渣厚度应满足规范控制值。"
+        },
+        {
+          "value": "2017",
+          "source_excerpt": "灌注桩孔底沉渣厚度应满足规范控制值。"
+        },
+        {
+          "value": "30",
+          "source_excerpt": "灌注桩孔底沉渣厚度应满足规范控制值。"
+        }
+      ],
+      "tolerance_candidates": [],
+      "validation_rules": [
+        {
+          "rule": "must_follow_clause"
+        }
+      ],
+      "norm_refs": [
+        "JTG F80/1-2017"
+      ],
+      "evidence_refs": [
+        "ev.bridge13.b01.1"
+      ],
+      "evidence_ref": "ev.bridge13.b01.1",
+      "source_ref": "C1",
+      "provenance_refs": [
+        "semantic:requirement_builder",
+        "parser:clause_segmenter"
+      ],
+      "canonical_hash": "21d5e14419fb4b15c5b23114d97f9eaa65d1a31fb6986751bda36769c9ef4944"
+    }
+  ],
+  "normref_candidates": [
+    {
+      "norm_ref": "JTG F80/1-2017",
+      "evidence_ref": "ev.bridge13.b01.1",
+      "source_ref": "REQ1",
+      "source_excerpt": "灌注桩孔底沉渣厚度应满足规范控制值。",
+      "source_location": "Table B.0.1",
+      "verification_status": "verified",
+      "binding_id": "B1"
+    }
+  ],
+  "policy_candidates": [
+    {
+      "policy_id": "POL1",
+      "policy_type": "candidate_policy_only",
+      "policy_scope": "semantic_candidate",
+      "policy_constraints": [
+        "no_runtime_execution",
+        "no_governance_execution",
+        "no_patch_mutation"
+      ],
+      "execution_hints": [],
+      "role_refs": [
+        "R1"
+      ],
+      "dependency_refs": [
+        "D1"
+      ],
+      "norm_refs": [
+        "JTG F80/1-2017"
+      ],
+      "evidence_refs": [
+        "ev.bridge13.b01.1"
+      ],
+      "provenance_refs": [
+        "semantic:policy_builder"
+      ],
+      "canonical_hash": "c22ad258b968b4830bba1af7a07fb82cf4644d27e099d443f648d758d35dcb96"
+    }
+  ],
+  "evidence_refs": [
+    "ev.bridge13.b01.1"
+  ],
+  "provenance_refs": [
+    "parser:clause_segmenter",
+    "semantic:normref_binding",
+    "semantic:requirement_builder",
+    "semantic:role_extractor"
+  ],
+  "schema_version": "semantic_candidate.v1",
+  "replay_hash": "3c4c60848bfb9ae5365eb3448da8e69684eb28a981dc8882e4be05035e67ef94",
+  "canonical_hash": "39643b6481d8eb15db6587d548eee5ef4c78774eabed0395565df3bfb793fd59"
+}

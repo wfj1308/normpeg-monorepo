@@ -1,0 +1,10 @@
+{
+  "schema_pass_rate": 1.0,
+  "svg_render_pass_rate": 1.0,
+  "replay_pass_rate": 1.0,
+  "proofchain_integrity": true,
+  "provenance_integrity": true,
+  "hallucination_rate": 0.0,
+  "compile_gate_integrity": true,
+  "overall_score": 1.0
+}

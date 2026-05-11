@@ -1,0 +1,207 @@
+{
+  "candidate_id": "structure.pipeline",
+  "domain": "engineering",
+  "source_refs": [
+    "source:norm_text"
+  ],
+  "clause_blocks": [
+    {
+      "clause_id": "C1",
+      "raw_text": "JTG F80/1-2017 UNVERIFIED_CLAUSE\n| UNVERIFIED_FIELD_A | UNVERIFIED_FIELD_B |\n|---|---|\n| UNVERIFIED_CLAUSE | 45MPa |",
+      "normalized_text": "JTG F80/1-2017 UNVERIFIED_CLAUSE | UNVERIFIED_FIELD_A | UNVERIFIED_FIELD_B | |---|---| | UNVERIFIED_CLAUSE | 45MPa |",
+      "source_location": "line:1",
+      "source_page": 1,
+      "norm_ref_candidates": [
+        "JTG F80/1-2017"
+      ],
+      "parent_clause": "",
+      "child_clauses": [],
+      "provenance_ref": "parser:clause_segmenter",
+      "canonical_hash": "9b8a8b4cb6c04c894b87ddba0de4a6757b4cc041994ba0b58c72e4a42ff3c778"
+    }
+  ],
+  "table_regions": [
+    {
+      "region_id": "T1",
+      "rows": 3,
+      "cols": 2,
+      "header_regions": [
+        {
+          "row": 0,
+          "cells": [
+            "?",
+            "?"
+          ]
+        }
+      ],
+      "merged_cells": [],
+      "field_slots": [
+        {
+          "slot_id": "S2_1",
+          "label": "---"
+        },
+        {
+          "slot_id": "S2_2",
+          "label": "---"
+        },
+        {
+          "slot_id": "S3_1",
+          "label": "UNVERIFIED_CLAUSE"
+        },
+        {
+          "slot_id": "S3_2",
+          "label": "45MPa"
+        }
+      ],
+      "source_location": "table:1",
+      "provenance_ref": "parser:table_region_detector",
+      "canonical_hash": "a031e1fd27b2fd719fcc3013e621812a21d3324ffdce1e8ffa1ccd077ca1d7b4"
+    }
+  ],
+  "field_candidates": [
+    {
+      "field_id": "F1",
+      "label": "---",
+      "candidate_type": "table_field",
+      "source_norm_refs": [],
+      "source_region": "T1",
+      "candidate_constraints": [],
+      "tolerance_candidates": [],
+      "unit_candidates": [],
+      "provenance_refs": [
+        "parser:table_region_detector"
+      ],
+      "confidence": {
+        "source": "table_parser",
+        "score": 0.9
+      },
+      "canonical_hash": "8b1e02fdf455b9cd8aa2fb218d495b10e402466f3b5a29fc8544fd823cfe39fd"
+    },
+    {
+      "field_id": "F2",
+      "label": "---",
+      "candidate_type": "table_field",
+      "source_norm_refs": [],
+      "source_region": "T1",
+      "candidate_constraints": [],
+      "tolerance_candidates": [],
+      "unit_candidates": [],
+      "provenance_refs": [
+        "parser:table_region_detector"
+      ],
+      "confidence": {
+        "source": "table_parser",
+        "score": 0.9
+      },
+      "canonical_hash": "015577a9cfc198f55789116bc6143c6b4716d2e1656f7d14b61dd4dcd33b90d0"
+    },
+    {
+      "field_id": "F3",
+      "label": "UNVERIFIED_CLAUSE",
+      "candidate_type": "table_field",
+      "source_norm_refs": [],
+      "source_region": "T1",
+      "candidate_constraints": [],
+      "tolerance_candidates": [],
+      "unit_candidates": [],
+      "provenance_refs": [
+        "parser:table_region_detector"
+      ],
+      "confidence": {
+        "source": "table_parser",
+        "score": 0.9
+      },
+      "canonical_hash": "71e31acac9c5a427b98137f5c6727f8be152267980c1f07467011a1bf885f28e"
+    },
+    {
+      "field_id": "F4",
+      "label": "45MPa",
+      "candidate_type": "table_field",
+      "source_norm_refs": [],
+      "source_region": "T1",
+      "candidate_constraints": [],
+      "tolerance_candidates": [],
+      "unit_candidates": [],
+      "provenance_refs": [
+        "parser:table_region_detector"
+      ],
+      "confidence": {
+        "source": "table_parser",
+        "score": 0.9
+      },
+      "canonical_hash": "d3bdec419ade3915bc4f059686091613df3e4747d2c2dacaa66c0cb054ce2000"
+    }
+  ],
+  "gate_candidates": [
+    {
+      "gate_id": "G1",
+      "source_ref": "C1"
+    }
+  ],
+  "topology_candidates": [
+    {
+      "topology_id": "TP1",
+      "region_nodes": [
+        {
+          "node_id": "C1",
+          "node_type": "clause"
+        },
+        {
+          "node_id": "T1",
+          "node_type": "table_region"
+        }
+      ],
+      "field_edges": [
+        {
+          "field_id": "F1",
+          "target_node": "T1"
+        },
+        {
+          "field_id": "F2",
+          "target_node": "T1"
+        },
+        {
+          "field_id": "F3",
+          "target_node": "T1"
+        },
+        {
+          "field_id": "F4",
+          "target_node": "T1"
+        }
+      ],
+      "adjacency": [
+        {
+          "source": "C1",
+          "target": "T1",
+          "kind": "references"
+        }
+      ],
+      "parent_relations": [],
+      "gate_touchpoints": [],
+      "body_regions": [
+        "T1"
+      ],
+      "provenance_refs": [
+        "builder:topology_candidate"
+      ],
+      "canonical_hash": "3e18d8c9e83c427bdd2ae7c35975690db03edbb05e4d5b31e671930dc2afdacb"
+    }
+  ],
+  "layout_regions": [
+    {
+      "region_id": "T1",
+      "rows": 3,
+      "cols": 2
+    }
+  ],
+  "provenance_refs": [
+    "builder:topology_candidate",
+    "decode:7928992dbd50a0de6b7d0216010f235b67333b01e3e9d31296dffe292cc3a7de",
+    "parser:clause_segmenter",
+    "parser:table_region_detector",
+    "provider:qwen.local.mock"
+  ],
+  "schema_version": "structure_candidate.v1",
+  "replay_hash": "0d7b339f801778f3577b54a59375e33749272772a9b08dd5332e581a70d83ec0",
+  "canonical_hash": "c2cecca48162a6f1fead76712fd20ee93322224b2b00f4d910dd766917a84716"
+}

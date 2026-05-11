@@ -1,0 +1,1287 @@
+{
+  "candidate_id": "normartifact.24586e9881ab0203",
+  "artifact_id": "normartifact.24586e9881ab0203",
+  "domain": "engineering",
+  "structure_candidate": {
+    "candidate_id": "structure.pipeline",
+    "domain": "engineering",
+    "source_refs": [
+      "source:norm_text"
+    ],
+    "clause_blocks": [
+      {
+        "clause_id": "C1",
+        "raw_text": "JTG F80/1-2017 UNVERIFIED_CLAUSE\n| UNVERIFIED_FIELD_A | UNVERIFIED_FIELD_B |\n|---|---|\n| UNVERIFIED_FIELD | 30m |",
+        "normalized_text": "JTG F80/1-2017 UNVERIFIED_CLAUSE | UNVERIFIED_FIELD_A | UNVERIFIED_FIELD_B | |---|---| | UNVERIFIED_FIELD | 30m |",
+        "source_location": "line:1",
+        "source_page": 1,
+        "norm_ref_candidates": [
+          "JTG F80/1-2017"
+        ],
+        "parent_clause": "",
+        "child_clauses": [],
+        "provenance_ref": "parser:clause_segmenter",
+        "canonical_hash": "d8a136a9f9792bb357e330fb4398cc268661c7bd78a01a9035a6dc811e3e02f0"
+      }
+    ],
+    "table_regions": [
+      {
+        "region_id": "T1",
+        "rows": 3,
+        "cols": 2,
+        "header_regions": [
+          {
+            "row": 0,
+            "cells": [
+              "?",
+              "?"
+            ]
+          }
+        ],
+        "merged_cells": [],
+        "field_slots": [
+          {
+            "slot_id": "S2_1",
+            "label": "---"
+          },
+          {
+            "slot_id": "S2_2",
+            "label": "---"
+          },
+          {
+            "slot_id": "S3_1",
+            "label": "?"
+          },
+          {
+            "slot_id": "S3_2",
+            "label": "30m"
+          }
+        ],
+        "source_location": "table:1",
+        "provenance_ref": "parser:table_region_detector",
+        "canonical_hash": "3e8558ee57346974ae2c29873384c3dd6e902e27fda494fbbea3127c10b30442"
+      }
+    ],
+    "field_candidates": [
+      {
+        "field_id": "F1",
+        "label": "---",
+        "candidate_type": "table_field",
+        "source_norm_refs": [],
+        "source_region": "T1",
+        "candidate_constraints": [],
+        "tolerance_candidates": [],
+        "unit_candidates": [],
+        "provenance_refs": [
+          "parser:table_region_detector"
+        ],
+        "confidence": {
+          "source": "table_parser",
+          "score": 0.9
+        },
+        "canonical_hash": "8b1e02fdf455b9cd8aa2fb218d495b10e402466f3b5a29fc8544fd823cfe39fd"
+      },
+      {
+        "field_id": "F2",
+        "label": "---",
+        "candidate_type": "table_field",
+        "source_norm_refs": [],
+        "source_region": "T1",
+        "candidate_constraints": [],
+        "tolerance_candidates": [],
+        "unit_candidates": [],
+        "provenance_refs": [
+          "parser:table_region_detector"
+        ],
+        "confidence": {
+          "source": "table_parser",
+          "score": 0.9
+        },
+        "canonical_hash": "015577a9cfc198f55789116bc6143c6b4716d2e1656f7d14b61dd4dcd33b90d0"
+      },
+      {
+        "field_id": "F3",
+        "label": "?",
+        "candidate_type": "table_field",
+        "source_norm_refs": [],
+        "source_region": "T1",
+        "candidate_constraints": [],
+        "tolerance_candidates": [],
+        "unit_candidates": [],
+        "provenance_refs": [
+          "parser:table_region_detector"
+        ],
+        "confidence": {
+          "source": "table_parser",
+          "score": 0.9
+        },
+        "canonical_hash": "232d1a61d11a1d9f8eeba344a7fd79400cdeb3bc7889ced5812cd7eb5688d461"
+      },
+      {
+        "field_id": "F4",
+        "label": "30m",
+        "candidate_type": "table_field",
+        "source_norm_refs": [],
+        "source_region": "T1",
+        "candidate_constraints": [],
+        "tolerance_candidates": [],
+        "unit_candidates": [],
+        "provenance_refs": [
+          "parser:table_region_detector"
+        ],
+        "confidence": {
+          "source": "table_parser",
+          "score": 0.9
+        },
+        "canonical_hash": "2f688057551e5379ee8a5189bb8914132f833d5880931c328d536283318e5492"
+      }
+    ],
+    "gate_candidates": [
+      {
+        "gate_id": "G1",
+        "source_ref": "C1"
+      }
+    ],
+    "topology_candidates": [
+      {
+        "topology_id": "TP1",
+        "region_nodes": [
+          {
+            "node_id": "C1",
+            "node_type": "clause"
+          },
+          {
+            "node_id": "T1",
+            "node_type": "table_region"
+          }
+        ],
+        "field_edges": [
+          {
+            "field_id": "F1",
+            "target_node": "T1"
+          },
+          {
+            "field_id": "F2",
+            "target_node": "T1"
+          },
+          {
+            "field_id": "F3",
+            "target_node": "T1"
+          },
+          {
+            "field_id": "F4",
+            "target_node": "T1"
+          }
+        ],
+        "adjacency": [
+          {
+            "source": "C1",
+            "target": "T1",
+            "kind": "references"
+          }
+        ],
+        "parent_relations": [],
+        "gate_touchpoints": [],
+        "body_regions": [
+          "T1"
+        ],
+        "provenance_refs": [
+          "builder:topology_candidate"
+        ],
+        "canonical_hash": "3e18d8c9e83c427bdd2ae7c35975690db03edbb05e4d5b31e671930dc2afdacb"
+      }
+    ],
+    "layout_regions": [
+      {
+        "region_id": "T1",
+        "rows": 3,
+        "cols": 2
+      }
+    ],
+    "provenance_refs": [
+      "builder:topology_candidate",
+      "decode:5ce926570dc50d9d548d688aa5be4964dbb429053e7bab312511dcb3bda39b11",
+      "parser:clause_segmenter",
+      "parser:table_region_detector",
+      "provider:qwen.local.mock"
+    ],
+    "schema_version": "structure_candidate.v1",
+    "replay_hash": "1363a702359d5b7ad4faf6782fb9589a74ea5d83bda70b7ee5265ac7ad3b8097",
+    "canonical_hash": "d87387ab1e10c48ea92ceff40003572ced570812e4026e07060deed9f57e6fe1"
+  },
+  "semantic_candidate": {
+    "candidate_id": "semantic.pipeline",
+    "domain": "engineering",
+    "semantic_roles": [
+      {
+        "role_id": "R1",
+        "role_type": "norm_requirement_role",
+        "subject": "contractor",
+        "action": "submit",
+        "evidence_ref": "ev.bridge13.b01.1",
+        "source_ref": "C1"
+      }
+    ],
+    "dependency_candidates": [
+      {
+        "dependency_id": "D1",
+        "upstream_fields": [
+          "F1"
+        ],
+        "downstream_fields": [
+          "F2"
+        ],
+        "dependency_type": "value_prerequisite",
+        "trigger_conditions": [
+          "upstream_present"
+        ],
+        "constraint_refs": [
+          "constraint:from_norm_excerpt"
+        ],
+        "evidence_refs": [
+          "ev.bridge13.b01.1"
+        ],
+        "provenance_refs": [
+          "semantic:dependency_builder"
+        ],
+        "canonical_hash": "3278d06216d38c62eeef4a1b99e5d44b8e722962b4397c4cf3ba686235e493d0"
+      }
+    ],
+    "requirement_candidates": [
+      {
+        "requirement_id": "REQ1",
+        "requirement_text": "JTG F80/1-2017 UNVERIFIED_CLAUSE | UNVERIFIED_FIELD_A | UNVERIFIED_FIELD_B | |---|---| | UNVERIFIED_FIELD | 30m |",
+        "requirement_type": "norm_clause_requirement",
+        "threshold_candidates": [
+          {
+            "value": "80",
+            "source_excerpt": "灌注桩孔底沉渣厚度应满足规范控制值。"
+          },
+          {
+            "value": "1",
+            "source_excerpt": "灌注桩孔底沉渣厚度应满足规范控制值。"
+          },
+          {
+            "value": "2017",
+            "source_excerpt": "灌注桩孔底沉渣厚度应满足规范控制值。"
+          },
+          {
+            "value": "30",
+            "source_excerpt": "灌注桩孔底沉渣厚度应满足规范控制值。"
+          }
+        ],
+        "tolerance_candidates": [],
+        "validation_rules": [
+          {
+            "rule": "must_follow_clause"
+          }
+        ],
+        "norm_refs": [
+          "JTG F80/1-2017"
+        ],
+        "evidence_refs": [
+          "ev.bridge13.b01.1"
+        ],
+        "evidence_ref": "ev.bridge13.b01.1",
+        "source_ref": "C1",
+        "provenance_refs": [
+          "semantic:requirement_builder",
+          "parser:clause_segmenter"
+        ],
+        "canonical_hash": "21d5e14419fb4b15c5b23114d97f9eaa65d1a31fb6986751bda36769c9ef4944"
+      }
+    ],
+    "normref_candidates": [
+      {
+        "norm_ref": "JTG F80/1-2017",
+        "evidence_ref": "ev.bridge13.b01.1",
+        "source_ref": "REQ1",
+        "source_excerpt": "灌注桩孔底沉渣厚度应满足规范控制值。",
+        "source_location": "Table B.0.1",
+        "verification_status": "verified",
+        "binding_id": "B1"
+      }
+    ],
+    "policy_candidates": [
+      {
+        "policy_id": "POL1",
+        "policy_type": "candidate_policy_only",
+        "policy_scope": "semantic_candidate",
+        "policy_constraints": [
+          "no_runtime_execution",
+          "no_governance_execution",
+          "no_patch_mutation"
+        ],
+        "execution_hints": [],
+        "role_refs": [
+          "R1"
+        ],
+        "dependency_refs": [
+          "D1"
+        ],
+        "norm_refs": [
+          "JTG F80/1-2017"
+        ],
+        "evidence_refs": [
+          "ev.bridge13.b01.1"
+        ],
+        "provenance_refs": [
+          "semantic:policy_builder"
+        ],
+        "canonical_hash": "c22ad258b968b4830bba1af7a07fb82cf4644d27e099d443f648d758d35dcb96"
+      }
+    ],
+    "evidence_refs": [
+      "ev.bridge13.b01.1"
+    ],
+    "provenance_refs": [
+      "parser:clause_segmenter",
+      "semantic:normref_binding",
+      "semantic:requirement_builder",
+      "semantic:role_extractor"
+    ],
+    "schema_version": "semantic_candidate.v1",
+    "replay_hash": "3c4c60848bfb9ae5365eb3448da8e69684eb28a981dc8882e4be05035e67ef94",
+    "canonical_hash": "39643b6481d8eb15db6587d548eee5ef4c78774eabed0395565df3bfb793fd59"
+  },
+  "evidence_bundle_refs": [
+    "ev.bridge13.b01.1"
+  ],
+  "inferred_gate": {
+    "gate_candidate_id": "gate.3ba5def0dae07aa4",
+    "role_candidates": [
+      {
+        "role_id": "R1",
+        "role_type": "norm_requirement_role",
+        "role_subject": "contractor",
+        "role_action": "submit",
+        "evidence_ref": "ev.bridge13.b01.1"
+      }
+    ],
+    "approval_candidates": [
+      {
+        "approval_id": "AP-R1",
+        "actor": "contractor",
+        "action": "approve",
+        "condition": "required",
+        "evidence_ref": "ev.bridge13.b01.1"
+      }
+    ],
+    "inspection_candidates": [
+      {
+        "inspection_id": "IN-R1",
+        "inspector": "contractor",
+        "target": "submit",
+        "evidence_ref": "ev.bridge13.b01.1"
+      }
+    ],
+    "interface_candidates": [
+      {
+        "interface_id": "IF-R1",
+        "actor": "contractor",
+        "interface": "candidate_only",
+        "evidence_ref": "ev.bridge13.b01.1"
+      }
+    ],
+    "dependency_refs": [
+      "D1"
+    ],
+    "normref_refs": [
+      "JTG F80/1-2017"
+    ],
+    "evidence_refs": [
+      "ev.bridge13.b01.1"
+    ],
+    "provenance_refs": [
+      "builder:topology_candidate",
+      "decode:5ce926570dc50d9d548d688aa5be4964dbb429053e7bab312511dcb3bda39b11",
+      "domain:engineering",
+      "inference_runtime",
+      "parser:clause_segmenter",
+      "parser:table_region_detector",
+      "project:bridge14",
+      "prov.71110714f0b71b7f",
+      "provider:qwen.local.mock",
+      "semantic:normref_binding",
+      "semantic:requirement_builder",
+      "semantic:role_extractor"
+    ],
+    "confidence": 1.0,
+    "approvals": [
+      {
+        "actor": "contractor",
+        "action": "approve",
+        "condition": "required"
+      }
+    ],
+    "requirements": [
+      {
+        "id": "R1",
+        "name": "submit"
+      }
+    ],
+    "dependencies": [
+      {
+        "source": "D1",
+        "target": "D1:target"
+      }
+    ],
+    "metadata": {
+      "source": "peg_normllm.candidate.inferred_gate_builder"
+    },
+    "source_text": "灌注桩孔底沉渣厚度应满足规范控制值。",
+    "canonical_hash": "0845c4022f9a8f27d5ef5c2655334c4e6feddb49e8d776cf880d75353cd8d71c"
+  },
+  "inferred_body": {
+    "body_candidate_id": "body.02ad324543979fd8",
+    "topology_regions": [
+      {
+        "topology_id": "TP1",
+        "region_nodes": [
+          {
+            "node_id": "C1",
+            "node_type": "clause"
+          },
+          {
+            "node_id": "T1",
+            "node_type": "table_region"
+          }
+        ],
+        "field_edges": [
+          {
+            "field_id": "F1",
+            "target_node": "T1"
+          },
+          {
+            "field_id": "F2",
+            "target_node": "T1"
+          },
+          {
+            "field_id": "F3",
+            "target_node": "T1"
+          },
+          {
+            "field_id": "F4",
+            "target_node": "T1"
+          }
+        ],
+        "adjacency": [
+          {
+            "source": "C1",
+            "target": "T1",
+            "kind": "references"
+          }
+        ],
+        "parent_relations": [],
+        "gate_touchpoints": [],
+        "body_regions": [
+          "T1"
+        ],
+        "provenance_refs": [
+          "builder:topology_candidate"
+        ],
+        "canonical_hash": "3e18d8c9e83c427bdd2ae7c35975690db03edbb05e4d5b31e671930dc2afdacb"
+      }
+    ],
+    "field_regions": [
+      {
+        "field_id": "F1",
+        "label": "---",
+        "candidate_type": "table_field",
+        "source_norm_refs": [],
+        "source_region": "T1",
+        "candidate_constraints": [],
+        "tolerance_candidates": [],
+        "unit_candidates": [],
+        "provenance_refs": [
+          "parser:table_region_detector"
+        ],
+        "confidence": {
+          "source": "table_parser",
+          "score": 0.9
+        },
+        "canonical_hash": "8b1e02fdf455b9cd8aa2fb218d495b10e402466f3b5a29fc8544fd823cfe39fd"
+      },
+      {
+        "field_id": "F2",
+        "label": "---",
+        "candidate_type": "table_field",
+        "source_norm_refs": [],
+        "source_region": "T1",
+        "candidate_constraints": [],
+        "tolerance_candidates": [],
+        "unit_candidates": [],
+        "provenance_refs": [
+          "parser:table_region_detector"
+        ],
+        "confidence": {
+          "source": "table_parser",
+          "score": 0.9
+        },
+        "canonical_hash": "015577a9cfc198f55789116bc6143c6b4716d2e1656f7d14b61dd4dcd33b90d0"
+      },
+      {
+        "field_id": "F3",
+        "label": "?",
+        "candidate_type": "table_field",
+        "source_norm_refs": [],
+        "source_region": "T1",
+        "candidate_constraints": [],
+        "tolerance_candidates": [],
+        "unit_candidates": [],
+        "provenance_refs": [
+          "parser:table_region_detector"
+        ],
+        "confidence": {
+          "source": "table_parser",
+          "score": 0.9
+        },
+        "canonical_hash": "232d1a61d11a1d9f8eeba344a7fd79400cdeb3bc7889ced5812cd7eb5688d461"
+      },
+      {
+        "field_id": "F4",
+        "label": "30m",
+        "candidate_type": "table_field",
+        "source_norm_refs": [],
+        "source_region": "T1",
+        "candidate_constraints": [],
+        "tolerance_candidates": [],
+        "unit_candidates": [],
+        "provenance_refs": [
+          "parser:table_region_detector"
+        ],
+        "confidence": {
+          "source": "table_parser",
+          "score": 0.9
+        },
+        "canonical_hash": "2f688057551e5379ee8a5189bb8914132f833d5880931c328d536283318e5492"
+      }
+    ],
+    "table_regions": [
+      {
+        "region_id": "T1",
+        "rows": 3,
+        "cols": 2,
+        "header_regions": [
+          {
+            "row": 0,
+            "cells": [
+              "?",
+              "?"
+            ]
+          }
+        ],
+        "merged_cells": [],
+        "field_slots": [
+          {
+            "slot_id": "S2_1",
+            "label": "---"
+          },
+          {
+            "slot_id": "S2_2",
+            "label": "---"
+          },
+          {
+            "slot_id": "S3_1",
+            "label": "?"
+          },
+          {
+            "slot_id": "S3_2",
+            "label": "30m"
+          }
+        ],
+        "source_location": "table:1",
+        "provenance_ref": "parser:table_region_detector",
+        "canonical_hash": "3e8558ee57346974ae2c29873384c3dd6e902e27fda494fbbea3127c10b30442"
+      }
+    ],
+    "runtime_slots": [
+      {
+        "slot_id": "F1",
+        "slot_type": "table_field"
+      },
+      {
+        "slot_id": "F2",
+        "slot_type": "table_field"
+      },
+      {
+        "slot_id": "F3",
+        "slot_type": "table_field"
+      },
+      {
+        "slot_id": "F4",
+        "slot_type": "table_field"
+      }
+    ],
+    "semantic_regions": [
+      {
+        "role_id": "R1",
+        "role_type": "norm_requirement_role",
+        "subject": "contractor",
+        "action": "submit",
+        "evidence_ref": "ev.bridge13.b01.1",
+        "source_ref": "C1"
+      }
+    ],
+    "dependency_regions": [
+      {
+        "dependency_id": "D1",
+        "upstream_fields": [
+          "F1"
+        ],
+        "downstream_fields": [
+          "F2"
+        ],
+        "dependency_type": "value_prerequisite",
+        "trigger_conditions": [
+          "upstream_present"
+        ],
+        "constraint_refs": [
+          "constraint:from_norm_excerpt"
+        ],
+        "evidence_refs": [
+          "ev.bridge13.b01.1"
+        ],
+        "provenance_refs": [
+          "semantic:dependency_builder"
+        ],
+        "canonical_hash": "3278d06216d38c62eeef4a1b99e5d44b8e722962b4397c4cf3ba686235e493d0"
+      }
+    ],
+    "provenance_refs": [
+      "builder:topology_candidate",
+      "decode:5ce926570dc50d9d548d688aa5be4964dbb429053e7bab312511dcb3bda39b11",
+      "domain:engineering",
+      "inference_runtime",
+      "parser:clause_segmenter",
+      "parser:table_region_detector",
+      "project:bridge14",
+      "prov.71110714f0b71b7f",
+      "provider:qwen.local.mock",
+      "semantic:normref_binding",
+      "semantic:requirement_builder",
+      "semantic:role_extractor"
+    ],
+    "nodes": [
+      {
+        "node_id": "F1",
+        "node_type": "table_field"
+      },
+      {
+        "node_id": "F2",
+        "node_type": "table_field"
+      },
+      {
+        "node_id": "F3",
+        "node_type": "table_field"
+      },
+      {
+        "node_id": "F4",
+        "node_type": "table_field"
+      },
+      {
+        "node_id": "C1",
+        "node_type": "clause"
+      },
+      {
+        "node_id": "T1",
+        "node_type": "table_region"
+      }
+    ],
+    "topology": [
+      {
+        "source": "C1",
+        "target": "T1",
+        "relation": "references"
+      }
+    ],
+    "layout": {
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    "replay_hash": "0c467f6aec7af05e216ea9710f950363b24044129b673f7bdfdc06ba5e2930a4",
+    "canonical_hash": "75f5e1896a4d157ac009a80bc2223e96c4217cc5ce7a263a537b4301b86447fc"
+  },
+  "inferred_runtime_candidates": [
+    {
+      "runtime_candidate_id": "runtime.eed4530233bd6908",
+      "runtime_slot_candidates": [
+        {
+          "slot_id": "F1",
+          "slot_type": "table_field"
+        },
+        {
+          "slot_id": "F2",
+          "slot_type": "table_field"
+        },
+        {
+          "slot_id": "F3",
+          "slot_type": "table_field"
+        },
+        {
+          "slot_id": "F4",
+          "slot_type": "table_field"
+        }
+      ],
+      "validation_candidates": [
+        {
+          "check": "schema"
+        },
+        {
+          "check": "traceability"
+        }
+      ],
+      "execution_hints": [
+        "candidate_only",
+        "no_runtime_execution"
+      ],
+      "dependency_candidates": [
+        {
+          "dependency_id": "D1",
+          "upstream_fields": [
+            "F1"
+          ],
+          "downstream_fields": [
+            "F2"
+          ],
+          "dependency_type": "value_prerequisite",
+          "trigger_conditions": [
+            "upstream_present"
+          ],
+          "constraint_refs": [
+            "constraint:from_norm_excerpt"
+          ],
+          "evidence_refs": [
+            "ev.bridge13.b01.1"
+          ],
+          "provenance_refs": [
+            "semantic:dependency_builder"
+          ],
+          "canonical_hash": "3278d06216d38c62eeef4a1b99e5d44b8e722962b4397c4cf3ba686235e493d0"
+        }
+      ],
+      "policy_refs": [
+        "POL1"
+      ],
+      "provenance_refs": [
+        "builder:topology_candidate",
+        "decode:5ce926570dc50d9d548d688aa5be4964dbb429053e7bab312511dcb3bda39b11",
+        "domain:engineering",
+        "inference_runtime",
+        "parser:clause_segmenter",
+        "parser:table_region_detector",
+        "project:bridge14",
+        "prov.71110714f0b71b7f",
+        "provider:qwen.local.mock",
+        "semantic:normref_binding",
+        "semantic:requirement_builder",
+        "semantic:role_extractor"
+      ],
+      "replay_hash": "13c36f82b0e9d2eccc17cbd8536454b5b7ee9267d5e6d269759da785b02ca9a9",
+      "canonical_hash": "441a22cc9732275f7df066fc19f2b589ead38f05ce57e769b7ad9decfd1c6b68"
+    }
+  ],
+  "candidate_status": "ready_for_compile",
+  "provenance_refs": [
+    "builder:topology_candidate",
+    "decode:5ce926570dc50d9d548d688aa5be4964dbb429053e7bab312511dcb3bda39b11",
+    "domain:engineering",
+    "inference_runtime",
+    "parser:clause_segmenter",
+    "parser:table_region_detector",
+    "project:bridge14",
+    "prov.71110714f0b71b7f",
+    "provider:qwen.local.mock",
+    "semantic:normref_binding",
+    "semantic:requirement_builder",
+    "semantic:role_extractor"
+  ],
+  "schema_version": "normartifact.v1",
+  "replay_hash": "43769160aafda4259a0722892b9fa272c449349b71f59de64d89209f974b3cb4",
+  "canonical_hash": "581e932579fa1e26e367584d1e681326852cc4672f23e32753a2aa6467359b5a",
+  "gate": {
+    "gate_candidate_id": "gate.3ba5def0dae07aa4",
+    "role_candidates": [
+      {
+        "role_id": "R1",
+        "role_type": "norm_requirement_role",
+        "role_subject": "contractor",
+        "role_action": "submit",
+        "evidence_ref": "ev.bridge13.b01.1"
+      }
+    ],
+    "approval_candidates": [
+      {
+        "approval_id": "AP-R1",
+        "actor": "contractor",
+        "action": "approve",
+        "condition": "required",
+        "evidence_ref": "ev.bridge13.b01.1"
+      }
+    ],
+    "inspection_candidates": [
+      {
+        "inspection_id": "IN-R1",
+        "inspector": "contractor",
+        "target": "submit",
+        "evidence_ref": "ev.bridge13.b01.1"
+      }
+    ],
+    "interface_candidates": [
+      {
+        "interface_id": "IF-R1",
+        "actor": "contractor",
+        "interface": "candidate_only",
+        "evidence_ref": "ev.bridge13.b01.1"
+      }
+    ],
+    "dependency_refs": [
+      "D1"
+    ],
+    "normref_refs": [
+      "JTG F80/1-2017"
+    ],
+    "evidence_refs": [
+      "ev.bridge13.b01.1"
+    ],
+    "provenance_refs": [
+      "builder:topology_candidate",
+      "decode:5ce926570dc50d9d548d688aa5be4964dbb429053e7bab312511dcb3bda39b11",
+      "domain:engineering",
+      "inference_runtime",
+      "parser:clause_segmenter",
+      "parser:table_region_detector",
+      "project:bridge14",
+      "prov.71110714f0b71b7f",
+      "provider:qwen.local.mock",
+      "semantic:normref_binding",
+      "semantic:requirement_builder",
+      "semantic:role_extractor"
+    ],
+    "confidence": 1.0,
+    "approvals": [
+      {
+        "actor": "contractor",
+        "action": "approve",
+        "condition": "required"
+      }
+    ],
+    "requirements": [
+      {
+        "id": "R1",
+        "name": "submit"
+      }
+    ],
+    "dependencies": [
+      {
+        "source": "D1",
+        "target": "D1:target"
+      }
+    ],
+    "metadata": {
+      "source": "peg_normllm.candidate.inferred_gate_builder"
+    },
+    "source_text": "灌注桩孔底沉渣厚度应满足规范控制值。",
+    "canonical_hash": "0845c4022f9a8f27d5ef5c2655334c4e6feddb49e8d776cf880d75353cd8d71c"
+  },
+  "body": {
+    "body_candidate_id": "body.02ad324543979fd8",
+    "topology_regions": [
+      {
+        "topology_id": "TP1",
+        "region_nodes": [
+          {
+            "node_id": "C1",
+            "node_type": "clause"
+          },
+          {
+            "node_id": "T1",
+            "node_type": "table_region"
+          }
+        ],
+        "field_edges": [
+          {
+            "field_id": "F1",
+            "target_node": "T1"
+          },
+          {
+            "field_id": "F2",
+            "target_node": "T1"
+          },
+          {
+            "field_id": "F3",
+            "target_node": "T1"
+          },
+          {
+            "field_id": "F4",
+            "target_node": "T1"
+          }
+        ],
+        "adjacency": [
+          {
+            "source": "C1",
+            "target": "T1",
+            "kind": "references"
+          }
+        ],
+        "parent_relations": [],
+        "gate_touchpoints": [],
+        "body_regions": [
+          "T1"
+        ],
+        "provenance_refs": [
+          "builder:topology_candidate"
+        ],
+        "canonical_hash": "3e18d8c9e83c427bdd2ae7c35975690db03edbb05e4d5b31e671930dc2afdacb"
+      }
+    ],
+    "field_regions": [
+      {
+        "field_id": "F1",
+        "label": "---",
+        "candidate_type": "table_field",
+        "source_norm_refs": [],
+        "source_region": "T1",
+        "candidate_constraints": [],
+        "tolerance_candidates": [],
+        "unit_candidates": [],
+        "provenance_refs": [
+          "parser:table_region_detector"
+        ],
+        "confidence": {
+          "source": "table_parser",
+          "score": 0.9
+        },
+        "canonical_hash": "8b1e02fdf455b9cd8aa2fb218d495b10e402466f3b5a29fc8544fd823cfe39fd"
+      },
+      {
+        "field_id": "F2",
+        "label": "---",
+        "candidate_type": "table_field",
+        "source_norm_refs": [],
+        "source_region": "T1",
+        "candidate_constraints": [],
+        "tolerance_candidates": [],
+        "unit_candidates": [],
+        "provenance_refs": [
+          "parser:table_region_detector"
+        ],
+        "confidence": {
+          "source": "table_parser",
+          "score": 0.9
+        },
+        "canonical_hash": "015577a9cfc198f55789116bc6143c6b4716d2e1656f7d14b61dd4dcd33b90d0"
+      },
+      {
+        "field_id": "F3",
+        "label": "?",
+        "candidate_type": "table_field",
+        "source_norm_refs": [],
+        "source_region": "T1",
+        "candidate_constraints": [],
+        "tolerance_candidates": [],
+        "unit_candidates": [],
+        "provenance_refs": [
+          "parser:table_region_detector"
+        ],
+        "confidence": {
+          "source": "table_parser",
+          "score": 0.9
+        },
+        "canonical_hash": "232d1a61d11a1d9f8eeba344a7fd79400cdeb3bc7889ced5812cd7eb5688d461"
+      },
+      {
+        "field_id": "F4",
+        "label": "30m",
+        "candidate_type": "table_field",
+        "source_norm_refs": [],
+        "source_region": "T1",
+        "candidate_constraints": [],
+        "tolerance_candidates": [],
+        "unit_candidates": [],
+        "provenance_refs": [
+          "parser:table_region_detector"
+        ],
+        "confidence": {
+          "source": "table_parser",
+          "score": 0.9
+        },
+        "canonical_hash": "2f688057551e5379ee8a5189bb8914132f833d5880931c328d536283318e5492"
+      }
+    ],
+    "table_regions": [
+      {
+        "region_id": "T1",
+        "rows": 3,
+        "cols": 2,
+        "header_regions": [
+          {
+            "row": 0,
+            "cells": [
+              "?",
+              "?"
+            ]
+          }
+        ],
+        "merged_cells": [],
+        "field_slots": [
+          {
+            "slot_id": "S2_1",
+            "label": "---"
+          },
+          {
+            "slot_id": "S2_2",
+            "label": "---"
+          },
+          {
+            "slot_id": "S3_1",
+            "label": "?"
+          },
+          {
+            "slot_id": "S3_2",
+            "label": "30m"
+          }
+        ],
+        "source_location": "table:1",
+        "provenance_ref": "parser:table_region_detector",
+        "canonical_hash": "3e8558ee57346974ae2c29873384c3dd6e902e27fda494fbbea3127c10b30442"
+      }
+    ],
+    "runtime_slots": [
+      {
+        "slot_id": "F1",
+        "slot_type": "table_field"
+      },
+      {
+        "slot_id": "F2",
+        "slot_type": "table_field"
+      },
+      {
+        "slot_id": "F3",
+        "slot_type": "table_field"
+      },
+      {
+        "slot_id": "F4",
+        "slot_type": "table_field"
+      }
+    ],
+    "semantic_regions": [
+      {
+        "role_id": "R1",
+        "role_type": "norm_requirement_role",
+        "subject": "contractor",
+        "action": "submit",
+        "evidence_ref": "ev.bridge13.b01.1",
+        "source_ref": "C1"
+      }
+    ],
+    "dependency_regions": [
+      {
+        "dependency_id": "D1",
+        "upstream_fields": [
+          "F1"
+        ],
+        "downstream_fields": [
+          "F2"
+        ],
+        "dependency_type": "value_prerequisite",
+        "trigger_conditions": [
+          "upstream_present"
+        ],
+        "constraint_refs": [
+          "constraint:from_norm_excerpt"
+        ],
+        "evidence_refs": [
+          "ev.bridge13.b01.1"
+        ],
+        "provenance_refs": [
+          "semantic:dependency_builder"
+        ],
+        "canonical_hash": "3278d06216d38c62eeef4a1b99e5d44b8e722962b4397c4cf3ba686235e493d0"
+      }
+    ],
+    "provenance_refs": [
+      "builder:topology_candidate",
+      "decode:5ce926570dc50d9d548d688aa5be4964dbb429053e7bab312511dcb3bda39b11",
+      "domain:engineering",
+      "inference_runtime",
+      "parser:clause_segmenter",
+      "parser:table_region_detector",
+      "project:bridge14",
+      "prov.71110714f0b71b7f",
+      "provider:qwen.local.mock",
+      "semantic:normref_binding",
+      "semantic:requirement_builder",
+      "semantic:role_extractor"
+    ],
+    "nodes": [
+      {
+        "node_id": "F1",
+        "node_type": "table_field"
+      },
+      {
+        "node_id": "F2",
+        "node_type": "table_field"
+      },
+      {
+        "node_id": "F3",
+        "node_type": "table_field"
+      },
+      {
+        "node_id": "F4",
+        "node_type": "table_field"
+      },
+      {
+        "node_id": "C1",
+        "node_type": "clause"
+      },
+      {
+        "node_id": "T1",
+        "node_type": "table_region"
+      }
+    ],
+    "topology": [
+      {
+        "source": "C1",
+        "target": "T1",
+        "relation": "references"
+      }
+    ],
+    "layout": {
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    "replay_hash": "0c467f6aec7af05e216ea9710f950363b24044129b673f7bdfdc06ba5e2930a4",
+    "canonical_hash": "75f5e1896a4d157ac009a80bc2223e96c4217cc5ce7a263a537b4301b86447fc"
+  },
+  "runtime": {
+    "candidates": [
+      {
+        "runtime_candidate_id": "runtime.eed4530233bd6908",
+        "runtime_slot_candidates": [
+          {
+            "slot_id": "F1",
+            "slot_type": "table_field"
+          },
+          {
+            "slot_id": "F2",
+            "slot_type": "table_field"
+          },
+          {
+            "slot_id": "F3",
+            "slot_type": "table_field"
+          },
+          {
+            "slot_id": "F4",
+            "slot_type": "table_field"
+          }
+        ],
+        "validation_candidates": [
+          {
+            "check": "schema"
+          },
+          {
+            "check": "traceability"
+          }
+        ],
+        "execution_hints": [
+          "candidate_only",
+          "no_runtime_execution"
+        ],
+        "dependency_candidates": [
+          {
+            "dependency_id": "D1",
+            "upstream_fields": [
+              "F1"
+            ],
+            "downstream_fields": [
+              "F2"
+            ],
+            "dependency_type": "value_prerequisite",
+            "trigger_conditions": [
+              "upstream_present"
+            ],
+            "constraint_refs": [
+              "constraint:from_norm_excerpt"
+            ],
+            "evidence_refs": [
+              "ev.bridge13.b01.1"
+            ],
+            "provenance_refs": [
+              "semantic:dependency_builder"
+            ],
+            "canonical_hash": "3278d06216d38c62eeef4a1b99e5d44b8e722962b4397c4cf3ba686235e493d0"
+          }
+        ],
+        "policy_refs": [
+          "POL1"
+        ],
+        "provenance_refs": [
+          "builder:topology_candidate",
+          "decode:5ce926570dc50d9d548d688aa5be4964dbb429053e7bab312511dcb3bda39b11",
+          "domain:engineering",
+          "inference_runtime",
+          "parser:clause_segmenter",
+          "parser:table_region_detector",
+          "project:bridge14",
+          "prov.71110714f0b71b7f",
+          "provider:qwen.local.mock",
+          "semantic:normref_binding",
+          "semantic:requirement_builder",
+          "semantic:role_extractor"
+        ],
+        "replay_hash": "13c36f82b0e9d2eccc17cbd8536454b5b7ee9267d5e6d269759da785b02ca9a9",
+        "canonical_hash": "441a22cc9732275f7df066fc19f2b589ead38f05ce57e769b7ad9decfd1c6b68"
+      }
+    ]
+  },
+  "semantic_trace_chain": {
+    "candidate_id": "semantic.pipeline"
+  },
+  "norm_refs": [
+    "JTG F80/1-2017"
+  ],
+  "governance_trace": {},
+  "render_outputs": {},
+  "proof_chain": {
+    "schema_version": "proof_chain.v1",
+    "source_refs": [
+      "source:norm_text"
+    ],
+    "semantic_refs": [
+      "semantic:semantic.pipeline"
+    ],
+    "runtime_refs": [
+      "runtime_candidate:normartifact.24586e9881ab0203"
+    ],
+    "replay_refs": [
+      "43769160aafda4259a0722892b9fa272c449349b71f59de64d89209f974b3cb4"
+    ],
+    "governance_refs": [],
+    "render_refs": [],
+    "timestamps": [
+      "1970-01-01T00:00:00Z"
+    ],
+    "provenance_refs": [
+      "builder:topology_candidate",
+      "decode:5ce926570dc50d9d548d688aa5be4964dbb429053e7bab312511dcb3bda39b11",
+      "domain:engineering",
+      "inference_runtime",
+      "parser:clause_segmenter",
+      "parser:table_region_detector",
+      "project:bridge14",
+      "prov.71110714f0b71b7f",
+      "provider:qwen.local.mock",
+      "semantic:normref_binding",
+      "semantic:requirement_builder",
+      "semantic:role_extractor"
+    ],
+    "norm_refs": [
+      "JTG F80/1-2017"
+    ]
+  }
+}

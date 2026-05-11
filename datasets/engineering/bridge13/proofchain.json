@@ -1,0 +1,38 @@
+{
+  "proofchain_id": "proof.9bbc0deebffdf358",
+  "candidate_refs": [
+    "normartifact.f28cda086d82c315"
+  ],
+  "compile_refs": [
+    "ok"
+  ],
+  "replay_refs": [
+    "9610e9bf36315aee775c3d7bcae160cdbb8f4b8d92071dcb3d947d85edde2844",
+    "9610e9bf36315aee775c3d7bcae160cdbb8f4b8d92071dcb3d947d85edde2844"
+  ],
+  "svg_refs": [
+    "b0a5a8eadf369f8add4227c4b9ef02762755b50eb9ae2142dcd5f3c9b052b540"
+  ],
+  "evidence_refs": [
+    "ev.bridge13.b01.1"
+  ],
+  "provenance_refs": [
+    "builder:topology_candidate",
+    "decode:246c7a03062accaab5ad7f632a5b0cc9455512a6100796d3da40c4348d617a42",
+    "domain:engineering",
+    "inference_runtime",
+    "parser:clause_segmenter",
+    "parser:table_region_detector",
+    "project:bridge13",
+    "prov.51c5f69033220e9b",
+    "provider:qwen.local.mock",
+    "semantic:normref_binding",
+    "semantic:requirement_builder",
+    "semantic:role_extractor"
+  ],
+  "validation_refs": [
+    "ok"
+  ],
+  "canonical_hash": "5bc059c3db608ee41818aadbfa32bb0f1bec2528722001ab0be939e8f35fdcc6",
+  "replay_hash": "c1184b7b9e6a45b84fd3d8a672d7dce617a0eda324e2ce10baca4d1303c2c216"
+}
